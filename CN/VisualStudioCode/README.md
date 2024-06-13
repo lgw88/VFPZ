@@ -4,6 +4,6 @@
   
 ![alt text](foxprosyntaxhighlighting.png "FoxProSyntaxHighlighting") 
 
-或者执行setup.bat 
+或执行 setup.bat 
  
 URL: https://github.com/newdatasystems/vscode-foxpro
