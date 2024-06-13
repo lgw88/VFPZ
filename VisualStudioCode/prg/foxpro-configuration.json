@@ -1,0 +1,20 @@
+{
+	"comments": {
+		"lineComment": "*!*\t"
+	},
+	"brackets": [
+		["{", "}"],
+		["[", "]"],
+		["(", ")"]
+	],
+	"surroundingPairs": [
+        ["[", "]"],
+        ["(", ")"],
+        ["\"", "\""],
+        ["'", "'"]
+    ],
+	"indentationRules": {
+		"increaseIndentPattern": "^\\s*(DEFI|DEFINE|FUNCTION|PROCEDURE|PROC|FUNC|FOR|IF|TEXT|SCAN|TRY|CATCH|FINALLY|DO CASE|DO WHILE)",
+		"decreaseIndentPattern": "^\\s*(ENDI|ENDD|ENDP|ENDF|ENDS|ENDT|ENDC)"
+	}
+}

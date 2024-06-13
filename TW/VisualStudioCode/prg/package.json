@@ -1,0 +1,56 @@
+{
+	"name": "foxpro",
+	"displayName": "FoxPro Syntax Highlighting",
+	"description": "Syntax Highlighting and Snippets for Visual FoxPro",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/newdatasystems/vscode-foxpro.git"
+	},
+	"icon": "fox.png",
+	"homepage": "https://github.com/newdatasystems/vscode-foxpro",
+	"version": "1.4.12",
+	"author": "Tom Bellin",
+	"publisher": "newdatasystems",
+	"engines": {
+		"vscode": "^1.8.0"
+	},
+	"categories": [
+		"Programming Languages",
+		"Snippets"
+	],
+	"contributes": {
+		"configurationDefaults": {
+			"[foxpro]": {
+				"files.encoding": "Big5-HKSCS"
+			}
+		},
+		"languages": [
+			{
+				"id": "foxpro",
+				"aliases": [
+					"foxpro",
+					"Visual FoxPro",
+					"VFP"
+				],
+				"extensions": [
+					".prg",
+					".PRG"
+				],
+				"configuration": "./foxpro-configuration.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "foxpro",
+				"path": "./snippets/foxpro_snippets.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "foxpro",
+				"scopeName": ".foxpro",
+				"path": "./syntaxes/foxpro.plist"
+			}
+		]
+	}
+}
