@@ -1,0 +1,4 @@
+FUNCTION GKPIsArray
+LPARAMETERS taArray
+RETURN TYPE("taArray[1]") # "U"
+ENDFUNC

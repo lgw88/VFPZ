@@ -1,0 +1,2502 @@
+===================================================
+Starting Project Build (APP): 08/17/17 06:08:48 PM
+===================================================
+Deleting File: E:\MY WORK\FOXPRO\PROJECTS\GKKTOOLS\LIBRARIAN\GKKLIBRARIAN.PJX
+Deleting File: c:\program files (x86)\
+Adding Project Icon: c:\program files (x86)\
+===================================================
+Starting Project Build
+===================================================
+Build Project: Program gkklibrarian
+   Module:  gkklibrarian
+   Module:  fgetlocalconfigpath
+   Module:  fgetdatapathpath
+Analyzing: GKKLIBRARIAN
+   Module: GKKLIBRARIAN
+   Module: FGETLOCALCONFIGPATH
+   Module: FGETDATAPATHPATH
+Build Project: Program islocalconfigdefined
+   Module:  islocalconfigdefined
+Analyzing: ISLOCALCONFIGDEFINED
+   Module: ISLOCALCONFIGDEFINED
+Build Project: Program checkdatabasenotexist
+   Module:  checkdatabasenotexist
+Analyzing: CHECKDATABASENOTEXIST
+   Module: CHECKDATABASENOTEXIST
+Build Project: Program builddatabase
+   Module:  builddatabase
+Analyzing: BUILDDATABASE
+   Module: BUILDDATABASE
+Build Project: File buttonleftfocused
+Build Project: File buttonleftfocused22
+Build Project: File buttonleftfocused54
+Build Project: File buttonlefthottracking
+Build Project: File buttonlefthottracking22
+Build Project: File buttonleftnotfocused
+Build Project: File buttonleftnotfocused22
+Build Project: File buttonleftnotfocused54
+Build Project: File buttonmiddlefocused
+Build Project: File buttonmiddlefocused22
+Build Project: File buttonmiddlefocused54
+Build Project: File buttonmiddlehottrackng
+Build Project: File buttonmiddlehottrackng22
+Build Project: File buttonmiddlenotfocused
+Build Project: File buttonmiddlenotfocused22
+Build Project: File buttonmiddlenotfocused54
+Build Project: File buttonrightfocused
+Build Project: File buttonrightfocused22
+Build Project: File buttonrightfocused54
+Build Project: File buttonrighthottracking
+Build Project: File buttonrighthottracking22
+Build Project: File buttonrightnotfocused
+Build Project: File buttonrightnotfocused22
+Build Project: File buttonrightnotfocused54
+Build Project: File tabactcenter
+Build Project: File tabactcenter1
+Build Project: File tabactleft
+Build Project: File tabactleft1
+Build Project: File tabactright
+Build Project: File tabactright1
+Build Project: File tabactright2
+Build Project: File tabclose
+Build Project: File tabclosemouseenter
+Build Project: File tabinactcenter
+Build Project: File tabinactcenter2
+Build Project: File tabinactcenter3
+Build Project: File tabinactleft
+Build Project: File tabinactleft2
+Build Project: File tabinactleft3
+Build Project: File tabinactright
+Build Project: File tabinactright2
+Build Project: File tabinactright3
+Build Project: File tabinactright4
+Build Project: File tabinactright5
+Build Project: Program getconfigpath
+   Module:  getconfigpath
+Analyzing: GETCONFIGPATH
+   Module: GETCONFIGPATH
+Build Project: Program setdbcpath
+   Module:  setdbcpath
+Analyzing: SETDBCPATH
+   Module: SETDBCPATH
+Build Project: File wznext
+Build Project: File wzdown
+Build Project: Program getresource
+   Module:  getresource
+Analyzing: GETRESOURCE
+   Module: GETRESOURCE
+Build Project: File wzback
+Build Project: File exclaim
+Build Project: File info
+Build Project: File stop
+Build Project: File hsplitter
+Build Project: File vsplitter
+Build Project: Program getformcoordinates
+   Module:  getformcoordinates
+Analyzing: GETFORMCOORDINATES
+   Module: GETFORMCOORDINATES
+Build Project: File calpicker
+Build Project: File curdate
+Build Project: File folderback
+Build Project: File foldernew
+Build Project: File listview
+Build Project: Program checkvalidname
+   Module:  checkvalidname
+   Module:  fcheckfilename
+   Module:  fcheckfoldername
+Analyzing: CHECKVALIDNAME
+   Module: CHECKVALIDNAME
+   Module: FCHECKFILENAME
+   Module: FCHECKFOLDERNAME
+Build Project: File version
+Build Project: Database gkklibrarian
+Build Project: Program getmonthfromint
+   Module:  getmonthfromint
+Analyzing: GETMONTHFROMINT
+   Module: GETMONTHFROMINT
+Build Project: Program columnmbrclass
+   Class:   gkkcolumn
+   Method:  fontbold_assign
+Analyzing: COLUMNMBRCLASS
+   Module: FONTBOLD_ASSIGN
+Build Project: Program declarewinapi
+   Module:  ctlgetosversion
+   Module:  apisleep
+   Module:  apiinternetopen
+   Module:  apiinternetclosehandle
+   Module:  apiinternetcheckconnection
+   Module:  apireadmem
+   Module:  apiglobalfree
+   Module:  apiglobalalloc
+   Module:  apiwritemem
+   Module:  apiglobalsize
+   Module:  apimcisendstring
+   Module:  apimcigeterrorstring
+   Module:  apisetfileattributes
+   Module:  apigetfileattributes
+   Module:  apilockfile
+   Module:  apiunlockfile
+   Module:  apiopenfile
+   Module:  apiclosefile
+   Module:  apicopyfile
+   Module:  apimovefile
+   Module:  apiopenfile
+   Module:  apidocumentproperties
+   Module:  apidevicecapabilities
+   Module:  apienumforms
+   Module:  apicloseprinter
+   Module:  apiopenprinter
+   Module:  apiaddform
+   Module:  apideleteform
+   Module:  apistartdoc
+   Module:  apienddoc
+   Module:  apiendpage
+   Module:  apistartpage
+   Module:  apiabortdoc
+   Module:  apicocreateguid
+   Module:  apistringfromguid2
+   Module:  apiuuidcreatesequential
+   Module:  apiuuidfromstring
+   Module:  apigdiplusstartup
+   Module:  apigdiplusshutdown
+   Module:  apigdipgetimagegraphicscontext
+   Module:  apigdipcreatefromhdc
+   Module:  apigdipdeletegraphics
+   Module:  apigdipsettextrenderinghint
+   Module:  apigdipmeasurestring
+   Module:  apigdipdrawstring
+   Module:  apigdipdrawimagerectrect
+   Module:  apigdipdrawimage
+   Module:  apigdipfillrectangle
+   Module:  apigdipdrawimagerect
+   Module:  apigdipcreatebitmapfromscan0
+   Module:  apigdipdrawimagerecti
+   Module:  apigdipdrawimagei
+   Module:  apigdiploadimagefromfile
+   Module:  apigdipsaveimagetofile
+   Module:  apigdipdisposeimage
+   Module:  apigdipbitmapgetpixel
+   Module:  apigdipgetimagewidth
+   Module:  apigdipgetimageheight
+   Module:  apigdipcreatehbitmapfrombitmap
+   Module:  apigdipgetimagepixelformat
+   Module:  apigdipcreateimageattributes
+   Module:  apigdipsetimageattributesremaptable
+   Module:  apigdipsetimageattributescolormatrix
+   Module:  apigdipdisposeimageattributes
+   Module:  apigdipcreatestringformat
+   Module:  apigdipdeletestringformat
+   Module:  apigdipsetstringformathotkeyprefix
+   Module:  apigdipstringformatgetgenerictypographic
+   Module:  apigdipcreatefont
+   Module:  apigdipcreatefontfamilyfromname
+   Module:  apigdipdeletefont
+   Module:  apigdipdeletefontfamily
+   Module:  apigdipcreatesolidfill
+   Module:  apigdipcreatelinebrushi
+   Module:  apigdipcreatelinebrushfromrect
+   Module:  apigdipcreatelinebrushfromrecti
+   Module:  apigdipsetlinepresetblend
+   Module:  apigdipdeletebrush
+   Module:  apigdipcreatepath
+   Module:  apigdipaddpathrectangle
+   Module:  apigdipcreatepathgradientfrompath
+   Module:  apigdipsetpathgradientcentercolor
+   Module:  apigdipsetpathgradientsurroundcolorswithcount
+   Module:  apigdipdeletepath
+   Module:  apicreatemenu
+   Module:  apidrawmenubar
+   Module:  apigetmenu
+   Module:  apigetsystemmenu
+   Module:  apisetmenu
+   Module:  apicreatepopupmenu
+   Module:  apiismenu
+   Module:  apidestroymenu
+   Module:  apiappendmenu
+   Module:  apimodifymenu
+   Module:  apienablemenuitem
+   Module:  apigetmenuinfo
+   Module:  apisetmenuinfo
+   Module:  apigetmenubarinfo
+   Module:  apigetmenustring
+   Module:  apigetmenuitemrect
+   Module:  apigetmenuitemcount
+   Module:  apigetmenuitemid
+   Module:  apigetmenuiteminfo
+   Module:  apisetmenuiteminfo
+   Module:  apimenuitemfrompoint
+   Module:  apigetmenuposfromid
+   Module:  apitrackpopupmenu
+   Module:  apiloadimage
+   Module:  apigetcursorpos
+   Module:  apigetclientrect
+   Module:  apigetdc
+   Module:  apicreatecompatibledc
+   Module:  apicreatecompatiblebitmap
+   Module:  apiselectobject
+   Module:  apigetobject
+   Module:  apireleasedc
+   Module:  apicreatedc
+   Module:  apideletedc
+   Module:  apideleteobject
+   Module:  apigetdevicecaps
+   Module:  apigetsyscolorbrush
+   Module:  apisetbkcolor
+   Module:  apicreatesolidbrush
+   Module:  apisetbkmode
+   Module:  apigetstockobject
+   Module:  apicreatepatternbrush
+   Module:  apigdisetbatchlimit
+   Module:  apigettextextentpoint32
+   Module:  apifillrect
+   Module:  apidrawtext
+   Module:  apiexttextout
+   Module:  apidrawedge
+   Module:  apicreatepen
+   Module:  apiextcreatepen
+   Module:  apimovetoex
+   Module:  apilineto
+   Module:  apirectangle
+   Module:  apiroundrect
+   Module:  apisetrect
+   Module:  apigradientfill
+   Module:  apigetpixel
+   Module:  apisetpixelv
+   Module:  apitransparentblt
+   Module:  apibitblt
+   Module:  apialphablend
+   Module:  apicreatefontindirect
+   Module:  apiclienttoscreen
+   Module:  apiscreentoclient
+   Module:  apimapwindowpoints
+   Module:  apiptinrect
+   Module:  apisetcursor
+   Module:  apiloadcursor
+   Module:  apimuldiv
+   Module:  apicreateroundrectrgn
+   Module:  apiselectcliprgn
+   Module:  apiisthemeactive
+   Module:  apiregopenkey
+   Module:  apiregenumvalue
+   Module:  apiregclosekey
+   Module:  apiregqueryvalueex
+   Module:  apiregcreatekey
+   Module:  apiregdeletevalue
+   Module:  apiregsetvalueex
+   Module:  apiextracticonex
+   Module:  apidestroyicon
+   Module:  apiextractassociatedicon
+   Module:  apiolecreatepictureindirect
+   Module:  apishgetspecialfolderpath
+   Module:  apigetprocaddress
+   Module:  apifreelibrary
+   Module:  apigetcaretpos
+   Module:  apiclosehandle
+   Module:  apireadfile
+   Module:  apifiletimetosystemtime
+   Module:  apicreatefile
+   Module:  apisetfilepointerex
+   Module:  apigetfilesizeex
+   Module:  apiwritefile
+   Module:  apisendmessage
+   Module:  apisendmessageinteger
+   Module:  apisendmessagestring
+   Module:  apigetdateformat
+   Module:  apiuuidcreate
+   Module:  apiuuidcreatenil
+   Module:  apiuuidtostring
+   Module:  apigetparent
+   Module:  apigetscrollpos
+   Module:  apishowscrollbar
+   Module:  apienablewindow
+   Module:  apisetscrollinfo
+   Module:  apicreatewindowex
+   Module:  apisetwindowtheme
+   Module:  apigetscrollrange
+   Module:  apiopenthemedata
+   Module:  apigetthemecolor
+   Module:  apiclosethemedata
+   Module:  apigettickcount
+   Module:  apisetwindowrgn
+   Module:  apicreaterectrgn
+   Module:  apidestroywindow
+   Module:  apigetactivewindow
+   Module:  apiloadstring
+   Module:  apigetmodulehandle
+   Module:  apigetlocaleinfo
+   Module:  apigetprocessheap
+   Module:  apisetfocus
+   Module:  apisetparent
+   Module:  apirealgetwindowclass
+   Module:  apiiswindow
+   Module:  apigetdoubleclicktime
+   Module:  apiredrawwindow
+   Module:  apiinitcommoncontrolsex
+   Module:  apiloadlibrary
+   Module:  apisystemparametersinfo
+   Module:  apicreatefont
+   Module:  apipostmessage
+   Module:  apigetlasterror
+   Module:  apilockwindowupdate
+   Module:  apifindexecutable
+   Module:  apishgetfileinfo
+   Module:  apigetcomputername
+   Module:  apigetvolumeinformation
+   Module:  apigetshortpathname
+   Module:  apibringwindowtotop
+   Module:  apishellexecute
+   Module:  apigetkeystate
+   Module:  apigetasynckeystate
+   Module:  apigetkeyboardstate
+   Module:  apikilltimer
+   Module:  apisettimer
+   Module:  apigetsystemdirectory
+   Module:  apigetsystemmetrics
+   Module:  apigetsyscolor
+   Module:  apisettextcolor
+   Module:  apigettimezoneinformation
+   Module:  apiwsastartup
+   Module:  apiwsacleanup
+   Module:  apigethostbyname
+   Module:  apiinetnota
+   Module:  apisocket
+   Module:  apiclosesocket
+   Module:  apiinetaddr
+   Module:  apihtons
+   Module:  apiconnect
+   Module:  apisend
+   Module:  apirecv
+   Module:  apiwinsockcopymemory
+   Module:  apisetsockopt
+   Module:  apimovewindow
+   Module:  apisetwindowpos
+   Module:  apiwindowfrompoint
+   Module:  apigetdesktopwindow
+   Module:  apigetwindowdc
+   Module:  apisetwindowlong
+   Module:  apicallwindowproc
+   Module:  apigetwindowlong
+   Module:  apigetwindow
+   Module:  apigetwindowtext
+   Module:  apishowwindow
+   Module:  apiisiconic
+   Module:  apigetwindowrect
+   Module:  apiheapfree
+   Module:  apiheapalloc
+   Module:  apiheapdestroy
+   Module:  apiheapcreate
+   Module:  apiheapsize
+   Module:  apilstrlen
+   Module:  apilstrlenw
+   Module:  apigetusername
+   Module:  copymem
+   Module:  copymem2num
+   Module:  copy2mem
+   Module:  copynum2mem
+   Module:  getstrlen
+   Module:  systemparametersinfostr
+   Module:  postmessagestr
+Analyzing: DECLAREWINAPI
+   Module: CTLGETOSVERSION
+   Module: APISLEEP
+   Module: APIINTERNETOPEN
+   Module: APIINTERNETCLOSEHANDLE
+   Module: APIINTERNETCHECKCONNECTION
+   Module: APIREADMEM
+   Module: APIGLOBALFREE
+   Module: APIGLOBALALLOC
+   Module: APIWRITEMEM
+   Module: APIGLOBALSIZE
+   Module: APIMCISENDSTRING
+   Module: APIMCIGETERRORSTRING
+   Module: APISETFILEATTRIBUTES
+   Module: APIGETFILEATTRIBUTES
+   Module: APILOCKFILE
+   Module: APIUNLOCKFILE
+   Module: APIOPENFILE
+   Module: APICLOSEFILE
+   Module: APICOPYFILE
+   Module: APIMOVEFILE
+   Module: APIOPENFILE
+   Module: APIDOCUMENTPROPERTIES
+   Module: APIDEVICECAPABILITIES
+   Module: APIENUMFORMS
+   Module: APICLOSEPRINTER
+   Module: APIOPENPRINTER
+   Module: APIADDFORM
+   Module: APIDELETEFORM
+   Module: APISTARTDOC
+   Module: APIENDDOC
+   Module: APIENDPAGE
+   Module: APISTARTPAGE
+   Module: APIABORTDOC
+   Module: APICOCREATEGUID
+   Module: APISTRINGFROMGUID2
+   Module: APIUUIDCREATESEQUENTIAL
+   Module: APIUUIDFROMSTRING
+   Module: APIGDIPLUSSTARTUP
+   Module: APIGDIPLUSSHUTDOWN
+   Module: APIGDIPGETIMAGEGRAPHICSCONTEXT
+   Module: APIGDIPCREATEFROMHDC
+   Module: APIGDIPDELETEGRAPHICS
+   Module: APIGDIPSETTEXTRENDERINGHINT
+   Module: APIGDIPMEASURESTRING
+   Module: APIGDIPDRAWSTRING
+   Module: APIGDIPDRAWIMAGERECTRECT
+   Module: APIGDIPDRAWIMAGE
+   Module: APIGDIPFILLRECTANGLE
+   Module: APIGDIPDRAWIMAGERECT
+   Module: APIGDIPCREATEBITMAPFROMSCAN0
+   Module: APIGDIPDRAWIMAGERECTI
+   Module: APIGDIPDRAWIMAGEI
+   Module: APIGDIPLOADIMAGEFROMFILE
+   Module: APIGDIPSAVEIMAGETOFILE
+   Module: APIGDIPDISPOSEIMAGE
+   Module: APIGDIPBITMAPGETPIXEL
+   Module: APIGDIPGETIMAGEWIDTH
+   Module: APIGDIPGETIMAGEHEIGHT
+   Module: APIGDIPCREATEHBITMAPFROMBITMAP
+   Module: APIGDIPGETIMAGEPIXELFORMAT
+   Module: APIGDIPCREATEIMAGEATTRIBUTES
+   Module: APIGDIPSETIMAGEATTRIBUTESREMAPTABLE
+   Module: APIGDIPSETIMAGEATTRIBUTESCOLORMATRIX
+   Module: APIGDIPDISPOSEIMAGEATTRIBUTES
+   Module: APIGDIPCREATESTRINGFORMAT
+   Module: APIGDIPDELETESTRINGFORMAT
+   Module: APIGDIPSETSTRINGFORMATHOTKEYPREFIX
+   Module: APIGDIPSTRINGFORMATGETGENERICTYPOGRAPHIC
+   Module: APIGDIPCREATEFONT
+   Module: APIGDIPCREATEFONTFAMILYFROMNAME
+   Module: APIGDIPDELETEFONT
+   Module: APIGDIPDELETEFONTFAMILY
+   Module: APIGDIPCREATESOLIDFILL
+   Module: APIGDIPCREATELINEBRUSHI
+   Module: APIGDIPCREATELINEBRUSHFROMRECT
+   Module: APIGDIPCREATELINEBRUSHFROMRECTI
+   Module: APIGDIPSETLINEPRESETBLEND
+   Module: APIGDIPDELETEBRUSH
+   Module: APIGDIPCREATEPATH
+   Module: APIGDIPADDPATHRECTANGLE
+   Module: APIGDIPCREATEPATHGRADIENTFROMPATH
+   Module: APIGDIPSETPATHGRADIENTCENTERCOLOR
+   Module: APIGDIPSETPATHGRADIENTSURROUNDCOLORSWITHCOUNT
+   Module: APIGDIPDELETEPATH
+   Module: APICREATEMENU
+   Module: APIDRAWMENUBAR
+   Module: APIGETMENU
+   Module: APIGETSYSTEMMENU
+   Module: APISETMENU
+   Module: APICREATEPOPUPMENU
+   Module: APIISMENU
+   Module: APIDESTROYMENU
+   Module: APIAPPENDMENU
+   Module: APIMODIFYMENU
+   Module: APIENABLEMENUITEM
+   Module: APIGETMENUINFO
+   Module: APISETMENUINFO
+   Module: APIGETMENUBARINFO
+   Module: APIGETMENUSTRING
+   Module: APIGETMENUITEMRECT
+   Module: APIGETMENUITEMCOUNT
+   Module: APIGETMENUITEMID
+   Module: APIGETMENUITEMINFO
+   Module: APISETMENUITEMINFO
+   Module: APIMENUITEMFROMPOINT
+   Module: APIGETMENUPOSFROMID
+   Module: APITRACKPOPUPMENU
+   Module: APILOADIMAGE
+   Module: APIGETCURSORPOS
+   Module: APIGETCLIENTRECT
+   Module: APIGETDC
+   Module: APICREATECOMPATIBLEDC
+   Module: APICREATECOMPATIBLEBITMAP
+   Module: APISELECTOBJECT
+   Module: APIGETOBJECT
+   Module: APIRELEASEDC
+   Module: APICREATEDC
+   Module: APIDELETEDC
+   Module: APIDELETEOBJECT
+   Module: APIGETDEVICECAPS
+   Module: APIGETSYSCOLORBRUSH
+   Module: APISETBKCOLOR
+   Module: APICREATESOLIDBRUSH
+   Module: APISETBKMODE
+   Module: APIGETSTOCKOBJECT
+   Module: APICREATEPATTERNBRUSH
+   Module: APIGDISETBATCHLIMIT
+   Module: APIGETTEXTEXTENTPOINT32
+   Module: APIFILLRECT
+   Module: APIDRAWTEXT
+   Module: APIEXTTEXTOUT
+   Module: APIDRAWEDGE
+   Module: APICREATEPEN
+   Module: APIEXTCREATEPEN
+   Module: APIMOVETOEX
+   Module: APILINETO
+   Module: APIRECTANGLE
+   Module: APIROUNDRECT
+   Module: APISETRECT
+   Module: APIGRADIENTFILL
+   Module: APIGETPIXEL
+   Module: APISETPIXELV
+   Module: APITRANSPARENTBLT
+   Module: APIBITBLT
+   Module: APIALPHABLEND
+   Module: APICREATEFONTINDIRECT
+   Module: APICLIENTTOSCREEN
+   Module: APISCREENTOCLIENT
+   Module: APIMAPWINDOWPOINTS
+   Module: APIPTINRECT
+   Module: APISETCURSOR
+   Module: APILOADCURSOR
+   Module: APIMULDIV
+   Module: APICREATEROUNDRECTRGN
+   Module: APISELECTCLIPRGN
+   Module: APIISTHEMEACTIVE
+   Module: APIREGOPENKEY
+   Module: APIREGENUMVALUE
+   Module: APIREGCLOSEKEY
+   Module: APIREGQUERYVALUEEX
+   Module: APIREGCREATEKEY
+   Module: APIREGDELETEVALUE
+   Module: APIREGSETVALUEEX
+   Module: APIEXTRACTICONEX
+   Module: APIDESTROYICON
+   Module: APIEXTRACTASSOCIATEDICON
+   Module: APIOLECREATEPICTUREINDIRECT
+   Module: APISHGETSPECIALFOLDERPATH
+   Module: APIGETPROCADDRESS
+   Module: APIFREELIBRARY
+   Module: APIGETCARETPOS
+   Module: APICLOSEHANDLE
+   Module: APIREADFILE
+   Module: APIFILETIMETOSYSTEMTIME
+   Module: APICREATEFILE
+   Module: APISETFILEPOINTEREX
+   Module: APIGETFILESIZEEX
+   Module: APIWRITEFILE
+   Module: APISENDMESSAGE
+   Module: APISENDMESSAGEINTEGER
+   Module: APISENDMESSAGESTRING
+   Module: APIGETDATEFORMAT
+   Module: APIUUIDCREATE
+   Module: APIUUIDCREATENIL
+   Module: APIUUIDTOSTRING
+   Module: APIGETPARENT
+   Module: APIGETSCROLLPOS
+   Module: APISHOWSCROLLBAR
+   Module: APIENABLEWINDOW
+   Module: APISETSCROLLINFO
+   Module: APICREATEWINDOWEX
+   Module: APISETWINDOWTHEME
+   Module: APIGETSCROLLRANGE
+   Module: APIOPENTHEMEDATA
+   Module: APIGETTHEMECOLOR
+   Module: APICLOSETHEMEDATA
+   Module: APIGETTICKCOUNT
+   Module: APISETWINDOWRGN
+   Module: APICREATERECTRGN
+   Module: APIDESTROYWINDOW
+   Module: APIGETACTIVEWINDOW
+   Module: APILOADSTRING
+   Module: APIGETMODULEHANDLE
+   Module: APIGETLOCALEINFO
+   Module: APIGETPROCESSHEAP
+   Module: APISETFOCUS
+   Module: APISETPARENT
+   Module: APIREALGETWINDOWCLASS
+   Module: APIISWINDOW
+   Module: APIGETDOUBLECLICKTIME
+   Module: APIREDRAWWINDOW
+   Module: APIINITCOMMONCONTROLSEX
+   Module: APILOADLIBRARY
+   Module: APISYSTEMPARAMETERSINFO
+   Module: APICREATEFONT
+   Module: APIPOSTMESSAGE
+   Module: APIGETLASTERROR
+   Module: APILOCKWINDOWUPDATE
+   Module: APIFINDEXECUTABLE
+   Module: APISHGETFILEINFO
+   Module: APIGETCOMPUTERNAME
+   Module: APIGETVOLUMEINFORMATION
+   Module: APIGETSHORTPATHNAME
+   Module: APIBRINGWINDOWTOTOP
+   Module: APISHELLEXECUTE
+   Module: APIGETKEYSTATE
+   Module: APIGETASYNCKEYSTATE
+   Module: APIGETKEYBOARDSTATE
+   Module: APIKILLTIMER
+   Module: APISETTIMER
+   Module: APIGETSYSTEMDIRECTORY
+   Module: APIGETSYSTEMMETRICS
+   Module: APIGETSYSCOLOR
+   Module: APISETTEXTCOLOR
+   Module: APIGETTIMEZONEINFORMATION
+   Module: APIWSASTARTUP
+   Module: APIWSACLEANUP
+   Module: APIGETHOSTBYNAME
+   Module: APIINETNOTA
+   Module: APISOCKET
+   Module: APICLOSESOCKET
+   Module: APIINETADDR
+   Module: APIHTONS
+   Module: APICONNECT
+   Module: APISEND
+   Module: APIRECV
+   Module: APIWINSOCKCOPYMEMORY
+   Module: APISETSOCKOPT
+   Module: APIMOVEWINDOW
+   Module: APISETWINDOWPOS
+   Module: APIWINDOWFROMPOINT
+   Module: APIGETDESKTOPWINDOW
+   Module: APIGETWINDOWDC
+   Module: APISETWINDOWLONG
+   Module: APICALLWINDOWPROC
+   Module: APIGETWINDOWLONG
+   Module: APIGETWINDOW
+   Module: APIGETWINDOWTEXT
+   Module: APISHOWWINDOW
+   Module: APIISICONIC
+   Module: APIGETWINDOWRECT
+   Module: APIHEAPFREE
+   Module: APIHEAPALLOC
+   Module: APIHEAPDESTROY
+   Module: APIHEAPCREATE
+   Module: APIHEAPSIZE
+   Module: APILSTRLEN
+   Module: APILSTRLENW
+   Module: APIGETUSERNAME
+   Module: COPYMEM
+   Module: COPYMEM2NUM
+   Module: COPY2MEM
+   Module: COPYNUM2MEM
+   Module: GETSTRLEN
+   Module: SYSTEMPARAMETERSINFOSTR
+   Module: POSTMESSAGESTR
+Build Project: Program optionmbrclass
+   Class:   gkpoption
+   Method:  gotfocus
+   Method:  lostfocus
+   Method:  mouseenter
+   Method:  mouseleave
+Analyzing: OPTIONMBRCLASS
+   Module: GOTFOCUS
+   Module: LOSTFOCUS
+   Module: MOUSEENTER
+   Module: MOUSELEAVE
+Build Project: Program getstringlocal
+   Module:  getstringlocal
+Analyzing: GETSTRINGLOCAL
+   Module: GETSTRINGLOCAL
+Build Project: Program getdesktoppath
+   Module:  getdesktoppath
+Analyzing: GETDESKTOPPATH
+   Module: GETDESKTOPPATH
+Build Project: Program writeerrorlog
+   Module:  writeerrorlog
+Analyzing: WRITEERRORLOG
+   Module: WRITEERRORLOG
+Build Project: Program gkkmakepath
+   Module:  gkkmakepath
+Analyzing: GKKMAKEPATH
+   Module: GKKMAKEPATH
+Build Project: Program wmsgbox
+   Module:  wmsgbox
+Analyzing: WMSGBOX
+   Module: WMSGBOX
+Build Project: Program releaseforms
+   Module:  releaseforms
+Analyzing: RELEASEFORMS
+   Module: RELEASEFORMS
+Build Project: Program setstringlocal
+   Module:  setstringlocal
+Analyzing: SETSTRINGLOCAL
+   Module: SETSTRINGLOCAL
+Build Project: Program getscrollbarwidth
+   Module:  getscrollbarwidth
+Analyzing: GETSCROLLBARWIDTH
+   Module: GETSCROLLBARWIDTH
+Build Project: Program displaymsg
+   Module:  displaymsg
+Analyzing: DISPLAYMSG
+   Module: DISPLAYMSG
+Build Project: Program incseq
+   Module:  incseq
+Analyzing: INCSEQ
+   Module: INCSEQ
+Build Project: Program getregstring_hkcu
+   Module:  getregstring_hkcu
+Analyzing: GETREGSTRING_HKCU
+   Module: GETREGSTRING_HKCU
+Build Project: Program getsetting
+   Module:  getsetting
+Analyzing: GETSETTING
+   Module: GETSETTING
+Build Project: Program senderroremail
+   Module:  senderroremail
+Analyzing: SENDERROREMAIL
+   Module: SENDERROREMAIL
+Build Project: Program getsettingstable
+   Module:  getsettingstable
+Analyzing: GETSETTINGSTABLE
+   Module: GETSETTINGSTABLE
+Build Project: Program getnextuniqueid
+   Module:  getnextuniqueid
+Analyzing: GETNEXTUNIQUEID
+   Module: GETNEXTUNIQUEID
+Build Project: Program winsocklibrary
+   Module:  apigettimezoneinformation
+   Module:  apiwsastartup
+   Module:  apiwsacleanup
+   Module:  apigethostbyname
+   Module:  apiinetnota
+   Module:  apisocket
+   Module:  apiclosesocket
+   Module:  apiinetaddr
+   Module:  apihtons
+   Module:  apiconnect
+   Module:  apisend
+   Module:  apirecv
+   Module:  apiwinsockcopymemory
+   Module:  apisetsockopt
+Analyzing: WINSOCKLIBRARY
+   Module: APIGETTIMEZONEINFORMATION
+   Module: APIWSASTARTUP
+   Module: APIWSACLEANUP
+   Module: APIGETHOSTBYNAME
+   Module: APIINETNOTA
+   Module: APISOCKET
+   Module: APICLOSESOCKET
+   Module: APIINETADDR
+   Module: APIHTONS
+   Module: APICONNECT
+   Module: APISEND
+   Module: APIRECV
+   Module: APIWINSOCKCOPYMEMORY
+   Module: APISETSOCKOPT
+Build Project: File add
+Build Project: File browse
+Build Project: File delete
+Build Project: File edit
+Build Project: File membership
+Build Project: File about
+Build Project: File arrowup
+Build Project: File arrowdn
+Build Project: File favfolder
+Build Project: File gkkdefines
+Build Project: Program onselection
+   Module:  onselection
+Analyzing: ONSELECTION
+   Module: ONSELECTION
+Build Project: File save24
+Build Project: File refresh16
+Build Project: File open4
+Build Project: File viewdoc
+Build Project: File hierarchy24
+Build Project: File hierarchyadd16
+Build Project: File hierarchydelete16
+Build Project: File hierarchymove16
+Build Project: File about2
+Build Project: File hierarchyrename16
+Build Project: File gkkabout
+Build Project: File delete16
+Build Project: Form gkllibrarymain
+   Module:  beforeopentables
+   Module:  closeopenedforms
+   Module:  getformtab
+   Module:  hideforms
+   Module:  openform
+   Module:  openformunique
+   Module:  refreshbrowse
+   Module:  releasemodelessform
+   Module:  resetlightbox
+   Module:  setmodalbindevents
+   Module:  showlightbox
+   Module:  isopenforms
+   Module:  activate
+   Module:  queryunload
+   Module:  error
+   Module:  init
+   Module:  resize
+   Module:  destroy
+   Module:  init
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  ontabclose
+   Module:  ontabcloserequest
+   Module:  onresize
+   Module:  init
+Analyzing: 
+   Module: BEFOREOPENTABLES
+Analyzing: 
+   Module: CLOSEOPENEDFORMS
+   Module: GETFORMTAB
+   Module: HIDEFORMS
+   Module: OPENFORM
+   Module: OPENFORMUNIQUE
+   Module: REFRESHBROWSE
+   Module: RELEASEMODELESSFORM
+   Module: RESETLIGHTBOX
+   Module: SETMODALBINDEVENTS
+   Module: SHOWLIGHTBOX
+   Module: ISOPENFORMS
+   Module: ACTIVATE
+   Module: QUERYUNLOAD
+   Module: ERROR
+   Module: INIT
+   Module: RESIZE
+   Module: DESTROY
+Analyzing: 
+   Module: INIT
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: ONTABCLOSE
+   Module: ONTABCLOSEREQUEST
+   Module: ONRESIZE
+Analyzing: 
+   Module: INIT
+Build Project: Form gklabout
+   Module:  init
+   Module:  ontimerinterval
+Analyzing: 
+   Module: INIT
+Analyzing: 
+   Module: ONTIMERINTERVAL
+Build Project: Form gklmsgbox
+   Module:  unload
+   Module:  init
+   Module:  cmdclose.click
+   Module:  cmdcancel.click
+   Module:  click
+Analyzing: 
+   Module: UNLOAD
+   Module: INIT
+   Module: CMDCLOSE
+   Module: CMDCANCEL
+Analyzing: 
+   Module: CLICK
+Build Project: Form gkldisplaymsg
+   Module:  gettextwidth
+   Module:  updatecaption
+   Module:  init
+   Module:  timer
+Analyzing: 
+   Module: GETTEXTWIDTH
+   Module: UPDATECAPTION
+   Module: INIT
+Analyzing: 
+   Module: TIMER
+Build Project: Form gklerrmsgbox
+   Module:  init
+Analyzing: 
+   Module: INIT
+Build Project: Form gkllibrarybrowse
+   Module:  destroy
+   Module:  onresize
+   Module:  init
+   Module:  dblclick
+   Module:  click
+   Module:  click
+   Module:  expand
+   Module:  nodeclick
+   Module:  init
+   Module:  dblclick
+   Module:  split
+   Module:  interactivechange
+Analyzing: 
+   Module: DESTROY
+   Module: ONRESIZE
+   Module: INIT
+Analyzing: 
+   Module: DBLCLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: EXPAND
+   Module: NODECLICK
+   Module: INIT
+Analyzing: 
+   Module: DBLCLICK
+Analyzing: 
+   Module: SPLIT
+Analyzing: 
+   Module: INTERACTIVECHANGE
+Build Project: Form gklnewfolder
+   Module:  unload
+   Module:  activate
+   Module:  cmdclose.click
+Analyzing: 
+   Module: UNLOAD
+   Module: ACTIVATE
+   Module: CMDCLOSE
+Build Project: Form gkllibraryadd
+   Module:  onformgettaxonomy
+   Module:  onformselectdir
+   Module:  onresize
+   Module:  init
+   Module:  destroy
+   Module:  click
+   Module:  split
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  click
+Analyzing: 
+   Module: ONFORMGETTAXONOMY
+   Module: ONFORMSELECTDIR
+   Module: ONRESIZE
+   Module: INIT
+   Module: DESTROY
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: SPLIT
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Build Project: Form gklgettaxonomy
+   Module:  resize
+   Module:  init
+   Module:  destroy
+   Module:  cmdclose.click
+   Module:  expand
+   Module:  nodeclick
+   Module:  init
+Analyzing: 
+   Module: RESIZE
+   Module: INIT
+   Module: DESTROY
+   Module: CMDCLOSE
+Analyzing: 
+   Module: EXPAND
+   Module: NODECLICK
+   Module: INIT
+Build Project: Form gklhierarchy
+   Module:  onresize
+   Module:  init
+   Module:  destroy
+   Module:  init
+   Module:  expand
+   Module:  nodeclick
+   Module:  init
+   Module:  split
+   Module:  init
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  click
+Analyzing: 
+   Module: ONRESIZE
+   Module: INIT
+   Module: DESTROY
+Analyzing: 
+   Module: INIT
+Analyzing: 
+   Module: EXPAND
+   Module: NODECLICK
+   Module: INIT
+Analyzing: 
+   Module: SPLIT
+Analyzing: 
+   Module: INIT
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Build Project: Visual Class Library gklapitimer
+   Module:  active_assign
+   Module:  cleartimer
+   Module:  initializetimer
+   Module:  interval_assign
+   Module:  ontimerinterval
+   Module:  userinit
+   Module:  destroy
+   Module:  init
+Analyzing: 
+   Module: ACTIVE_ASSIGN
+   Module: CLEARTIMER
+   Module: INITIALIZETIMER
+   Module: INTERVAL_ASSIGN
+   Module: ONTIMERINTERVAL
+   Module: USERINIT
+   Module: DESTROY
+   Module: INIT
+Build Project: Visual Class Library gklaxtreeview
+   Module:  donodeclick
+   Module:  onexpand
+   Module:  onnodeclick
+   Module:  userinit
+   Module:  nodeclick
+   Module:  init
+   Module:  expand
+Analyzing: 
+   Module: DONODECLICK
+Analyzing: 
+   Module: ONEXPAND
+   Module: ONNODECLICK
+   Module: USERINIT
+   Module: NODECLICK
+   Module: INIT
+   Module: EXPAND
+Build Project: Visual Class Library gklbaseclasses
+   Module:  mouseleave
+   Module:  mouseenter
+   Module:  gotfocus
+   Module:  lostfocus
+   Module:  gotfocus
+   Module:  lostfocus
+   Module:  mouseenter
+   Module:  mouseleave
+   Module:  gotfocus
+   Module:  caption_assign
+   Module:  backcolor_assign
+   Module:  init
+   Module:  enabled_assign
+   Module:  setfocus
+   Module:  interactivechange
+   Module:  caption_assign
+   Module:  init
+   Module:  restoregridcolwidths
+   Module:  savegridcolwidths
+   Module:  setgridproperties
+   Module:  savecolumnselection
+   Module:  restorecolumnselections
+   Module:  autosetgridcolwidths
+   Module:  destroy
+   Module:  init
+   Module:  resize
+   Module:  keypress
+   Module:  gotfocus
+   Module:  interactivechange
+   Module:  isdirty_access
+   Module:  amount_assign
+   Module:  uservalid
+   Module:  amount_access
+   Module:  valid
+   Module:  gotfocus
+   Module:  keypress
+   Module:  value_assign
+   Module:  value_access
+   Module:  amount_assign
+   Module:  amount_access
+   Module:  isdirty_access
+   Module:  keypress
+   Module:  gotfocus
+   Module:  addlistrow
+   Module:  autoid_access
+   Module:  addmultilistitem
+   Module:  getidforselecteditem
+   Module:  getlistitemidforid
+   Module:  getvalueforid
+   Module:  isitemfound
+   Module:  getlastlistitemid
+   Module:  addlistrow
+   Module:  setlistvalues
+   Module:  autoid_access
+   Module:  addmultilistitem
+   Module:  setselecteditem
+   Module:  getvalueforid
+   Module:  isitemfound
+   Module:  getlistitemidforid
+   Module:  getcolvalueforselecteditem
+   Module:  getlastlistitemid
+   Module:  gotfocus
+Analyzing: 
+   Module: MOUSELEAVE
+   Module: MOUSEENTER
+   Module: GOTFOCUS
+   Module: LOSTFOCUS
+Analyzing: 
+   Module: GOTFOCUS
+   Module: LOSTFOCUS
+   Module: MOUSEENTER
+   Module: MOUSELEAVE
+Analyzing: 
+   Module: GOTFOCUS
+Analyzing: 
+   Module: CAPTION_ASSIGN
+   Module: BACKCOLOR_ASSIGN
+   Module: INIT
+Analyzing: 
+   Module: ENABLED_ASSIGN
+   Module: SETFOCUS
+   Module: INTERACTIVECHANGE
+Analyzing: 
+   Module: CAPTION_ASSIGN
+   Module: INIT
+Analyzing: 
+   Module: RESTOREGRIDCOLWIDTHS
+   Module: SAVEGRIDCOLWIDTHS
+   Module: SETGRIDPROPERTIES
+   Module: SAVECOLUMNSELECTION
+   Module: RESTORECOLUMNSELECTIONS
+   Module: AUTOSETGRIDCOLWIDTHS
+   Module: DESTROY
+   Module: INIT
+   Module: RESIZE
+Analyzing: 
+   Module: KEYPRESS
+   Module: GOTFOCUS
+   Module: INTERACTIVECHANGE
+   Module: ISDIRTY_ACCESS
+Analyzing: 
+   Module: AMOUNT_ASSIGN
+   Module: USERVALID
+   Module: AMOUNT_ACCESS
+   Module: VALID
+   Module: GOTFOCUS
+   Module: KEYPRESS
+Analyzing: 
+   Module: VALUE_ASSIGN
+   Module: VALUE_ACCESS
+   Module: AMOUNT_ASSIGN
+   Module: AMOUNT_ACCESS
+   Module: ISDIRTY_ACCESS
+   Module: KEYPRESS
+   Module: GOTFOCUS
+Analyzing: 
+   Module: ADDLISTROW
+   Module: AUTOID_ACCESS
+   Module: ADDMULTILISTITEM
+   Module: GETIDFORSELECTEDITEM
+   Module: GETLISTITEMIDFORID
+   Module: GETVALUEFORID
+   Module: ISITEMFOUND
+   Module: GETLASTLISTITEMID
+Analyzing: 
+   Module: ADDLISTROW
+   Module: SETLISTVALUES
+   Module: AUTOID_ACCESS
+   Module: ADDMULTILISTITEM
+   Module: SETSELECTEDITEM
+   Module: GETVALUEFORID
+   Module: ISITEMFOUND
+   Module: GETLISTITEMIDFORID
+   Module: GETCOLVALUEFORSELECTEDITEM
+   Module: GETLASTLISTITEMID
+   Module: GOTFOCUS
+Build Project: Visual Class Library gklcollection
+   Module:  add
+   Module:  getitem
+   Module:  remove
+   Module:  removeall
+   Module:  setkey
+   Module:  getitemkey
+Analyzing: 
+   Module: ADD
+   Module: GETITEM
+   Module: REMOVE
+   Module: REMOVEALL
+   Module: SETKEY
+   Module: GETITEMKEY
+Build Project: Visual Class Library gklfileselection
+   Module:  getassocicon
+   Module:  getdirectory
+   Module:  getfileselectionlist
+   Module:  getseletedrowitem
+   Module:  getvolumename
+   Module:  ondblclick
+   Module:  ongetdirectory
+   Module:  onrowclick
+   Module:  refreshdirectory
+   Module:  resize
+   Module:  init
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  gotfocus
+   Module:  init
+   Module:  lostfocus
+   Module:  addlistitem
+   Module:  userinit
+   Module:  olelistview.itemclick
+   Module:  olelistview.dblclick
+   Module:  click
+   Module:  ontimerinterval
+Analyzing: 
+   Module: GETASSOCICON
+   Module: GETDIRECTORY
+   Module: GETFILESELECTIONLIST
+   Module: GETSELETEDROWITEM
+   Module: GETVOLUMENAME
+   Module: ONDBLCLICK
+   Module: ONGETDIRECTORY
+   Module: ONROWCLICK
+   Module: REFRESHDIRECTORY
+   Module: RESIZE
+   Module: INIT
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+   Module: GOTFOCUS
+   Module: INIT
+   Module: LOSTFOCUS
+Analyzing: 
+   Module: ADDLISTITEM
+   Module: USERINIT
+   Module: OLELISTVIEW
+   Module: OLELISTVIEW
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: ONTIMERINTERVAL
+Build Project: Visual Class Library gkliconbuddy
+   Module:  addlistrow
+   Module:  setlistvalues
+   Module:  keypress
+   Module:  gotfocus
+   Module:  iconhandle2object
+   Module:  dword
+   Module:  long2string
+   Module:  getassociconhandle
+   Module:  getassociconobject
+   Module:  destroyicon
+   Module:  declaredlls
+   Module:  getassocexecutable
+   Module:  geticonpairobjects
+   Module:  cleariconarray
+   Module:  geticoncount
+   Module:  geticonpairhandle
+   Module:  getallicons
+   Module:  addicons
+   Module:  shellgetfileinfo
+   Module:  string2long
+   Module:  getassociconpairobjects
+   Module:  imglistindex
+   Module:  extract2imagelist
+   Module:  add2imagelist
+   Module:  gethwnd
+   Module:  init
+   Module:  destroy
+Analyzing: 
+   Module: ADDLISTROW
+   Module: SETLISTVALUES
+   Module: KEYPRESS
+   Module: GOTFOCUS
+Analyzing: 
+   Module: ICONHANDLE2OBJECT
+   Module: DWORD
+   Module: LONG2STRING
+   Module: GETASSOCICONHANDLE
+   Module: GETASSOCICONOBJECT
+   Module: DESTROYICON
+   Module: DECLAREDLLS
+   Module: GETASSOCEXECUTABLE
+   Module: GETICONPAIROBJECTS
+   Module: CLEARICONARRAY
+   Module: GETICONCOUNT
+   Module: GETICONPAIRHANDLE
+   Module: GETALLICONS
+   Module: ADDICONS
+   Module: SHELLGETFILEINFO
+   Module: STRING2LONG
+   Module: GETASSOCICONPAIROBJECTS
+   Module: IMGLISTINDEX
+   Module: EXTRACT2IMAGELIST
+   Module: ADD2IMAGELIST
+   Module: GETHWND
+   Module: INIT
+   Module: DESTROY
+Build Project: Visual Class Library gklimagecombolist
+   Module:  addlistitem
+   Module:  removeall
+   Module:  folderlistkey_access
+   Module:  listcount_access
+   Module:  listitemid_access
+   Module:  listitemid_assign
+Analyzing: 
+   Module: ADDLISTITEM
+   Module: REMOVEALL
+   Module: FOLDERLISTKEY_ACCESS
+   Module: LISTCOUNT_ACCESS
+   Module: LISTITEMID_ACCESS
+   Module: LISTITEMID_ASSIGN
+Build Project: Visual Class Library gkllabel
+   Module:  caption_assign
+   Module:  caption_assign
+   Module:  settextwidth
+   Module:  init
+Analyzing: 
+   Module: CAPTION_ASSIGN
+Analyzing: 
+   Module: CAPTION_ASSIGN
+   Module: SETTEXTWIDTH
+   Module: INIT
+Build Project: Visual Class Library gkllightboxv6a
+   Module:  getobjectvisiblitysetting
+   Module:  showlightboxincontainer
+   Module:  showlightbox
+   Module:  showlightboxresetall
+   Module:  userinit
+   Module:  resetlightbox
+   Module:  activatelightbox
+   Module:  showlightboxmdi
+   Module:  init
+   Module:  mousedown
+   Module:  beforedraw
+   Module:  setup
+   Module:  mouseup
+Analyzing: 
+   Module: GETOBJECTVISIBLITYSETTING
+   Module: SHOWLIGHTBOXINCONTAINER
+   Module: SHOWLIGHTBOX
+   Module: SHOWLIGHTBOXRESETALL
+   Module: USERINIT
+   Module: RESETLIGHTBOX
+   Module: ACTIVATELIGHTBOX
+   Module: SHOWLIGHTBOXMDI
+   Module: INIT
+   Module: MOUSEDOWN
+   Module: BEFOREDRAW
+   Module: SETUP
+   Module: MOUSEUP
+Build Project: Visual Class Library gkllistview
+   Module:  removeall
+   Module:  addlistitem
+   Module:  addlistitem
+   Module:  addheader
+   Module:  multiselect_access
+   Module:  multiselect_assign
+   Module:  view_access
+   Module:  view_assign
+   Module:  fullrowselect_access
+   Module:  fullrowselect_assign
+   Module:  checkboxes_access
+   Module:  checkboxes_assign
+   Module:  allowcolumnreorder_access
+   Module:  allowcolumnreorder_assign
+   Module:  gridlines_access
+   Module:  gridlines_assign
+   Module:  hideselection_access
+   Module:  hideselection_assign
+   Module:  addimagesmall
+   Module:  addimagelarge
+   Module:  removeall
+   Module:  restorecolumnwidths
+   Module:  savecolumnwidths
+   Module:  init
+   Module:  destroy
+   Module:  resize
+Analyzing: 
+   Module: REMOVEALL
+   Module: ADDLISTITEM
+Analyzing: 
+   Module: ADDLISTITEM
+   Module: ADDHEADER
+   Module: MULTISELECT_ACCESS
+   Module: MULTISELECT_ASSIGN
+   Module: VIEW_ACCESS
+   Module: VIEW_ASSIGN
+   Module: FULLROWSELECT_ACCESS
+   Module: FULLROWSELECT_ASSIGN
+   Module: CHECKBOXES_ACCESS
+   Module: CHECKBOXES_ASSIGN
+   Module: ALLOWCOLUMNREORDER_ACCESS
+   Module: ALLOWCOLUMNREORDER_ASSIGN
+   Module: GRIDLINES_ACCESS
+   Module: GRIDLINES_ASSIGN
+   Module: HIDESELECTION_ACCESS
+   Module: HIDESELECTION_ASSIGN
+   Module: ADDIMAGESMALL
+   Module: ADDIMAGELARGE
+   Module: REMOVEALL
+   Module: RESTORECOLUMNWIDTHS
+   Module: SAVECOLUMNWIDTHS
+   Module: INIT
+   Module: DESTROY
+   Module: RESIZE
+Build Project: Visual Class Library gklownerdrawmenu
+   Module:  createpopup
+   Module:  destroypopup
+   Module:  activatepopup
+   Module:  popwndproc
+   Module:  onmeasuremenuitem
+   Module:  createfontin
+   Module:  ondrawmenuitem
+   Module:  onmenuenteridle
+   Module:  horzgradientfill
+   Module:  fillvertexcolor
+   Module:  word
+   Module:  getbrightcolor
+   Module:  declare_dll
+   Module:  createpopupitem
+   Module:  setsubmenu
+   Module:  oninitmenupopup
+   Module:  bindmessages
+   Module:  onmenuchar
+   Module:  setleftcolor
+   Module:  setsubpopup
+   Module:  onuninitmenupopup
+   Module:  getdarkcolor
+   Module:  gethilitecolor
+   Module:  vertgradientfill
+   Module:  setrightcolor
+   Module:  setmenubarcolor
+   Module:  enablepopupitem
+   Module:  disablepopupitem
+   Module:  lthemed_assign
+   Module:  on_ncmousemove
+   Module:  getparameterinfo
+   Module:  createpad
+   Module:  disablemainmenu
+   Module:  enablemainmenu
+   Module:  clear_dll
+   Module:  disablemenupad
+   Module:  enablemenupad
+   Module:  createcustomfont
+   Module:  gdiplus_start
+   Module:  gdiplus_end
+   Module:  lusegradient_assign
+   Module:  fillvertexcolor2
+   Module:  destroy
+   Module:  init
+Analyzing: 
+   Module: CREATEPOPUP
+   Module: DESTROYPOPUP
+   Module: ACTIVATEPOPUP
+   Module: POPWNDPROC
+   Module: ONMEASUREMENUITEM
+   Module: CREATEFONTIN
+   Module: ONDRAWMENUITEM
+   Module: ONMENUENTERIDLE
+   Module: HORZGRADIENTFILL
+   Module: FILLVERTEXCOLOR
+   Module: WORD
+   Module: GETBRIGHTCOLOR
+   Module: DECLARE_DLL
+   Module: CREATEPOPUPITEM
+   Module: SETSUBMENU
+   Module: ONINITMENUPOPUP
+   Module: BINDMESSAGES
+   Module: ONMENUCHAR
+   Module: SETLEFTCOLOR
+   Module: SETSUBPOPUP
+   Module: ONUNINITMENUPOPUP
+   Module: GETDARKCOLOR
+   Module: GETHILITECOLOR
+   Module: VERTGRADIENTFILL
+   Module: SETRIGHTCOLOR
+   Module: SETMENUBARCOLOR
+   Module: ENABLEPOPUPITEM
+   Module: DISABLEPOPUPITEM
+   Module: LTHEMED_ASSIGN
+   Module: ON_NCMOUSEMOVE
+   Module: GETPARAMETERINFO
+   Module: CREATEPAD
+   Module: DISABLEMAINMENU
+   Module: ENABLEMAINMENU
+   Module: CLEAR_DLL
+   Module: DISABLEMENUPAD
+   Module: ENABLEMENUPAD
+   Module: CREATECUSTOMFONT
+   Module: GDIPLUS_START
+   Module: GDIPLUS_END
+   Module: LUSEGRADIENT_ASSIGN
+   Module: FILLVERTEXCOLOR2
+   Module: DESTROY
+   Module: INIT
+Build Project: Visual Class Library gklsidebar
+   Module:  click
+   Module:  init
+   Module:  click
+   Module:  mouseleave
+   Module:  mouseenter
+   Module:  addcmdbutton
+   Module:  removecmdbutton
+   Module:  usercmdclick
+   Module:  init
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: INIT
+   Module: CLICK
+   Module: MOUSELEAVE
+   Module: MOUSEENTER
+Analyzing: 
+   Module: ADDCMDBUTTON
+   Module: REMOVECMDBUTTON
+   Module: USERCMDCLICK
+   Module: INIT
+Build Project: Visual Class Library gklsplitter
+   Module:  hidecontrols
+   Module:  showcontrols
+   Module:  split
+   Module:  saveposition
+   Module:  restoreposition
+   Module:  init
+   Module:  mousedown
+   Module:  resize
+   Module:  mousedown
+   Module:  mouseenter
+   Module:  hidecontrols
+   Module:  showcontrols
+   Module:  split
+   Module:  init
+   Module:  mousedown
+   Module:  resize
+   Module:  restoreposition
+   Module:  saveposition
+   Module:  mousedown
+   Module:  mouseenter
+Analyzing: 
+   Module: HIDECONTROLS
+   Module: SHOWCONTROLS
+   Module: SPLIT
+   Module: SAVEPOSITION
+   Module: RESTOREPOSITION
+   Module: INIT
+   Module: MOUSEDOWN
+   Module: RESIZE
+Analyzing: 
+   Module: MOUSEDOWN
+   Module: MOUSEENTER
+Analyzing: 
+   Module: HIDECONTROLS
+   Module: SHOWCONTROLS
+   Module: SPLIT
+   Module: INIT
+   Module: MOUSEDOWN
+   Module: RESIZE
+   Module: RESTOREPOSITION
+   Module: SAVEPOSITION
+Analyzing: 
+   Module: MOUSEDOWN
+   Module: MOUSEENTER
+Build Project: Visual Class Library gkltabframe
+   Module:  click
+   Module:  mousedown
+   Module:  mouseup
+   Module:  click
+   Module:  mousedown
+   Module:  mouseup
+   Module:  click
+   Module:  caption_assign
+   Module:  modifiedstatus_assign
+   Module:  click
+   Module:  mouseenter
+   Module:  mouseleave
+   Module:  active_assign
+   Module:  closemode_assign
+   Module:  visible_assign
+   Module:  rightclick
+   Module:  mouseleave
+   Module:  mouseenter
+   Module:  click
+   Module:  resize
+   Module:  init
+   Module:  rightclick
+   Module:  click
+   Module:  mouseenter
+   Module:  mouseleave
+   Module:  rightclick
+   Module:  click
+   Module:  mouseenter
+   Module:  mouseleave
+   Module:  rightclick
+   Module:  click
+   Module:  mouseenter
+   Module:  mouseleave
+   Module:  rightclick
+   Module:  mouseenter
+   Module:  mouseleave
+   Module:  click
+   Module:  rightclick
+   Module:  mouseleave
+   Module:  mouseenter
+   Module:  caption_assign
+   Module:  addtab
+   Module:  checkfortabobject
+   Module:  closetab
+   Module:  closetaball
+   Module:  findtablinkedobject
+   Module:  gettab
+   Module:  gettabcaption
+   Module:  gettablinkedobject
+   Module:  gettabtooltiptext
+   Module:  ontabadd
+   Module:  ontabclose
+   Module:  ontabcloserequest
+   Module:  ontabrightclick
+   Module:  ontabselection
+   Module:  renametab
+   Module:  selecttab
+   Module:  setneutralorder
+   Module:  settablinkedobject
+   Module:  settabmodifiedstatus
+   Module:  toggletabmodifiedstatus
+   Module:  visible_assign
+   Module:  iclosetab
+   Module:  iselecttab
+   Module:  oninit
+   Module:  documentation
+   Module:  init
+   Module:  resize
+Analyzing: 
+   Module: CLICK
+   Module: MOUSEDOWN
+   Module: MOUSEUP
+Analyzing: 
+   Module: CLICK
+   Module: MOUSEDOWN
+   Module: MOUSEUP
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CAPTION_ASSIGN
+   Module: MODIFIEDSTATUS_ASSIGN
+   Module: CLICK
+   Module: MOUSEENTER
+   Module: MOUSELEAVE
+Analyzing: 
+   Module: ACTIVE_ASSIGN
+   Module: CLOSEMODE_ASSIGN
+   Module: VISIBLE_ASSIGN
+   Module: RIGHTCLICK
+   Module: MOUSELEAVE
+   Module: MOUSEENTER
+   Module: CLICK
+   Module: RESIZE
+   Module: INIT
+Analyzing: 
+   Module: RIGHTCLICK
+   Module: CLICK
+   Module: MOUSEENTER
+   Module: MOUSELEAVE
+Analyzing: 
+   Module: RIGHTCLICK
+   Module: CLICK
+   Module: MOUSEENTER
+   Module: MOUSELEAVE
+Analyzing: 
+   Module: RIGHTCLICK
+   Module: CLICK
+   Module: MOUSEENTER
+   Module: MOUSELEAVE
+Analyzing: 
+   Module: RIGHTCLICK
+   Module: MOUSEENTER
+   Module: MOUSELEAVE
+   Module: CLICK
+Analyzing: 
+   Module: RIGHTCLICK
+   Module: MOUSELEAVE
+   Module: MOUSEENTER
+   Module: CAPTION_ASSIGN
+Analyzing: 
+   Module: ADDTAB
+   Module: CHECKFORTABOBJECT
+   Module: CLOSETAB
+   Module: CLOSETABALL
+   Module: FINDTABLINKEDOBJECT
+   Module: GETTAB
+   Module: GETTABCAPTION
+   Module: GETTABLINKEDOBJECT
+   Module: GETTABTOOLTIPTEXT
+   Module: ONTABADD
+   Module: ONTABCLOSE
+   Module: ONTABCLOSEREQUEST
+   Module: ONTABRIGHTCLICK
+   Module: ONTABSELECTION
+   Module: RENAMETAB
+   Module: SELECTTAB
+   Module: SETNEUTRALORDER
+   Module: SETTABLINKEDOBJECT
+   Module: SETTABMODIFIEDSTATUS
+   Module: TOGGLETABMODIFIEDSTATUS
+   Module: VISIBLE_ASSIGN
+   Module: ICLOSETAB
+   Module: ISELECTTAB
+   Module: ONINIT
+   Module: DOCUMENTATION
+   Module: INIT
+   Module: RESIZE
+Build Project: Visual Class Library gklthemeclasses
+   Module:  caption_assign
+   Module:  enabled_assign
+   Module:  hottracking_assign
+   Module:  setimages
+   Module:  init
+   Module:  resize
+   Module:  mouseup
+   Module:  mouseleave
+   Module:  click
+   Module:  mouseenter
+   Module:  mousedown
+   Module:  mouseup
+   Module:  click
+   Module:  mouseenter
+   Module:  mouseleave
+   Module:  mousedown
+   Module:  click
+   Module:  mousedown
+   Module:  mouseenter
+   Module:  mouseleave
+   Module:  mouseup
+   Module:  click
+   Module:  lostfocus
+   Module:  gotfocus
+   Module:  caption_assign
+   Module:  hottracking_assign
+   Module:  setimages
+   Module:  init
+   Module:  resize
+   Module:  mouseup
+   Module:  mouseleave
+   Module:  click
+   Module:  mouseenter
+   Module:  mousedown
+   Module:  mouseup
+   Module:  click
+   Module:  mouseenter
+   Module:  mouseleave
+   Module:  mousedown
+   Module:  click
+   Module:  mousedown
+   Module:  mouseenter
+   Module:  mouseleave
+   Module:  mouseup
+   Module:  buttonpicture_assign
+   Module:  caption_assign
+   Module:  enabled_assign
+   Module:  hottracking_assign
+   Module:  setimages
+   Module:  init
+   Module:  resize
+   Module:  mousedown
+   Module:  mouseenter
+   Module:  click
+   Module:  mouseleave
+   Module:  mouseup
+   Module:  mousedown
+   Module:  mouseleave
+   Module:  mouseenter
+   Module:  click
+   Module:  mouseup
+   Module:  mouseup
+   Module:  mouseleave
+   Module:  mouseenter
+   Module:  mousedown
+   Module:  click
+   Module:  gotfocus
+   Module:  lostfocus
+   Module:  click
+   Module:  buttonpicture_assign
+   Module:  caption_assign
+   Module:  enabled_assign
+   Module:  hottracking_assign
+   Module:  setimages
+   Module:  init
+   Module:  resize
+   Module:  mousedown
+   Module:  mouseenter
+   Module:  click
+   Module:  mouseleave
+   Module:  mouseup
+   Module:  mousedown
+   Module:  mouseleave
+   Module:  mouseenter
+   Module:  click
+   Module:  mouseup
+   Module:  mouseup
+   Module:  mouseleave
+   Module:  mouseenter
+   Module:  mousedown
+   Module:  click
+   Module:  gotfocus
+   Module:  lostfocus
+   Module:  click
+   Module:  buttonpicture_assign
+   Module:  caption_assign
+   Module:  hottracking_assign
+   Module:  setimages
+   Module:  init
+   Module:  resize
+   Module:  mousedown
+   Module:  mouseenter
+   Module:  click
+   Module:  mouseleave
+   Module:  mouseup
+   Module:  init
+   Module:  mousedown
+   Module:  mouseleave
+   Module:  mouseenter
+   Module:  init
+   Module:  click
+   Module:  mouseup
+   Module:  mouseup
+   Module:  mouseleave
+   Module:  mouseenter
+   Module:  mousedown
+   Module:  click
+   Module:  init
+   Module:  buttonpicture_assign
+   Module:  caption_assign
+   Module:  hottracking_assign
+   Module:  setimages
+   Module:  init
+   Module:  resize
+   Module:  enabled_assign
+   Module:  mouseup
+   Module:  mouseleave
+   Module:  click
+   Module:  mouseenter
+   Module:  mousedown
+   Module:  init
+   Module:  mouseup
+   Module:  click
+   Module:  init
+   Module:  mouseenter
+   Module:  mouseleave
+   Module:  mousedown
+   Module:  init
+   Module:  click
+   Module:  mousedown
+   Module:  mouseenter
+   Module:  mouseleave
+   Module:  mouseup
+   Module:  click
+   Module:  releasechildform
+   Module:  setmodalbindevents
+   Module:  visible_assign
+   Module:  temporaryid_access
+   Module:  onload
+   Module:  resize
+   Module:  load
+   Module:  destroy
+   Module:  init
+Analyzing: 
+   Module: CAPTION_ASSIGN
+   Module: ENABLED_ASSIGN
+   Module: HOTTRACKING_ASSIGN
+   Module: SETIMAGES
+   Module: INIT
+   Module: RESIZE
+Analyzing: 
+   Module: MOUSEUP
+   Module: MOUSELEAVE
+   Module: CLICK
+   Module: MOUSEENTER
+   Module: MOUSEDOWN
+Analyzing: 
+   Module: MOUSEUP
+   Module: CLICK
+   Module: MOUSEENTER
+   Module: MOUSELEAVE
+   Module: MOUSEDOWN
+Analyzing: 
+   Module: CLICK
+   Module: MOUSEDOWN
+   Module: MOUSEENTER
+   Module: MOUSELEAVE
+   Module: MOUSEUP
+Analyzing: 
+   Module: CLICK
+   Module: LOSTFOCUS
+   Module: GOTFOCUS
+Analyzing: 
+   Module: CAPTION_ASSIGN
+   Module: HOTTRACKING_ASSIGN
+   Module: SETIMAGES
+   Module: INIT
+   Module: RESIZE
+Analyzing: 
+   Module: MOUSEUP
+   Module: MOUSELEAVE
+   Module: CLICK
+   Module: MOUSEENTER
+   Module: MOUSEDOWN
+Analyzing: 
+   Module: MOUSEUP
+   Module: CLICK
+   Module: MOUSEENTER
+   Module: MOUSELEAVE
+   Module: MOUSEDOWN
+Analyzing: 
+   Module: CLICK
+   Module: MOUSEDOWN
+   Module: MOUSEENTER
+   Module: MOUSELEAVE
+   Module: MOUSEUP
+Analyzing: 
+   Module: BUTTONPICTURE_ASSIGN
+   Module: CAPTION_ASSIGN
+   Module: ENABLED_ASSIGN
+   Module: HOTTRACKING_ASSIGN
+   Module: SETIMAGES
+   Module: INIT
+   Module: RESIZE
+Analyzing: 
+   Module: MOUSEDOWN
+   Module: MOUSEENTER
+   Module: CLICK
+   Module: MOUSELEAVE
+   Module: MOUSEUP
+Analyzing: 
+   Module: MOUSEDOWN
+   Module: MOUSELEAVE
+   Module: MOUSEENTER
+   Module: CLICK
+   Module: MOUSEUP
+Analyzing: 
+   Module: MOUSEUP
+   Module: MOUSELEAVE
+   Module: MOUSEENTER
+   Module: MOUSEDOWN
+   Module: CLICK
+Analyzing: 
+   Module: GOTFOCUS
+   Module: LOSTFOCUS
+   Module: CLICK
+Analyzing: 
+   Module: BUTTONPICTURE_ASSIGN
+   Module: CAPTION_ASSIGN
+   Module: ENABLED_ASSIGN
+   Module: HOTTRACKING_ASSIGN
+   Module: SETIMAGES
+   Module: INIT
+   Module: RESIZE
+Analyzing: 
+   Module: MOUSEDOWN
+   Module: MOUSEENTER
+   Module: CLICK
+   Module: MOUSELEAVE
+   Module: MOUSEUP
+Analyzing: 
+   Module: MOUSEDOWN
+   Module: MOUSELEAVE
+   Module: MOUSEENTER
+   Module: CLICK
+   Module: MOUSEUP
+Analyzing: 
+   Module: MOUSEUP
+   Module: MOUSELEAVE
+   Module: MOUSEENTER
+   Module: MOUSEDOWN
+   Module: CLICK
+Analyzing: 
+   Module: GOTFOCUS
+   Module: LOSTFOCUS
+   Module: CLICK
+Analyzing: 
+   Module: BUTTONPICTURE_ASSIGN
+   Module: CAPTION_ASSIGN
+   Module: HOTTRACKING_ASSIGN
+   Module: SETIMAGES
+   Module: INIT
+   Module: RESIZE
+Analyzing: 
+   Module: MOUSEDOWN
+   Module: MOUSEENTER
+   Module: CLICK
+   Module: MOUSELEAVE
+   Module: MOUSEUP
+Analyzing: 
+   Module: INIT
+Analyzing: 
+   Module: MOUSEDOWN
+   Module: MOUSELEAVE
+   Module: MOUSEENTER
+   Module: INIT
+   Module: CLICK
+   Module: MOUSEUP
+Analyzing: 
+   Module: MOUSEUP
+   Module: MOUSELEAVE
+   Module: MOUSEENTER
+   Module: MOUSEDOWN
+   Module: CLICK
+   Module: INIT
+Analyzing: 
+   Module: BUTTONPICTURE_ASSIGN
+   Module: CAPTION_ASSIGN
+   Module: HOTTRACKING_ASSIGN
+   Module: SETIMAGES
+   Module: INIT
+   Module: RESIZE
+   Module: ENABLED_ASSIGN
+Analyzing: 
+   Module: MOUSEUP
+   Module: MOUSELEAVE
+   Module: CLICK
+   Module: MOUSEENTER
+   Module: MOUSEDOWN
+Analyzing: 
+   Module: INIT
+Analyzing: 
+   Module: MOUSEUP
+   Module: CLICK
+   Module: INIT
+   Module: MOUSEENTER
+   Module: MOUSELEAVE
+   Module: MOUSEDOWN
+Analyzing: 
+   Module: INIT
+   Module: CLICK
+   Module: MOUSEDOWN
+   Module: MOUSEENTER
+   Module: MOUSELEAVE
+   Module: MOUSEUP
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: RELEASECHILDFORM
+   Module: SETMODALBINDEVENTS
+   Module: VISIBLE_ASSIGN
+   Module: TEMPORARYID_ACCESS
+   Module: ONLOAD
+   Module: RESIZE
+   Module: LOAD
+   Module: DESTROY
+Analyzing: 
+   Module: INIT
+Build Project: Visual Class Library gklvfpenvironment
+   Module:  init
+Analyzing: 
+   Module: INIT
+Build Project: Visual Class Library gklwindowposition
+   Module:  restore
+   Module:  save
+   Module:  init
+Analyzing: 
+   Module: RESTORE
+   Module: SAVE
+   Module: INIT
+Build Project: Visual Class Library gklwinsockemail
+   Module:  bytesreceived_access
+   Module:  close
+   Module:  connect
+   Module:  getdata
+   Module:  getip
+   Module:  initiatewinsock
+   Module:  rd
+   Module:  senddata
+   Module:  buf2dword
+   Module:  num2dword
+   Module:  num2word
+   Module:  init
+   Module:  destroy
+   Module:  addtext
+   Module:  htmlcharstore
+   Module:  htmldecode
+   Module:  init
+   Module:  dataheader
+   Module:  datetimetoc822
+   Module:  dump
+   Module:  encode64
+   Module:  encodetextquotedprintable
+   Module:  formatdataemail
+   Module:  getecartgmt
+   Module:  lirebaseregistre
+   Module:  logsendeml
+   Module:  reset
+   Module:  send
+   Module:  split4
+   Module:  string2iso8859
+   Module:  sys3
+   Module:  trace
+   Module:  winsockgetdata
+   Module:  winsocksenddata
+   Module:  winsocksendmail
+   Module:  attente
+   Module:  buf2dword
+   Module:  init
+Analyzing: 
+   Module: BYTESRECEIVED_ACCESS
+   Module: CLOSE
+   Module: CONNECT
+   Module: GETDATA
+   Module: GETIP
+   Module: INITIATEWINSOCK
+   Module: RD
+   Module: SENDDATA
+   Module: BUF2DWORD
+   Module: NUM2DWORD
+   Module: NUM2WORD
+   Module: INIT
+   Module: DESTROY
+Analyzing: 
+   Module: ADDTEXT
+   Module: HTMLCHARSTORE
+   Module: HTMLDECODE
+   Module: INIT
+Analyzing: 
+   Module: DATAHEADER
+   Module: DATETIMETOC822
+   Module: DUMP
+   Module: ENCODE64
+   Module: ENCODETEXTQUOTEDPRINTABLE
+   Module: FORMATDATAEMAIL
+   Module: GETECARTGMT
+   Module: LIREBASEREGISTRE
+   Module: LOGSENDEML
+   Module: RESET
+   Module: SEND
+   Module: SPLIT4
+   Module: STRING2ISO8859
+   Module: SYS3
+   Module: TRACE
+   Module: WINSOCKGETDATA
+   Module: WINSOCKSENDDATA
+   Module: WINSOCKSENDMAIL
+   Module: ATTENTE
+   Module: BUF2DWORD
+   Module: INIT
+Build Project: Form gklselectdir
+   Module:  onformnewfolder
+   Module:  releasechildform
+   Module:  activate
+   Module:  load
+   Module:  init
+   Module:  destroy
+   Module:  cmdclose.click
+   Module:  usercmdclick
+   Module:  init
+   Module:  mouseup
+   Module:  init
+Analyzing: 
+   Module: ONFORMNEWFOLDER
+   Module: RELEASECHILDFORM
+   Module: ACTIVATE
+   Module: LOAD
+   Module: INIT
+   Module: DESTROY
+   Module: CMDCLOSE
+Analyzing: 
+   Module: USERCMDCLICK
+   Module: INIT
+Analyzing: 
+   Module: MOUSEUP
+   Module: INIT
+Build Project: Visual Class Library gklgdiplusx
+   Module:  clear
+   Module:  init
+   Module:  resize
+   Module:  value_assign
+   Module:  orientation_assign
+   Module:  updatecontrol
+   Module:  init
+   Module:  resize
+   Module:  themestate_assign
+   Module:  declaredll
+   Module:  beforedraw
+   Module:  init
+   Module:  mouseup
+   Module:  mousedown
+   Module:  mouseleave
+   Module:  mouseenter
+   Module:  mouseup
+   Module:  mousedown
+   Module:  mouseleave
+   Module:  mouseenter
+   Module:  draw
+   Module:  clear
+   Module:  deleteosb
+   Module:  renderosb
+   Module:  createosb
+   Module:  resize
+   Module:  rectangle_access
+   Module:  smoothingmode_assign
+   Module:  textrenderinghint_assign
+   Module:  interpolationmode_assign
+   Module:  save
+   Module:  width_access
+   Module:  height_access
+   Module:  backstyle_access
+   Module:  rendermode_assign
+   Module:  activate
+   Module:  lredrawnow_assign
+   Module:  drawreport
+   Module:  destroy
+   Module:  init
+   Module:  uienable
+Analyzing: 
+   Module: CLEAR
+   Module: INIT
+   Module: RESIZE
+Analyzing: 
+   Module: VALUE_ASSIGN
+   Module: ORIENTATION_ASSIGN
+   Module: UPDATECONTROL
+   Module: INIT
+   Module: RESIZE
+Analyzing: 
+   Module: THEMESTATE_ASSIGN
+   Module: DECLAREDLL
+   Module: BEFOREDRAW
+   Module: INIT
+Analyzing: 
+   Module: MOUSEUP
+   Module: MOUSEDOWN
+   Module: MOUSELEAVE
+   Module: MOUSEENTER
+Analyzing: 
+   Module: MOUSEUP
+   Module: MOUSEDOWN
+   Module: MOUSELEAVE
+   Module: MOUSEENTER
+Analyzing: 
+   Module: DRAW
+   Module: CLEAR
+   Module: DELETEOSB
+   Module: RENDEROSB
+   Module: CREATEOSB
+   Module: RESIZE
+   Module: RECTANGLE_ACCESS
+   Module: SMOOTHINGMODE_ASSIGN
+   Module: TEXTRENDERINGHINT_ASSIGN
+   Module: INTERPOLATIONMODE_ASSIGN
+   Module: SAVE
+   Module: WIDTH_ACCESS
+   Module: HEIGHT_ACCESS
+   Module: BACKSTYLE_ACCESS
+   Module: RENDERMODE_ASSIGN
+   Module: ACTIVATE
+   Module: LREDRAWNOW_ASSIGN
+   Module: DRAWREPORT
+   Module: DESTROY
+   Module: INIT
+   Module: UIENABLE
+Build Project: Form gkllibraryedit
+   Module:  onformgettaxonomy
+   Module:  onformselectdir
+   Module:  init
+   Module:  onresize
+   Module:  onload
+   Module:  ondestroy
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  split
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  click
+   Module:  click
+Analyzing: 
+   Module: ONFORMGETTAXONOMY
+   Module: ONFORMSELECTDIR
+   Module: INIT
+   Module: ONRESIZE
+   Module: ONLOAD
+   Module: ONDESTROY
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: SPLIT
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Analyzing: 
+   Module: CLICK
+Build Project: File clearinput-24
+Build Application: Program gkklibrarian
+Build Application: Program islocalconfigdefined
+Build Application: Program checkdatabasenotexist
+Build Application: Program builddatabase
+Build Application: File buttonleftfocused
+Build Application: File buttonleftfocused22
+Build Application: File buttonleftfocused54
+Build Application: File buttonlefthottracking
+Build Application: File buttonlefthottracking22
+Build Application: File buttonleftnotfocused
+Build Application: File buttonleftnotfocused22
+Build Application: File buttonleftnotfocused54
+Build Application: File buttonmiddlefocused
+Build Application: File buttonmiddlefocused22
+Build Application: File buttonmiddlefocused54
+Build Application: File buttonmiddlehottrackng
+Build Application: File buttonmiddlehottrackng22
+Build Application: File buttonmiddlenotfocused
+Build Application: File buttonmiddlenotfocused22
+Build Application: File buttonmiddlenotfocused54
+Build Application: File buttonrightfocused
+Build Application: File buttonrightfocused22
+Build Application: File buttonrightfocused54
+Build Application: File buttonrighthottracking
+Build Application: File buttonrighthottracking22
+Build Application: File buttonrightnotfocused
+Build Application: File buttonrightnotfocused22
+Build Application: File buttonrightnotfocused54
+Build Application: File tabactcenter
+Build Application: File tabactcenter1
+Build Application: File tabactleft
+Build Application: File tabactleft1
+Build Application: File tabactright
+Build Application: File tabactright1
+Build Application: File tabactright2
+Build Application: File tabclose
+Build Application: File tabclosemouseenter
+Build Application: File tabinactcenter
+Build Application: File tabinactcenter2
+Build Application: File tabinactcenter3
+Build Application: File tabinactleft
+Build Application: File tabinactleft2
+Build Application: File tabinactleft3
+Build Application: File tabinactright
+Build Application: File tabinactright2
+Build Application: File tabinactright3
+Build Application: File tabinactright4
+Build Application: File tabinactright5
+Build Application: Program getconfigpath
+Build Application: Program setdbcpath
+Build Application: File wznext
+Build Application: File wzdown
+Build Application: Program getresource
+Build Application: File wzback
+Build Application: File exclaim
+Build Application: File info
+Build Application: File stop
+Build Application: File hsplitter
+Build Application: File vsplitter
+Build Application: Program getformcoordinates
+Build Application: File calpicker
+Build Application: File curdate
+Build Application: File folderback
+Build Application: File foldernew
+Build Application: File listview
+Build Application: Program checkvalidname
+Build Application: File version
+Build Application: Database gkklibrarian
+Build Application: Program getmonthfromint
+Build Application: Program columnmbrclass
+Build Application: Program declarewinapi
+Build Application: Program optionmbrclass
+Build Application: Program getstringlocal
+Build Application: Program getdesktoppath
+Build Application: Program writeerrorlog
+Build Application: Program gkkmakepath
+Build Application: Program wmsgbox
+Build Application: Program releaseforms
+Build Application: Program setstringlocal
+Build Application: Program getscrollbarwidth
+Build Application: Program displaymsg
+Build Application: Program incseq
+Build Application: Program getregstring_hkcu
+Build Application: Program getsetting
+Build Application: Program senderroremail
+Build Application: Program getsettingstable
+Build Application: Program getnextuniqueid
+Build Application: Program winsocklibrary
+Build Application: File add
+Build Application: File browse
+Build Application: File delete
+Build Application: File edit
+Build Application: File membership
+Build Application: File about
+Build Application: File arrowup
+Build Application: File arrowdn
+Build Application: File favfolder
+Build Application: File gkkdefines
+Build Application: Program onselection
+Build Application: File save24
+Build Application: File refresh16
+Build Application: File open4
+Build Application: File viewdoc
+Build Application: File hierarchy24
+Build Application: File hierarchyadd16
+Build Application: File hierarchydelete16
+Build Application: File hierarchymove16
+Build Application: File about2
+Build Application: File hierarchyrename16
+Build Application: File gkkabout
+Build Application: File delete16
+Build Application: Form gkllibrarymain
+Build Application: Form gklabout
+Build Application: Form gklmsgbox
+Build Application: Form gkldisplaymsg
+Build Application: Form gklerrmsgbox
+Build Application: Form gkllibrarybrowse
+Build Application: Form gklnewfolder
+Build Application: Form gkllibraryadd
+Build Application: Form gklgettaxonomy
+Build Application: Form gklhierarchy
+Build Application: Visual Class Library gklapitimer
+Build Application: Visual Class Library gklaxtreeview
+Build Application: Visual Class Library gklbaseclasses
+Build Application: Visual Class Library gklcollection
+Build Application: Visual Class Library gklfileselection
+Build Application: Visual Class Library gkliconbuddy
+Build Application: Visual Class Library gklimagecombolist
+Build Application: Visual Class Library gkllabel
+Build Application: Visual Class Library gkllightboxv6a
+Build Application: Visual Class Library gkllistview
+Build Application: Visual Class Library gklownerdrawmenu
+Build Application: Visual Class Library gklsidebar
+Build Application: Visual Class Library gklsplitter
+Build Application: Visual Class Library gkltabframe
+Build Application: Visual Class Library gklthemeclasses
+Build Application: Visual Class Library gklvfpenvironment
+Build Application: Visual Class Library gklwindowposition
+Build Application: Visual Class Library gklwinsockemail
+Build Application: Form gklselectdir
+Build Application: Visual Class Library gklgdiplusx
+Build Application: Form gkllibraryedit
+Build Application: File clearinput-24

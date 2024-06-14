@@ -1,0 +1,3062 @@
+*-***********************************************************************************************
+*-* Written by:  Gregory A. Green
+*-*              980 Windmill Parkway
+*-*              Evans, GA  30809
+*-*              (706) 651-1640
+*-*
+*-* Copyright ©2005-2006 Gregory A. Green
+*-*
+*-***********************************************************************************************
+*-*  Routine launchng the GKK Comparison Utilities
+*-*
+*-*  TCHolzer 11/14/2006 Comments
+*-*  Vault Settings:  Vault Options, Diff/Merge: Diff Program: c:\gkk\gkkcompare.exe  Arguments: .T.,%LEFT_PATH%,%RIGHT_PATH%
+*-*                   Note: There can be NO SPACES in the Diff arguments field
+*-*                   VFP9 Runtimes MUST EXIST in the c:\gkk directory for Vault to Run GKK without errors
+*
+PARAMETERS qlSourceControl, qcpath1, qcpath2, qcfile1, qcfile2, qctype
+
+DECLARE INTEGER LockWindowUpdate IN Win32API INTEGER nHandle
+
+LOCAL qPassed
+IF TYPE('qlSourceControl') = "C"
+	qlSourceControl = LTRIM(UPPER(qlSourceControl))
+	qpassed = STRTRAN(ALLTRIM(UPPER(qlSourceControl)),CHR(0),'')
+	qpassed = STRTRAN(ALLTRIM(UPPER(qlSourceControl)),CHR(10),'')
+	qpassed = STRTRAN(ALLTRIM(UPPER(qlSourceControl)),CHR(13),'')
+ 	= ALINES(qPassedA,qpassed,',')
+	IF TYPE('ALEN(qPassedA,1)') = "N" .and. ALEN(qPassedA,1) >= 3
+ 		IF TYPE('qPassedA(2)') = "C"
+ 			qcFile2 = qPassedA(2)
+ 		ENDIF
+ 		IF TYPE('qPassedA(3)') = "C"
+ 			qcFile1 = qPassedA(3)
+ 		ENDIF
+		IF TYPE('qcFile1') <> "C" OR TYPE('qcFile2') <> "C"
+			=MESSAGEBOX('Invalid Parameters Passed from Source Control',0+16+4096,'Error')
+			RETURN
+		ENDIF
+		IF UPPER(LEFT(qPassedA(1),3)) = ".T." .or. (TYPE('qPassedA(1)')='L' .and. qPassedA(1))
+			qlSourceControl = .T.
+		ELSE
+			qlSourceControl = .F.
+		ENDIF
+	ELSE
+		qlSourceControl = .F.
+		qcFile1 = ''
+		qcFile2 = ''
+		qcPath1 = ''
+		qcPath2 = ''
+		qcType  = ''
+ 	ENDIF
+ELSE
+	qlSourceControl = .F.
+	qcFile1 = ''
+	qcFile2 = ''
+	qcPath1 = ''
+	qcPath2 = ''
+	qcType  = ''
+ENDIF
+
+*--Set variables and save environment settings
+LOCAL tmpvalue
+IF !PEMSTATUS(_screen,'resetvalues',5)
+	_screen.addproperty('resetvalues',set('RESOURCE')+'~'+SYS(2005))
+ENDIF
+IF TYPE('_screen.resetvalues') = "C" .and. !EMPTY(_screen.resetvalues)
+	tmpvalue = _Screen.resetvalues
+ELSE
+	tmpvalue = set('RESOURCE')+'~'+SYS(2005)
+ENDIF
+
+PRIVATE lcResource, lcRunFrom, lcResourceGKK, lcDefault
+PRIVATE lcCursor, lcResourceON, llError, lcFileType, llExe, llCounter
+PRIVATE llCancel, lcFileType, llTried, llOkay, lcPath, lcHome, lcCaption
+IF TYPE('tmpvalue')= "C" .and. !EMPTY(tmpvalue)
+	IF AT('~',tmpvalue) > 0 .and. LEN(tmpvalue) > AT('~',tmpvalue)
+		lcResource = SUBSTR(tmpvalue,AT('~',tmpvalue)+1)
+		IF !FILE(lcResource)
+			lcResource = ''
+		ENDIF
+	ELSE
+		lcResource = ''
+	ENDIF
+	IF LEN(tmpvalue) >=3 .and. INLIST(LEFT(tmpvalue,3),'ON~','OFF')
+		IF LEFT(tmpvalue,2) = 'ON'
+			lcResourceOn = 'ON'
+		ELSE
+			lcResourceOn = 'OFF'
+		ENDIF
+	ELSE
+		lcResourceOn = 'OFF'
+	ENDIF
+ELSE
+	lcResource = ''
+	lcResourceOn = 'OFF'
+ENDIF
+IF ".EXE" $ UPPER(SYS(16)) .or. ".EXE" $ UPPER(sys(16,1)) .or. qlSourceControl 
+	llExe = .T.
+ENDIF
+lcCaption = _Screen.Caption
+_Screen.Caption = "GKK Compare"
+lcDefault = sys(2003)
+lcCursor = SET('CURSOR')
+lcFileType = ''
+lcRunFrom = ''
+lcResourceGKK = ''
+llCancel = .F.
+llError = .F.
+lcStatus = SET('STATUS BAR')
+lcConfirm = SET('CONFIRM')
+llTried = .F.
+llOkay = .F.
+lcPath = GETENV("Path")
+lcHome = HOME(1)
+llCounter = 0
+
+IF !EMPTY(lcPath)
+	SET PATH TO (lcPath)
+ELSE
+	IF !EMPTY(sys(2003))
+		SET PATH TO (sys(2003))
+	ENDIF
+ENDIF
+IF "\" $ FULLPATH(sys(16))
+	lnpos = RAT('\',FULLPATH(sys(16)))
+	IF lnpos = 0
+		RETURN .F.
+	ENDIF
+	lcRunFrom = LEFT(FULLPATH(sys(16)),lnpos)
+	IF !DIRECTORY(lcRunFrom)
+		WAIT WINDOW 'Error'
+		RETURN
+	ENDIF
+ENDIF
+IF TYPE('lcRunFrom') = "C" .and. TYPE('lcPath') = "C" ;
+	.and. !EMPTY(lcRunFrom) .and. !EMPTY(lcpath) ;
+	.and. DIRECTORY(lcRunFrom) ;
+	.and. ! LOWER(lcRunFrom) $ LOWER(lcPath)
+	lcPath = lcPath + ";" + lcRunFrom
+	SET PATH TO (lcPath)
+ENDIF
+IF TYPE('lcRunFrom') = "C" .and. TYPE('lcPath') = "C" ;
+	.and. !EMPTY(lcRunFrom) .and. !EMPTY(lcpath) ;
+	.and. DIRECTORY(lcRunFrom) ;
+	.and. ! LOWER(lcRunFrom) $ LOWER(lcPath)
+	lcPath = lcPath + ";" + lcRunFrom
+	SET PATH TO (lcPath)
+ENDIF
+IF TYPE('lcHome') = "C" .and. TYPE('lcPath') = "C" ;
+	.and. !EMPTY(lcHome) .and. !EMPTY(lcpath) ;
+	.and. DIRECTORY(lcHome) ;
+	.and. ! LOWER(lcHome) $ LOWER(lcPath)
+	lcPath = lcPath + ";" + lcHome
+	SET PATH TO (lcPath)
+ENDIF
+
+lcReSourceGKK = (lcRunFrom+"gkkuser.dbf") 	&& we create this
+DO WHILE .T.
+	IF !FILE(lcResourceGKK) 
+		TRY
+			USE gkkresource IN 0 ALIAS foxuser
+		CATCH
+			IF !EMPTY(sys(2005))
+				TRY
+					USE (sys(2005)) AGAIN IN 0 ALIAS foxuser
+				CATCH
+					TRY
+						USE foxuser AGAIN IN 0 ALIAS foxuser
+					CATCH
+						TRY
+							USE (lcResource) AGAIN IN 0 ALIAS foxuser
+						CATCH
+						ENDTRY
+					ENDTRY
+				ENDTRY
+			ENDIF
+		ENDTRY
+		IF !USED('foxuser')
+			RETURN
+		ENDIF
+		SELECT foxuser
+		COPY TO (lcRunFrom+"gkkuser.dbf")
+		USE IN foxuser
+	ENDIF	
+	SET DEFAULT TO (lcRunFrom)
+	IF !FILE(lcRunFrom+"gkkuser.dbf")	&& Couldn't create the resource file
+		llError = .T.
+	ENDIF
+	IF llError
+		EXIT
+	ENDIF
+	*--We've created the resource, now use it
+	TRY
+		SET RESOURCE OFF
+		SET RESOURCE TO (lcRunFrom+"gkkuser.dbf")
+		SET RESOURCE ON
+		llOkay = .T.
+	CATCH
+		IF !llTried	&& Delete the file and try again
+			SET RESOURCE OFF
+			IF USED('gkkuser')
+				USE IN gkkuser
+			ENDIF
+			FLUSH
+			=SYS(1104)
+			IF FILE(lcRunFrom+'gkkuser.dbf')
+				DELETE FILE (lcRunFrom+'gkkuser.dbf')
+			ENDIF
+			IF FILE(lcRunFrom+'gkkuser.fpt')
+				DELETE FILE (lcRunFrom+'gkkuser.fpt')
+			ENDIF
+			*--Try with a new resource file
+			llTried = .T.
+			LOOP
+		ELSE
+			llError = .T.
+		ENDIF
+	ENDTRY
+	IF llError 
+		EXIT
+	ENDIF
+	IF llOkay
+		EXIT
+	ENDIF
+ENDDO
+IF llError
+	=MESSAGEBOX('An error occurred creating the resource file.')
+	RETURN .F.
+ENDIF
+FLUSH
+IF FILE(lcRunFrom+'gkkuser.dbf')
+	TRY
+		SET RESOURCE OFF
+		SET RESOURCE TO (lcRunFrom+"gkkuser.dbf")
+		SET RESOURCE ON
+	CATCH
+	ENDTRY
+ENDIF
+IF EMPTY(sys(2005)) .OR. SET('RESOURCE') <> "ON"
+	=MESSAGEBOX('Unable to set resource to: GKKUSER')
+	RETURN
+ENDIF
+SET STATUS BAR ON
+SET CONFIRM ON
+SET CURSOR ON
+
+_Screen.WindowState = 0
+=SetScreen()
+_screen.autocenter = .T.
+_Screen.Visible = .T.
+
+*-*	Set the counter for initializing CodeMax
+IF VARTYPE(_SCREEN.InitCodeMax) = "U"
+	_SCREEN.AddProperty("InitCodeMax",0)
+ENDIF
+
+IF TYPE('qPassed') = "C" .and. TYPE('qcFile1') = "C" .and. TYPE('qcFile2') = "C"
+	?[SCC Passed:]+qPassed
+	?[Left File: ]+qcFile1
+	?[Right File: ]+qcFile2
+ENDIF
+
+IF EMPTY(qcFile1) .OR. EMPTY(qcFile2)
+	qcFile1 = ''
+	qcFile2 = ''
+	lcFileType = ''
+	qcType = ''
+ELSE
+	IF FILE(qcFile1) .and. FILE(qcFile2)
+		qlSourceControl = .T.
+		DO CASE
+		CASE UPPER(RIGHT(qcFile2,3)) = "PRG" .OR. UPPER(RIGHT(qcFile1,3)) = "PRG"
+			qcType = 'P'
+		CASE LEFT(UPPER(RIGHT(qcFile2,3)),2) = 'SC' .AND. LEFT(UPPER(RIGHT(qcFile1,3)),2) = 'SC'
+			qcType = 'K'
+		CASE UPPER(RIGHT(qcFile2,3)) = 'VCA' .OR. UPPER(RIGHT(qcFile1,3)) = 'VCA'
+			qcType = 'P'
+		CASE LEFT(UPPER(RIGHT(qcFile2,3)),2) = 'VC' .AND. LEFT(UPPER(RIGHT(qcFile1,3)),2) = 'VC'
+			qcType = 'C'
+	*		qcType = 'V'
+		CASE UPPER(RIGHT(qcFile2,3)) = 'DBF' .AND. UPPER(RIGHT(qcFile1,3)) = "DBF"
+			qcType = 'T'
+		OTHERWISE
+			qcType = ''
+		ENDCASE
+		IF !SetLocalFileAttr(qcFile1) .OR. !SetLocalFileAttr(qcFile2)
+			=MESSAGEBOX('At least one of the files is READ-ONLY or in use.'+CHR(13)+'Unable to open both files for file comparison.'+CHR(13);
+			+CHR(13)+'Files:'+CHR(13)+CHR(13)+qcFile1+CHR(13)+qcFile2+CHR(13),0+16+4-06,'Error Opening File')
+			RETURN .F.
+		ENDIF
+	ELSE
+		IF !FILE(qcFile1)
+			=MESSAGEBOX('Cannot locate '+qcFile1,0+16+4096,'Error')
+			RETURN .F.
+		ENDIF
+		IF !FILE(qcFile2)
+			=MESSAGEBOX('Cannot locate '+qcFile2,0+16+4096,'Error')
+			RETURN .F.
+		ENDIF
+		qcFile1 = ''
+		qcFile2 = ''
+		qcType = ''
+		qlSourceControl = .F.
+	ENDIF
+ENDIF
+IF !EMPTY(qcType)
+	lcFileType = qcType
+ENDIF
+IF TYPE('qcFile1') = "L" .or. TYPE('qcFile2') = "L"
+	qcfile1 = ''
+	qcfile2 = ''
+	qcType = ''
+	lcFileType = ''
+ENDIF
+DO WHILE !llCancel
+	IF EMPTY(qcType) .or. EMPTY(qcFile1) .or. EMPTY(qcFile2)
+		IF EMPTY(qcFile1) .and. EMPTY(qcFile2)
+			lcFileType = ''
+		ENDIF
+		DO FORM GKKCompareType TO lcFileType
+		llFileComp = .F.
+	ELSE
+		llFileComp = .T.
+	ENDIF
+	IF !EMPTY(lcFileType)
+		DO CASE
+			CASE lcFileType = "P"      && Programs
+				DO FORM GKKComparePrg WITH qcFile1,qcFile2,llFileComp,.T. && TCHolzer left file, right file, version compare, compare only (do not delete afterwards)
+				lcFileType = ''
+			CASE lcFileType = "K"      && Forms
+				DO FORM GKKCompareScx WITH qcFile1,qcFile2,llFileComp,.T. && TCHolzer left file, right file, version compare, compare only (do not delete afterwards)
+				lcFileType = ''
+			CASE lcFileType = "V"      && Visual classes (file to file)
+				DO FORM GKKCompareVcx WITH qcFile1,qcFile2,llFileComp,.T. && TCHolzer left file, right file, version compare, compare only (do not delete afterwards)
+				lcFileType = ''
+			CASE lcFileType = "C"      && Visual classes (class to class)
+				DO FORM GKKCompareCls WITH qcFile1,qcFile2,llFileComp,.T. && TCHolzer left file, right file, version compare, compare only (do not delete afterwards)
+				lcFileType = ''
+			CASE lcFileType = "T"      && Tables
+				DO FORM GKKCompareTbl WITH qcFile1,qcFile2,llFileComp,.T. && TCHolzer left file, right file, version compare, compare only (do not delete afterwards)
+				lcFileType = ''
+		OTHERWISE
+			llCancel = .T.
+		ENDCASE
+	ENDIF
+	IF TYPE('lcFileType') <> "C"	&& shouldn't happen
+		EXIT
+	ENDIF
+	IF TYPE('llCancel') <> "L"		&& shouldn't happen
+		EXIT
+	ENDIF
+	llcounter = llcounter + 1
+	IF llcounter > 10
+		llCancel = .T.
+		CLEAR EVENTS
+	ENDIF
+	IF llCancel
+		EXIT
+	ENDIF
+	READ EVENTS
+ENDDO
+DOEVENTS FORCE
+FLUSH
+*--Reset environment
+IF USED('foxuser')
+	USE IN foxuser
+ENDIF
+SET RESOURCE OFF
+IF !qlSourceControl
+	IF TYPE('lcDefault') = "C" 
+		IF DIRECTORY(lcDefault)
+			SET DEFAULT TO &lcDefault
+		ENDIF
+	ENDIF
+	IF TYPE('lcResource') = "C" .and. FILE(lcResource)
+		SET RESOURCE TO &lcResource
+	ENDIF
+	IF TYPE('lcResourceON') = "C" .and. lcResourceON = 'ON'
+		SET RESOURCE ON
+	ENDIF
+	IF TYPE('lcCursor')="C" .and. !EMPTY(lcCursor)
+		SET CURSOR &lcCursor
+	ENDIF
+	IF TYPE('lcStatus') = "C" .and. INLIST(lcStatus,"ON","OFF")
+		SET STATUS BAR &lcStatus'
+	ENDIF
+	IF TYPE('lcConfirm') = "C" .and. INLIST(lcConfirm,'ON','OFF')
+		SET CONFIRM &lcConfirm
+	ENDIF
+	IF TYPE('lcCaption') = "C" .and. !EMPTY(lcCaption)
+		_Screen.Caption = lcCaption
+	ENDIF
+ELSE
+	IF qlSourceControl	&& from source control
+		SET RESOURCE OFF
+		CLOSE TABLES
+		CLOSE DATABASES
+		CLOSE ALL
+		FLUSH
+		=SYS(1104)
+		IF FILE(lcRunFrom+'gkkuser.dbf')
+			DELETE FILE (lcRunFrom+'gkkuser.dbf')
+		ENDIF
+		IF FILE(lcRunFrom+'gkkuser.fpt')
+			DELETE FILE (lcRunFrom+'gkkuser.fpt')
+		ENDIF
+		CLEAR ALL
+		RELEASE ALL
+		QUIT
+	ELSE
+		SET RESOURCE OFF
+		IF USED('gkkuser')
+			USE IN gkkuser
+		ENDIF
+		FLUSH
+		=SYS(1104)
+		IF FILE(lcRunFrom+'gkkuser.dbf')
+			DELETE FILE (lcRunFrom+'gkkuser.dbf')
+		ENDIF
+		IF FILE(lcRunFrom+'gkkuser.fpt')
+			DELETE FILE (lcRunFrom+'gkkuser.fpt')
+		ENDIF
+	ENDIF
+ENDIF
+RETURN
+
+
+*----------Both files must be modifiable to compare them
+FUNCTION SetLocalFileAttr(pcFiletoChange)
+
+IF TYPE('pcFiletoChange') = "C" .and. FILE(pcFiletoChange)
+	lcFile = pcFiletoChange
+ELSE
+	RETURN .F.
+ENDIF
+
+*--Define constants for file attributes
+#DEFINE FILE_ATTRIBUTE_READONLY 	0x01
+#DEFINE FILE_ATTRIBUTE_HIDDEN	    0x02
+#DEFINE FILE_ATTRIBUTE_SYSTEM	    0x04
+#DEFINE FILE_ATTRIBUTE_DIRECTORY	0x10
+#DEFINE FILE_ATTRIBUTE_ARCHIVE	    0x20
+#DEFINE FILE_ATTRIBUTE_NORMAL	    0x80
+#DEFINE FILE_ATTRIBUTE_TEMPORARY	0x0100
+
+DECLARE LONG SetFileAttributes IN WIN32API STRING FileName, LONG FileAttributes
+DECLARE LONG GetFileAttributes IN WIN32API STRING FileName
+
+*--Read attributes
+lnAttributes = GetFileAttributes (lcFile)
+IF lnAttributes = -1
+   *--Error reading attributes
+   RETURN .F.
+ENDIF
+IF SetFileAttributes (lcFile, BITAND(lnAttributes, BITNOT(FILE_ATTRIBUTE_READONLY))) = 0
+   *--Error setting attributes
+   CLEAR DLLS 'SetFileAttributes'
+   CLEAR DLLS 'GetFileAttributes'
+   RETURN .F.
+ELSE
+   CLEAR DLLS 'SetFileAttributes'
+   CLEAR DLLS 'GetFileAttributes'
+   RETURN .T.
+ENDIF
+
+
+FUNCTION SetScreen
+LOCAL lcWindow, llReturn, lnTop, lnLeft, lnWidth, lnHeight, lcFormName, lnWinStat
+DECLARE INTEGER GetSystemMetrics IN user32 INTEGER nIndex
+WITH _Screen
+	lnTop     = 4
+	lnLeft    = 4
+	lnWidth   = SYSMETRIC(1) * 0.95
+	lnHeight  = SYSMETRIC(2) * 0.85
+	lnWinStat = 0
+	.LockScreen  = .T.
+	.Top         = lnTop
+	.Left        = lnLeft
+	.Width       = lnWidth
+	.Height      = lnHeight
+	.WindowState = lnWinStat
+	.LockScreen  = .F.
+ENDWITH
+RETURN .T.
+
+
+*----------------------------------------------------------------------------------------
+FUNCTION scText
+#INCLUDE scX.h
+#INCLUDE "foxpro.h"
+
+***************************************************************************
+*:
+*:    scX: scText.prg
+*:
+*:         This is Paul McNett's modified version of scctext.prg as
+*:         downloaded from w00dy's prolib site.  I saw no choice but to
+*:         seriously modify this program to suit the needs of scX.
+*:
+*:         Therefore, I've renamed it scText to coincide with the other
+*:         programs within the scX project, and to separate it from
+*:         scctext.prg to avoid confusion.
+*:
+*:   Original Copyright 1995 Microsoft Corp., but has been modified
+*:   and improved by many people who deserve equal credit (See scctext comments
+*:   which I've moved to the end of this file to conserve space). My intent
+*:   is to rewrite this eventually but for now this is scctext.prg, originally
+*:   written by Microsoft and modified by a slew of good people that like
+*:   to share.
+*:
+*:   This file is, until further notice, completely exempt from the LGPL
+*:   license which applies to the rest of the scX project, but for
+*:   convenience is distributed with scX.
+*:
+*:   Message to Microsoft: Please contact me at p@ulmcnett.com should you
+*:   have any issue with my use of your original scctext.prg in this
+*:   LGPL'd project and I will rewrite scText from scratch immediately.
+*:
+*:   Last Modified: 07-13-2004
+*:
+***************************************************************************
+
+
+* set to false to unconditionally cancel when something goes wrong, true to
+* get promted to ignore/retry/cancel.
+#DEFINE C_DEBUG .T.
+
+* pkm: if RECNO_SAVE is .T., we'll put the record number into the text file,
+*      as in [39 RECORD].  If RECNO_RESTORE is .T., we'll account for that
+*      saved recno and put the rebuilt binary file back in the original order.
+#DEFINE RECNO_SAVE          .T.
+#DEFINE RECNO_RESTORE       .T.
+#DEFINE PACK_BEFORE_WRITE   .T.
+
+*--------------------------------------------
+* Set this constant to .T. if you want to have
+* methods and properties sorted case insensitive.
+* This means custom methods and properties will
+* mixed with VFP's core methods and properties.
+#DEFINE SORT_CASE_INSENSITIVE .F.
+
+* If merge support is 1 and C_WRITECHECKSUMS is .T., write a checksum (sys(2007)) instead of
+* converting binary to ascii. This drastically improves performance because OLE controls can
+* be large and time-consuming to convert.
+#DEFINE C_WRITECHECKSUMS .T.
+
+#DEFINE SCCTEXTVER_LOC (GetVersion())
+#DEFINE ALERTTITLE_LOC (GetVersion())
+
+
+* auto-localizing for german users, english strings for the rest of us
+#IF VERSION(3) == "49"  && german
+	#DEFINE ERRORMESSAGE_LOC "Fehler Nr. " + TRANSFORM(m.nError) + " in " + m.cMethod +  " (" + TRANSFORM(m.nLine) + "): " + m.cMessage
+	#DEFINE ERRORTITLE_LOC "Programmfehler"
+	#DEFINE ERR_ALERTCONTINUE_LOC "Weiter?"
+	#DEFINE ERR_BADVERSION_LOC "Falsche SCCTEXT-Version."
+	#DEFINE ERR_BIN2TEXTNOTSUPPORTED_LOC "Das Generieren von Textdateien wird fr Dateien vom Typ '&cType' nicht untersttzt."
+	#DEFINE ERR_FCREATE_LOC "FCREATE()-Fehler: "
+	#DEFINE ERR_FIELDLISTTOOLONG_LOC "Feldliste zu lang."
+	#DEFINE ERR_FILENOTFOUND_LOC "Datei nicht gefunden: "
+	#DEFINE ERR_FOPEN_LOC "FOPEN()-Fehler: "
+	#DEFINE ERR_FOXERROR_11_LOC "Funktionsargumentwert, -typ oder -anzahl ungltig."
+	#DEFINE ERR_INVALIDREVERSE_LOC "Ungltiger REVERSE-Parameter."
+	#DEFINE ERR_INVALIDTEXTNAME_LOC "Ungltiger TEXTNAME-Parameter."
+	#DEFINE ERR_LINENOACTION_LOC "Keine Maï¿½ahme erfolgte in Zeile: "
+	#DEFINE ERR_MAXBINLEN_LOC "Der Wert fr MAXBINLEN muï¿½ein Vielfaches von 8  sein. Programm abgebrochen."
+	#DEFINE ERR_NOTABLE_LOC "Ein Tabellenname muï¿½angegeben werden."
+	#DEFINE ERR_NOTEXTFILE_LOC "Zum Erstellen einer Tabelle ist ein Textdateiname erforderlich."
+	#DEFINE ERR_OVERWRITEREADONLY_LOC "Die Datei &cParameter1 ist schreibgeschtzt. ï¿½erschreiben?"
+	#DEFINE ERR_TEXT2BINNOTSUPPORTED_LOC "Das Generieren von Binï¿½dateien wird fr Dateien vom Typ '&cType' nicht untersttzt."
+	#DEFINE ERR_UNSUPPORTEDFIELDTYPE_LOC "Feldtyp nicht untersttzt: "
+	#DEFINE ERR_UNSUPPORTEDFILETYPE_LOC "Dateityp nicht untersttzt: "
+	* Used by the thermometer
+	#DEFINE C_BINARYCONVERSION_LOC  "Binï¿½daten werden konvertiert: &cBinaryProgress.%"
+	#DEFINE C_THERMCOMPLETE_LOC    "&cThermLabel generiert."
+	#DEFINE C_THERMLABEL_LOC    "&cThermLabel wird generiert..."
+#ELSE
+	#DEFINE ERRORMESSAGE_LOC "Error #" + TRANSFORM(m.nError) + " in " + m.cMethod + " (" + TRANSFORM(m.nLine) + "): " + m.cMessage
+	#DEFINE ERRORTITLE_LOC "Program Error"
+	#DEFINE ERR_ALERTCONTINUE_LOC "Continue?"
+	#DEFINE ERR_BADVERSION_LOC "Bad SCCTEXT version."
+	#DEFINE ERR_BIN2TEXTNOTSUPPORTED_LOC "Text file generation not supported for type '&cType' files."
+	#DEFINE ERR_FCREATE_LOC "FCREATE() error: "
+	#DEFINE ERR_FIELDLISTTOOLONG_LOC "Field list is too long."
+	#DEFINE ERR_FILENOTFOUND_LOC "File not found: "
+	#DEFINE ERR_FOPEN_LOC "FOPEN() error: "
+	#DEFINE ERR_FOXERROR_11_LOC "Function argument value, type, or count is invalid."
+	#DEFINE ERR_INVALIDREVERSE_LOC "Invalid REVERSE parameter."
+	#DEFINE ERR_INVALIDTEXTNAME_LOC "Invalid TEXTNAME parameter."
+	#DEFINE ERR_LINENOACTION_LOC "No action was taken on line: "
+	#DEFINE ERR_MAXBINLEN_LOC "MAXBINLEN value must be a multiple of 8. Program aborted."
+	#DEFINE ERR_NOTABLE_LOC "A table name is required."
+	#DEFINE ERR_NOTEXTFILE_LOC "Text file name is required to create a table."
+	#DEFINE ERR_OVERWRITEREADONLY_LOC "File &cParameter1 is read-only. Overwrite it?"
+	#DEFINE ERR_TEXT2BINNOTSUPPORTED_LOC "Binary file generation not supported for type '&cType' files."
+	#DEFINE ERR_UNSUPPORTEDFIELDTYPE_LOC "Field type not supported: "
+	#DEFINE ERR_UNSUPPORTEDFILETYPE_LOC "File type not supported: "
+	* Used by the thermometer
+	#DEFINE C_BINARYCONVERSION_LOC  "Converting binary data: &cBinaryProgress.%"
+	#DEFINE C_THERMCOMPLETE_LOC    "Generate &cThermLabel complete!"
+	#DEFINE C_THERMLABEL_LOC    "Generating &cThermLabel"
+#ENDIF
+
+#DEFINE CR      CHR(13)
+#DEFINE LF      CHR(10)
+#DEFINE CRLF    CHR(13) + CHR(10)
+#DEFINE MAXBINLEN  96    && this value must be a multiple of 8!!!
+
+#DEFINE FILE_ATTRIBUTE_NORMAL  128
+
+* Text file support for each file type
+*  0 indicates no text file support
+*  1 indicates one-way support (to text)
+*  2 indicates two-way support (for merging)
+#DEFINE SCC_DBC_SUPPORT      0
+#DEFINE SCC_DBF_SUPPORT      2
+#DEFINE SCC_FORM_SUPPORT    2
+#DEFINE SCC_LABEL_SUPPORT   2
+#DEFINE SCC_MENU_SUPPORT    2
+#DEFINE SCC_PJX_SUPPORT     2
+#DEFINE SCC_REPORT_SUPPORT  2
+#DEFINE SCC_VCX_SUPPORT      2
+
+* These are the extensions used for the text file
+#DEFINE SCC_ASCII_DBC_EXT    "DCA"
+#DEFINE SCC_ASCII_DBF_EXT    "DBA"
+#DEFINE SCC_ASCII_FORM_EXT    "SCA"
+#DEFINE SCC_ASCII_LABEL_EXT    "LBA"
+#DEFINE SCC_ASCII_MENU_EXT    "MNA"
+#DEFINE SCC_ASCII_PJX_EXT     "PJA"
+#DEFINE SCC_ASCII_REPORT_EXT  "FRA"
+#DEFINE SCC_ASCII_VCX_EXT    "VCA"
+
+* These are the extensions used for the binary file
+#DEFINE SCC_DBC_EXT      "DBC"
+#DEFINE SCC_DBF_EXT      "DBF"
+#DEFINE SCC_FORM_EXT    "SCX"
+#DEFINE SCC_LABEL_EXT    "LBX"
+#DEFINE SCC_MENU_EXT    "MNX"
+#DEFINE SCC_PJX_EXT     "PJX"
+#DEFINE SCC_REPORT_EXT    "FRX"
+#DEFINE SCC_VCX_EXT      "VCX"
+
+* These are the extensions used for the binary MEMO file
+#DEFINE SCC_DBC_MEMO    "DBT"
+#DEFINE SCC_DBF_MEMO    "FPT"
+#DEFINE SCC_FORM_MEMO    "SCT"
+#DEFINE SCC_LABEL_MEMO    "LBT"
+#DEFINE SCC_MENU_MEMO    "MNT"
+#DEFINE SCC_PJX_MEMO    "PJT"
+#DEFINE SCC_REPORT_MEMO    "FRT"
+#DEFINE SCC_VCX_MEMO    "VCT"
+
+* These are the project type identifiers for the files
+#DEFINE PRJTYPE_DBC      "d"
+#DEFINE PRJTYPE_DBF      "D"
+#DEFINE PRJTYPE_FORM    "K"
+#DEFINE PRJTYPE_LABEL    "B"
+#DEFINE PRJTYPE_MENU    "M"
+#DEFINE PRJTYPE_PJX    "P"
+#DEFINE PRJTYPE_REPORT    "R"
+#DEFINE PRJTYPE_VCX      "V"
+
+* These are the extensions used for table backups
+#DEFINE SCC_DBC_INDEX_BAK    "DC3"
+#DEFINE SCC_DBC_MEMO_BAK    "DC2"
+#DEFINE SCC_DBC_TABLE_BAK    "DC1"
+#DEFINE SCC_DBF_INDEX_BAK    "DB3"
+#DEFINE SCC_DBF_MEMO_BAK    "DB2"
+#DEFINE SCC_DBF_TABLE_BAK    "DB1"
+#DEFINE SCC_FORM_MEMO_BAK    "SC2"
+#DEFINE SCC_FORM_TABLE_BAK    "SC1"
+#DEFINE SCC_LABEL_MEMO_BAK    "LB2"
+#DEFINE SCC_LABEL_TABLE_BAK    "LB1"
+#DEFINE SCC_MENU_MEMO_BAK    "MN2"
+#DEFINE SCC_MENU_TABLE_BAK    "MN1"
+#DEFINE SCC_PJX_MEMO_BAK      "PJ2"
+#DEFINE SCC_PJX_TABLE_BAK     "PJ1"
+#DEFINE SCC_REPORT_MEMO_BAK    "FR2"
+#DEFINE SCC_REPORT_TABLE_BAK  "FR1"
+#DEFINE SCC_VCX_MEMO_BAK    "VC2"
+#DEFINE SCC_VCX_TABLE_BAK    "VC1"
+
+* These are the extensions used for text file backups
+#DEFINE SCC_DBC_TEXT_BAK    "DCB"
+#DEFINE SCC_DBF_TEXT_BAK    "DBB"
+#DEFINE SCC_FORM_TEXT_BAK    "SCB"
+#DEFINE SCC_LABEL_TEXT_BAK    "LBB"
+#DEFINE SCC_MENU_TEXT_BAK    "MNB"
+#DEFINE SCC_PJX_TEXT_BAK    "PJB"
+#DEFINE SCC_REPORT_TEXT_BAK    "FRB"
+#DEFINE SCC_VCX_TEXT_BAK    "VCB"
+
+* These are used for building markers used to parse the text back into a table
+#DEFINE MARKBINENDWORD    "[BINEND "
+#DEFINE MARKBINENDWORD2    "]"
+#DEFINE MARKBINSTARTWORD  "[BINSTART "
+#DEFINE MARKBINSTARTWORD2  "]"
+#DEFINE MARKCHECKSUM    "CHECKSUM="
+#DEFINE MARKEOF        "[EOF]"
+#DEFINE MARKFIELDEND    "] "
+#DEFINE MARKFIELDSTART    "["
+#DEFINE MARKMEMOENDWORD    "[END "
+#DEFINE MARKMEMOENDWORD2  "]"
+#DEFINE MARKMEMOSTARTWORD  "[START "
+#DEFINE MARKMEMOSTARTWORD2  "]"
+#DEFINE MARKRECORDEND    " RECORD]"
+#DEFINE MARKRECORDSTART    "["
+
+#DEFINE SKIPEMPTYFIELD    .T.
+
+* These are used to override default behavior for specific fields
+* Classes\Forms uses the same lists
+* Reports\Labels uses the same lists
+#DEFINE VCX_CHARASBIN_LIST    ""
+#DEFINE VCX_EXCLUDE_LIST    " TIMESTAMP "
+#DEFINE VCX_MEMOASBIN_LIST    " OBJCODE OLE OLE2 "
+#DEFINE VCX_MEMOASCHAR_LIST    " CLASS CLASSLOC BASECLASS OBJNAME PARENT "
+#DEFINE VCX_MEMOVARIES_LIST    " RESERVED4 RESERVED5 "
+
+#DEFINE FRX_CHARASBIN_LIST    ""
+#DEFINE FRX_EXCLUDE_LIST    " TIMESTAMP "
+#DEFINE FRX_MEMOASBIN_LIST    ""
+#DEFINE FRX_MEMOASCHAR_LIST    " NAME STYLE PICTURE ORDER FONTFACE "
+#DEFINE FRX_MEMOVARIES_LIST    " TAG TAG2 "
+
+#DEFINE MNX_CHARASBIN_LIST    " MARK "
+#DEFINE MNX_EXCLUDE_LIST    " TIMESTAMP "
+#DEFINE MNX_MEMOASBIN_LIST    ""
+#DEFINE MNX_MEMOASCHAR_LIST    " NAME PROMPT COMMAND MESSAGE KEYNAME KEYLABEL "
+#DEFINE MNX_MEMOVARIES_LIST    ""
+
+#DEFINE DBC_CHARASBIN_LIST    ""
+#DEFINE DBC_EXCLUDE_LIST    ""
+#DEFINE DBC_MEMOASBIN_LIST    ""
+#DEFINE DBC_MEMOASCHAR_LIST    ""
+#DEFINE DBC_MEMOVARIES_LIST    " PROPERTY CODE USER "
+
+#DEFINE PJX_CHARASBIN_LIST    ""
+#DEFINE PJX_EXCLUDE_LIST     " OBJECT TIMESTAMP "
+#DEFINE PJX_MEMOASBIN_LIST    " NAME OUTFILE HOMEDIR DEVINFO SYMBOLS RESERVED1 SCCDATA "
+#DEFINE PJX_MEMOASCHAR_LIST    ""
+#DEFINE PJX_MEMOVARIES_LIST    ""
+
+* Used by the thermometer
+#DEFINE WIN32FONT        "MS Sans Serif"
+#DEFINE WIN95FONT        "Arial"
+
+*---------------------------------------------------------------------------
+PARAMETERS cTableName, cType, cTextName, lGenText
+
+
+LOCAL iParmCount, cCollate, cCompatible
+iParmCount = PCOUNT()
+cCollate = SET("COLLATE")
+cCompatible = SET("COMPATIBLE")
+* we need a constant sort order with ASORT()
+SET COLLATE TO "MACHINE"
+* FSIZE() needs SET COMPATIBLE OFF to work the way it's used in this program
+SET COMPATIBLE OFF
+
+
+LOCAL  obj, iResult
+iResult = -1
+IF m.iParmCount = 1 .AND. TYPE('m.cTableName') = 'C'
+	* Check to see if we've been passed only a PRJTYPE value. If so, return a
+	* value to indicate text support for the file type.
+	*  0 indicates no text file support
+	*  1 indicates one-way support (to text)
+	*  2 indicates two-way support (for merging)
+	*  -1 indicates m.cTableName is not a recognized file type
+	iResult = TextSupport(m.cTableName)
+ENDIF
+
+IF m.iResult = -1 && .and. file(m.cTableName)
+	obj = CREATEOBJ("SccTextEngine", m.cTableName, m.cType, m.cTextName, m.lGenText, m.iParmCount)
+	IF TYPE("m.obj") = "O" .AND. .NOT. ISNULL(m.obj)
+		obj.PROCESS()
+		IF TYPE("m.obj") = "O" .AND. .NOT. ISNULL(m.obj)
+			iResult = obj.iResult
+		ENDIF
+	ENDIF
+	RELEASE obj
+ENDIF
+
+
+IF NOT m.cCollate == "MACHINE"
+	* set back changed collate setting to user's choice
+	SET COLLATE TO (m.cCollate)
+ENDIF
+IF NOT m.cCompatible == "OFF"
+	* set back changed compatible setting to user's choice
+	SET COMPATIBLE &cCompatible.
+ENDIF
+
+
+RETURN (m.iResult)
+
+
+******************************************************************
+FUNCTION GetVersion()
+	* Get the version as reported by scX
+	LOCAL oFunctions
+	oFunctions = NEWOBJECT("sesfunctions", "scCommon.prg")
+	RETURN oFunctions.GetVersion()
+ENDFUNC
+******************************************************************
+
+
+******************************************************************
+FUNCTION CanUseExclusive(cTableName)
+	* Call the scX common function
+	LOCAL oFunctions
+	oFunctions = NEWOBJECT("sesfunctions", "scCommon.prg")
+	RETURN oFunctions.CanUseExclusive(cTableName)
+ENDFUNC
+******************************************************************
+
+
+******************************************************************
+FUNCTION CanFlock(cTableName)
+	* Call the scX common function
+	LOCAL oFunctions
+	oFunctions = NEWOBJECT("sesfunctions", "scCommon.prg")
+	RETURN oFunctions.CanFlock(cTableName)
+ENDFUNC
+******************************************************************
+
+
+******************************************************************
+PROCEDURE TextSupport
+	PARAMETERS cFileType
+	DO CASE
+			* Check to see if we've been passed only a PRJTYPE value. If so, return a
+			* value to indicate text support for the file type.
+			*  0 indicates no text file support
+			*  1 indicates one-way support (to text)
+			*  2 indicates two-way support (for merging)
+		CASE m.cFileType == PRJTYPE_FORM
+			RETURN SCC_FORM_SUPPORT
+		CASE m.cFileType == PRJTYPE_LABEL
+			RETURN SCC_LABEL_SUPPORT
+		CASE m.cFileType == PRJTYPE_MENU
+			RETURN SCC_MENU_SUPPORT
+		CASE m.cFileType == PRJTYPE_REPORT
+			RETURN SCC_REPORT_SUPPORT
+		CASE m.cFileType == PRJTYPE_VCX
+			RETURN SCC_VCX_SUPPORT
+		CASE m.cFileType == PRJTYPE_DBC
+			RETURN SCC_DBC_SUPPORT
+		CASE m.cFileType == PRJTYPE_DBF
+			RETURN SCC_DBF_SUPPORT
+		CASE m.cFileType == PRJTYPE_PJX
+			RETURN SCC_PJX_SUPPORT
+		OTHERWISE
+			RETURN -1
+	ENDCASE
+ENDPROC
+
+******************************************************************
+DEFINE CLASS SccTextEngine AS CUSTOM
+	cIndexBakName = ""
+	cIndexName    = ""
+	cTempIndexName = "" && pkm
+	cMemoBakName  = ""
+	cMemoName     = ""
+	cTempMemoName = "" && pkm
+	cMessage      = ""
+	cTableBakName = ""
+	cTableName    = ""    && pkm: final table name as used by VFP
+	cTempTableName = ""   && pkm: temp table name used during build
+	cTextBakName  = ""
+	cTextName     = ""
+	cType         = ""
+	cVCXCursor    = ""  && If we're generating text for a .VCX, we create a temporary file with the classes sorted.
+	HadError      = .F.
+	iError        = 0
+	iHandle       = -1
+	iResult       = -1 && Fail
+	lGenText      = .T.
+	lMadeBackup   = .F.
+	oThermRef     = ""
+	SetErrorOff   = .F.
+	DIMENSION aEnvironment[1]
+
+	PROCEDURE INIT(cTableName, cType, cTextName, lGenText, iParmCount)
+		LOCAL iAction
+
+		IF m.iParmCount = 1 .AND. TYPE('m.cTableName') = 'C'
+			* Interpret the single parameter as a filename and be smart about defaults
+			IF THIS.ISBINARY(m.cTableName)
+				cType     = THIS.GetPrjType(m.cTableName)
+				cTextName = FORCEEXT(m.cTableName, THIS.GetAsciiExt(m.cType))
+				lGenText  = .T.
+			ELSE
+				IF THIS.IsAscii(m.cTableName)
+					cType      = THIS.GetPrjType(m.cTableName)
+					cTextName  = m.cTableName
+					cTableName = FORCEEXT(m.cTextName, THIS.GetBinaryExt(m.cType))
+					lGenText   = .F.
+				ENDIF
+			ENDIF
+		ENDIF
+
+		THIS.cTableName     = m.cTableName
+		THIS.cTempTableName = ADDBS(JUSTPATH(m.cTableName)) + "scTemp" + JUSTFNAME(m.cTableName)
+		THIS.cTextName      = m.cTextName
+		THIS.cType          = m.cType
+		THIS.lGenText       = m.lGenText
+
+		* Verify that we've got valid parameters
+		IF TYPE('this.cTableName') <> 'C' .OR. TYPE('this.cType') <> 'C' ;
+				.OR. TYPE('this.cTextName') <> 'C' .OR. TYPE('this.lGenText') <> 'L'
+			THIS.Alert(ERR_FOXERROR_11_LOC)
+			RETURN .F.
+		ENDIF
+
+		* Verify parameters before calling ForceExt
+		THIS.cMemoName     = FORCEEXT(THIS.cTableName, THIS.GetBinaryMemo(THIS.cType))
+		THIS.cTempMemoName = FORCEEXT(THIS.cTempTableName, THIS.GetBinaryMemo(THIS.cType))
+
+		* Verify that we support the requested action
+		iAction = IIF(m.lGenText, 1, 2)
+		DO CASE
+			CASE m.cType == PRJTYPE_FORM .AND. SCC_FORM_SUPPORT < m.iAction
+				iAction = m.iAction * -1
+			CASE m.cType == PRJTYPE_LABEL .AND. SCC_LABEL_SUPPORT < m.iAction
+				iAction = m.iAction * -1
+			CASE m.cType == PRJTYPE_MENU .AND. SCC_MENU_SUPPORT < m.iAction
+				iAction = m.iAction * -1
+			CASE m.cType == PRJTYPE_REPORT .AND. SCC_REPORT_SUPPORT < m.iAction
+				iAction = m.iAction * -1
+			CASE m.cType == PRJTYPE_VCX .AND. SCC_VCX_SUPPORT < m.iAction
+				iAction = m.iAction * -1
+			CASE m.cType == PRJTYPE_DBC .AND. SCC_DBC_SUPPORT < m.iAction
+				iAction = m.iAction * -1
+			CASE m.cType == PRJTYPE_DBF .AND. SCC_DBF_SUPPORT < m.iAction
+				iAction = m.iAction * -1
+			CASE m.cType == PRJTYPE_PJX .AND. SCC_PJX_SUPPORT < m.iAction
+				iAction = m.iAction * -1
+		ENDCASE
+
+		IF m.iAction = -1
+			THIS.Alert(ERR_BIN2TEXTNOTSUPPORTED_LOC)
+			RETURN .F.
+		ENDIF
+		IF m.iAction = -2
+			THIS.Alert(ERR_TEXT2BINNOTSUPPORTED_LOC)
+			RETURN .F.
+		ENDIF
+
+		IF .NOT. THIS.SETUP()
+			RETURN .F.
+		ENDIF
+
+		IF (MAXBINLEN % 8 <> 0)
+			THIS.Alert(ERR_MAXBINLEN_LOC)
+			RETURN .F.
+		ENDIF
+	ENDPROC
+
+	PROCEDURE ERASE
+		PARAMETERS cFilename
+		IF !EMPTY(m.cFilename) .AND. FILE(m.cFilename)
+			= SetFileAttributes(m.cFilename, FILE_ATTRIBUTE_NORMAL)
+			ERASE (m.cFilename)
+		ENDIF
+	ENDPROC
+
+	PROCEDURE MakeBackup
+		* Fill in the names of the backup files
+		DO CASE
+			CASE THIS.cType == PRJTYPE_FORM
+				THIS.cTextBakName  = FORCEEXT(THIS.cTextName, SCC_FORM_TEXT_BAK)
+				THIS.cTableBakName = FORCEEXT(THIS.cTableName, SCC_FORM_TABLE_BAK)
+				THIS.cMemoBakName  = FORCEEXT(THIS.cMemoName, SCC_FORM_MEMO_BAK)
+			CASE THIS.cType == PRJTYPE_REPORT
+				THIS.cTextBakName  = FORCEEXT(THIS.cTextName, SCC_REPORT_TEXT_BAK)
+				THIS.cTableBakName = FORCEEXT(THIS.cTableName, SCC_REPORT_TABLE_BAK)
+				THIS.cMemoBakName  = FORCEEXT(THIS.cMemoName, SCC_REPORT_MEMO_BAK)
+			CASE THIS.cType == PRJTYPE_VCX
+				THIS.cTextBakName  = FORCEEXT(THIS.cTextName, SCC_VCX_TEXT_BAK)
+				THIS.cTableBakName = FORCEEXT(THIS.cTableName, SCC_VCX_TABLE_BAK)
+				THIS.cMemoBakName  = FORCEEXT(THIS.cMemoName, SCC_VCX_MEMO_BAK)
+			CASE THIS.cType == PRJTYPE_MENU
+				THIS.cTextBakName  = FORCEEXT(THIS.cTextName, SCC_MENU_TEXT_BAK)
+				THIS.cTableBakName = FORCEEXT(THIS.cTableName, SCC_MENU_TABLE_BAK)
+				THIS.cMemoBakName  = FORCEEXT(THIS.cMemoName, SCC_MENU_MEMO_BAK)
+			CASE THIS.cType == PRJTYPE_LABEL
+				THIS.cTextBakName  = FORCEEXT(THIS.cTextName, SCC_LABEL_TEXT_BAK)
+				THIS.cTableBakName = FORCEEXT(THIS.cTableName, SCC_LABEL_TABLE_BAK)
+				THIS.cMemoBakName  = FORCEEXT(THIS.cMemoName, SCC_LABEL_MEMO_BAK)
+			CASE THIS.cType == PRJTYPE_DBC
+				THIS.cTextBakName  = FORCEEXT(THIS.cTextName, SCC_DBC_TEXT_BAK)
+				THIS.cTableBakName = FORCEEXT(THIS.cTableName, SCC_DBC_TABLE_BAK)
+				THIS.cMemoBakName  = FORCEEXT(THIS.cMemoName, SCC_DBC_MEMO_BAK)
+				THIS.cIndexBakName = FORCEEXT(THIS.cIndexName, SCC_DBC_INDEX_BAK)
+			CASE THIS.cType == PRJTYPE_DBF
+				THIS.cTextBakName  = FORCEEXT(THIS.cTextName, SCC_DBF_TEXT_BAK)
+				THIS.cTableBakName = FORCEEXT(THIS.cTableName, SCC_DBF_TABLE_BAK)
+				THIS.cMemoBakName  = FORCEEXT(THIS.cMemoName, SCC_DBF_MEMO_BAK)
+				THIS.cIndexBakName = FORCEEXT(THIS.cIndexName, SCC_DBF_INDEX_BAK)
+			CASE THIS.cType == PRJTYPE_PJX
+				THIS.cTextBakName  = FORCEEXT(THIS.cTextName, SCC_PJX_TEXT_BAK)
+				THIS.cTableBakName = FORCEEXT(THIS.cTableName, SCC_PJX_TABLE_BAK)
+				THIS.cMemoBakName  = FORCEEXT(THIS.cMemoName, SCC_PJX_MEMO_BAK)
+		ENDCASE
+
+		* Delete any existing backup
+		THIS.DeleteBackup()
+
+		* Create new backup files
+		IF THIS.lGenText
+			IF FILE(THIS.cTextName)
+				COPY FILE (THIS.cTextName) TO (THIS.cTextBakName)
+			ENDIF
+		ELSE
+			IF FILE(THIS.cTableName) .AND. FILE(THIS.cMemoName)
+				* Bin File: If exclusive use is possible, we use COPY FILE.
+				* If not (VFP likes to keep a file handle open sometimes, after
+				* using the class designer, for example) we try to use it
+				* shared and use the COPY TO method.
+
+				IF CanUseExclusive(THIS.cTableName)
+					* Great! Use COPY FILE
+
+					COPY FILE (THIS.cTableName) TO (THIS.cTableBakName)
+					COPY FILE (THIS.cMemoName) TO (THIS.cMemoBakName)
+					IF !EMPTY(THIS.cIndexName) .AND. FILE(THIS.cIndexName)
+						COPY FILE (THIS.cIndexName) TO (THIS.cIndexBakName)
+					ENDIF
+
+				ELSE
+					IF CanFlock(THIS.cTableName)
+						* We need to COPY TO a tempfile name, and then COPY FILE back
+						* to our real location with the proper backup extensions.
+						LOCAL cbackuptempfilename
+
+						cbackuptempfilename = ADDBS(JUSTPATH(THIS.cTableName)) + "scXBackup" + SYS(2015)
+
+						* Copy to the tempfile:
+						USE (THIS.cTableName) AGAIN SHARED
+						COPY TO (m.cbackuptempfilename) WITH CDX
+						USE
+
+						* Rename the tempfiles to the proper backup names:
+						RENAME (m.cbackuptempfilename + ".dbf") TO (THIS.cTableBakName)
+						RENAME (m.cbackuptempfilename + ".fpt") TO (THIS.cMemoBakName)
+
+						IF FILE(m.cbackuptempfilename + ".cdx")
+							RENAME (m.cbackuptempfilename + ".cdx") TO (THIS.cIndexBakName)
+						ENDIF
+
+						* Erase the tempfiles:
+						ERASE (m.cbackuptempfilename + ".*")
+
+					ELSE
+						* Can't make the backup, because we can't get an flock()
+
+					ENDIF
+
+				ENDIF
+
+			ENDIF
+		ENDIF
+
+		THIS.lMadeBackup = .T.
+	ENDPROC
+
+	PROCEDURE RestoreBackup
+		IF THIS.lGenText
+			THIS.ERASE(THIS.cTextName)
+		ELSE
+			IF FILE(THIS.cTableName)
+				IF CanUseExclusive(THIS.cTableName)
+					THIS.ERASE(THIS.cTableName)
+					THIS.ERASE(THIS.cMemoName)
+					IF .NOT. EMPTY(THIS.cIndexName)
+						THIS.ERASE(THIS.cIndexName)
+					ENDIF
+				ELSE
+					* VFP may have a handle open to the file, so
+					* we can't erase it. We'll instead try to open it
+					* shared and do a DELETE ALL:
+					IF CanFlock(THIS.cTableName)
+						USE (THIS.cTableName) AGAIN SHARED
+						DELETE ALL
+						USE
+
+					ELSE
+						* There's a problem bigger than we can resolve,
+						* skip.
+					ENDIF
+
+
+				ENDIF
+
+			ENDIF
+
+		ENDIF
+
+
+		IF THIS.lGenText
+			IF FILE(THIS.cTextBakName)
+				COPY FILE (THIS.cTextBakName) TO (THIS.cTextName)
+			ENDIF
+		ELSE
+			IF FILE(THIS.cTableBakName) .AND. FILE(THIS.cMemoBakName) ;
+					AND FILE(THIS.cTableName) AND FILE(THIS.cMemoName)
+				IF CanUseExclusive(THIS.cTableName)
+					COPY FILE (THIS.cTableBakName) TO (THIS.cTableName)
+					COPY FILE (THIS.cMemoBakName) TO (THIS.cMemoName)
+					IF !EMPTY(THIS.cIndexBakName) .AND. FILE(THIS.cIndexBakName)
+						COPY FILE (THIS.cIndexBakName) TO (THIS.cIndexName)
+					ENDIF
+				ELSE
+					* VFP may have an internal lock on the file: APPEND FROM
+					* instead if we have the ability to Flock() (Note that
+					* we already deleted all records above)
+					IF CanFlock(THIS.cTableName)
+						USE (THIS.cTableName) AGAIN SHARED
+						APPEND FROM (THIS.cTableBakName)
+					ELSE
+						* bigger problem than we can handle
+					ENDIF
+
+				ENDIF
+
+			ENDIF
+		ENDIF
+	ENDPROC
+
+	PROCEDURE DeleteBackup
+		IF THIS.lGenText
+			THIS.ERASE(THIS.cTextBakName)
+		ELSE
+			THIS.ERASE(THIS.cTableBakName)
+			THIS.ERASE(THIS.cMemoBakName)
+			IF !EMPTY(THIS.cIndexBakName)
+				THIS.ERASE(THIS.cIndexBakName)
+			ENDIF
+			* Dump the TBK and BAK files if they exist
+			THIS.ERASE(FORCEEXT(THIS.cTableBakName,"BAK"))
+			THIS.ERASE(FORCEEXT(THIS.cTableBakName,"TBK"))
+		ENDIF
+	ENDPROC
+
+	PROCEDURE GetAsciiExt
+		PARAMETERS cType
+		DO CASE
+			CASE m.cType == PRJTYPE_FORM
+				RETURN SCC_ASCII_FORM_EXT
+			CASE m.cType == PRJTYPE_REPORT
+				RETURN SCC_ASCII_REPORT_EXT
+			CASE m.cType == PRJTYPE_VCX
+				RETURN SCC_ASCII_VCX_EXT
+			CASE m.cType == PRJTYPE_MENU
+				RETURN SCC_ASCII_MENU_EXT
+			CASE m.cType == PRJTYPE_LABEL
+				RETURN SCC_ASCII_LABEL_EXT
+			CASE m.cType == PRJTYPE_DBC
+				RETURN SCC_ASCII_DBC_EXT
+			CASE m.cType == PRJTYPE_DBF
+				RETURN SCC_ASCII_DBF_EXT
+			CASE m.cType == PRJTYPE_PJX
+				RETURN SCC_ASCII_PJX_EXT
+		ENDCASE
+	ENDPROC
+
+	PROCEDURE GetBinaryExt
+		PARAMETERS cType
+		DO CASE
+			CASE m.cType == PRJTYPE_FORM
+				RETURN SCC_FORM_EXT
+			CASE m.cType == PRJTYPE_REPORT
+				RETURN SCC_REPORT_EXT
+			CASE m.cType == PRJTYPE_VCX
+				RETURN SCC_VCX_EXT
+			CASE m.cType == PRJTYPE_MENU
+				RETURN SCC_MENU_EXT
+			CASE m.cType == PRJTYPE_LABEL
+				RETURN SCC_LABEL_EXT
+			CASE m.cType == PRJTYPE_DBC
+				RETURN SCC_DBC_EXT
+			CASE m.cType == PRJTYPE_DBF
+				RETURN SCC_DBF_EXT
+			CASE m.cType == PRJTYPE_PJX
+				RETURN SCC_PJX_EXT
+		ENDCASE
+	ENDPROC
+
+	PROCEDURE GetBinaryMemo
+		PARAMETERS cType
+		DO CASE
+			CASE m.cType == PRJTYPE_FORM
+				RETURN SCC_FORM_MEMO
+			CASE m.cType == PRJTYPE_REPORT
+				RETURN SCC_REPORT_MEMO
+			CASE m.cType == PRJTYPE_VCX
+				RETURN SCC_VCX_MEMO
+			CASE m.cType == PRJTYPE_MENU
+				RETURN SCC_MENU_MEMO
+			CASE m.cType == PRJTYPE_LABEL
+				RETURN SCC_LABEL_MEMO
+			CASE m.cType == PRJTYPE_DBC
+				RETURN SCC_DBC_MEMO
+			CASE m.cType == PRJTYPE_DBF
+				RETURN SCC_DBF_MEMO
+			CASE m.cType == PRJTYPE_PJX
+				RETURN SCC_PJX_MEMO
+		ENDCASE
+	ENDPROC
+
+	PROCEDURE GetPrjType
+		PARAMETERS cFilename
+		LOCAL m.cExt
+		m.cExt = UPPER(JUSTEXT(m.cFilename))
+		DO CASE
+			CASE INLIST(m.cExt, SCC_ASCII_FORM_EXT, SCC_FORM_EXT)
+				RETURN PRJTYPE_FORM
+			CASE INLIST(m.cExt, SCC_ASCII_REPORT_EXT, SCC_REPORT_EXT)
+				RETURN PRJTYPE_REPORT
+			CASE INLIST(m.cExt, SCC_ASCII_VCX_EXT, SCC_VCX_EXT)
+				RETURN PRJTYPE_VCX
+			CASE INLIST(m.cExt, SCC_ASCII_MENU_EXT, SCC_MENU_EXT)
+				RETURN PRJTYPE_MENU
+			CASE INLIST(m.cExt, SCC_ASCII_LABEL_EXT, SCC_LABEL_EXT)
+				RETURN PRJTYPE_LABEL
+			CASE INLIST(m.cExt, SCC_ASCII_DBC_EXT, SCC_DBC_EXT)
+				RETURN PRJTYPE_DBC
+			CASE INLIST(m.cExt, SCC_ASCII_DBF_EXT, SCC_DBF_EXT)
+				RETURN PRJTYPE_DBF
+			CASE INLIST(m.cExt, SCC_ASCII_PJX_EXT, SCC_PJX_EXT)
+				RETURN PRJTYPE_PJX
+			OTHERWISE
+				RETURN ''
+		ENDCASE
+	ENDPROC
+
+	PROCEDURE IsAscii
+		PARAMETERS cFilename
+		LOCAL m.cExt
+		m.cExt = UPPER(JUSTEXT(m.cFilename))
+		RETURN INLIST(m.cExt, SCC_ASCII_FORM_EXT, SCC_ASCII_REPORT_EXT, SCC_ASCII_VCX_EXT, SCC_ASCII_MENU_EXT, SCC_ASCII_LABEL_EXT, SCC_ASCII_DBC_EXT, SCC_ASCII_PJX_EXT, SCC_ASCII_DBF_EXT)
+	ENDPROC
+
+	PROCEDURE ISBINARY
+		PARAMETERS cFilename
+		LOCAL m.cExt
+		m.cExt = UPPER(JUSTEXT(m.cFilename))
+		RETURN INLIST(m.cExt, SCC_FORM_EXT, SCC_REPORT_EXT, SCC_VCX_EXT, SCC_MENU_EXT, SCC_LABEL_EXT, SCC_DBC_EXT, SCC_DBF_EXT, SCC_VCX_EXT)
+	ENDPROC
+
+	PROCEDURE SETUP
+
+		DIMENSION THIS.aEnvironment[5]
+
+		THIS.aEnvironment[1] = SET("deleted")
+		THIS.aEnvironment[2] = SELECT()
+		THIS.aEnvironment[3] = SET("safety")
+		THIS.aEnvironment[4] = SET("talk")
+		THIS.aEnvironment[5] = SET("asserts")
+
+		SET TALK OFF
+
+		DECLARE INTEGER SetFileAttributes IN win32api STRING lpFileName, INTEGER dwFileAttributes
+
+		* pkm: I kept running into an error: Error loading 32 bit DLL msvcrt40.dll.  I don't seem to
+		*      have any problems by changing the declare to msvcrt.dll...
+		DECLARE INTEGER sprintf IN msvcrt.DLL ;
+			STRING @lpBuffer, STRING lpFormat, INTEGER iChar1, INTEGER iChar2, ;
+			INTEGER iChar3, INTEGER iChar4, INTEGER iChar5, INTEGER iChar6, ;
+			INTEGER iChar7, INTEGER iChar8
+
+		SET SAFETY OFF
+
+		* pkm: DELETED OFF will result in deleted records being saved, and then when brought back
+		*      they will no longer be deleted.  WARNING: SET DELETED ON will result in the side
+		*      effect of removing the deleted records permanently.  We should probably make a
+		*      deleted flag get persisted to the text file, but I think that skipping deleted
+		*      records for IDE-level stuff isn't likely to hurt anyone...
+		* SET DELETED OFF
+		SET DELETED ON
+
+		SELECT 0
+		IF C_DEBUG
+			SET ASSERTS ON
+		ENDIF
+
+	ENDPROC
+
+	PROCEDURE Cleanup
+		LOCAL ARRAY aEnvironment[alen(this.aEnvironment)]
+		ACOPY(THIS.aEnvironment, aEnvironment)
+		SET DELETED &aEnvironment[1]
+		SET SAFETY &aEnvironment[3]
+		USE
+		SELECT (aEnvironment[2])
+		IF THIS.iHandle <> -1
+			FCLOSE(THIS.iHandle)
+			THIS.iHandle = -1
+		ENDIF
+		SET TALK &aEnvironment[4]
+		IF USED(THIS.cVCXCursor)
+			USE IN (THIS.cVCXCursor)
+			THIS.cVCXCursor = ""
+		ENDIF
+		SET ASSERTS &aEnvironment[5]
+	ENDPROC
+
+	PROCEDURE DESTROY
+		IF TYPE("this.oThermRef") = "O"
+			THIS.oThermRef.RELEASE()
+		ENDIF
+
+		THIS.Cleanup()
+
+		IF THIS.lMadeBackup
+			IF THIS.iResult <> 0
+				THIS.RestoreBackup()
+			ENDIF
+
+			IF DELETE_BACKUPS_ON_DESTROY
+				THIS.DeleteBackup()
+			ENDIF
+
+		ENDIF
+	ENDPROC
+
+	PROCEDURE ERROR
+		PARAMETERS nError, cMethod, nLine, oObject, cMessage
+
+		LOCAL cAction
+
+		THIS.HadError = .T.
+		THIS.iError   = m.nError
+		THIS.cMessage = IIF(EMPTY(m.cMessage), MESSAGE(), m.cMessage)
+
+		IF THIS.SetErrorOff
+			RETURN
+		ENDIF
+
+		cMessage = IIF(EMPTY(m.cMessage), MESSAGE(), m.cMessage)
+		IF TYPE("m.oObject") = "O" .AND. .NOT. ISNULL(m.oObject) .AND. AT(".", m.cMethod) = 0
+			cMethod = m.oObject.NAME + "." + m.cMethod
+		ENDIF
+
+		IF C_DEBUG
+			cAction = THIS.Alert(ERRORMESSAGE_LOC, MB_ICONEXCLAMATION + MB_ABORTRETRYIGNORE, ERRORTITLE_LOC)
+			DO CASE
+				CASE m.cAction="RETRY"
+					THIS.HadError = .F.
+					CLEAR TYPEAHEAD
+					SET STEP ON
+					&cAction
+				CASE m.cAction="IGNORE"
+					THIS.HadError = .F.
+					RETURN
+			ENDCASE
+		ELSE
+			IF m.nError = 1098  && User-defined error
+				cAction = THIS.Alert(MESSAGE(), MB_ICONEXCLAMATION + MB_OK, ERRORTITLE_LOC)
+			ELSE
+				cAction = THIS.Alert(ERRORMESSAGE_LOC, MB_ICONEXCLAMATION + MB_OK, ERRORTITLE_LOC)
+			ENDIF
+		ENDIF
+
+		THIS.CANCEL()
+
+	ENDPROC
+
+	PROCEDURE CANCEL
+		PARAMETERS cMessage
+		IF !EMPTY(m.cMessage)
+			cAction = THIS.Alert(m.cMessage)
+		ENDIF
+		RETURN TO PROCESS -1
+	ENDPROC
+
+
+	PROCEDURE Alert
+		PARAMETERS cMessage, cOptions, cTitle, cParameter1, cParameter2
+
+		PRIVATE cOptions, cResponse
+		cOptions = IIF(EMPTY(m.cOptions), 0, m.cOptions)
+
+		IF PCOUNT() > 3 && a parameter was passed
+			m.cMessage = [&cMessage]
+		ENDIF
+
+		CLEAR TYPEAHEAD
+		IF !EMPTY(m.cTitle)
+			cResponse = MESSAGEBOX(m.cMessage, m.cOptions, m.cTitle)
+		ELSE
+			cResponse = MESSAGEBOX(m.cMessage, m.cOptions, ALERTTITLE_LOC)
+		ENDIF
+
+		DO CASE
+				* The strings below are used internally and should not
+				* be localized
+			CASE m.cResponse = 1
+				cResponse = "OK"
+			CASE m.cResponse = 6
+				cResponse = "YES"
+			CASE m.cResponse = 7
+				cResponse = "NO"
+			CASE m.cResponse = 2
+				cResponse = "CANCEL"
+			CASE m.cResponse = 3
+				cResponse = "ABORT"
+			CASE m.cResponse = 4
+				cResponse = "RETRY"
+			CASE m.cResponse = 5
+				cResponse = "IGNORE"
+		ENDCASE
+		RETURN m.cResponse
+
+	ENDPROC
+
+	PROCEDURE PROCESS
+		LOCAL cThermLabel
+
+		IF THIS.FilesAreWritable()
+			* Backup the file(s)
+			THIS.MakeBackup()
+
+			* Create and show the thermometer
+			m.cThermLabel = IIF(THIS.lGenText, THIS.cTextName, THIS.cTableName)
+			THIS.oThermRef = CREATEOBJECT("thermometer", C_THERMLABEL_LOC)
+			THIS.oThermRef.SHOW()
+
+			IF THIS.lGenText
+				THIS.iResult = THIS.WriteTextFile()
+			ELSE
+				THIS.iResult = THIS.WriteTableFile()
+			ENDIF
+
+			IF THIS.iResult = 0
+				THIS.oThermRef.COMPLETE(C_THERMCOMPLETE_LOC)
+			ENDIF
+		ENDIF
+	ENDPROC
+
+	PROCEDURE FilesAreWritable
+		PRIVATE aText
+		IF THIS.lGenText
+			* Verify we can write the text file
+			IF (ADIR(aText, THIS.cTextName) = 1 .AND. 'R' $ aText[1, 5])
+				IF THIS.Alert(ERR_OVERWRITEREADONLY_LOC, MB_YESNO, '', THIS.cTextName) = "NO"
+					RETURN .F.
+				ENDIF
+			ENDIF
+			SetFileAttributes(THIS.cTextName, FILE_ATTRIBUTE_NORMAL)
+		ELSE
+			* Verify we can write the table
+			IF (ADIR(aText, THIS.cTableName) = 1 .AND. 'R' $ aText[1, 5])
+				IF THIS.Alert(ERR_OVERWRITEREADONLY_LOC, MB_YESNO, '', THIS.cTableName) = "NO"
+					RETURN .F.
+				ENDIF
+			ELSE
+				IF (ADIR(aText, THIS.cMemoName) = 1 .AND. 'R' $ aText[1, 5])
+					IF THIS.Alert(ERR_OVERWRITEREADONLY_LOC, MB_YESNO, '', THIS.cMemoName) = "NO"
+						RETURN .F.
+					ENDIF
+				ENDIF
+			ENDIF
+			SetFileAttributes(THIS.cTableName, FILE_ATTRIBUTE_NORMAL)
+			SetFileAttributes(THIS.cMemoName, FILE_ATTRIBUTE_NORMAL)
+		ENDIF
+		RETURN .T.
+	ENDPROC
+
+	PROCEDURE WriteTableFile
+		THIS.iHandle = FOPEN(THIS.cTextName)
+		IF THIS.iHandle = -1
+			THIS.Alert(ERR_FOPEN_LOC + THIS.cTextName)
+			RETURN -1
+		ENDIF
+
+		THIS.oThermRef.iBasis = FSEEK(THIS.iHandle, 0, 2)
+		FSEEK(THIS.iHandle, 0, 0)
+
+		THIS.ValidVersion(FGETS(THIS.iHandle, 8192))
+
+		THIS.CreateTable(FGETS(THIS.iHandle, 8192), VAL(FGETS(THIS.iHandle, 8192)))
+
+		DO CASE
+			CASE INLIST(THIS.cType, PRJTYPE_FORM, PRJTYPE_VCX, PRJTYPE_MENU, ;
+					PRJTYPE_REPORT, PRJTYPE_LABEL, PRJTYPE_DBC, PRJTYPE_DBF, PRJTYPE_PJX)
+				THIS.WriteTable
+			OTHERWISE
+				THIS.CANCEL(ERR_UNSUPPORTEDFILETYPE_LOC + THIS.cType)
+		ENDCASE
+
+		FCLOSE(THIS.iHandle)
+		THIS.iHandle = -1
+
+		*!*      * pkm: if we are restoring recno's, we need to copy THIS.cTableName
+		*!*      *      to a temporary place, and then bring back, sorted by iSCCRecno,
+		*!*      *      and finally delete iSCCRecno:
+		*!*      IF RECNO_RESTORE == .T. and TYPE("isccrecno") = "N"
+		*!*        USE
+		*!*        THIS.RestoreRecno(THIS.cTempTableName)
+		*!*        USE (THIS.cTempTableName)
+		*!*      ENDIF
+
+		IF INLIST(THIS.cType, PRJTYPE_VCX)
+			* Additional work may need to be performed on a VCX
+			THIS.FixUpVCX
+		ENDIF
+
+		USE
+
+		* Now we need to get the TempTable into the actual table.
+		* If we can get exclusive access to the table, we just use
+		* COPY FILE.  Otherwise, we are forced to DELETE ALL and
+		* APPEND FROM.
+
+		* Actually, if exclusive available, USE SELECT...INTO TABLE
+		* to put in isccrecno order (skips a whole step)
+
+		IF !FILE(THIS.cTableName) OR CanUseExclusive(THIS.cTableName)
+			* SELECT INTO method
+
+			USE (THIS.cTempTableName) AGAIN ALIAS temptable
+
+			SELECT * ;
+				FROM temptable ;
+				INTO TABLE (THIS.cTableName) ;
+				ORDER BY isccrecno
+
+			ALTER TABLE (THIS.cTableName) ;
+				DROP COLUMN isccrecno
+
+			USE
+			USE IN temptable
+
+			*!*        * COPY FILE method
+			*!*        ERASE (THIS.cTableName)
+			*!*        ERASE (THIS.cMemoName)
+			*!*
+			*!*        COPY FILE (this.cTempTableName) TO (this.cTableName)
+			*!*        COPY FILE (this.cTempMemoName) TO (this.cMemoName)
+			*!*
+			*!*        IF !EMPTY(this.cTempIndexName) AND FILE(this.cTempIndexName)
+			*!*          ERASE (THIS.cIndexName)
+			*!*          COPY FILE (this.cTempIndexName) TO (this.cIndexName)
+			*!*        ENDIF
+
+		ELSE
+			* DELETE ALL / APPEND FROM method
+
+			USE (THIS.cTempTableName) AGAIN ALIAS temptable
+
+			csorttable = ADDBS(JUSTPATH(THIS.cTempTableName)) + "scctemp" + JUSTFNAME(THIS.cTempTableName)
+
+			SELECT * ;
+				FROM temptable ;
+				INTO TABLE (m.csorttable) ;
+				ORDER BY isccrecno
+
+			USE
+			USE IN temptable
+
+			USE (THIS.cTableName) AGAIN SHARED
+			DELETE ALL
+			APPEND FROM (THIS.cTempTableName)
+			USE
+		ENDIF
+
+		* Erase the temp table:
+
+		ERASE (ADDBS(JUSTPATH(THIS.cTempTableName)) + JUSTSTEM(THIS.cTempTableName) + ".*")
+		*!*      IF FILE(this.cTempTableName)
+		*!*        ERASE (THIS.cTempTableName)
+		*!*      ENDIF
+		*!*
+		*!*      IF FILE(this.ctempmemoname)
+		*!*        ERASE (THIS.cTempMemoName)
+		*!*      ENDIF
+		*!*
+		*!*      IF !empty(this.ctempindexname) AND FILE(this.ctempindexname)
+		*!*        ERASE (THIS.cTempIndexName)
+		*!*      ENDIF
+
+
+		IF INLIST(THIS.cType, PRJTYPE_FORM, PRJTYPE_VCX)
+			IF THIS.cType = PRJTYPE_VCX
+				* pkm: Compile is time consuming, and may cause an error
+				* if VFP still has an inaccessible lowlevel handle open to
+				* it (File in Use error).  However, we need the objcode
+				* in order to see the method code from the class designer.
+				* Therefore, we save the ObjCode to the text file and let
+				* VFP COMPILE as necessary.
+
+				* To be safe, though, we check to see if we have exclusive
+				* access to the classlib, and if so we compile.  This will
+
+				IF CanUseExclusive(THIS.cTableName)
+					COMPILE CLASSLIB (THIS.cTableName)
+				ENDIF
+
+			ELSE
+
+				IF CanUseExclusive(THIS.cTableName)
+					COMPILE FORM (THIS.cTableName)
+				ENDIF
+
+			ENDIF
+
+		ENDIF
+
+
+		RETURN 0 && Success
+
+	ENDPROC
+
+	*!*    FUNCTION RestoreRecno(cTableName)
+	*!*      * copy m.cTableName to a temp location,
+	*!*      * then copy back under iSCCRecno order
+	*!*      LOCAL ctempfilename, ctempfilestem, ctablefilestem
+
+	*!*      ctempfilename  = ADDBS(JUSTPATH(m.cTableName)) + "temp_scc_" + JUSTFNAME(m.cTableName)
+	*!*      ctempfilestem  = ADDBS(JUSTPATH(m.cTableName)) + "temp_scc_" + JUSTSTEM(m.cTableName)
+	*!*      ctablefilestem = ADDBS(JUSTPATH(m.cTableName)) + JUSTSTEM(m.cTableName)
+	*!*
+	*!*      COPY FILE (m.ctablefilestem + ".*") TO (m.ctempfilestem + ".*")
+	*!*      ERASE (m.ctablefilestem + ".*)
+	*!*
+	*!*      SELECT * from (m.ctempfilename) ;
+	*!*        into table (m.cTableName) ;
+	*!*       order by isccrecno
+	*!*
+	*!*      USE (m.cTableName) EXCLUSIVE
+	*!*      ALTER TABLE (m.cTableName) DROP isccrecno
+	*!*      USE
+	*!*      USE IN (JUSTSTEM(m.ctempfilestem))
+	*!*      ERASE (m.ctempfilestem + ".*")
+	*!*      ERASE (m.ctablefilestem + ".TBK")
+	*!*      ERASE (m.ctablefilestem + ".BAK")
+	*!*    ENDFUNC
+
+
+	PROCEDURE FixUpVCX
+		PRIVATE aClassList, i
+		SELECT objname, RECNO() FROM DBF() WHERE NOT DELETED() AND reserved1 == 'Class' ;
+			INTO ARRAY aClassList
+		IF TYPE('aClassList[1]') <> 'U'
+			* If objects were added to or removed from a class during merge,
+			* the record count will be out of sync.
+			FOR m.i = 1 TO ALEN(aClassList, 1)
+				GO (aClassList[m.i, 2])
+				IF m.i = ALEN(aClassList, 1)
+					REPLACE reserved2 WITH ALLTRIM(STR(RECCOUNT() - aClassList[m.i, 2]))
+				ELSE
+					REPLACE reserved2 WITH ALLTRIM(STR(aClassList[m.i + 1, 2] - aClassList[m.i, 2] - 1))
+				ENDIF
+			ENDFOR
+		ENDIF
+	ENDPROC
+
+	PROCEDURE CreateTable
+		PARAMETERS cFieldlist, iCodePage
+		PRIVATE c1, c2, c3, c4, c5, c6, aStruct
+		LOCAL aFieldList[1,4]
+
+		THIS.aFieldList(@aFieldList, m.cFieldlist)
+		CREATE TABLE (THIS.cTempTableName) FROM ARRAY aFieldList
+
+
+		* pkm:
+		IF RECNO_RESTORE == .T.
+			ALTER TABLE (THIS.cTempTableName) ADD COLUMN isccrecno i
+		ENDIF
+
+		IF CPDBF() <> m.iCodePage
+			USE
+			THIS.SetCodePage(THIS.cTempTableName, m.iCodePage)
+		ENDIF
+		USE (THIS.cTempTableName) EXCLUSIVE
+		* 2005-03-02: The next line fixes the error:
+		*    Project file "name" is in the wrong version (Error 1946)
+		=CURSORSETPROP("Buffering", 1)
+	ENDPROC
+
+
+	PROCEDURE aFieldList(aFieldList, cFieldlist)
+		LOCAL cString, ncount
+
+		ncount = 1
+		DO WHILE LEN(m.cFieldlist) > 0
+
+			IF m.ncount > 1
+				DIMENSION aFieldList[ALEN(aFieldList,1) + 1, 4]
+			ENDIF
+
+			* Field Name:
+			cString = ALLTRIM(SUBSTR(m.cFieldlist, 1, AT(" ", m.cFieldlist) -1 ))
+			aFieldList[ALEN(aFieldList,1),1] = m.cString
+
+			* Field Type:
+			cString = ALLTRIM(SUBSTR(m.cFieldlist, AT(" ", m.cFieldlist) + 1, 1))
+			aFieldList[ALEN(aFieldList,1),2] = ALLTRIM(m.cString)
+
+			* Width:
+			cString = ALLTRIM(SUBSTR(m.cFieldlist, AT("(", m.cFieldlist) + 1, AT(",", m.cFieldlist) - 1))
+			aFieldList[ALEN(aFieldList,1),3] = VAL(ALLTRIM(m.cString))
+
+			* Precision:
+			cString = ALLTRIM(SUBSTR(m.cFieldlist, AT(",", m.cFieldlist) + 1, AT(")", m.cFieldlist) - 1))
+			aFieldList[ALEN(aFieldList,1),4] = VAL(ALLTRIM(m.cString))
+
+			IF AT(",", m.cFieldlist, 2) > 0
+				cFieldlist = ALLTRIM(SUBSTR(m.cFieldlist, AT(",", m.cFieldlist, 2) + 1))
+			ELSE
+				cFieldlist = ""
+			ENDIF
+
+			ncount = m.ncount + 1
+
+		ENDDO
+
+
+	ENDPROC
+
+
+
+	PROCEDURE ValidVersion
+		PARAMETERS cVersion
+		IF .NOT. m.cVersion == SCCTEXTVER_LOC
+			*      MESSAGEBOX("Warning: scText Version Mismatch. " + ALLTRIM(m.cversion) + " versus " ;
+			*        + ALLTRIM(SCCTEXTVER_LOC) + "  -- this is normal if you just upgraded.")
+		ENDIF
+	ENDPROC
+
+	PROCEDURE Fieldlist
+		* Returns a CREATE TABLE compatible field list for the current workarea.
+		LOCAL cStruct, i
+		LOCAL ARRAY aStruct[1]
+
+		AFIELDS(aStruct)
+		cStruct = ""
+		FOR i = 1 TO ALEN(aStruct, 1)
+			IF "isccrecno" $ LOWER(aStruct[m.i, 1])
+				* skip: it's our internally used recno field (pkm)
+				LOOP
+			ENDIF
+
+			IF NOT EMPTY(m.cStruct)
+				cStruct = m.cStruct + ","
+			ENDIF
+			cStruct = m.cStruct + aStruct[m.i, 1] + " " + aStruct[m.i, 2] + ;
+				"(" + ALLTRIM(STR(aStruct[m.i, 3])) + "," + ;
+				ALLTRIM(STR(aStruct[m.i, 4])) + ")"
+		ENDFOR
+
+		RETURN m.cStruct
+	ENDPROC
+
+	PROCEDURE CreateVcxCursor
+		LOCAL lcDeleted
+		lcDeleted = SET("DELETED")
+		SET DELETED ON
+		PRIVATE iSelect, aClassList, i, j, iCount, aRec, aStruct, cTempCursor, cTempCursor2
+		THIS.cVCXCursor = "_" + SYS(3)
+		DO WHILE USED(THIS.cVCXCursor)
+			THIS.cVCXCursor = "_" + SYS(3)
+		ENDDO
+
+		SELECT PADR( uniqueid, FSIZE("uniqueid") ), ;
+			RECNO(), ;
+			PADR( objname, 50 ) ;
+			FROM DBF() ;
+			WHERE reserved1 == "Class" ;
+			INTO ARRAY aClassList ;
+			ORDER BY 3, 1
+
+		iSelect = SELECT() && The original .VCX
+
+		* Create the temporary cursor
+		AFIELDS(aStruct)
+		CREATE CURSOR (THIS.cVCXCursor) FROM ARRAY aStruct
+
+		* pkm:
+		IF RECNO_SAVE == .T.
+			ALTER TABLE (THIS.cVCXCursor) ADD COLUMN isccrecno i
+		ENDIF
+
+
+		* Copy the header record
+		SELECT (m.iSelect)
+		GO TOP
+		SCATTER MEMO TO aRec
+		INSERT INTO (THIS.cVCXCursor) FROM ARRAY aRec
+
+		* pkm:
+		IF RECNO_SAVE == .T.
+			REPLACE isccrecno WITH RECNO(m.iSelect) IN (THIS.cVCXCursor)
+		ENDIF
+
+
+		* Scan through the class list and copy the classes over
+		IF TYPE('aClassList[1]') <> 'U'
+			FOR m.i = 1 TO ALEN(aClassList, 1)
+				GO (aClassList[m.i, 2])
+				m.iCount = VAL(reserved2) - 1
+				SCATTER MEMO TO aRec
+				INSERT INTO (THIS.cVCXCursor) FROM ARRAY aRec
+
+				* pkm:
+				IF RECNO_SAVE == .T.
+					REPLACE isccrecno WITH RECNO(m.iSelect) IN (THIS.cVCXCursor)
+				ENDIF
+
+				SKIP
+				IF m.iCount>0
+					cTempCursor = "_" + SYS(3)
+					DO WHILE USED(cTempCursor)
+						cTempCursor = "_" + SYS(3)
+					ENDDO
+					CREATE CURSOR (cTempCursor) FROM ARRAY aStruct
+
+					* pkm:
+					IF RECNO_SAVE == .T.
+						ALTER TABLE (m.cTempCursor) ADD COLUMN isccrecno i
+					ENDIF
+
+					SELECT (m.iSelect)
+					FOR m.j = 1 TO m.iCount
+						SCATTER MEMO TO aRec
+						INSERT INTO (cTempCursor) FROM ARRAY aRec
+
+						* pkm:
+						IF RECNO_SAVE == .T.
+							REPLACE isccrecno WITH RECNO(m.iSelect) IN (m.cTempCursor)
+						ENDIF
+
+						SKIP
+					ENDFOR
+					cTempCursor2 = "_" + SYS(3)
+					DO WHILE USED(cTempCursor2)
+						cTempCursor2 = "_" + SYS(3)
+					ENDDO
+
+					SELECT *, ;
+						PADR( LOWER(TRIM(PARENT)+IIF(EMPTY(TRIM(PARENT)),"",".")+IIF(LOWER(BASECLASS)="header","0","")+LOWER(objname)), 254 ) AS SortOrder1, ;
+						PADR( SUBSTR(LOWER(TRIM(PARENT))+IIF(EMPTY(TRIM(PARENT)),"",".")+IIF(LOWER(BASECLASS)="header","0","")+LOWER(objname),255), 254 ) AS SortOrder2, ;
+						PADR( SUBSTR(LOWER(TRIM(PARENT))+IIF(EMPTY(TRIM(PARENT)),"",".")+IIF(LOWER(BASECLASS)="header","0","")+LOWER(objname),509), 254 ) AS SortOrder3 ;
+						FROM (cTempCursor) ORDER BY SortOrder1,SortOrder2,SortOrder3 INTO CURSOR (cTempCursor2) NOFILTER
+
+					SELECT (THIS.cVCXCursor)
+					APPEND FROM DBF(cTempCursor2)
+					SELECT (m.iSelect)
+					USE IN SELECT(cTempCursor)
+					USE IN SELECT(cTempCursor2)
+				ENDIF
+				SCATTER MEMO TO aRec
+				INSERT INTO (THIS.cVCXCursor) FROM ARRAY aRec
+
+				* pkm:
+				IF RECNO_SAVE == .T.
+					REPLACE isccrecno WITH RECNO(m.iSelect) IN (THIS.cVCXCursor)
+				ENDIF
+
+				SKIP
+			ENDFOR
+		ENDIF
+
+		* Close the original file and use the cursor we've created
+		USE IN (m.iSelect)
+		SELECT (THIS.cVCXCursor)
+
+		IF m.lcDeleted == "OFF"
+			SET DELETED OFF
+		ENDIF
+	ENDPROC
+
+
+
+	PROCEDURE CreateScxCursor
+		LOCAL lnSelect, lcDeleted, lnRecCount, lcThisForm, i, lcFormsetName
+		LOCAL ARRAY laForm[1], laRec[1], laStruct[1]
+
+		lnSelect = SELECT(0)      && The original .SCX
+		lcDeleted = SET("DELETED")
+		lcFormsetName = ""
+		SET DELETED ON
+		LOCATE
+		COUNT TO lnRecCount
+		LOCATE
+
+		THIS.cVCXCursor = "_" + SYS(3)
+		DO WHILE USED(THIS.cVCXCursor)
+			THIS.cVCXCursor = "_" + SYS(3)
+		ENDDO
+
+		* Create the temporary cursor
+		AFIELDS(laStruct)
+		CREATE CURSOR (THIS.cVCXCursor) FROM ARRAY laStruct
+
+		* pkm:
+		IF RECNO_SAVE == .T.
+			ALTER TABLE (THIS.cVCXCursor) ADD COLUMN isccrecno i
+		ENDIF
+
+
+		IF VARTYPE( BASECLASS ) == "U"
+
+			* This is a FP2x screen.
+			SELECT (THIS.cVCXCursor)
+			APPEND FROM (DBF( m.lnSelect ))
+			GO TOP    && Clear buffer.
+
+		ELSE
+
+			* Copy the header, dataenvironment, cursor, relation, and formset records
+			SELECT (m.lnSelect)
+			GO TOP
+			SCAN WHILE NOT LOWER(BASECLASS) == "form"
+				IF LOWER( BASECLASS ) == "formset"
+					lcFormsetName = LOWER(objname) + "."
+				ENDIF
+				SCATTER MEMO TO laRec
+				INSERT INTO (THIS.cVCXCursor) FROM ARRAY laRec
+
+				* pkm:
+				IF RECNO_SAVE == .T.
+					REPLACE isccrecno WITH RECNO(m.lnSelect) IN (THIS.cVCXCursor)
+				ENDIF
+
+			ENDSCAN
+
+			* Copy form by form
+			SCAN FOR LOWER(BASECLASS) == "form"
+				* Copy the record for the form itself
+				SCATTER MEMO TO laRec
+				INSERT INTO (THIS.cVCXCursor) FROM ARRAY laRec
+
+				* pkm:
+				IF RECNO_SAVE == .T.
+					REPLACE isccrecno WITH RECNO(m.lnSelect) IN (THIS.cVCXCursor)
+				ENDIF
+
+
+				* Sort the records of this form by object path
+				lcThisForm = m.lcFormsetName + LOWER(objname) + "."
+				SELECT RECNO() AS isccrecno, ;
+					PADR( LOWER(TRIM(PARENT)+IIF(EMPTY(TRIM(PARENT)),"",".")+IIF(LOWER(BASECLASS)="header","0","")+LOWER(objname)), 254 ), ;
+					PADR( SUBSTR(LOWER(TRIM(PARENT))+IIF(EMPTY(TRIM(PARENT)),"",".")+IIF(LOWER(BASECLASS)="header","0","")+LOWER(objname),255), 254 ), ;
+					PADR( SUBSTR(LOWER(TRIM(PARENT))+IIF(EMPTY(TRIM(PARENT)),"",".")+IIF(LOWER(BASECLASS)="header","0","")+LOWER(objname),509), 254 ), ;
+					PADR( uniqueid, FSIZE("uniqueid") ) ;
+					FROM DBF() ;
+					WHERE PADR( LOWER(PARENT), LEN(m.lcThisForm), "." ) == m.lcThisForm ;
+					INTO ARRAY laForm ;
+					ORDER BY 2,3,4,5
+				* Copy the records of this form
+				FOR i = 1 TO _TALLY
+					GO (laForm[i,1])
+					SCATTER MEMO TO laRec
+					INSERT INTO (THIS.cVCXCursor) FROM ARRAY laRec
+
+					* pkm:
+					IF RECNO_SAVE == .T.
+						REPLACE isccrecno WITH RECNO(m.lnSelect) IN (THIS.cVCXCursor)
+					ENDIF
+
+				ENDFOR
+				SELECT (m.lnSelect)
+			ENDSCAN
+
+			* Copy the footer record
+			GO BOTTOM
+			SCATTER MEMO TO laRec
+			INSERT INTO (THIS.cVCXCursor) FROM ARRAY laRec
+
+			* pkm:
+			IF RECNO_SAVE == .T.
+				REPLACE isccrecno WITH RECNO(m.lnSelect) IN (THIS.cVCXCursor)
+			ENDIF
+
+
+			GO TOP
+
+			* All records copied?
+			ASSERT RECCOUNT(THIS.cVCXCursor) == m.lnRecCount MESSAGE ;
+				"Error in CreateScxCursor: " + ;
+				LTRIM(STR( m.lnRecCount - RECCOUNT(THIS.cVCXCursor) )) + ;
+				" records of " + DBF(m.lnSelect) + " ignored."
+
+		ENDIF
+
+		* Close the original file and use the cursor we've created
+		USE IN (m.lnSelect)
+
+		IF m.lcDeleted == "OFF"
+			SET DELETED OFF
+		ENDIF
+
+		SELECT (THIS.cVCXCursor)
+	ENDPROC
+
+	PROCEDURE WriteTextFile
+		PRIVATE iCodePage, aText
+
+		USE (THIS.cTableName) AGAIN SHARED
+
+		* pkm: We've already backed up, now we'll take the opportunity
+		*      to pack the dbf before continuing:
+		IF PACK_BEFORE_WRITE == .T.
+			*      PACK
+		ENDIF
+
+		THIS.oThermRef.iBasis = RECCOUNT()
+
+		m.iCodePage = CPDBF()
+		DO CASE
+			CASE THIS.cType = PRJTYPE_VCX
+				THIS.CreateVcxCursor()
+			CASE THIS.cType = PRJTYPE_FORM
+				THIS.CreateScxCursor()
+		ENDCASE
+
+		THIS.iHandle = FCREATE(THIS.cTextName)
+		IF THIS.iHandle = -1
+			THIS.Alert(ERR_FCREATE_LOC + THIS.cTextName)
+			RETURN -1
+		ENDIF
+
+		* First line contains the SCCTEXT version string
+		FPUTS(THIS.iHandle, SCCTEXTVER_LOC)
+
+		* Second line contains the CREATE TABLE compatible field list
+		FPUTS(THIS.iHandle, THIS.Fieldlist())
+		* Third line contains the code page
+		FPUTS(THIS.iHandle, ALLTRIM(STR(m.iCodePage)))
+
+		DO CASE
+			CASE INLIST(THIS.cType, PRJTYPE_FORM, PRJTYPE_VCX, PRJTYPE_LABEL, PRJTYPE_REPORT, PRJTYPE_MENU, PRJTYPE_DBC, PRJTYPE_DBF, PRJTYPE_PJX)
+				THIS.WriteText
+			OTHERWISE
+				THIS.CANCEL(ERR_UNSUPPORTEDFILETYPE_LOC + m.cType)
+		ENDCASE
+
+		FCLOSE(THIS.iHandle)
+		THIS.iHandle = -1
+		USE
+		RETURN 0 && Success
+	ENDPROC
+
+	PROCEDURE WriteTable
+		PRIVATE cLine, bInMemo, cMemo, cEndMark, bBinary, cFieldname, cValue, iSeconds
+		LOCAL nRecno
+		bBinary    = .F.
+		bInMemo    = .F.
+		cEndMark   = ""
+		cFieldname = ""
+		cLine      = ""
+		cMemo      = ""
+		cValue     = ""
+
+		THIS.oThermRef.UPDATE(FSEEK(THIS.iHandle, 0, 1))
+		m.iSeconds = SECONDS()
+
+		DO WHILE NOT FEOF(THIS.iHandle)
+			IF (SECONDS() - m.iSeconds > 1)
+				THIS.oThermRef.UPDATE(FSEEK(THIS.iHandle, 0, 1))
+				iSeconds = SECONDS()
+			ENDIF
+
+			cLine = FGETS(THIS.iHandle, 8192)
+
+			IF m.bInMemo
+				DO CASE
+					CASE m.cEndMark == m.cLine
+					CASE RAT(m.cEndMark, m.cLine) <> 0
+						IF m.bBinary
+							cMemo = m.cMemo + THIS.HexStr2BinStr(LEFT(m.cLine, RAT(m.cEndMark, m.cLine) - 1))
+						ELSE
+							cMemo = m.cMemo + LEFT(m.cLine, RAT(m.cEndMark, m.cLine) - 1)
+						ENDIF
+					OTHERWISE
+						IF m.bBinary
+							cMemo = m.cMemo + THIS.HexStr2BinStr(m.cLine)
+						ELSE
+							IF THIS.GetPrjType(THIS.cTableName) == PRJTYPE_REPORT
+								cLineFeed = CR
+							ELSE
+								cLineFeed = CRLF
+							ENDIF
+
+							cMemo = m.cMemo + m.cLine + m.cLineFeed
+
+						ENDIF
+						LOOP
+				ENDCASE
+
+				* Drop out of if/endif to write the memo field
+			ELSE
+				DO CASE
+					CASE EMPTY(m.cLine)
+						LOOP
+					CASE m.cLine == MARKEOF
+						* Don't read anything past the [EOF] mark
+						RETURN
+					CASE m.bInMemo .AND. m.cEndMark == m.cLine
+					CASE THIS.IsRecordMark(m.cLine)
+						APPEND BLANK
+						* pkm:
+						IF RECNO_RESTORE == .T. AND TYPE("isccrecno") = "N"
+							nRecno = VAL(SUBSTR(m.cLine, LEN(MARKRECORDSTART) + 1))
+							REPLACE isccrecno WITH m.nRecno
+						ENDIF
+
+						LOOP
+					CASE THIS.IsMemoStartMark(m.cLine, @m.cFieldname)
+						bInMemo = .T.
+						bBinary = .F.
+						cEndMark = THIS.SectionMark(m.cFieldname, .F., .F.)
+						LOOP
+					CASE THIS.IsBinStartMark(m.cLine, @m.cFieldname)
+						bInMemo = .T.
+						bBinary = .T.
+						cEndMark = THIS.SectionMark(m.cFieldname, .F., .T.)
+						LOOP
+					CASE THIS.IsFieldMark(m.cLine, @m.cFieldname, @m.cValue)
+						DO CASE
+							CASE INLIST(TYPE(m.cFieldname), "C", "M")
+								REPLACE (m.cFieldname) WITH m.cValue
+							CASE TYPE(m.cFieldname) = "N"
+								REPLACE (m.cFieldname) WITH VAL(m.cValue)
+							CASE TYPE(m.cFieldname) = "L"
+								REPLACE (m.cFieldname) WITH &cValue
+							CASE TYPE(m.cFieldname) = "D"
+								REPLACE (m.cFieldname) WITH EVALUATE(m.cValue)
+							OTHERWISE
+								THIS.CANCEL(ERR_UNSUPPORTEDFIELDTYPE_LOC + TYPE(m.cFieldname))
+						ENDCASE
+						LOOP
+					OTHERWISE
+						IF THIS.Alert(ERR_LINENOACTION_LOC + CHR(13) + CHR(13) + m.cLine + CHR(13) + CHR(13) + ;
+								ERR_ALERTCONTINUE_LOC, MB_YESNO) = IDNO
+							THIS.CANCEL
+						ENDIF
+				ENDCASE
+			ENDIF
+
+			* Write the memo field
+			REPLACE (m.cFieldname) WITH m.cMemo
+			bInMemo    = .F.
+			cEndMark   = ""
+			cFieldname = ""
+			cMemo      = ""
+		ENDDO
+	ENDPROC
+
+	PROCEDURE IsMemoStartMark
+		PARAMETERS cLine, cFieldname
+		PRIVATE cStartMark, cStartMark2
+		IF AT(MARKMEMOSTARTWORD, m.cLine) = 1
+			cFieldname = STRTRAN(m.cLine, MARKMEMOSTARTWORD, "", 1, 1)
+			cFieldname = LEFT(m.cFieldname, RAT(MARKMEMOSTARTWORD2, m.cFieldname) - 1)
+			RETURN .T.
+		ENDIF
+		RETURN .F.
+	ENDPROC
+
+	PROCEDURE IsBinStartMark
+		PARAMETERS cLine, cFieldname
+		PRIVATE cStartMark, cStartMark2
+		IF AT(MARKBINSTARTWORD, m.cLine) = 1
+			cFieldname = STRTRAN(m.cLine, MARKBINSTARTWORD, "", 1, 1)
+			cFieldname = LEFT(m.cFieldname, RAT(MARKBINSTARTWORD2, m.cFieldname) - 1)
+			RETURN .T.
+		ENDIF
+		RETURN .F.
+	ENDPROC
+
+	PROCEDURE IsFieldMark
+		PARAMETERS cLine, cFieldname, cValue
+		IF AT(MARKFIELDSTART, m.cLine) = 1
+			cFieldname = STRTRAN(m.cLine, MARKFIELDSTART, "", 1, 1)
+			cFieldname = LEFT(m.cFieldname, AT(MARKFIELDEND, m.cFieldname) - 1)
+			cValue = SUBSTR(m.cLine, AT(MARKFIELDEND, m.cLine))
+			cValue = STRTRAN(m.cValue, MARKFIELDEND, "", 1, 1)
+			RETURN .T.
+		ENDIF
+		RETURN .F.
+	ENDPROC
+
+	PROCEDURE RECORDMARK
+		PARAMETERS cUniqueID, cRecordString
+
+		* pkm: look how RecordMark() doesn't even use the parameter.  That's good,
+		*      because I'm going to save the recno() of the original table to
+		*      the text file, instead of doing what was probably originally intended
+		*      for here (UniqueID isn't actually unique, and it doesn't sort in the
+		*      original table order).  The recno of the original file has been saved
+		*      as integer field iSCCrecno in the cursor.
+
+		FPUTS(THIS.iHandle, "")
+
+		cRecordString = MARKRECORDSTART
+
+		IF RECNO_SAVE == .T.
+
+			DO CASE
+				CASE INLIST(THIS.cType, PRJTYPE_FORM, PRJTYPE_VCX) ;
+						AND TYPE("iSCCRecno") == "N" AND isccrecno > 0
+					* We have a special field in the VCX cursor that saved the original
+					* record number:
+					cRecordString = m.cRecordString + ALLTRIM(TRANSFORM(isccrecno))
+
+				OTHERWISE
+					* We can just use the current recno in the selected workarea,
+					* since this is the original table:
+					cRecordString = m.cRecordString + ALLTRIM(TRANSFORM(RECNO()))
+
+			ENDCASE
+
+		ENDIF
+
+		cRecordString = m.cRecordString + MARKRECORDEND
+
+
+		FPUTS(THIS.iHandle, m.cRecordString)
+
+	ENDPROC
+
+
+	PROCEDURE IsRecordMark
+		PARAMETERS cLine
+		IF LEFT(m.cLine, LEN(MARKRECORDSTART)) == MARKRECORDSTART .AND. ;
+				RIGHT(m.cLine, LEN(MARKRECORDEND)) == MARKRECORDEND
+			RETURN .T.
+		ELSE
+			RETURN .F.
+		ENDIF
+	ENDPROC
+
+	PROCEDURE WriteText
+		PRIVATE cExcludeList, cMemoAsCharList, cMemoAsBinList, cCharAsBinList
+		cCharAsBinList  = ""
+		cExcludeList    = ""
+		cMemoAsBinList  = ""
+		cMemoAsCharList = ""
+		cMemoVariesList = ""
+
+		DO CASE
+			CASE INLIST(THIS.cType, PRJTYPE_FORM, PRJTYPE_VCX)
+				cCharAsBinList  = VCX_CHARASBIN_LIST
+				cExcludeFields  = VCX_EXCLUDE_LIST
+				cMemoAsBinList  = VCX_MEMOASBIN_LIST
+				cMemoAsCharList = VCX_MEMOASCHAR_LIST
+				cMemoVariesList = VCX_MEMOVARIES_LIST
+			CASE INLIST(THIS.cType, PRJTYPE_REPORT, PRJTYPE_LABEL)
+				cCharAsBinList  = FRX_CHARASBIN_LIST
+				cExcludeFields  = FRX_EXCLUDE_LIST
+				cMemoAsBinList  = FRX_MEMOASBIN_LIST
+				cMemoAsCharList = FRX_MEMOASCHAR_LIST
+				cMemoVariesList = FRX_MEMOVARIES_LIST
+			CASE THIS.cType == PRJTYPE_MENU
+				cCharAsBinList  = MNX_CHARASBIN_LIST
+				cExcludeFields  = MNX_EXCLUDE_LIST
+				cMemoAsBinList  = MNX_MEMOASBIN_LIST
+				cMemoAsCharList = MNX_MEMOASCHAR_LIST
+				cMemoVariesList = MNX_MEMOVARIES_LIST
+			CASE THIS.cType == PRJTYPE_DBC
+				cCharAsBinList  = DBC_CHARASBIN_LIST
+				cExcludeFields  = DBC_EXCLUDE_LIST
+				cMemoAsBinList  = DBC_MEMOASBIN_LIST
+				cMemoAsCharList = DBC_MEMOASCHAR_LIST
+				cMemoVariesList = DBC_MEMOVARIES_LIST
+			CASE THIS.cType == PRJTYPE_DBF
+				cCharAsBinList  = ""
+				cExcludeFields  = ""
+				cMemoAsBinList  = ""
+				cMemoAsCharList = ""
+				cMemoVariesList = ""
+			CASE THIS.cType == PRJTYPE_PJX
+				cCharAsBinList  = PJX_CHARASBIN_LIST
+				cExcludeFields  = PJX_EXCLUDE_LIST
+				cMemoAsBinList  = PJX_MEMOASBIN_LIST
+				cMemoAsCharList = PJX_MEMOASCHAR_LIST
+				cMemoVariesList = PJX_MEMOVARIES_LIST
+
+			OTHERWISE
+				THIS.CANCEL(ERR_UNSUPPORTEDFILETYPE_LOC + THIS.cType)
+		ENDCASE
+
+		* pkm: exclude our internally used recno() field:
+		cExcludeFields = m.cExcludeFields + " ISCCRECNO "
+
+		SCAN
+			THIS.oThermRef.UPDATE(RECNO())
+
+			*pkm: this.recordmark did nothing with the uniqueid,
+			*     and uniqueid isn't even unique anyway.  To make the
+			*     recordmarking work for all table types, we
+			*     need to call it unconditionally.
+			*!*        IF TYPE("UNIQUEID") <> 'U'
+			*!*          THIS.RECORDMARK(uniqueid)
+			*!*        ENDIF
+			THIS.RECORDMARK()
+
+			FOR m.i = 1 TO FCOUNT()
+				IF SKIPEMPTYFIELD AND EMPTY(EVALUATE(FIELD(m.i)))
+					LOOP
+				ENDIF
+				DO CASE
+					CASE FIELD(m.i) == "RESERVED1" AND ;
+							INLIST(THIS.cType, PRJTYPE_FORM, PRJTYPE_VCX) ;
+							AND THIS.MemoIsBinary(FIELD(m.i))
+						* do nothing
+					CASE FIELD(m.i) == "METHODS" AND ;
+							INLIST(THIS.cType, PRJTYPE_FORM, PRJTYPE_VCX)
+						THIS.MethodsWrite(FIELD(m.i))
+					CASE FIELD(m.i) == "PROPERTIES" AND ;
+							INLIST(THIS.cType, PRJTYPE_FORM, PRJTYPE_VCX)
+						THIS.PropertiesWrite(FIELD(m.i))
+					CASE FIELD(m.i) == "PROTECTED" AND ;
+							INLIST(THIS.cType, PRJTYPE_FORM, PRJTYPE_VCX)
+						THIS.PropertiesWrite(FIELD(m.i))
+					CASE FIELD(m.i) == "RESERVED3" AND ;
+							INLIST(THIS.cType, PRJTYPE_FORM, PRJTYPE_VCX)
+						THIS.PropertiesWrite(FIELD(m.i))
+					CASE " " + FIELD(m.i) + " " $ m.cExcludeFields
+						* skip this field
+					CASE " " + FIELD(m.i) + " " $ m.cMemoAsCharList
+						* memo fields treated as CHAR
+						THIS.CharWrite(FIELD(m.i))
+					CASE TYPE(FIELD(m.i)) = "C"
+						IF " " + FIELD(m.i) + " " $ m.cCharAsBinList
+							THIS.MemoWrite(FIELD(m.i), .T.)
+						ELSE
+							THIS.CharWrite(FIELD(m.i))
+						ENDIF
+					CASE TYPE(FIELD(m.i)) = "M"
+						IF " " + FIELD(m.i) + " " $ m.cMemoVariesList
+							* treat as text or binary based on contents of the memofield
+							IF THIS.MemoIsBinary(FIELD(m.i))
+								THIS.MemoWrite(FIELD(m.i), .T.)
+							ELSE
+								THIS.MemoWrite(FIELD(m.i), .F.)
+							ENDIF
+						ELSE
+							IF " " + FIELD(m.i) + " " $ m.cMemoAsBinList
+								* memo fields treated as BINARY
+								THIS.MemoWrite(FIELD(m.i), .T.)
+							ELSE
+								THIS.MemoWrite(FIELD(m.i), .F.)
+							ENDIF
+						ENDIF
+					CASE TYPE(FIELD(m.i)) = "N"
+						THIS.NumWrite(FIELD(m.i))
+					CASE TYPE(FIELD(m.i)) = "L"
+						THIS.BoolWrite(FIELD(m.i))
+					CASE TYPE(FIELD(m.i)) = "D"
+						THIS.DateWrite(FIELD(m.i))
+					OTHERWISE
+						THIS.Alert(ERR_UNSUPPORTEDFIELDTYPE_LOC + TYPE(FIELD(m.i)))
+				ENDCASE
+			ENDFOR
+		ENDSCAN
+		THIS.EOFMark()
+	ENDPROC
+
+	PROCEDURE MemoIsBinary
+		* Scan the memo field to see if it contains binary characters
+		PARAMETERS cFieldname
+		PRIVATE i, bIsBinary, cMemo
+		cMemo     = &cFieldname
+		bIsBinary = .T.
+
+		DO CASE
+			CASE CHR(0) $ m.cMemo
+			OTHERWISE
+				bIsBinary = .F.
+				IF LEN(m.cMemo) < 126
+					FOR m.i = 1 TO LEN(m.cMemo)
+						IF ASC(SUBSTR(m.cMemo, m.i, 1)) > 126
+							m.bIsBinary = .T.
+							EXIT
+						ENDIF
+					ENDFOR
+				ELSE
+					FOR m.i = 126 TO 255
+						IF CHR(m.i) $ m.cMemo
+							m.bIsBinary = .T.
+							EXIT
+						ENDIF
+					ENDFOR
+				ENDIF
+		ENDCASE
+		RETURN m.bIsBinary
+	ENDPROC
+
+	PROCEDURE EOFMark
+		FPUTS(THIS.iHandle, MARKEOF)
+	ENDPROC
+
+	PROCEDURE CharWrite
+		PARAMETERS cFieldname
+		PRIVATE cTempfield
+		cTempfield = &cFieldname
+		FPUTS(THIS.iHandle, MARKFIELDSTART + m.cFieldname + MARKFIELDEND + m.cTempfield)
+	ENDPROC
+
+	PROCEDURE MemoWrite
+		PARAMETERS cFieldname, bBinary
+		PRIVATE i, iLen, iStart, cBuf, cBinary, cBinaryProgress, iSeconds
+		FPUTS(THIS.iHandle, THIS.SectionMark(m.cFieldname, .T., m.bBinary))
+		iLen = LEN(&cFieldname)
+		IF m.bBinary
+			* If we don't support merging, simply write the checksum
+			IF C_WRITECHECKSUMS .AND. TextSupport(THIS.cType) == 1
+				FPUTS(THIS.iHandle, MARKCHECKSUM + SYS(2007, &cFieldname))
+			ELSE
+				cBuf = REPL(CHR(0), 17)
+
+				cBinaryProgress = "0"
+				THIS.oThermRef.UpdateTaskMessage(C_BINARYCONVERSION_LOC)
+				iSeconds = SECONDS()
+
+				FOR m.i = 1 TO INT(m.iLen / MAXBINLEN) + IIF(m.iLen % MAXBINLEN = 0, 0, 1)
+					IF SECONDS() - m.iSeconds > 1
+						cBinaryProgress = ALLTRIM(STR(INT(((m.i * MAXBINLEN) / m.iLen) * 100)))
+						THIS.oThermRef.UpdateTaskMessage(C_BINARYCONVERSION_LOC)
+						iSeconds = SECONDS()
+					ENDIF
+					cBinary = SUBSTR(&cFieldname, ((m.i - 1) * MAXBINLEN) + 1, MAXBINLEN)
+					FOR m.j = 1 TO INT(LEN(m.cBinary) / 8)
+						sprintf(@m.cBuf, "%02X%02X%02X%02X%02X%02X%02X%02X", ;
+							ASC(SUBSTR(m.cBinary, ((m.j - 1) * 8) + 1, 1)), ;
+							ASC(SUBSTR(m.cBinary, ((m.j - 1) * 8) + 2, 1)), ;
+							ASC(SUBSTR(m.cBinary, ((m.j - 1) * 8) + 3, 1)), ;
+							ASC(SUBSTR(m.cBinary, ((m.j - 1) * 8) + 4, 1)), ;
+							ASC(SUBSTR(m.cBinary, ((m.j - 1) * 8) + 5, 1)), ;
+							ASC(SUBSTR(m.cBinary, ((m.j - 1) * 8) + 6, 1)), ;
+							ASC(SUBSTR(m.cBinary, ((m.j - 1) * 8) + 7, 1)), ;
+							ASC(SUBSTR(m.cBinary, ((m.j - 1) * 8) + 8, 1)))
+						FWRITE(THIS.iHandle, m.cBuf, 16)
+					ENDFOR
+					IF LEN(m.cBinary) % 8 = 0
+						FPUTS(THIS.iHandle, "")
+					ENDIF
+				ENDFOR
+
+				IF LEN(m.cBinary) % 8 <> 0
+					cBinary = RIGHT(m.cBinary, LEN(m.cBinary) % 8)
+					sprintf(@m.cBuf, REPLICATE("%02X", LEN(m.cBinary)), ;
+						ASC(SUBSTR(m.cBinary, 1, 1)), ;
+						ASC(SUBSTR(m.cBinary, 2, 1)), ;
+						ASC(SUBSTR(m.cBinary, 3, 1)), ;
+						ASC(SUBSTR(m.cBinary, 4, 1)), ;
+						ASC(SUBSTR(m.cBinary, 5, 1)), ;
+						ASC(SUBSTR(m.cBinary, 6, 1)), ;
+						ASC(SUBSTR(m.cBinary, 7, 1)), ;
+						ASC(SUBSTR(m.cBinary, 8, 1)))
+					FWRITE(THIS.iHandle, m.cBuf, LEN(m.cBinary) * 2)
+					FPUTS(THIS.iHandle, "")
+				ENDIF
+
+				THIS.oThermRef.UpdateTaskMessage("")
+			ENDIF
+		ELSE
+			FWRITE(THIS.iHandle, &cFieldname)
+		ENDIF
+		FPUTS(THIS.iHandle, THIS.SectionMark(m.cFieldname, .F., m.bBinary))
+	ENDPROC
+
+	PROCEDURE MethodsWrite(cFieldname)
+		* write methods in alphabetical order
+		FPUTS(THIS.iHandle,  THIS.SectionMark(m.cFieldname, .T.))
+		FWRITE(THIS.iHandle, THIS.SortMethods(EVALUATE(m.cFieldname)))
+		FPUTS(THIS.iHandle,  THIS.SectionMark(m.cFieldname, .F.))
+	ENDPROC
+
+
+	PROCEDURE SortMethods(tcMethods)
+		LOCAL laMethods[1], lnMethods, ln, laLines[1]
+
+		* sanity checks
+		ASSERT TYPE("tcMethods") == 'C'
+		IF EMPTY(tcMethods)
+			RETURN
+		ENDIF
+
+		lnMethods = 0
+		* for each line in the methods
+		FOR ln = 1 TO ALINES(laLines, tcMethods)
+			* if it's a procedure line, add a new entry
+			IF LEFT(laLines[m.ln], LEN("PROCEDURE ")) == "PROCEDURE "
+				lnMethods = m.lnMethods + 1
+				DIMENSION laMethods[m.lnMethods]
+				laMethods[m.lnMethods] = ""
+			ENDIF
+			* add line to current entry
+			IF m.lnMethods>0
+				laMethods[m.lnMethods] = laMethods[m.lnMethods] + laLines[m.ln] + CRLF
+			ENDIF
+		ENDFOR
+
+		IF lnMethods > 0
+			* sort the entries
+			#IF VERSION(5) >= 700
+				IF SORT_CASE_INSENSITIVE
+					ASORT(laMethods, -1, -1, 0, 1)
+				ELSE
+					ASORT(laMethods, -1, -1, 0, 0)
+				ENDIF
+			#ELSE
+				* We are in VFP6 or lower
+				* ASORT case sensitivity will depend on the SET COLLATE setting,
+				* most likely being case-sensitive (MACHINE)
+				ASORT(laMethods)
+			#ENDIF
+		ENDIF
+
+		* recreate the methods in method name order
+		tcMethods = ""
+		FOR ln = 1 TO lnMethods
+			tcMethods = m.tcMethods + laMethods[m.ln]
+		ENDFOR
+
+		RETURN m.tcMethods
+
+	ENDFUNC
+
+	PROCEDURE PropertiesWrite(cFieldname)
+		LOCAL lSkipAsterisk
+
+		lSkipAsterisk = (LOWER(ALLTRIM(m.cFieldname)) == "reserved3")
+
+		* write Properties in alphabetical order, but put properties that have '.' in them
+		* after ones that don't (ColumnCount=3 needs to appear before Column1.Name=, etc.)
+
+		FPUTS(THIS.iHandle,  THIS.SectionMark(m.cFieldname, .T.))
+		FWRITE(THIS.iHandle, THIS.SortProperties(EVALUATE(m.cFieldname), m.lSkipAsterisk))
+		FPUTS(THIS.iHandle,  THIS.SectionMark(m.cFieldname, .F.))
+	ENDPROC
+
+	PROCEDURE SortProperties(tcProperties, tlSkipAsterisk)
+		* sort Properties by name (a DANGEROUS operation: see scX.h)
+		IF SCX_SORTPROPERTIES == .F.
+			* The recommended setting does a short-circuit return
+			RETURN m.tcProperties
+		ENDIF
+		
+		LOCAL laProperties[1], laPropertiesSort[1], lnProperties, lnLine, cProperty
+
+		* sanity checks
+		ASSERT TYPE("tcProperties") == 'C'
+		IF EMPTY(tcProperties)
+			RETURN
+		ENDIF
+
+		* get rid of DoCreate = .T. property, before anything else. The existence of this
+		* property in a position other then where VFP left it, could result in other properties
+		* being incorrectly set (ControlBox could be set to .T. if it was .F., for example). I've
+		* observed that VFP doesn't seem to care at all if DoCreate doesn't exist, and
+		* that vfp will add it again anyway, so let's just not save it at all to the .sc file.
+		tcProperties = STRTRAN(m.tcProperties, "DoCreate = .T." + CHR(13) + CHR(10), "")
+
+		lnProperties = ALINES(laProperties, tcProperties)
+
+		* pkm: Make new array for proper sorting (see below)
+		DIMENSION laPropertiesSort[ALEN(laProperties,1),2]
+
+		* for each line in the Properties
+		FOR lnLine = 1 TO m.lnProperties
+			IF RIGHT(laProperties[m.lnLine],2)<>CRLF
+				laProperties[m.lnLine] = laProperties[m.lnLine] + CRLF
+			ENDIF
+
+			* pkm: When we get to sorting, it is important that if there
+			*      are properties with _access or _assign methods, that
+			*      those methods appear in Reserved3 after their
+			*      respective properties.  Because methods are represented
+			*      in Reserved3 with an asterisk prepended, those will
+			*      by default sort previous to the properties, which do not
+			*      have the asterisk.  Therefore, I've added a new array,
+			*      laPropertiesSort[], with 2 columns.  Column1 is identical
+			*      to laProperties[], and Column2 has the asterisk removed,
+			*      which we will use for the ASORT() below.  I included the
+			*      tlSkipAsterisk parameter just in case this added functionality
+			*      screws up other fields besides Reserved3.
+
+			* Need to get just the property name, sans comments, for
+			* proper comparison in the CASE statement below, and for
+			* proper sorting in the sort array.
+			cProperty = laProperties(m.lnLine)
+			IF " " $ m.cProperty
+				cProperty = SUBSTR(m.cProperty, 1, AT(" ", m.cProperty) -1)
+			ENDIF
+
+			* Store the entire line in the first column of the sort array:
+			laPropertiesSort[m.lnLine,1] = laProperties[m.lnLine]
+
+			DO CASE
+				CASE '.' $ m.cProperty
+					* This needs to sort after everything else:
+					laPropertiesSort[m.lnLine,2] = "z" + m.cProperty
+
+				CASE m.tlSkipAsterisk == .T. AND LEFT(laProperties[m.lnLine],1) == "*"
+					laPropertiesSort[m.lnLine,2] = SUBSTR(m.cProperty,2)
+
+				OTHERWISE
+					laPropertiesSort[m.lnLine,2] = m.cProperty
+
+			ENDCASE
+
+		ENDFOR
+
+		* sort the entries
+		IF NOT SORT_CASE_INSENSITIVE OR VERSION(5)<700
+			ASORT(laPropertiesSort,2)
+		ELSE
+			* pkm: the below line was still sorting, in my observation,
+			*      and therefore a bug.  If we don't want to sort,
+			*      we should just not call ASORT() at all:
+			* ASORT(laProperties,-1,-1,0,1)
+		ENDIF
+
+		* recreate the Properties in method name order
+		tcProperties = ""
+		FOR lnLine = 1 TO m.lnProperties
+			tcProperties = m.tcProperties + laPropertiesSort[m.lnLine,1]
+		ENDFOR
+
+		RETURN m.tcProperties
+
+	ENDFUNC
+
+	PROCEDURE HexStr2BinStr
+		PARAMETERS cHexStr
+
+		LOCAL cBinStr, i, cHexTable, cChar1, cChar2
+
+		cBinStr = ""
+		cHexTable = "0123456789ABCDEF"
+
+		FOR i = 1 TO LEN(m.cHexStr) STEP 2
+			cChar1 = SUBSTR(m.cHexStr, m.i   , 1)
+			cChar2 = SUBSTR(m.cHexStr, m.i +1, 1)
+			cBinStr = m.cBinStr + CHR((ATC(m.cChar1, m.cHexTable)-1) * 16 + ATC(m.cChar2, m.cHexTable)-1)
+		ENDFOR
+
+		RETURN m.cBinStr
+	ENDPROC
+
+
+	PROCEDURE NumWrite
+		* This procedure supports the numerics found in forms, reports, etc. (basically, integers)
+		PARAMETERS cFieldname
+		FPUTS(THIS.iHandle, MARKFIELDSTART + m.cFieldname + MARKFIELDEND + ALLTRIM(STR(EVALUATE(m.cFieldname), 20)))
+	ENDPROC
+
+
+	PROCEDURE DateWrite
+		* pkm added this to add support for resource files
+		LPARAMETERS cFieldname
+		FPUTS(THIS.iHandle, MARKFIELDSTART + m.cFieldname + MARKFIELDEND ;
+			+ "{^" + ALLTRIM(TRANSFORM(YEAR(EVALUATE(m.cFieldname)))) + "-" + ALLTRIM(TRANSFORM(MONTH(EVALUATE(m.cFieldname)))) ;
+			+ "-" + ALLTRIM(TRANSFORM(DAY(EVALUATE(m.cFieldname)))) + "}")
+	ENDPROC
+
+
+	PROCEDURE BoolWrite
+		PARAMETERS cFieldname
+		FPUTS(THIS.iHandle, MARKFIELDSTART + m.cFieldname + MARKFIELDEND + IIF(EVALUATE(m.cFieldname), ".T.", ".F."))
+	ENDPROC
+
+	PROCEDURE SectionMark
+		PARAMETERS cFieldname, lStart, bBinary
+		IF m.lStart
+			IF m.bBinary
+				RETURN MARKBINSTARTWORD + m.cFieldname + MARKBINSTARTWORD2
+			ELSE
+				RETURN MARKMEMOSTARTWORD + m.cFieldname + MARKMEMOSTARTWORD2
+			ENDIF
+		ELSE
+			IF m.bBinary
+				RETURN MARKBINENDWORD + m.cFieldname + MARKBINENDWORD2
+			ELSE
+				RETURN MARKMEMOENDWORD + m.cFieldname + MARKMEMOENDWORD2
+			ENDIF
+		ENDIF
+	ENDPROC
+
+	PROCEDURE SetCodePage
+		PARAMETERS m.fname, m.iCodePage
+		PRIVATE iHandle, cpbyte
+
+		DO CASE
+			CASE m.iCodePage = 437
+				cpbyte = 1
+			CASE m.iCodePage = 850
+				cpbyte = 2
+			CASE m.iCodePage = 1252
+				cpbyte = 3
+			CASE m.iCodePage = 10000
+				cpbyte = 4
+			CASE m.iCodePage = 852
+				cpbyte = 100
+			CASE m.iCodePage = 866
+				cpbyte = 101
+			CASE m.iCodePage = 865
+				cpbyte = 102
+			CASE m.iCodePage = 861
+				cpbyte = 103
+			CASE m.iCodePage = 895
+				cpbyte = 104
+			CASE m.iCodePage = 620
+				cpbyte = 105
+			CASE m.iCodePage = 737
+				cpbyte = 106
+			CASE m.iCodePage = 857
+				cpbyte = 107
+			CASE m.iCodePage = 863
+				cpbyte = 108
+			CASE m.iCodePage = 10007
+				cpbyte = 150
+			CASE m.iCodePage = 10029
+				cpbyte = 151
+			CASE m.iCodePage = 10006
+				cpbyte = 152
+			CASE m.iCodePage = 1250
+				cpbyte = 200
+			CASE m.iCodePage = 1251
+				cpbyte = 201
+			CASE m.iCodePage = 1253
+				cpbyte = 203
+			CASE m.iCodePage = 1254
+				cpbyte = 202
+			CASE m.iCodePage = 1257
+				cpbyte = 204
+			OTHERWISE
+				* Handle the error
+				RETURN .F.
+		ENDCASE
+
+		m.iHandle = FOPEN(m.fname, 2)
+		IF m.iHandle = -1
+			RETURN .F.
+		ELSE
+			FSEEK(m.iHandle, 29)
+			FWRITE(m.iHandle, CHR(m.cpbyte))
+			FCLOSE(m.iHandle)
+		ENDIF
+		RETURN .T.
+	ENDPROC
+
+ENDDEFINE
+
+******************************************************************
+DEFINE CLASS thermometer AS FORM
+
+	AUTOCENTER   = .T.
+	BORDERSTYLE  = 2
+	HEIGHT       = 88
+	NAME         = "thermometer"
+	TITLEBAR     = 0
+	WIDTH        = 356
+
+	cCurrentTask        = ''
+	cThermRef           = ""
+	iBasis              = 0
+	iPercentage         = 0
+	shpThermbarMaxWidth = 322
+
+	* Outer Border
+	ADD OBJECT cntBorder1 AS CONTAINER WITH ;
+		SPECIALEFFECT = 1,;
+		LEFT          = 2 ,;
+		TOP           = 2 ,;
+		HEIGHT        = THISFORM.HEIGHT - 4 ,;
+		WIDTH         = THISFORM.WIDTH - 4
+
+	* Thermometer bar Border
+	ADD OBJECT cntBorder2 AS CONTAINER WITH ;
+		SPECIALEFFECT = 1,;
+		LEFT          = 14 ,;
+		TOP           = 44 ,;
+		HEIGHT        = 20 ,;
+		WIDTH         = 327
+
+	ADD OBJECT lbltitle AS LABEL WITH ;
+		BACKSTYLE = 0, ;
+		CAPTION   = "", ;
+		FONTNAME  = WIN32FONT, ;
+		FONTSIZE  = 8, ;
+		HEIGHT    = 16, ;
+		LEFT      = 18, ;
+		TOP       = 14, ;
+		WIDTH     = 319
+
+	ADD OBJECT lbltask AS LABEL WITH ;
+		BACKSTYLE = 0, ;
+		CAPTION   = "", ;
+		FONTNAME  = WIN32FONT, ;
+		FONTSIZE  = 8, ;
+		HEIGHT    = 16, ;
+		LEFT      = 18, ;
+		TOP       = 27, ;
+		WIDTH     = 319
+
+
+	ADD OBJECT shpThermbar AS SHAPE WITH ;
+		BORDERSTYLE = 0, ;
+		FILLCOLOR   = RGB(128,128,128), ;
+		FILLSTYLE   = 0, ;
+		HEIGHT      = 16, ;
+		LEFT        = 17, ;
+		TOP         = 46, ;
+		WIDTH       = 0
+
+	ADD OBJECT lblPercentage AS LABEL WITH ;
+		BACKSTYLE = 0, ;
+		CAPTION   = "0%", ;
+		FONTNAME  = WIN32FONT, ;
+		FONTSIZE  = 8, ;
+		HEIGHT    = 13, ;
+		LEFT      = 170, ;
+		TOP       = 47, ;
+		WIDTH     = 16
+
+	ADD OBJECT lblPercentage2 AS LABEL WITH ;
+		BACKCOLOR = RGB(0,0,255), ;
+		BACKSTYLE = 0, ;
+		CAPTION   = "Label1", ;
+		FONTNAME  = WIN32FONT, ;
+		FONTSIZE  = 8, ;
+		FORECOLOR = RGB(255,255,255), ;
+		HEIGHT    = 13, ;
+		LEFT      = 170, ;
+		TOP       = 47, ;
+		WIDTH     = 0
+
+	ADD OBJECT lblescapemessage AS LABEL WITH ;
+		ALIGNMENT = 2, ;
+		BACKCOLOR = RGB(192,192,192), ;
+		BACKSTYLE = 0, ;
+		CAPTION   = "", ;
+		FONTBOLD  = .F., ;
+		FONTNAME  = WIN32FONT, ;
+		FONTSIZE  = 8, ;
+		HEIGHT    = 14, ;
+		LEFT      = 17, ;
+		TOP       = 68, ;
+		WIDTH     = 322, ;
+		WORDWRAP  = .F.
+
+	PROCEDURE COMPLETE
+		* This is the default complete message
+		PARAMETERS cTask
+		PRIVATE iSeconds
+		IF PCOUNT() = 0
+			cTask = THERMCOMPLETE_LOC
+		ENDIF
+		THIS.UPDATE(100,m.cTask)
+	ENDPROC
+
+	PROCEDURE UpdateTaskMessage
+&& Update the task message only, used when converting binary data
+		PARAMETERS cTask
+		THIS.cCurrentTask = m.cTask
+		THIS.lbltask.CAPTION = THIS.cCurrentTask
+	ENDPROC
+
+	PROCEDURE UPDATE
+&& m.iProgress is the percentage complete
+&& m.cTask is displayed on the second line of the window
+
+		PARAMETERS iProgress, cTask
+
+		IF PCOUNT() >= 2 .AND. TYPE('m.cTask') = 'C'
+&& If we're specifically passed a null string, clear the current task,
+&& otherwise leave it alone
+			THIS.cCurrentTask = m.cTask
+		ENDIF
+
+		IF NOT THIS.lbltask.CAPTION == THIS.cCurrentTask
+			THIS.lbltask.CAPTION = THIS.cCurrentTask
+		ENDIF
+
+		IF THIS.iBasis <> 0
+&& interpret m.iProgress in terms of this.iBasis
+			iPercentage = INT((m.iProgress / THIS.iBasis) * 100)
+		ELSE
+			iPercentage = m.iProgress
+		ENDIF
+
+		iPercentage = MIN(100,MAX(0,m.iPercentage))
+
+		IF m.iPercentage = THIS.iPercentage
+			RETURN
+		ENDIF
+
+		IF LEN(ALLTRIM(STR(m.iPercentage,3)))<>LEN(ALLTRIM(STR(THIS.iPercentage,3)))
+			iAvgCharWidth = FONTMETRIC(6,THIS.lblPercentage.FONTNAME, ;
+				THIS.lblPercentage.FONTSIZE, ;
+				IIF(THIS.lblPercentage.FONTBOLD,'B','')+ ;
+				IIF(THIS.lblPercentage.FONTITALIC,'I',''))
+
+			THIS.lblPercentage.WIDTH = TXTWIDTH(ALLTRIM(STR(m.iPercentage,3)) + '%', ;
+				THIS.lblPercentage.FONTNAME,THIS.lblPercentage.FONTSIZE, ;
+				IIF(THIS.lblPercentage.FONTBOLD,'B','')+ ;
+				IIF(THIS.lblPercentage.FONTITALIC,'I','')) * iAvgCharWidth
+
+			THIS.lblPercentage.LEFT  = INT((THIS.shpThermbarMaxWidth- THIS.lblPercentage.WIDTH) / 2)+THIS.shpThermbar.LEFT-1
+			THIS.lblPercentage2.LEFT = THIS.lblPercentage.LEFT
+
+		ENDIF
+
+		THIS.shpThermbar.WIDTH      = INT((THIS.shpThermbarMaxWidth)*m.iPercentage/100)
+		THIS.lblPercentage.CAPTION  = ALLTRIM(STR(m.iPercentage,3)) + '%'
+		THIS.lblPercentage2.CAPTION = THIS.lblPercentage.CAPTION
+
+		IF THIS.shpThermbar.LEFT + THIS.shpThermbar.WIDTH -1 >= THIS.lblPercentage2.LEFT
+			IF THIS.shpThermbar.LEFT + THIS.shpThermbar.WIDTH - 1 >= THIS.lblPercentage2.LEFT + THIS.lblPercentage.WIDTH - 1
+				THIS.lblPercentage2.WIDTH = THIS.lblPercentage.WIDTH
+			ELSE
+				THIS.lblPercentage2.WIDTH = THIS.shpThermbar.LEFT + THIS.shpThermbar.WIDTH - THIS.lblPercentage2.LEFT - 1
+			ENDIF
+		ELSE
+			THIS.lblPercentage2.WIDTH = 0
+		ENDIF
+		THIS.iPercentage = m.iPercentage
+	ENDPROC
+
+	PROCEDURE INIT
+		PARAMETERS cTitle, iInterval
+&& m.cTitle is displayed on the first line of the window
+&& m.iInterval is the frequency used for updating the thermometer
+
+		THIS.lbltitle.CAPTION = IIF(EMPTY(m.cTitle),'',m.cTitle)
+		LOCAL cColor
+
+&& Check to see if the fontmetrics for MS Sans Serif matches
+&& those on the system developed. If not, switch to Arial.
+&& The RETURN value indicates whether the font was changed.
+		IF FONTMETRIC(1, WIN32FONT, 8, '') <> 13 .OR. ;
+				FONTMETRIC(4, WIN32FONT, 8, '') <> 2 .OR. ;
+				FONTMETRIC(6, WIN32FONT, 8, '') <> 5 .OR. ;
+				FONTMETRIC(7, WIN32FONT, 8, '') <> 11
+			THIS.SETALL('FontName', WIN95FONT)
+		ENDIF
+
+	ENDPROC
+ENDDEFINE
+
+
+* Original comments from scctext.prg:
+
+*+--------------------------------------------------------------------------
+*
+*  File:    SCCTEXT.PRG
+*
+*  Copyright:  (c) 1995, Microsoft Corporation.
+*        All Rights Reserved.
+*
+*  Contents:  Routines for creating text representations of .SCX, .VCX,
+*        .MNX, .FRX, and .LBX files for the purpose of supporting
+*        merge capabilities in source control systems.
+*
+*   Authors:  Sherri Kennamer
+*        Mark Wilden (Mark@mWilden.com)
+*        Markus Winhard (mw@bingo-ev.de)
+*        Frank Camp (frank@prosysplus.nl)
+*        Beth Massi (bmassi@goamerica.net)
+*        Jrgen Wondzinski (wOOdy@ProLib.de)
+*       Paul McNett (p@ulmcnett.com)
+*
+*  Parameters:  cTableName  C  Fully-qualified name of the SCX/VCX/MNX/FRX/LBX
+*        cType    C  Code indicating the file type
+*                (See PRJTYPE_ constants, defined below)
+*        cTextName  C  Fully-qualified name of the text file
+*        lGenText  L  .T. Create a text file from the table
+*                .F. Create a table from the text file
+*
+*  Returns:  0    File or table was successfully generated
+*        -1    An error occurred
+*
+*  History:  17-Aug-95  sherrike  written
+*        20-Nov-95  sherrike  use smart defaults for single filename
+*        02-Dec-95  sherrike  return values for merge support
+*               18-Jan-01   M.Winhard  implemented modifications of Mark Wilden as published
+*                    in FoxPro Advisor Oct.97, further improved it by:
+*                    + finally fixed sort order for method names in class
+*                    + dramatically improved performance with large VCX's
+*                      (see SccTextEngine::SortMethods())
+*                    + fixed sort order for classes in VCX
+*                    + changed all PARAMETERS() to PCOUNT()
+*                    + made sure SET COMPATIBLE is OFF as needed by FSIZE()
+*                      to work the intended way
+*        01-Feb-01  M.Winhard  auto-localizing for german users
+*                    (other localized VFP versions get english strings,
+*                    feel free to extend ;-) )
+*        13-Aug-01  F.Camp    so I did. :-)
+*                    Fixed/Extend it to sort all the methods, objects
+*                    and properties.
+*                    Fixed second parameter in FGETS() calls.
+*                    In VFP7 it uses the Case-Insensitive Sort Order
+*        15-Aug-01  M.Winhard  sort SCX like VCX
+*        09-Aug-02  M.Winhard  allow creation of SCA files for FP2x screens
+*        29-Oct-02  M.Winhard  VFP 7 and above: case insensitive sorting of methods
+*                    and properties is now optional; thus by default
+*                    VFP's standard methods and properties will be first,
+*                    not mixed with custom methods and properties
+*        30-Oct-02  BethM    Fixed a Problem in Routine SortMethods()
+*        31-Oct-02  wOOdy    changed all this.JUST*, this.ADDBS, this.FORCEEXT
+*                    functions to the VFP internal routines; revised
+*                    Thermometer code to use two container instead of nine
+*                    shapes; Reworked the HexStr2BinStr function for faster
+*                    and cleaner code. Overall Code cleanups (removed
+*                    unnecessary "m.", sorted and indented code,  etc),
+*                    fixed SCC_DBC_MEMO define error.
+*        01-Nov-02  wOOdy    Spotted the cause for the "BugBug" workarounds in
+*                    proc "CreateTable"; Killed bug, cleaned code and got
+*                    rid of proc "GetReportStructure"
+*        12-Nov-02  M.Winhard  Changed #defines for DBC file extensions to DC*;
+*                    added #defines for DBF file extensions as DB*
+*        31-Nov-02  F.Camp    Fixed the sort order of contained objects in VCX and SCX
+*                    files so that they are created straight after the parent.
+*                    Header files will be created first, then the other controls
+*                    in a column of a grid
+*       05-Mar-03 P.McNett  Included a #DEFINE for an option to not erase backups.
+*                   Fixed an issue with the ordering of the Reserved3 field in VCX's
+*                   that could cause _access and _assign methods from firing after
+*                   rebuilding the VCX from the text file.
+*       07-Mar-03 P.McNett  I was running into problems bringing the text vcx
+*                   back to binary version.  The order of the contained objects
+*                   as saved in the text file (alpha order) was causing subtle
+*                   problems with which contained object would receive the focus
+*                   when container.setfocus() was called.  The sorting of the
+*                   contained objects makes a lot of sense, so I didn't want to
+*                   change that.  Instead, I added two additional #DEFINES to
+*                   determine if we save/restore the original recno() into the
+*                   text file.  If so, after we've rebuilt the binary file from
+*                   the text file, we'll sort in the original recno order.  This
+*                   allows VFP to do its thing, us to do ours, and we all can
+*                   get along. :)   WARNING WARNING: I'm confident that
+*                   2-way VCX-->Text-->VCX as it is implemented here will work
+*                   reliably when merging of changes by multiple developers isn't
+*                   required. But I'm not so sure anything 100% reliable can be
+*                   created to guarantee merging doesn't screw something up.  So
+*                   you have been warned: corruption of your local VCX can
+*                   theoretically occur when more than one developer is working
+*                   on the classlib and merging occurs.  I'll try to confirm
+*                   that this is indeed a possibility, but until then let's just
+*                   be very careful.  At least 2-way without having to save the
+*                   binary is working now.
+*       08-Mar-03 P.McNett  Enhancement of the above: Add a new #DEFINE to
+*                   determine if we PACK the original binary file before writing
+*                   it to the textfile.  This will result in a higher likelihood
+*                   that the [RECORD] tag in the text file has the original
+*                   record number, and will thus result in smaller DIFFs.
+*       11-Mar-03 P.McNett  Added 2-way support for PRJTYPE_PJX, project files.
+*       12-Mar-03 P.McNett  Fixed various parts of the code that had things like
+*                   @FieldName to @m.FieldName, because it would conflict with
+*                   a field called FieldName in the currently selected table.
+*---------------------------------------------------------------------------

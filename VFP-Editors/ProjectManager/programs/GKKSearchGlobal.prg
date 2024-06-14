@@ -1,0 +1,23 @@
+FUNCTION GKKSearchGlobal
+LOCAL lcSystemApp
+IF !('GKPDeclareAPI' $ SET( 'Procedure' ))
+	SET PROCEDURE TO GKPDeclareAPI ADDITIVE
+ENDIF
+IF PEMSTATUS(_SCREEN, "GKKTools", 5)
+	IF ISNULL(_SCREEN.GKKTools)
+		_SCREEN.GKKTools = CREATEOBJECT("Empty")
+	ENDIF
+ELSE
+	_SCREEN.AddProperty("GKKTools")
+	_SCREEN.GKKTools = CREATEOBJECT("Empty")
+ENDIF
+IF !PEMSTATUS(_SCREEN.GKKTools, "LastDirectory", 5)
+	ADDPROPERTY(_SCREEN.GKKTools, "LastDirectory", ADDBS(SYS(5) + SYS(2003)))
+ENDIF
+SYS(2333, 0)
+lcSystemApp = GKPGetSystemAPP()
+IF !EMPTY(lcSystemApp)
+	DO (lcSystemApp)
+	DO FORM GKPSearchGlobal
+ENDIF
+ENDFUNC

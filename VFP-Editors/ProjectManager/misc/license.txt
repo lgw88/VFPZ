@@ -1,0 +1,38 @@
+GKK INDUSTRIES
+
+SOFTWARE LICENSE AGREEMENT
+GKK Tools
+
+IMPORTANT-- READ CAREFULLY. 
+THE FOLLOWING LICENSE AGREEMENT APPLIES TO YOU. BY INSTALLING THIS SOFTWARE, YOU INDICATE YOUR ACCEPTANCE OF THE FOLLOWING SOFTWARE LICENSE AGREEMENT.
+
+This is a legal agreement between you (either an individual or an entity) and GKK Industries. By installing this software package and/or by using GKK Tools software, you agree to be bound by the terms of this Agreement.
+
+1. GRANT OF LICENSE.
+
+This Software License Agreement ("License") permits you to use GKK Industries' GKK Tools software ("Software") on workstations running Microsoft Windows 9x, Windows NT, Windows 2000 or Windows XP Workstation. The Software is "in use" on a computer when it is loaded into the temporary memory (i.e., RAM) or installed into the permanent memory (e.g., hard disk, CD-ROM or other storage device) of that computer. 
+
+2. COPYRIGHT.
+
+The Software is owned by GKK Industries and is protected by United States copyright laws and international treaty provisions. Therefore, you must treat the Software like any other copyrighted material (e.g. a book or musical recording).
+
+3. WARRANTIES.
+
+GKK INDUSTIES DOES NOT WARRANT THE FUNCTIONS CONTAINED IN THE SOFTWARE WILL MEET YOUR REQUIREMENTS OR THAT THE OPERATION OF THE SOFTWARE WILL BE UNINTERRUPTED OR ERROR FREE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE SOFTWARE IS WITH YOU. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, GKK INDUSTIES AND ITS SUPPLIERS DISCLAIM ALL OTHER WARRANTIES, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, WITH REGARD TO THE SOFTWARE AND THE ACCOMPANYING WRITTEN MATERIALS.
+
+4. NO LIABILITY FOR CONSEQUENTIAL DAMAGES.
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL GKK INDUSTIES OR ITS SUPPLIERS BE LIABLE FOR ANY DAMAGES WHATSOEVER (INCLUDING WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS INFORMATION, OR ANY OTHER PECUNIARY LOSS) ARISING OUT OF THE USE OR INABILITY TO USE THE GKK INDUSTIES PRODUCT, EVEN IF GKK INDUSTIES HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+5. U.S. GOVERNMENT RESTRICTED RIGHTS.
+
+The Software and documentation are provided with RESTRICTED RIGHTS. Use, duplication, or disclosure by the Government is subject to restrictions as set forth in subparagraph (c)(1)(ii) of the Rights in Technical Data and Computer Software clause at DFARS 252.227-7013 or subparagraphs (c)(1) and (2) of the Commercial Computer Software--Restricted Rights at 48 CFR 52.227-19, as applicable. Manufacturer is GKK Industries, 980 Windmill Parkway, Evans, Georgia 30809.
+
+6. GEORGIA LAW.
+
+This Agreement is governed by the laws of the State of Georgia. Should any of the provisions of this License be declared invalid by any court of competent jurisdiction, the balance of the License will remain in full force and effect. 
+
+Windows 9x, Windows NT, Windows 2000 and Windows XP are trademarks of Microsoft Corporation.
+
+SOFTWARE LICENSE AGREEMENT
+GKK Tools

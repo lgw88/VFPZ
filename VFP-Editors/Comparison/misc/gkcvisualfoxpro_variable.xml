@@ -1,0 +1,2475 @@
+<language name="Visual FoxPro UndefVars" casesensitive="no" wordchars="[\w]" whitespaceasparamblock="no">
+	<tokenset name="Line Comments" id="linecomments" type="scope" forecolor="green" fontstyle="italic">
+		<validscope name=""/>
+		<validscope name="Scope Keywords"/>
+		<validscope name="Parameter Block"/>
+		<tokens>
+			<token>*-*</token>
+			<token>*!*</token>
+			<token>&amp;&amp;</token>
+			<token rule="AsterickComment">*</token>
+		</tokens>
+	</tokenset>
+	<tokenset name="Parameter Block" id="parameterblocks" type="scope" hidden="yes" inheritfrom="Text">\
+		<validscope name=""/>
+		<validscope name="Scope Keywords"/>
+		<validscope name="Parameter Block"/>
+		<tokens>
+			<token action="ParameterInfo">(</token>
+			<token>[</token>
+		</tokens>
+		<tokens2>
+			<token>)</token>
+			<token>]</token>
+		</tokens2>
+	</tokenset>
+	<tokenset name="Argument Separators" id="argseparators" hidden="yes" inheritfrom="Operators">
+		<validscope name=""/>
+		<validscope name="Parameter Block"/>
+		<validscope name="Scope Keywords"/>
+		<tokens>
+			<token action="CommitMember">,</token>
+		</tokens>
+	</tokenset>
+	<tokenset name="Hyperlinks" id="hyperlinks" forecolor="blue" fontstyle="underline">
+		<validscope name="Strings"/>
+		<validscope name="Line Comments"/>
+		<tokens regexp="yes">
+			<token>file://((\w:)?\w*)([/\\][\w\s\.]+)+([/\\][\w\.]*)+</token>
+			<token>https?://([\.~:?#=\w]+\w+)(/[\.~:?#=\w]+\w)*</token>
+			<token>(ftp|news|telnet|gopher)://[\.~:?#=\w]*\w(\.[\.~:?#=\w]*\w)+</token>
+			<token>mailto:[\w-]+(@[\w-]+(\.?[\w-])*)?</token>
+		</tokens>
+	</tokenset>
+	<tokenset name="Strings" id="strings" type="scope" normalizecase="no" singlelinescope="yes" forecolor="purple">
+		<validscope name=""/>
+		<validscope name="Scope Keywords"/>
+		<validscope name="Parameter Block"/>
+		<tokens>
+			<token>'</token>
+			<token>"</token>
+		</tokens>
+		<tokens2>
+			<token>'</token>
+			<token>"</token>
+		</tokens2>
+	</tokenset>
+	<tokenset name="Attribute Names" id="tagattributenames" normalizecase="no" forecolor="blue">
+		<validscope name=""/>
+		<validscope name="Scope Keywords"/>
+		<validscope name="Parameter Block"/>
+		<tokens rule="AttributeRule">
+			<token>ACCELERATE</token>
+			<token>ACTIVATE</token>
+			<token>ACTIVATECELL</token>
+			<token>ACTIVECOLUMN</token>
+			<token>ACTIVECONTROL</token>
+			<token>ACTIVEFORM</token>
+			<token>ACTIVEOBJECTID</token>
+			<token>ACTIVEPAGE</token>
+			<token>ACTIVEPROJECT</token>
+			<token>ACTIVEROW</token>
+			<token>ADD</token>
+			<token>ADDCOLUMN</token>
+			<token>ADDITEM</token>
+			<token>ADDLINEFEEDS</token>
+			<token>ADDLISTITEM</token>
+			<token>ADDOBJECT</token>
+			<token>ADDPROPERTY</token>
+			<token>ADDTABLESCHEMA</token>
+			<token>ADDTOSCC</token>
+			<token>ADJUSTOBJECTSIZE</token>
+			<token>ADOCODEPAGE</token>
+			<token>AFTERBAND</token>
+			<token>AFTERBUILD</token>
+			<token>AFTERCLOSETABLES</token>
+			<token>AFTERCURSORATTACH</token>
+			<token>AFTERCURSORCLOSE</token>
+			<token>AFTERCURSORDETACH</token>
+			<token>AFTERCURSORFILL</token>
+			<token>AFTERCURSORREFRESH</token>
+			<token>AFTERCURSORUPDATE</token>
+			<token>AFTERDELETE</token>
+			<token>AFTERDOCK</token>
+			<token>AFTERINSERT</token>
+			<token>AFTERRECORDREFRESH</token>
+			<token>AFTERREPORT</token>
+			<token>AFTERROWCOLCHANGE</token>
+			<token>AFTERUPDATE</token>
+			<token>ALIAS</token>
+			<token>ALIGN</token>
+			<token>ALIGNMENT</token>
+			<token>ALLOWADDNEW</token>
+			<token>ALLOWAUTOCOLUMNFIT</token>
+			<token>ALLOWCELLSELECTION</token>
+			<token>ALLOWDELETE</token>
+			<token>ALLOWHEADERSIZING</token>
+			<token>ALLOWINSERT</token>
+			<token>ALLOWMODALMESSAGES</token>
+			<token>ALLOWOUTPUT</token>
+			<token>ALLOWRESIZE</token>
+			<token>ALLOWROWSIZING</token>
+			<token>ALLOWSIMULTANEOUSFETCH</token>
+			<token>ALLOWTABS</token>
+			<token>ALLOWUPDATE</token>
+			<token>ALWAYSONBOTTOM</token>
+			<token>ALWAYSONTOP</token>
+			<token>ANCHOR</token>
+			<token>APPLICATION</token>
+			<token>APPLYDIFFGRAM</token>
+			<token>ATGETCOLORS</token>
+			<token>ATLISTCOLORS</token>
+			<token>ATTACH</token>
+			<token>AUTOACTIVATE</token>
+			<token>AUTOCENTER</token>
+			<token>AUTOCLOSETABLES</token>
+			<token>AUTOCOMPLETE</token>
+			<token>AUTOCOMPSOURCE</token>
+			<token>AUTOCOMPTABLE</token>
+			<token>AUTOFIT</token>
+			<token>AUTOHIDESCROLLBAR</token>
+			<token>AUTOINCREMENT</token>
+			<token>AUTOOPEN</token>
+			<token>AUTOOPENTABLES</token>
+			<token>AUTORELEASE</token>
+			<token>AUTOSIZE</token>
+			<token>AUTOVERBMENU</token>
+			<token>AUTOYIELD</token>
+			<token>AVAILNUM</token>
+			<token>BACKCOLOR</token>
+			<token>BACKSTYLE</token>
+			<token>BASECLASS</token>
+			<token>BATCHUPDATECOUNT</token>
+			<token>BEFOREBAND</token>
+			<token>BEFOREBUILD</token>
+			<token>BEFORECURSORATTACH</token>
+			<token>BEFORECURSORCLOSE</token>
+			<token>BEFORECURSORDETACH</token>
+			<token>BEFORECURSORFILL</token>
+			<token>BEFORECURSORREFRESH</token>
+			<token>BEFORECURSORUPDATE</token>
+			<token>BEFOREDELETE</token>
+			<token>BEFOREDOCK</token>
+			<token>BEFOREINSERT</token>
+			<token>BEFOREOPENTABLES</token>
+			<token>BEFORERECORDREFRESH</token>
+			<token>BEFOREREPORT</token>
+			<token>BEFOREROWCOLCHANGE</token>
+			<token>BEFOREUPDATE</token>
+			<token>BINDCONTROLS</token>
+			<token>BORDERCOLOR</token>
+			<token>BORDERSTYLE</token>
+			<token>BORDERWIDTH</token>
+			<token>BOUND</token>
+			<token>BOUNDCOLUMN</token>
+			<token>BOUNDTO</token>
+			<token>BOX</token>
+			<token>BREAKONERROR</token>
+			<token>BROWSEALIGNMENT</token>
+			<token>BROWSECELLMARG</token>
+			<token>BROWSEDESTWIDTH</token>
+			<token>BUFFERMODE</token>
+			<token>BUFFERMODEOVERRIDE</token>
+			<token>BUILDDATETIME</token>
+			<token>BUTTONCOUNT</token>
+			<token>BUTTONINDEX</token>
+			<token>BUTTONS</token>
+			<token>CANACCELERATE</token>
+			<token>CANCEL</token>
+			<token>CANCELREPORT</token>
+			<token>CANGETFOCUS</token>
+			<token>CANLOSEFOCUS</token>
+			<token>CAPTION</token>
+			<token>CENTERED</token>
+			<token>CENTURY</token>
+			<token>CHANGESTOCURSOR</token>
+			<token>CHECKIN</token>
+			<token>CHECKOUT</token>
+			<token>CHILDALIAS</token>
+			<token>CHILDORDER</token>
+			<token>CHILDTABLE</token>
+			<token>CIRCLE</token>
+			<token>CLASS</token>
+			<token>CLASSLIBRARY</token>
+			<token>CLEAR</token>
+			<token>CLEARDATA</token>
+			<token>CLEARSTATUS</token>
+			<token>CLICK</token>
+			<token>CLIPCONTROLS</token>
+			<token>CLIPRECT</token>
+			<token>CLONEOBJECT</token>
+			<token>CLOSABLE</token>
+			<token>CLOSEEDITOR</token>
+			<token>CLOSETABLES</token>
+			<token>CLS</token>
+			<token>CLSID</token>
+			<token>CODEPAGE</token>
+			<token>COLORSCHEME</token>
+			<token>COLORSOURCE</token>
+			<token>COLUMNCOUNT</token>
+			<token>COLUMNHEADERS</token>
+			<token>COLUMNLINES</token>
+			<token>COLUMNORDER</token>
+			<token>COLUMNS</token>
+			<token>COLUMNWIDTHS</token>
+			<token>COMMANDCLAUSES</token>
+			<token>COMMANDTARGETEXEC</token>
+			<token>COMMANDTARGETQUERY</token>
+			<token>COMMANDTARGETQUERYSTAS</token>
+			<token>COMMENT</token>
+			<token>COMPAREMEMO</token>
+			<token>CONFLICTCHECKCMD</token>
+			<token>CONFLICTCHECKTYPE</token>
+			<token>CONNECTSTRING</token>
+			<token>CONTAINERRELEASE</token>
+			<token>CONTAINERRELEASETYPE</token>
+			<token>CONTINUOUSSCROLL</token>
+			<token>CONTROLBOX</token>
+			<token>CONTROLCOUNT</token>
+			<token>CONTROLINDEX</token>
+			<token>CONTROLS</token>
+			<token>CONTROLSOURCE</token>
+			<token>CONVERSIONFUNC</token>
+			<token>COUNT</token>
+			<token>CURRENTCONTROL</token>
+			<token>CURRENTDATASESSION</token>
+			<token>CURRENTPASS</token>
+			<token>CURRENTX</token>
+			<token>CURRENTY</token>
+			<token>CURSORATTACH</token>
+			<token>CURSORDETACH</token>
+			<token>CURSORFILL</token>
+			<token>CURSORREFRESH</token>
+			<token>CURSORSCHEMA</token>
+			<token>CURSORSOURCE</token>
+			<token>CURSORSTATUS</token>
+			<token>CURVATURE</token>
+			<token>DATABASE</token>
+			<token>DATASESSION</token>
+			<token>DATASESSIONID</token>
+			<token>DATASOURCE</token>
+			<token>DATASOURCEOBJ</token>
+			<token>DATASOURCETYPE</token>
+			<token>DATATOCLIP</token>
+			<token>DATATYPE</token>
+			<token>DATEFORMAT</token>
+			<token>DATEMARK</token>
+			<token>DBLCLICK</token>
+			<token>DEACTIVATE</token>
+			<token>DEBUG</token>
+			<token>DECLAREXMLPREFIX</token>
+			<token>DECLASS</token>
+			<token>DECLASSLIBRARY</token>
+			<token>DEFAULT</token>
+			<token>DEFAULTFILEPATH</token>
+			<token>DEFBUTTON</token>
+			<token>DEFBUTTONORIG</token>
+			<token>DEFHEIGHT</token>
+			<token>DEFINEWINDOWS</token>
+			<token>DEFLEFT</token>
+			<token>DEFOLELCID</token>
+			<token>DEFTOP</token>
+			<token>DEFWIDTH</token>
+			<token>DELAYEDMEMOFETCH</token>
+			<token>DELETE</token>
+			<token>DELETECMD</token>
+			<token>DELETECMDDATASOURCE</token>
+			<token>DELETECMDDATASOURCETYPE</token>
+			<token>DELETECOLUMN</token>
+			<token>DELETED</token>
+			<token>DELETEMARK</token>
+			<token>DESCRIPTION</token>
+			<token>DESKTOP</token>
+			<token>DESTROY</token>
+			<token>DETAILS</token>
+			<token>DIRTY</token>
+			<token>DISABLEDBACKCOLOR</token>
+			<token>DISABLEDBYEOF</token>
+			<token>DISABLEDFORECOLOR</token>
+			<token>DISABLEDITEMBACKCOLOR</token>
+			<token>DISABLEDITEMFORECOLOR</token>
+			<token>DISABLEDPICTURE</token>
+			<token>DISABLEENCODE</token>
+			<token>DISPLAYCOUNT</token>
+			<token>DISPLAYORIENTATION</token>
+			<token>DISPLAYVALUE</token>
+			<token>DISPPAGEHEIGHT</token>
+			<token>DISPPAGEWIDTH</token>
+			<token>DOCK</token>
+			<token>DOCKABLE</token>
+			<token>DOCKED</token>
+			<token>DOCKPOSITION</token>
+			<token>DOCMD</token>
+			<token>DOCREATE</token>
+			<token>DOCUMENTFILE</token>
+			<token>DOMESSAGE</token>
+			<token>DOSCROLL</token>
+			<token>DOSTATUS</token>
+			<token>DOVERB</token>
+			<token>DOWNCLICK</token>
+			<token>DOWNPICTURE</token>
+			<token>DRAG</token>
+			<token>DRAGDROP</token>
+			<token>DRAGICON</token>
+			<token>DRAGMODE</token>
+			<token>DRAGOVER</token>
+			<token>DRAGSTATE</token>
+			<token>DRAW</token>
+			<token>DRAWMODE</token>
+			<token>DRAWSTYLE</token>
+			<token>DRAWWIDTH</token>
+			<token>DROPDOWN</token>
+			<token>DYNAMICALIGNMENT</token>
+			<token>DYNAMICBACKCOLOR</token>
+			<token>DYNAMICCURRENTCONTROL</token>
+			<token>DYNAMICFONTBOLD</token>
+			<token>DYNAMICFONTITALIC</token>
+			<token>DYNAMICFONTNAME</token>
+			<token>DYNAMICFONTOUTLINE</token>
+			<token>DYNAMICFONTSHADOW</token>
+			<token>DYNAMICFONTSIZE</token>
+			<token>DYNAMICFONTSTRIKETHRU</token>
+			<token>DYNAMICFONTUNDERLINE</token>
+			<token>DYNAMICFORECOLOR</token>
+			<token>DYNAMICINPUTMASK</token>
+			<token>DYNAMICLINEHEIGHT</token>
+			<token>EDITFLAGS</token>
+			<token>EDITOROPTIONS</token>
+			<token>ENABLED</token>
+			<token>ENABLEDBYREADLOCK</token>
+			<token>ENABLEHYPERLINKS</token>
+			<token>ENCRYPTED</token>
+			<token>ENTERFOCUS</token>
+			<token>ENVLEVEL</token>
+			<token>ERASEPAGE</token>
+			<token>ERROR</token>
+			<token>ERRORMESSAGE</token>
+			<token>ERRORNO</token>
+			<token>EVALUATECONTENTS</token>
+			<token>EXCLUSIVE</token>
+			<token>EXITFOCUS</token>
+			<token>FETCHASNEEDED</token>
+			<token>FETCHMEMO</token>
+			<token>FETCHMEMOCMDLIST</token>
+			<token>FETCHMEMODATASOURCE</token>
+			<token>FETCHMEMODATASOURCETYPE</token>
+			<token>FETCHSIZE</token>
+			<token>FILECLASS</token>
+			<token>FILECLASSLIBRARY</token>
+			<token>FILES</token>
+			<token>FILLCOLOR</token>
+			<token>FILLSTYLE</token>
+			<token>FILTER</token>
+			<token>FIRSTELEMENT</token>
+			<token>FIRSTNESTEDTABLE</token>
+			<token>FLAGS</token>
+			<token>FONTBOLD</token>
+			<token>FONTCHARSET</token>
+			<token>FONTCONDENSE</token>
+			<token>FONTEXTEND</token>
+			<token>FONTITALIC</token>
+			<token>FONTNAME</token>
+			<token>FONTOUTLINE</token>
+			<token>FONTSHADOW</token>
+			<token>FONTSIZE</token>
+			<token>FONTSTRIKETHRU</token>
+			<token>FONTUNDERLINE</token>
+			<token>FORCECLOSETAG</token>
+			<token>FORCEFOCUS</token>
+			<token>FORECOLOR</token>
+			<token>FORMAT</token>
+			<token>FORMATCHANGE</token>
+			<token>FORMATTEDOUTPUT</token>
+			<token>FORMCOUNT</token>
+			<token>FORMINDEX</token>
+			<token>FORMPAGEINDEX</token>
+			<token>FORMS</token>
+			<token>FOXFONT</token>
+			<token>FRACTIONDIGITS</token>
+			<token>FRXDATASESSION</token>
+			<token>FULLNAME</token>
+			<token>GDIPLUSGRAPHICS</token>
+			<token>GETDATA</token>
+			<token>GETDOCKSTATE</token>
+			<token>GETFORMAT</token>
+			<token>GETKEY</token>
+			<token>GETLATESTVERSION</token>
+			<token>GETPAGEHEIGHT</token>
+			<token>GETPAGEWIDTH</token>
+			<token>GOBACK</token>
+			<token>GOFIRST</token>
+			<token>GOFORWARD</token>
+			<token>GOLAST</token>
+			<token>GOTFOCUS</token>
+			<token>GRIDHITTEST</token>
+			<token>GRIDLINECOLOR</token>
+			<token>GRIDLINES</token>
+			<token>GRIDLINEWIDTH</token>
+			<token>HALFHEIGHTCAPTION</token>
+			<token>HASCLIP</token>
+			<token>HEADERCLASS</token>
+			<token>HEADERCLASSLIBRARY</token>
+			<token>HEADERGAP</token>
+			<token>HEADERHEIGHT</token>
+			<token>HEIGHT</token>
+			<token>HELPCONTEXTID</token>
+			<token>HIDE</token>
+			<token>HIDEDOC</token>
+			<token>HIDESELECTION</token>
+			<token>HIGHLIGHT</token>
+			<token>HIGHLIGHTBACKCOLOR</token>
+			<token>HIGHLIGHTFORECOLOR</token>
+			<token>HIGHLIGHTROW</token>
+			<token>HIGHLIGHTROWLINEWIDTH</token>
+			<token>HIGHLIGHTSTYLE</token>
+			<token>HOMEDIR</token>
+			<token>HOSTNAME</token>
+			<token>HOTKEY</token>
+			<token>HOURS</token>
+			<token>HPROJ</token>
+			<token>HSCROLLSMALLCHANGE</token>
+			<token>HWND</token>
+			<token>ICON</token>
+			<token>IGNOREINSERT</token>
+			<token>IMEMODE</token>
+			<token>INCLUDEPAGEINOUTPUT</token>
+			<token>INCREMENT</token>
+			<token>INCREMENTALSEARCH</token>
+			<token>INDEXTOITEMID</token>
+			<token>INIT</token>
+			<token>INITIALSELECTEDALIAS</token>
+			<token>INPUTMASK</token>
+			<token>INRESIZE</token>
+			<token>INSERTCMD</token>
+			<token>INSERTCMDDATASOURCE</token>
+			<token>INSERTCMDDATASOURCETYPE</token>
+			<token>INSERTCMDREFRESHCMD</token>
+			<token>INSERTCMDREFRESHFIELDLIST</token>
+			<token>INSERTCMDREFRESHKEYFIELDLIST</token>
+			<token>INSTANCING</token>
+			<token>INTEGRALHEIGHT</token>
+			<token>INTERACTIVECHANGE</token>
+			<token>INTERVAL</token>
+			<token>ISATTRIBUTE</token>
+			<token>ISBASE64</token>
+			<token>ISBINARY</token>
+			<token>ISDIFFGRAM</token>
+			<token>ISLOADED</token>
+			<token>ISNULL</token>
+			<token>ITEM</token>
+			<token>ITEMBACKCOLOR</token>
+			<token>ITEMDATA</token>
+			<token>ITEMFORECOLOR</token>
+			<token>ITEMIDDATA</token>
+			<token>ITEMIDTOINDEX</token>
+			<token>ITEMTIPS</token>
+			<token>IXMLDOMELEMENT</token>
+			<token>JUSTREADLOCKED</token>
+			<token>KEYBOARDHIGHVALUE</token>
+			<token>KEYBOARDLOWVALUE</token>
+			<token>KEYFIELD</token>
+			<token>KEYFIELDLIST</token>
+			<token>KEYPRESS</token>
+			<token>KEYPREVIEW</token>
+			<token>KEYSORT</token>
+			<token>LANGUAGEOPTIONS</token>
+			<token>LASTMODIFIED</token>
+			<token>LEFT</token>
+			<token>LEFTCOLUMN</token>
+			<token>LINE</token>
+			<token>LINECONTENTS</token>
+			<token>LINENO</token>
+			<token>LINESLANT</token>
+			<token>LINKMASTER</token>
+			<token>LIST</token>
+			<token>LISTCOUNT</token>
+			<token>LISTENERTYPE</token>
+			<token>LISTINDEX</token>
+			<token>LISTITEM</token>
+			<token>LISTITEMID</token>
+			<token>LOAD</token>
+			<token>LOADREPORT</token>
+			<token>LOADXML</token>
+			<token>LOCKCOLUMNS</token>
+			<token>LOCKCOLUMNSLEFT</token>
+			<token>LOCKDATASOURCE</token>
+			<token>LOCKSCREEN</token>
+			<token>LOSTFOCUS</token>
+			<token>MACDESKTOP</token>
+			<token>MAINCLASS</token>
+			<token>MAINFILE</token>
+			<token>MAPBINARY</token>
+			<token>MAPN19_4TOCURRENCY</token>
+			<token>MAPVARCHAR</token>
+			<token>MARGIN</token>
+			<token>MAXBUTTON</token>
+			<token>MAXHEIGHT</token>
+			<token>MAXLEFT</token>
+			<token>MAXLENGTH</token>
+			<token>MAXRECORDS</token>
+			<token>MAXTOP</token>
+			<token>MAXWIDTH</token>
+			<token>MDIFORM</token>
+			<token>MEMBERCLASS</token>
+			<token>MEMBERCLASSLIBRARY</token>
+			<token>MEMOWINDOW</token>
+			<token>MESSAGE</token>
+			<token>MIDDLECLICK</token>
+			<token>MINBUTTON</token>
+			<token>MINHEIGHT</token>
+			<token>MINWIDTH</token>
+			<token>MODIFY</token>
+			<token>MOUSEDOWN</token>
+			<token>MOUSEENTER</token>
+			<token>MOUSEICON</token>
+			<token>MOUSELEAVE</token>
+			<token>MOUSEMOVE</token>
+			<token>MOUSEPOINTER</token>
+			<token>MOUSEUP</token>
+			<token>MOUSEWHEEL</token>
+			<token>MOVABLE</token>
+			<token>MOVE</token>
+			<token>MOVED</token>
+			<token>MOVEITEM</token>
+			<token>MOVERBARS</token>
+			<token>MULTISELECT</token>
+			<token>NAME</token>
+			<token>NAPTIME</token>
+			<token>NAVIGATETO</token>
+			<token>NEST</token>
+			<token>NESTEDINTO</token>
+			<token>NEWINDEX</token>
+			<token>NEWITEMID</token>
+			<token>NEWOBJECT</token>
+			<token>NEXTSIBLINGTABLE</token>
+			<token>NOCPTRANS</token>
+			<token>NODATA</token>
+			<token>NODATAONLOAD</token>
+			<token>NODEFINE</token>
+			<token>NOTIFYCONTAINER</token>
+			<token>NULLDISPLAY</token>
+			<token>NUMBEROFELEMENTS</token>
+			<token>OBJECTS</token>
+			<token>OLECLASS</token>
+			<token>OLECLASSID</token>
+			<token>OLECOMPLETEDRAG</token>
+			<token>OLECONTROLCONTAINER</token>
+			<token>OLEDRAG</token>
+			<token>OLEDRAGDROP</token>
+			<token>OLEDRAGMODE</token>
+			<token>OLEDRAGOVER</token>
+			<token>OLEDRAGPICTURE</token>
+			<token>OLEDROPEFFECTS</token>
+			<token>OLEDROPHASDATA</token>
+			<token>OLEDROPMODE</token>
+			<token>OLEDROPTEXTINSERTION</token>
+			<token>OLEGIVEFEEDBACK</token>
+			<token>OLEIDISPATCHOUTGOING</token>
+			<token>OLEIDISPINVALUE</token>
+			<token>OLEIDISPOUTVALUE</token>
+			<token>OLELCID</token>
+			<token>OLEREQUESTPENDINGTIMOU</token>
+			<token>OLESERVERBUSYRAISEERRO</token>
+			<token>OLESERVERBUSYTIMOUT</token>
+			<token>OLESETDATA</token>
+			<token>OLESTARTDRAG</token>
+			<token>OLETYPEALLOWED</token>
+			<token>ONETOMANY</token>
+			<token>ONMOVEITEM</token>
+			<token>ONPREVIEWCLOSE</token>
+			<token>ONRESIZE</token>
+			<token>OPENEDITOR</token>
+			<token>OPENTABLES</token>
+			<token>OPENVIEWS</token>
+			<token>OPENWINDOW</token>
+			<token>OPTIMIZE</token>
+			<token>ORDER</token>
+			<token>ORDERDIRECTION</token>
+			<token>OUTPUTPAGE</token>
+			<token>OUTPUTPAGECOUNT</token>
+			<token>OUTPUTTYPE</token>
+			<token>PAGECOUNT</token>
+			<token>PAGEHEIGHT</token>
+			<token>PAGENO</token>
+			<token>PAGEORDER</token>
+			<token>PAGES</token>
+			<token>PAGETOTAL</token>
+			<token>PAGEWIDTH</token>
+			<token>PAINT</token>
+			<token>PANEL</token>
+			<token>PANELLINK</token>
+			<token>PARENT</token>
+			<token>PARENTALIAS</token>
+			<token>PARENTCLASS</token>
+			<token>PARENTTABLE</token>
+			<token>PARTITION</token>
+			<token>PASSWORDCHAR</token>
+			<token>PICTURE</token>
+			<token>PICTUREMARGIN</token>
+			<token>PICTUREPOSITION</token>
+			<token>PICTURESELECTIONDISPLAY</token>
+			<token>PICTURESPACING</token>
+			<token>PICTUREVAL</token>
+			<token>POINT</token>
+			<token>POLYPOINTS</token>
+			<token>PREPARED</token>
+			<token>PRESERVEWHITESPACE</token>
+			<token>PREVIEWCONTAINER</token>
+			<token>PRINT</token>
+			<token>PRINTJOBNAME</token>
+			<token>PROCESSID</token>
+			<token>PROGID</token>
+			<token>PROGRAMMATICCHANGE</token>
+			<token>PROJECTHOOKCLASS</token>
+			<token>PROJECTHOOKLIBRARY</token>
+			<token>PROJECTS</token>
+			<token>PSET</token>
+			<token>QUERYADDFILE</token>
+			<token>QUERYMODIFYFILE</token>
+			<token>QUERYNEWFILE</token>
+			<token>QUERYREMOVEFILE</token>
+			<token>QUERYRUNFILE</token>
+			<token>QUERYUNLOAD</token>
+			<token>QUIETMODE</token>
+			<token>RANGEHIGH</token>
+			<token>RANGELOW</token>
+			<token>READACTIVATE</token>
+			<token>READCOLORS</token>
+			<token>READCYCLE</token>
+			<token>READDEACTIVATE</token>
+			<token>READEXPRESSION</token>
+			<token>READFILLER</token>
+			<token>READLOCK</token>
+			<token>READMETHOD</token>
+			<token>READMOUSE</token>
+			<token>READONLY</token>
+			<token>READSAVE</token>
+			<token>READSHOW</token>
+			<token>READSIZE</token>
+			<token>READTIMEOUT</token>
+			<token>READVALID</token>
+			<token>READWHEN</token>
+			<token>RECORDMARK</token>
+			<token>RECORDREFRESH</token>
+			<token>RECORDSOURCE</token>
+			<token>RECORDSOURCETYPE</token>
+			<token>RECT</token>
+			<token>REFRESH</token>
+			<token>REFRESHALIAS</token>
+			<token>REFRESHCMD</token>
+			<token>REFRESHCMDDATASOURCE</token>
+			<token>REFRESHCMDDATASOURCETYPE</token>
+			<token>REFRESHIGNOREFIELDLIST</token>
+			<token>REFRESHTIMESTAMP</token>
+			<token>RELATIONALEXPR</token>
+			<token>RELATIVECOLUMN</token>
+			<token>RELATIVEROW</token>
+			<token>RELEASE</token>
+			<token>RELEASEERASE</token>
+			<token>RELEASETYPE</token>
+			<token>RELEASEWINDOWS</token>
+			<token>RELEASEXML</token>
+			<token>REMOVE</token>
+			<token>REMOVEFROMSCC</token>
+			<token>REMOVEITEM</token>
+			<token>REMOVELISTITEM</token>
+			<token>REMOVEOBJECT</token>
+			<token>RENDER</token>
+			<token>REQUERY</token>
+			<token>REQUESTDATA</token>
+			<token>RESERVED</token>
+			<token>RESET</token>
+			<token>RESETTODEFAULT</token>
+			<token>RESIZABLE</token>
+			<token>RESIZE</token>
+			<token>RESPECTCURSORCP</token>
+			<token>RESPECTNESTING</token>
+			<token>RIGHTCLICK</token>
+			<token>RIGHTTOLEFT</token>
+			<token>ROTATEFLIP</token>
+			<token>ROTATION</token>
+			<token>ROWCOLCHANGE</token>
+			<token>ROWHEIGHT</token>
+			<token>ROWSOURCE</token>
+			<token>ROWSOURCETYPE</token>
+			<token>RUN</token>
+			<token>SAVEAS</token>
+			<token>SAVEASCLASS</token>
+			<token>SCALEMODE</token>
+			<token>SCCDESTROY</token>
+			<token>SCCDESTROY</token>
+			<token>SCCINIT</token>
+			<token>SCCPROVIDER</token>
+			<token>SCCSTATUS</token>
+			<token>SCROLLBARS</token>
+			<token>SCROLLED</token>
+			<token>SDIFORM</token>
+			<token>SECONDS</token>
+			<token>SELECTCMD</token>
+			<token>SELECTED</token>
+			<token>SELECTEDBACKCOLOR</token>
+			<token>SELECTEDFORECOLOR</token>
+			<token>SELECTEDID</token>
+			<token>SELECTEDITEMBACKCOLOR</token>
+			<token>SELECTEDITEMFORECOLOR</token>
+			<token>SELECTIONNAMESPACES</token>
+			<token>SELECTONENTRY</token>
+			<token>SELFEDIT</token>
+			<token>SELLENGTH</token>
+			<token>SELSTART</token>
+			<token>SELTEXT</token>
+			<token>SENDGDIPLUSIMAGE</token>
+			<token>SENDUPDATES</token>
+			<token>SERVERCLASS</token>
+			<token>SERVERCLASSLIBRARY</token>
+			<token>SERVERHELPFILE</token>
+			<token>SERVERNAME</token>
+			<token>SERVERPROJECT</token>
+			<token>SETALL</token>
+			<token>SETDATA</token>
+			<token>SETFOCUS</token>
+			<token>SETFORMAT</token>
+			<token>SETMAIN</token>
+			<token>SETVAR</token>
+			<token>SETVIEWPORT</token>
+			<token>SHOW</token>
+			<token>SHOWDOC</token>
+			<token>SHOWINTASKBAR</token>
+			<token>SHOWTIPS</token>
+			<token>SHOWWHATSTHIS</token>
+			<token>SHOWWINDOW</token>
+			<token>SIZABLE</token>
+			<token>SIZE</token>
+			<token>SIZEBOX</token>
+			<token>SKIP</token>
+			<token>SKIPFORM</token>
+			<token>SOM</token>
+			<token>SORTED</token>
+			<token>SOURCETYPE</token>
+			<token>SPARSE</token>
+			<token>SPECIALEFFECT</token>
+			<token>SPINNERHIGHVALUE</token>
+			<token>SPINNERLOWVALUE</token>
+			<token>SPLITBAR</token>
+			<token>STACKLEVEL</token>
+			<token>STARTMODE</token>
+			<token>STATUSBARTEXT</token>
+			<token>STRETCH</token>
+			<token>STRICTDATEENTRY</token>
+			<token>STYLE</token>
+			<token>SUPPORTSLISTENERTYPE</token>
+			<token>SYSTEMREFCOUNT</token>
+			<token>TABHIT</token>
+			<token>TABINDEX</token>
+			<token>TABLES</token>
+			<token>TABORIENTATION</token>
+			<token>TABS</token>
+			<token>TABSTOP</token>
+			<token>TABSTRETCH</token>
+			<token>TABSTYLE</token>
+			<token>TAG</token>
+			<token>TERMINATEREAD</token>
+			<token>TEXTHEIGHT</token>
+			<token>TEXTWIDTH</token>
+			<token>THEMES</token>
+			<token>THREADID</token>
+			<token>TIMER</token>
+			<token>TIMESTAMPFIELDLIST</token>
+			<token>TITLEBAR</token>
+			<token>TOCURSOR</token>
+			<token>TOOLTIPTEXT</token>
+			<token>TOP</token>
+			<token>TOPINDEX</token>
+			<token>TOPITEMID</token>
+			<token>TOXML</token>
+			<token>TWOPASSPROCESS</token>
+			<token>TYPELIBCLSID</token>
+			<token>TYPELIBDESC</token>
+			<token>TYPELIBNAME</token>
+			<token>UIENABLE</token>
+			<token>UNDOCHECKOUT</token>
+			<token>UNDOCK</token>
+			<token>UNICODE</token>
+			<token>UNLOAD</token>
+			<token>UNLOADREPORT</token>
+			<token>UNLOCKDATASOURCE</token>
+			<token>UNNEST</token>
+			<token>UPCLICK</token>
+			<token>UPDATABLEFIELDLIST</token>
+			<token>UPDATECMD</token>
+			<token>UPDATECMDDATASOURCE</token>
+			<token>UPDATECMDDATASOURCETYPE</token>
+			<token>UPDATECMDREFRESHCMD</token>
+			<token>UPDATECMDREFRESHFIELDLIST</token>
+			<token>UPDATECMDREFRESHKEYFIELDLIST</token>
+			<token>UPDATEGRAM</token>
+			<token>UPDATEGRAMSCHEMALOCATION</token>
+			<token>UPDATENAMELIST</token>
+			<token>UPDATESTATUS</token>
+			<token>UPDATETYPE</token>
+			<token>USECODEPAGE</token>
+			<token>USECURSORSCHEMA</token>
+			<token>USEDEDATASOURCE</token>
+			<token>USEMEMOSIZE</token>
+			<token>USERVALUE</token>
+			<token>USETRANSACTIONS</token>
+			<token>UTF8ENCODED</token>
+			<token>VALID</token>
+			<token>VALUE</token>
+			<token>VALUEDIRTY</token>
+			<token>VERSIONCOMMENTS</token>
+			<token>VERSIONCOMPANY</token>
+			<token>VERSIONCOPYRIGHT</token>
+			<token>VERSIONDESCRIPTION</token>
+			<token>VERSIONNUMBER</token>
+			<token>VERSIONPRODUCT</token>
+			<token>VERSIONTRADEMARKS</token>
+			<token>VIEW</token>
+			<token>VIEWPORTHEIGHT</token>
+			<token>VIEWPORTLEFT</token>
+			<token>VIEWPORTTOP</token>
+			<token>VIEWPORTWIDTH</token>
+			<token>VISIBLE</token>
+			<token>VISUALEFFECT</token>
+			<token>VSCROLLSMALLCHANGE</token>
+			<token>WASACTIVE</token>
+			<token>WASOPEN</token>
+			<token>WHATSTHISBUTTON</token>
+			<token>WHATSTHISHELP</token>
+			<token>WHATSTHISHELPID</token>
+			<token>WHATSTHISMODE</token>
+			<token>WHEN</token>
+			<token>WHERETYPE</token>
+			<token>WIDTH</token>
+			<token>WINDOWLIST</token>
+			<token>WINDOWNTILIST</token>
+			<token>WINDOWSTATE</token>
+			<token>WINDOWTYPE</token>
+			<token>WORDWRAP</token>
+			<token>WRAPCHARINCDATA</token>
+			<token>WRAPINCDATA</token>
+			<token>WRAPMEMOINCDATA</token>
+			<token>WRITEEXPRESSION</token>
+			<token>WRITEMETHOD</token>
+			<token>XMLADAPTER</token>
+			<token>XMLCONSTRAINTS</token>
+			<token>XMLNAME</token>
+			<token>XMLNAMEISXPATH</token>
+			<token>XMLNAMESPACE</token>
+			<token>XMLPREFIX</token>
+			<token>XMLSCHEMALOCATION</token>
+			<token>XMLTABLE</token>
+			<token>XMLTYPE</token>
+			<token>XSDFRACTIONDIGITS</token>
+			<token>XSDMAXLENGTH</token>
+			<token>XSDTOTALDIGITS</token>
+			<token>XSDTYPE</token>
+			<token>ZOOMBOX</token>
+			<token>ZORDER</token>
+			<token>ZORDERSET</token>
+		</tokens>
+	</tokenset>
+	<tokenset name="Attribute Keywords" id="attributekeywordblocks" forecolor="blue" normalizecase="no">
+		<validscope name=""/>
+		<validscope name="Scope Keywords"/>
+		<validscope name="Parameter Block"/>
+		<tokens>
+			<token>_ALIGNMENT</token>
+			<token>_ASCIICOLS</token>
+			<token>_ASCIIROWS</token>
+			<token>_ASSIST</token>
+			<token>_BEAUTIFY</token>
+			<token>_BOX</token>
+			<token>_BROWSER</token>
+			<token>_BUILDER</token>
+			<token>_CALCMEM</token>
+			<token>_CALCVALUE</token>
+			<token>_CLIPTEXT</token>
+			<token>_CODESENSE</token>
+			<token>_CONVERTER</token>
+			<token>_COVERAGE</token>
+			<token>_CUROBJ</token>
+			<token>_DBLCLICK</token>
+			<token>_DIARYDATE</token>
+			<token>_DOS</token>
+			<token>_FOXCODE</token>
+			<token>_FOXDOC</token>
+			<token>_FOXGRAPH</token>
+			<token>_FOXREF</token>
+			<token>_FOXTASK</token>
+			<token>_GALLERY</token>
+			<token>_GENGRAPH</token>
+			<token>_GENHTML</token>
+			<token>_GENMENU</token>
+			<token>_GENPD</token>
+			<token>_GENSCRN</token>
+			<token>_GENXTAB</token>
+			<token>_GETEXPR</token>
+			<token>_INCLUDE</token>
+			<token>_INCSEEK</token>
+			<token>_INDENT</token>
+			<token>_LMARGIN</token>
+			<token>_MAC</token>
+			<token>_MBROWSE</token>
+			<token>_MDATA</token>
+			<token>_MDIARY</token>
+			<token>_MEDIT</token>
+			<token>_MENUDESIGNER</token>
+			<token>_MFILER</token>
+			<token>_MFIRST</token>
+			<token>_MLABEL</token>
+			<token>_MLAST</token>
+			<token>_MLINE</token>
+			<token>_MMACRO</token>
+			<token>_MMBLDR</token>
+			<token>_MPROJ</token>
+			<token>_MRECORD</token>
+			<token>_MREPORT</token>
+			<token>_MRQBE</token>
+			<token>_MSCREEN</token>
+			<token>_MSYSMENU</token>
+			<token>_MSYSTEM</token>
+			<token>_MTABLE</token>
+			<token>_MWINDOW</token>
+			<token>_MWIZARDS</token>
+			<token>_NETWARE</token>
+			<token>_OBJECTBROWSER</token>
+			<token>_ORACLE</token>
+			<token>_PADVANCE</token>
+			<token>_PAGENO</token>
+			<token>_PAGETOTAL</token>
+			<token>_PBPAGE</token>
+			<token>_PCOLNO</token>
+			<token>_PCOPIES</token>
+			<token>_PDPARMS</token>
+			<token>_PDRIVER</token>
+			<token>_PDSETUP</token>
+			<token>_PECODE</token>
+			<token>_PEJECT</token>
+			<token>_PEPAGE</token>
+			<token>_PFORM</token>
+			<token>_PLENGTH</token>
+			<token>_PLINENO</token>
+			<token>_PLOFFSET</token>
+			<token>_PPITCH</token>
+			<token>_PQUALITY</token>
+			<token>_PRETEXT</token>
+			<token>_PSCODE</token>
+			<token>_PSPACING</token>
+			<token>_PWAIT</token>
+			<token>_REPORTBUILDER</token>
+			<token>_REPORTOUTPUT</token>
+			<token>_REPORTPREVIEW</token>
+			<token>_RMARGIN</token>
+			<token>_RUNACTIVEDOC</token>
+			<token>_SAMPLES</token>
+			<token>_SCCTEXT</token>
+			<token>_SCREEN</token>
+			<token>_SHELL</token>
+			<token>_SHELL</token>
+			<token>_SPELLCHK</token>
+			<token>_SQLSERVER</token>
+			<token>_STARTUP</token>
+			<token>_TABS</token>
+			<token>_TALLY</token>
+			<token>_TASKLIST</token>
+			<token>_TASKPANE</token>
+			<token>_TEXT</token>
+			<token>_THROTTLE</token>
+			<token>_TOOLBOX</token>
+			<token>_TOOLTIPTIMEOUT</token>
+			<token>_TRANSPORT</token>
+			<token>_TRIGGERLEVEL</token>
+			<token>_UNIX</token>
+			<token>_VFP</token>
+			<token>_VSBUILD</token>
+			<token>_WEBDEVONLY</token>
+			<token>_WEBMENU</token>
+			<token>_WEBMSFTHOMEPAGE</token>
+			<token>_WEBVFPHOMEPAGE</token>
+			<token>_WEBVFPONLINESUPPORT</token>
+			<token>_WINDOWS</token>
+			<token>_WIZARD</token>
+			<token>_WRAP</token>
+			<token>THIS</token>
+			<token>THISFORM</token>
+			<token>THISFORMSET</token>
+		</tokens>
+	</tokenset>
+	<tokenset name="Scope Keywords" id="scopekeywords" normalizecase="yes" type="scope" autoindent="yes" hidden="yes" forecolor="blue" chain="yes">
+		<validscope name=""/>
+		<validscope name="Scope Keywords"/>
+		<tokens rule="ScopeBegKW">
+			<token>IF</token>
+			<token>IF</token>
+			<token rule="ScopeMidKW">ELSE</token>
+			<token>#IFDEF</token>
+			<token>#IFDEF</token>
+			<token>#IFNDEF</token>
+			<token>#IF</token>
+			<token>#IF</token>
+			<token>#ELSE</token>
+			<token>DO WHILE</token>
+			<token>FUNCTION</token>
+			<token>DEFINE CLASS</token>
+			<token>PROCEDURE</token>
+			<token>PROTECTED FUNCTION</token>
+			<token>PROTECTED PROCEDURE</token>
+			<token>PROTECTED PROC</token>
+			<token>PRINTJOB</token>
+			<token>DO CASE</token>
+			<token>SCAN</token>
+			<token>TEXT</token>
+			<token>TRY</token>
+			<token>TRY</token>
+			<token>CATCH</token>
+			<token>CATCH</token>
+			<token>CATCH</token>
+			<token>FINALLY</token>
+			<token>FOR EACH</token>
+			<token rule="ScopeBegSpKW">FOR</token>
+			<token rule="ScopeBegSpKW">FOR</token>
+			<token>WITH</token>
+			<token>{</token>
+		</tokens>
+		<tokens2>
+			<token rule="ScopeMidKW">ELSE</token>
+			<token>ENDIF</token>
+			<token>ENDIF</token>
+			<token>#ELSE</token>
+			<token>#ENDIF</token>
+			<token>#ENDIF</token>
+			<token>#ENDIF</token>
+			<token>#ENDIF</token>
+			<token>#ENDIF</token>
+			<token>ENDDO</token>
+			<token>ENDFUNC</token>
+			<token>ENDDEFINE</token>
+			<token>ENDPROC</token>
+			<token>ENDFUNC</token>
+			<token>ENDPROC</token>
+			<token>ENDPROC</token>
+			<token>ENDPRINTJOB</token>
+			<token>ENDCASE</token>
+			<token>ENDSCAN</token>
+			<token>ENDTEXT</token>
+			<token>ENDTRY</token>
+			<token>CATCH</token>
+			<token>THROW</token>
+			<token>FINALLY</token>
+			<token>ENDTRY</token>
+			<token>ENDTRY</token>
+			<token>ENDFOR</token>
+			<token>ENDFOR</token>
+			<token>NEXT</token>
+			<token>ENDWITH</token>
+			<token>}</token>
+		</tokens2>
+	</tokenset>
+	<tokenset name="Keywords" id="keywords" forecolor="blue" normalizecase="yes">
+		<validscope name=""/>
+		<validscope name="Scope Keywords"/>
+		<validscope name="Parameter Block"/>
+		<tokens>
+			<token>#DEFINE</token>
+			<token>#INCLUDE</token>
+			<token>#ITSEXPRESSION</token>
+			<token>#READCLAUSES</token>
+			<token>#REGION</token>
+			<token>#SECTION</token>
+			<token>#UNDEF</token>
+			<token>#WNAME</token>
+			<token>?</token>
+			<token>??</token>
+			<token>???</token>
+			<token regexp="yes" action="ListMembers">ZLOC\s</token>
+			<token regexp="yes" action="ListMembers">ZDEF\s</token>
+			<token rule="CommandsKW">ACCEPT</token>
+			<token rule="CommandsKW">ACCESS</token>
+			<token rule="CommandsKW">ACTIVATE</token>
+			<token rule="CommandsKW">ADD</token>
+			<token rule="CommandsKW">ADDITIVE</token>
+			<token rule="CommandsKW">ADDRELATIONTOENV</token>
+			<token rule="CommandsKW">ADDTABLETOENV</token>
+			<token rule="CommandsKW">AFTER</token>
+			<token rule="CommandsKW">AGAIN</token>
+			<token rule="CommandsKW">AINDENT</token>
+			<token rule="CommandsKW">ALIGNRIGHT</token>
+			<token rule="CommandsKW">ALL</token>
+			<token rule="CommandsKW">ALT</token>
+			<token rule="CommandsKW">ALTER</token>
+			<token rule="CommandsKW">ALTERNATE</token>
+			<token rule="CommandsKW">ANY</token>
+			<token rule="CommandsKW">APLABOUT</token>
+			<token rule="CommandsKW">APP</token>
+			<token rule="CommandsKW">APPEND</token>
+			<token rule="CommandsKW">ARRAY</token>
+			<token rule="CommandsKW">AS</token>
+			<token rule="CommandsKW">ASCENDING</token>
+			<token rule="CommandsKW">ASCII</token>
+			<token rule="CommandsKW">ASSERT</token>
+			<token rule="CommandsKW">ASSERTS</token>
+			<token rule="CommandsKW">ASSIST</token>
+			<token rule="CommandsKW">ASYNCHRONOUS</token>
+			<token rule="CommandsKW">ATTRIBUTES</token>
+			<token rule="CommandsKW">AUTOFORM</token>
+			<token rule="CommandsKW">AUTOINC</token>
+			<token rule="CommandsKW">AUTOINCERROR</token>
+			<token rule="CommandsKW">AUTOINCERROR</token>
+			<token rule="CommandsKW">AUTOMATIC</token>
+			<token rule="CommandsKW">AUTOREPORT</token>
+			<token rule="CommandsKW">AUTOSAVE</token>
+			<token rule="CommandsKW">AVERAGE</token>
+			<token rule="FunctCmdKW">AVG</token>
+			<token rule="CommandsKW">BEFORE</token>
+			<token rule="CommandsKW">BEGIN</token>
+			<token rule="CommandsKW">BELL</token>
+			<token rule="CommandsKW">BELLSOUND</token>
+			<token rule="CommandsKW">BITMAP</token>
+			<token rule="CommandsKW">BLANK</token>
+			<token rule="CommandsKW">BLINK</token>
+			<token rule="CommandsKW">BLOB</token>
+			<token rule="CommandsKW">BLOCKSIZE</token>
+			<token rule="CommandsKW">BORDER</token>
+			<token rule="CommandsKW">BOTTOM</token>
+			<token rule="CommandsKW">BROWSE</token>
+			<token rule="CommandsKW">BROWSEREFRESH</token>
+			<token rule="CommandsKW">BRSTATUS</token>
+			<token rule="CommandsKW">BUCKET</token>
+			<token rule="CommandsKW">BUFFERING</token>
+			<token rule="CommandsKW">BUFFERS</token>
+			<token rule="CommandsKW">BUILD</token>
+			<token rule="CommandsKW">BUILDERLOCK</token>
+			<token rule="CommandsKW">BY</token>
+			<token rule="CommandsKW">CALCULATE</token>
+			<token rule="CommandsKW">CALL</token>
+			<token rule="CommandsKW">CANCEL</token>
+			<token rule="CommandsKW">CARRY</token>
+			<token rule="CommandsKW">CASCADE</token>
+			<token rule="CommandsKW">CASE</token>
+			<token rule="CommandsKW">CATALOG</token>
+			<token rule="CommandsKW">CD</token>
+			<token rule="CommandsKW">CENTER</token>
+			<token rule="CommandsKW">CENTRAL</token>
+			<token rule="CommandsKW">CENTURY</token>
+			<token rule="CommandsKW">CENTURY</token>
+			<token rule="CommandsKW">CGA</token>
+			<token rule="CommandsKW">CHAR</token>
+			<token rule="CommandsKW">CHARACTER</token>
+			<token rule="CommandsKW">CHDIR</token>
+			<token rule="CommandsKW">CHECK</token>
+			<token rule="CommandsKW">CLASS</token>
+			<token rule="CommandsKW">CLASSLIB</token>
+			<token rule="CommandsKW">CLEAR</token>
+			<token rule="CommandsKW">CLOCK</token>
+			<token rule="CommandsKW">CLOSE</token>
+			<token rule="CommandsKW">CODEPAGE</token>
+			<token rule="CommandsKW">COLLATE</token>
+			<token rule="CommandsKW">COLOR</token>
+			<token rule="CommandsKW">COLUMN</token>
+			<token rule="CommandsKW">COM1</token>
+			<token rule="CommandsKW">COM2</token>
+			<token rule="CommandsKW">COMMAND</token>
+			<token rule="CommandsKW">COMPACT</token>
+			<token rule="CommandsKW">COMPATIBLE</token>
+			<token rule="CommandsKW">COMPILE</token>
+			<token rule="CommandsKW">COMPRESS</token>
+			<token rule="CommandsKW">COMPUTE</token>
+			<token rule="CommandsKW">CONCAT</token>
+			<token rule="CommandsKW">CONFIRM</token>
+			<token rule="CommandsKW">CONNECTBUSY</token>
+			<token rule="CommandsKW">CONNECTHANDLE</token>
+			<token rule="CommandsKW">CONNECTION</token>
+			<token rule="CommandsKW">CONNECTNAME</token>
+			<token rule="CommandsKW">CONNECTTIMEOUT</token>
+			<token rule="CommandsKW">CONNSTRING</token>
+			<token rule="CommandsKW">CONSOLE</token>
+			<token rule="CommandsKW">CONTINUE</token>
+			<token rule="CommandsKW">COPIES</token>
+			<token rule="CommandsKW">COPY</token>
+			<token rule="FunctCmdKW">COUNT</token>
+			<token rule="CommandsKW">COVERAGE</token>
+			<token rule="CommandsKW">CPDIALOG</token>
+			<token rule="CommandsKW">CREATE</token>
+			<token rule="CommandsKW">CRSBUFFERING</token>
+			<token rule="CommandsKW">CRSFETCHMEMO</token>
+			<token rule="CommandsKW">CRSFETCHSIZE</token>
+			<token rule="CommandsKW">CRSMAXROWS</token>
+			<token rule="CommandsKW">CRSMETHODUSED</token>
+			<token rule="CommandsKW">CRSNUMBATCH</token>
+			<token rule="CommandsKW">CRSSHARECONNECTION</token>
+			<token rule="CommandsKW">CRSUSEMEMOSIZ</token>
+			<token rule="CommandsKW">CRSWHERECLAUSE</token>
+			<token rule="CommandsKW">CSV</token>
+			<token rule="CommandsKW">CURDATE</token>
+			<token rule="CommandsKW">CURRENCY</token>
+			<token rule="CommandsKW">CURRLEFT</token>
+			<token rule="CommandsKW">CURRSYMBOL</token>
+			<token rule="CommandsKW">CURSOR</token>
+			<token rule="CommandsKW">CURTIME</token>
+			<token rule="CommandsKW">CYCLE</token>
+			<token rule="CommandsKW">DATABASE</token>
+			<token rule="CommandsKW">DATABASES</token>
+			<token rule="CommandsKW">DATASESSION</token>
+			<token rule="CommandsKW">DATASOURCE</token>
+			<token rule="CommandsKW">DB4</token>
+			<token rule="CommandsKW">DBCEVENTS</token>
+			<token rule="CommandsKW">DBMEMO3</token>
+			<token rule="CommandsKW">DEACTIVATE</token>
+			<token rule="CommandsKW">DEBUG</token>
+			<token rule="CommandsKW">DEBUGOUT</token>
+			<token rule="CommandsKW">DECIMALS</token>
+			<token rule="CommandsKW">DECLARE</token>
+			<token rule="CommandsKW">DEFAULTSOURCE</token>
+			<token rule="CommandsKW">DEFAULTVALUE</token>
+			<token rule="CommandsKW">DEFINE</token>
+			<token rule="CommandsKW">DEGREES</token>
+			<token rule="CommandsKW">DELE</token>
+			<token rule="CommandsKW">DELETE</token>
+			<token rule="CommandsKW">DELETETABLES</token>
+			<token rule="CommandsKW">DELETETRIGGER</token>
+			<token rule="CommandsKW">DELIMITED</token>
+			<token rule="CommandsKW">DELIMITERS</token>
+			<token rule="CommandsKW">DESCRIPTION</token>
+			<token rule="CommandsKW">DESIGN</token>
+			<token rule="CommandsKW">DEVELOPMENT</token>
+			<token rule="CommandsKW">DEVICE</token>
+			<token rule="CommandsKW">DIMENSION</token>
+			<token rule="CommandsKW">DIR</token>
+			<token rule="CommandsKW">DISABLED</token>
+			<token rule="CommandsKW">DISPLOGIN</token>
+			<token rule="CommandsKW">DISPWARNINGS</token>
+			<token rule="CommandsKW">DISTINCT</token>
+			<token rule="CommandsKW">DLL</token>
+			<token rule="CommandsKW">DO</token>
+			<token rule="CommandsKW">DOCK</token>
+			<token rule="CommandsKW">DOEVENTS</token>
+			<token rule="CommandsKW">DOS</token>
+			<token rule="CommandsKW">DOSMEM</token>
+			<token rule="CommandsKW">DOUBLE</token>
+			<token rule="CommandsKW">DRIVER</token>
+			<token rule="CommandsKW">DUPLEX</token>
+			<token rule="CommandsKW">EACH</token>
+			<token rule="CommandsKW">ECHO</token>
+			<token rule="CommandsKW">EDIT</token>
+			<token rule="CommandsKW">EDITWORK</token>
+			<token rule="CommandsKW">EGA25</token>
+			<token rule="CommandsKW">EGA43</token>
+			<token rule="CommandsKW">EJECT</token>
+			<token rule="CommandsKW">EMS64</token>
+			<token rule="CommandsKW">EMS</token>
+			<token rule="CommandsKW">ENCRYPT</token>
+			<token rule="CommandsKW">ENCRYPTION</token>
+			<token rule="CommandsKW">END</token>
+			<token rule="CommandsKW">ENDPRINTJOB</token>
+			<token rule="CommandsKW">ENVIRONMENT</token>
+			<token rule="CommandsKW">ERASE</token>
+			<token rule="CommandsKW">ESCAPE</token>
+			<token rule="CommandsKW">EVENTS</token>
+			<token rule="CommandsKW">EVENTTRACKING</token>
+			<token rule="CommandsKW">EXACT</token>
+			<token rule="CommandsKW">EXCEPT</token>
+			<token rule="CommandsKW">EXCLUSIVE</token>
+			<token rule="CommandsKW">EXE</token>
+			<token rule="CommandsKW">EXIT</token>
+			<token rule="CommandsKW">EXPORT</token>
+			<token rule="CommandsKW">EXTENDED</token>
+			<token rule="CommandsKW">EXTERNAL</token>
+			<token rule="CommandsKW">FETCH</token>
+			<token rule="CommandsKW">FIEL</token>
+			<token rule="CommandsKW">FIELDS</token>
+			<token rule="CommandsKW">FILL</token>
+			<token rule="CommandsKW">FIND</token>
+			<token rule="CommandsKW">FIXED</token>
+			<token rule="CommandsKW">FLAGS</token>
+			<token rule="CommandsKW">FLUSH</token>
+			<token rule="CommandsKW">FONT</token>
+			<token rule="CommandsKW">FOOTER</token>
+			<token rule="CommandsKW">FOR</token>
+			<token rule="CommandsKW">FORCE</token>
+			<token rule="CommandsKW">FOREIGN</token>
+			<token rule="CommandsKW">FORM</token>
+			<token rule="CommandsKW">FORMAT</token>
+			<token rule="CommandsKW">FORMSCLASS</token>
+			<token rule="CommandsKW">FORMSET</token>
+			<token rule="CommandsKW">FORMSETCLASS</token>
+			<token rule="CommandsKW">FORMSETLIB</token>
+			<token rule="CommandsKW">FORMSLIB</token>
+			<token rule="CommandsKW">FOX2X</token>
+			<token rule="CommandsKW">FOXCODE</token>
+			<token rule="CommandsKW">FOXDOC</token>
+			<token rule="CommandsKW">FOXGEN</token>
+			<token rule="CommandsKW">FOXGRAPH</token>
+			<token rule="CommandsKW">FOXPLUS</token>
+			<token rule="CommandsKW">FOXPRO</token>
+			<token rule="CommandsKW">FOXVIEW</token>
+			<token rule="CommandsKW">FREE</token>
+			<token rule="CommandsKW">FROM</token>
+			<token rule="CommandsKW">FULL</token>
+			<token rule="CommandsKW">FW2</token>
+			<token rule="CommandsKW">GATHER</token>
+			<token rule="CommandsKW">GET</token>
+			<token rule="CommandsKW">GETS</token>
+			<token rule="CommandsKW">GETEXPR</token>
+			<token rule="CommandsKW">GLOBAL</token>
+			<token rule="CommandsKW">GO</token>
+			<token rule="CommandsKW">GOTO</token>
+			<token rule="CommandsKW">GRAPH</token>
+			<token rule="CommandsKW">GROUP</token>
+			<token rule="CommandsKW">GROW</token>
+			<token rule="CommandsKW">HALFHEIGHT</token>
+			<token rule="CommandsKW">HAVING</token>
+			<token rule="CommandsKW">HEADING</token>
+			<token rule="CommandsKW">HEADINGS</token>
+			<token rule="CommandsKW">HELP</token>
+			<token rule="CommandsKW">HELPFILTER</token>
+			<token rule="CommandsKW">HELPON</token>
+			<token rule="CommandsKW">HELPSTRING</token>
+			<token rule="CommandsKW">HELPTO</token>
+			<token rule="CommandsKW">HIDDEN</token>
+			<token rule="CommandsKW">HIDE</token>
+			<token rule="CommandsKW">IDLETIMEOUT</token>
+			<token rule="CommandsKW">IMPLEMENTS</token>
+			<token rule="CommandsKW">IMPORT</token>
+			<token rule="CommandsKW">IN</token>
+			<token rule="CommandsKW">INCLUDE</token>
+			<token rule="CommandsKW">INDE</token>
+			<token rule="CommandsKW">INDEX</token>
+			<token rule="CommandsKW">INSERT</token>
+			<token rule="CommandsKW">INSERTTRIGGER</token>
+			<token rule="CommandsKW">INTEGER</token>
+			<token rule="CommandsKW">INTENSITY</token>
+			<token rule="CommandsKW">INTERSECT</token>
+			<token rule="CommandsKW">INTO</token>
+			<token rule="CommandsKW">ISOMETRIC</token>
+			<token rule="CommandsKW">JOIN</token>
+			<token rule="CommandsKW">KEYBOARD</token>
+			<token rule="CommandsKW">KEY</token>
+			<token rule="CommandsKW">KEYCOLUMNS</token>
+			<token rule="CommandsKW">KEYCOMP</token>
+			<token rule="CommandsKW">KEYFIELD</token>
+			<token rule="CommandsKW">LABEL</token>
+			<token rule="CommandsKW">LAST</token>
+			<token rule="CommandsKW">LEDIT</token>
+			<token rule="CommandsKW">LIBRARY</token>
+			<token rule="CommandsKW">LINE</token>
+			<token rule="CommandsKW">LIST</token>
+			<token rule="CommandsKW">LOCAL</token>
+			<token rule="CommandsKW">LOCATE</token>
+			<token rule="CommandsKW">LOGERRORS</token>
+			<token rule="CommandsKW">LOGOUT</token>
+			<token rule="CommandsKW">LONG</token>
+			<token rule="CommandsKW">LOOP</token>
+			<token rule="CommandsKW">LPARA</token>
+			<token rule="CommandsKW">LPARAMETER</token>
+			<token rule="CommandsKW">LPARAMETERS</token>
+			<token rule="CommandsKW">MAC</token>
+			<token rule="CommandsKW">MACROS</token>
+			<token rule="CommandsKW">MAIL</token>
+			<token rule="CommandsKW">MARK</token>
+			<token rule="CommandsKW">MASTER</token>
+			<token rule="CommandsKW">MAXMEM</token>
+			<token rule="CommandsKW">MD</token>
+			<token rule="CommandsKW">MEMO</token>
+			<token rule="CommandsKW">MEMOWIDTH</token>
+			<token rule="CommandsKW">MEMVAR</token>
+			<token rule="CommandsKW">MENU</token>
+			<token rule="CommandsKW">MINIMIZE</token>
+			<token rule="CommandsKW">MKDIR</token>
+			<token rule="CommandsKW">MODAL</token>
+			<token rule="CommandsKW">MODIFY</token>
+			<token rule="CommandsKW">MONO43</token>
+			<token rule="CommandsKW">MOUSE</token>
+			<token rule="CommandsKW">MOVE</token>
+			<token rule="CommandsKW">MTDLL</token>
+			<token rule="CommandsKW">MULTILOCKS</token>
+			<token rule="CommandsKW">MVARSIZ</token>
+			<token rule="CommandsKW">NAME</token>
+			<token rule="CommandsKW">NEAR</token>
+			<token rule="CommandsKW">NEGOTIATE</token>
+			<token rule="CommandsKW">NEW</token>
+			<token rule="CommandsKW">NEXT</token>
+			<token rule="CommandsKW">NEXTVALUE</token>
+			<token rule="CommandsKW">NOALIAS</token>
+			<token rule="CommandsKW">NOAPPEND</token>
+			<token rule="CommandsKW">NOCAPTIONS</token>
+			<token rule="CommandsKW">NOCLEAR</token>
+			<token rule="CommandsKW">NOCLOSE</token>
+			<token rule="CommandsKW">NOCONSOLE</token>
+			<token rule="CommandsKW">NOCPTRANS</token>
+			<token rule="CommandsKW">NODATA</token>
+			<token rule="CommandsKW">NODEBUG</token>
+			<token rule="CommandsKW">NODEFAULT</token>
+			<token rule="CommandsKW">NODELETE</token>
+			<token rule="CommandsKW">NODIALOG</token>
+			<token rule="CommandsKW">NODUP</token>
+			<token rule="CommandsKW">NOEDIT</token>
+			<token rule="CommandsKW">NOEJECT</token>
+			<token rule="CommandsKW">NOENVIRONMENT</token>
+			<token rule="CommandsKW">NOFLOAT</token>
+			<token rule="CommandsKW">NOFOLLOW</token>
+			<token rule="CommandsKW">NOGROW</token>
+			<token rule="CommandsKW">NOINIT</token>
+			<token rule="CommandsKW">NOLGRID</token>
+			<token rule="CommandsKW">NOLINK</token>
+			<token rule="CommandsKW">NOLOCK</token>
+			<token rule="CommandsKW">NOMARGIN</token>
+			<token rule="CommandsKW">NOMDI</token>
+			<token rule="CommandsKW">NOMENU</token>
+			<token rule="CommandsKW">NOMINIMIZE</token>
+			<token rule="CommandsKW">NOMODIFY</token>
+			<token rule="CommandsKW">NOMOUSE</token>
+			<token rule="CommandsKW">NONE</token>
+			<token rule="CommandsKW">NOOPTIMIZE</token>
+			<token rule="CommandsKW">NOOVERWRITE</token>
+			<token rule="CommandsKW">NOPAGEEJECT</token>
+			<token rule="CommandsKW">NOPROJECTHOOK</token>
+			<token rule="CommandsKW">NOPROMPT</token>
+			<token rule="CommandsKW">NOREAD</token>
+			<token rule="CommandsKW">NOREFRESH</token>
+			<token rule="CommandsKW">NOREQUERY</token>
+			<token rule="CommandsKW">NORESET</token>
+			<token rule="CommandsKW">NORGRID</token>
+			<token rule="CommandsKW">NOSAVE</token>
+			<token rule="CommandsKW">NOSHADOW</token>
+			<token rule="CommandsKW">NOSHOW</token>
+			<token rule="CommandsKW">NOSPACE</token>
+			<token rule="CommandsKW">NOTAB</token>
+			<token rule="CommandsKW">NOTE</token>
+			<token rule="CommandsKW">NOTIFY</token>
+			<token rule="CommandsKW">NOUPDATE</token>
+			<token rule="CommandsKW">NOVALIDATE</token>
+			<token rule="CommandsKW">NOVERIFY</token>
+			<token rule="CommandsKW">NOW</token>
+			<token rule="CommandsKW">NOWAIT</token>
+			<token rule="CommandsKW">NOWINDOW</token>
+			<token rule="CommandsKW">NOWRAP</token>
+			<token rule="CommandsKW">NOZOOM</token>
+			<token rule="CommandsKW">NPV</token>
+			<token rule="CommandsKW">NULLSTRING</token>
+			<token rule="CommandsKW">NUMBER</token>
+			<token rule="CommandsKW">OBJECT</token>
+			<token rule="CommandsKW">OBJECTS</token>
+			<token rule="CommandsKW">ODBCHDBC</token>
+			<token rule="CommandsKW">ODBCHSTMT</token>
+			<token rule="CommandsKW">ODOMETER</token>
+			<token rule="CommandsKW">OF</token>
+			<token rule="CommandsKW">OFF</token>
+			<token rule="CommandsKW">ONLY</token>
+			<token rule="CommandsKW">OPEN</token>
+			<token rule="CommandsKW">OPTIMIZE</token>
+			<token rule="CommandsKW">ORIENTATION</token>
+			<token rule="CommandsKW">OTHERWISE</token>
+			<token rule="CommandsKW">OUTER</token>
+			<token rule="CommandsKW">OUTPUT</token>
+			<token rule="CommandsKW">OVERWRITE</token>
+			<token rule="CommandsKW">PACK</token>
+			<token rule="CommandsKW">PACKETSIZE</token>
+			<token rule="CommandsKW">PAPERLENGTH</token>
+			<token rule="CommandsKW">PAPERSIZE</token>
+			<token rule="CommandsKW">PAPERWIDTH</token>
+			<token rule="CommandsKW">PASSWORD</token>
+			<token rule="CommandsKW">PATH</token>
+			<token rule="CommandsKW">PDSETUP</token>
+			<token rule="CommandsKW">PEN</token>
+			<token rule="CommandsKW">PIVOT</token>
+			<token rule="CommandsKW">PIXELS</token>
+			<token rule="CommandsKW">PLAIN</token>
+			<token rule="CommandsKW">PLAY</token>
+			<token rule="CommandsKW">PLAY</token>
+			<token rule="CommandsKW">POP</token>
+			<token rule="CommandsKW">POWER</token>
+			<token rule="CommandsKW">PRECISION</token>
+			<token rule="CommandsKW">PRETEXT</token>
+			<token rule="CommandsKW">PREVIEW</token>
+			<token rule="CommandsKW">PRIMARYKEY</token>
+			<token rule="CommandsKW">PRINT</token>
+			<token rule="CommandsKW">PRINTER</token>
+			<token rule="CommandsKW">PRINTJOB</token>
+			<token rule="CommandsKW">PRIVATE</token>
+			<token rule="CommandsKW">PROCEDURE</token>
+			<token rule="CommandsKW">PROGRAM</token>
+			<token rule="CommandsKW">PROJECT</token>
+			<token rule="CommandsKW">PROTECTED</token>
+			<token rule="CommandsKW">PUBLIC</token>
+			<token rule="CommandsKW">PUSH</token>
+			<token rule="CommandsKW">QUERY</token>
+			<token rule="CommandsKW">QUERYTIMEOUT</token>
+			<token rule="CommandsKW">QUIT</token>
+			<token rule="CommandsKW">RANGE</token>
+			<token rule="CommandsKW">READ</token>
+			<token rule="CommandsKW">READWRITE</token>
+			<token rule="CommandsKW">RECALL</token>
+			<token rule="CommandsKW">RECOMPILE</token>
+			<token rule="CommandsKW">RECORD</token>
+			<token rule="CommandsKW">RECYCLE</token>
+			<token rule="CommandsKW">REGIONAL</token>
+			<token rule="CommandsKW">REINDEX</token>
+			<token rule="CommandsKW">RELA</token>
+			<token rule="CommandsKW">RELATEDCHILD</token>
+			<token rule="CommandsKW">RELATEDTABLE</token>
+			<token rule="CommandsKW">RELATEDTAG</token>
+			<token rule="CommandsKW">RELATIVE</token>
+			<token rule="CommandsKW">RELEASE</token>
+			<token rule="CommandsKW">REMO</token>
+			<token rule="CommandsKW">REMOTE</token>
+			<token rule="CommandsKW">REMOVE</token>
+			<token rule="CommandsKW">RENAME</token>
+			<token rule="CommandsKW">REPL</token>
+			<token rule="CommandsKW">REPLACE</token>
+			<token rule="CommandsKW">REPORT</token>
+			<token rule="CommandsKW">REPROCESS</token>
+			<token rule="CommandsKW">RESET</token>
+			<token rule="CommandsKW">RESOURCES</token>
+			<token rule="CommandsKW">REST</token>
+			<token rule="CommandsKW">RESTORE</token>
+			<token rule="CommandsKW">RESUME</token>
+			<token rule="CommandsKW">RETRY</token>
+			<token rule="CommandsKW">RETURN</token>
+			<token rule="CommandsKW">RMDIR</token>
+			<token rule="CommandsKW">RULEEXPRESSION</token>
+			<token rule="CommandsKW">RULETEXT</token>
+			<token rule="CommandsKW">RUN</token>
+			<token rule="CommandsKW">RUNSCRIPT</token>
+			<token rule="CommandsKW">SAFETY</token>
+			<token rule="CommandsKW">SAVE</token>
+			<token rule="CommandsKW">SAY</token>
+			<token rule="CommandsKW">SAY</token>
+			<token rule="CommandsKW">SCATTER</token>
+			<token rule="CommandsKW">SCREEN</token>
+			<token rule="CommandsKW">SCROLL</token>
+			<token rule="CommandsKW">SDF</token>
+			<token rule="CommandsKW">SELE</token>
+			<token rule="CommandsKW">SELECTION</token>
+			<token rule="CommandsKW">SHARE</token>
+			<token rule="CommandsKW">SHARECONNECTION</token>
+			<token rule="CommandsKW">SHARED</token>
+			<token rule="CommandsKW">SHIFT</token>
+			<token rule="CommandsKW">SHORT</token>
+			<token rule="CommandsKW">SHORTCUT</token>
+			<token rule="CommandsKW">SHOW</token>
+			<token rule="CommandsKW">SHUTDOWN</token>
+			<token rule="CommandsKW">SINGLE</token>
+			<token rule="CommandsKW">SIZE</token>
+			<token rule="CommandsKW">SKIP</token>
+			<token rule="CommandsKW">SOME</token>
+			<token rule="CommandsKW">SORT</token>
+			<token rule="CommandsKW">SOURCENAME</token>
+			<token rule="CommandsKW">SQL</token>
+			<token rule="CommandsKW">SQLASYNCHRONOUS</token>
+			<token rule="CommandsKW">SQLBATCHMODE</token>
+			<token rule="CommandsKW">SQLCONNECTTIMEOUT</token>
+			<token rule="CommandsKW">SQLDISPLOGIN</token>
+			<token rule="CommandsKW">SQLDISPWARNINGS</token>
+			<token rule="CommandsKW">SQLIDLETIMEOUT</token>
+			<token rule="CommandsKW">SQLQUERYTIMEOUT</token>
+			<token rule="CommandsKW">SQLTRANSACTIONS</token>
+			<token rule="CommandsKW">SQLWAITTIME</token>
+			<token rule="CommandsKW">STANDALONE</token>
+			<token rule="CommandsKW">STATUS</token>
+			<token rule="CommandsKW">STATUSBAR</token>
+			<token rule="CommandsKW">STEP</token>
+			<token rule="CommandsKW">STORE</token>
+			<token rule="CommandsKW">STRING</token>
+			<token rule="CommandsKW">STRUCTURE</token>
+			<token rule="FunctCmdKW">SUM</token>
+			<token rule="CommandsKW">SUSPEND</token>
+			<token rule="CommandsKW">SYLK</token>
+			<token rule="CommandsKW">SYSM</token>
+			<token rule="CommandsKW">SYSMENU</token>
+			<token rule="CommandsKW">SYSTEM</token>
+			<token rule="CommandsKW">TABLE</token>
+			<token rule="CommandsKW">TABLE</token>
+			<token rule="CommandsKW">TABLEPROMPT</token>
+			<token rule="CommandsKW">TABLEPROMPT</token>
+			<token rule="CommandsKW">TABORDERING</token>
+			<token rule="CommandsKW">TALK</token>
+			<token rule="CommandsKW">TEDIT</token>
+			<token rule="CommandsKW">TIMEOUT</token>
+			<token rule="CommandsKW">TITLE</token>
+			<token rule="CommandsKW">TO</token>
+			<token rule="CommandsKW">TOP</token>
+			<token rule="CommandsKW">TOPIC</token>
+			<token rule="CommandsKW">TOTAL</token>
+			<token rule="CommandsKW">TRANSACTION</token>
+			<token rule="CommandsKW">TRBET</token>
+			<token rule="CommandsKW">TRBETWEEN</token>
+			<token rule="CommandsKW">TRIGGER</token>
+			<token rule="CommandsKW">TRUNCATE</token>
+			<token rule="CommandsKW">UDFPARMS</token>
+			<token rule="CommandsKW">UNDEFINE</token>
+			<token rule="CommandsKW">UNION</token>
+			<token rule="CommandsKW">UNLOCK</token>
+			<token rule="CommandsKW">UPDATABLE</token>
+			<token rule="CommandsKW">UPDATENAME</token>
+			<token rule="CommandsKW">UPDATETRIGGER</token>
+			<token rule="CommandsKW">USE</token>
+			<token rule="CommandsKW">USERID</token>
+			<token rule="CommandsKW">VALIDATE</token>
+			<token rule="CommandsKW">VALUE</token>
+			<token rule="CommandsKW">VALUES</token>
+			<token rule="CommandsKW">VAR</token>
+			<token rule="CommandsKW">VARBINARY</token>
+			<token rule="CommandsKW">VARCHAR</token>
+			<token rule="CommandsKW">VARCHARMAPPING</token>
+			<token rule="CommandsKW">VGA25</token>
+			<token rule="CommandsKW">VGA50</token>
+			<token rule="CommandsKW">VIEW</token>
+			<token rule="CommandsKW">WAIT</token>
+			<token rule="CommandsKW">WAITTIME</token>
+			<token rule="CommandsKW">WHERE</token>
+			<token rule="CommandsKW">WHERETYPE</token>
+			<token rule="CommandsKW">WHEN</token>
+			<token rule="CommandsKW">WHILE</token>
+			<token rule="CommandsKW">WINDOW</token>
+			<token rule="CommandsKW">WITH</token>
+			<token rule="CommandsKW">WK1</token>
+			<token rule="CommandsKW">WK3</token>
+			<token rule="CommandsKW">WKS</token>
+			<token rule="CommandsKW">WORKAREA</token>
+			<token rule="CommandsKW">WR1</token>
+			<token rule="CommandsKW">WRK</token>
+			<token rule="CommandsKW">XL5</token>
+			<token rule="CommandsKW">XL8</token>
+			<token rule="CommandsKW">XLS</token>
+			<token rule="CommandsKW">XML</token>
+			<token rule="CommandsKW">ZAP</token>
+			<token rule="CommandsKW">ZOOM</token>
+			<token rule="FunctCmdKW">ALIA</token>
+			<token rule="FunctCmdKW">ALIAS</token>
+			<token rule="FunctCmdKW">BAR</token>
+			<token rule="FunctCmdKW">DBF</token>
+			<token rule="FunctCmdKW">DEFAULT</token>
+			<token rule="FunctCmdKW">DELETED</token>
+			<token rule="FunctCmdKW">DESC</token>
+			<token rule="FunctCmdKW">DESCENDING</token>
+			<token rule="FunctCmdKW">ERROR</token>
+			<token rule="FunctCmdKW">FILE</token>
+			<token rule="FunctCmdKW">FILT</token>
+			<token rule="FunctCmdKW">FILTER</token>
+			<token rule="FunctCmdKW">FULLPATH</token>
+			<token rule="FunctCmdKW">LIKE</token>
+			<token rule="FunctCmdKW">LOCK</token>
+			<token rule="FunctCmdKW">MESSAGE</token>
+			<token rule="FunctCmdKW">ON</token>
+			<token rule="FunctCmdKW">ORDE</token>
+			<token rule="FunctCmdKW">ORDER</token>
+			<token rule="FunctCmdKW">PAD</token>
+			<token rule="FunctCmdKW">PARA</token>
+			<token rule="FunctCmdKW">PARAMETER</token>
+			<token rule="FunctCmdKW">PARAMETERS</token>
+			<token rule="FunctCmdKW">POPU</token>
+			<token rule="FunctCmdKW">POPUP</token>
+			<token rule="FunctCmdKW">POPUPS</token>
+			<token rule="FunctCmdKW">PROM</token>
+			<token rule="FunctCmdKW">PROMPT</token>
+			<token rule="FunctCmdKW">RELATION</token>
+			<token rule="FunctCmdKW">SEEK</token>
+			<token rule="FunctCmdKW">SELECT</token>
+			<token rule="FunctCmdKW">SET</token>
+			<token rule="FunctCmdKW">SYS</token>
+			<token rule="FunctCmdKW">TAG</token>
+			<token rule="FunctCmdKW">TEXTMERGE</token>
+			<token rule="FunctCmdKW">TYPE</token>
+			<token rule="FunctCmdKW">UNIQUE</token>
+			<token rule="FunctionKW">ABS</token>
+			<token rule="FunctionKW">ACLA</token>
+			<token rule="FunctionKW">ACLASS</token>
+			<token rule="FunctionKW">ACOP</token>
+			<token rule="FunctionKW">ACOPY</token>
+			<token rule="FunctionKW">ACOS</token>
+			<token rule="FunctionKW">ADAT</token>
+			<token rule="FunctionKW">ADATABASES</token>
+			<token rule="FunctionKW">ADBO</token>
+			<token rule="FunctionKW">ADBOBJECTS</token>
+			<token rule="FunctionKW">ADDB</token>
+			<token rule="FunctionKW">ADDBS</token>
+			<token rule="FunctionKW">ADDP</token>
+			<token rule="FunctionKW">ADDPROPERTY</token>
+			<token rule="FunctionKW">ADEL</token>
+			<token rule="FunctionKW">ADIR</token>
+			<token rule="FunctionKW">ADLL</token>
+			<token rule="FunctionKW">ADLLS</token>
+			<token rule="FunctionKW">ADOC</token>
+			<token rule="FunctionKW">ADOCKSTATE</token>
+			<token rule="FunctionKW">AELE</token>
+			<token rule="FunctionKW">AELEMENT</token>
+			<token rule="FunctionKW">AERR</token>
+			<token rule="FunctionKW">AERROR</token>
+			<token rule="FunctionKW">AEVE</token>
+			<token rule="FunctionKW">AEVENTS</token>
+			<token rule="FunctionKW">AFIE</token>
+			<token rule="FunctionKW">AFIELDS</token>
+			<token rule="FunctionKW">AFON</token>
+			<token rule="FunctionKW">AFONT</token>
+			<token rule="FunctionKW">AGETC</token>
+			<token rule="FunctionKW">AGETCLASS</token>
+			<token rule="FunctionKW">AGETF</token>
+			<token rule="FunctionKW">AGETFILEVERSION</token>
+			<token rule="FunctionKW">AINS</token>
+			<token rule="FunctionKW">AINST</token>
+			<token rule="FunctionKW">AINSTANCE</token>
+			<token rule="FunctionKW">ALAN</token>
+			<token rule="FunctionKW">ALANGUAGE</token>
+			<token rule="FunctionKW">ALEN</token>
+			<token rule="FunctionKW">ALIN</token>
+			<token rule="FunctionKW">ALINES</token>
+			<token rule="FunctionKW">ALLT</token>
+			<token rule="FunctionKW">ALLTRIM</token>
+			<token rule="FunctionKW">AMEM</token>
+			<token rule="FunctionKW">AMEMBERS</token>
+			<token rule="FunctionKW">AMOU</token>
+			<token rule="FunctionKW">AMOUSEOBJ</token>
+			<token rule="FunctionKW">ANET</token>
+			<token rule="FunctionKW">ANETRESOURCES</token>
+			<token rule="FunctionKW">ANSI</token>
+			<token rule="FunctionKW">ANSITOOEM</token>
+			<token rule="FunctionKW">APRI</token>
+			<token rule="FunctionKW">APRINTERS</token>
+			<token rule="FunctionKW">APRO</token>
+			<token rule="FunctionKW">APROCINFO</token>
+			<token rule="FunctionKW">ASC</token>
+			<token rule="FunctionKW">ASCA</token>
+			<token rule="FunctionKW">ASCAN</token>
+			<token rule="FunctionKW">ASEL</token>
+			<token rule="FunctionKW">ASELOBJ</token>
+			<token rule="FunctionKW">ASES</token>
+			<token rule="FunctionKW">ASESSIONS</token>
+			<token rule="FunctionKW">ASIN</token>
+			<token rule="FunctionKW">ASOR</token>
+			<token rule="FunctionKW">ASORT</token>
+			<token rule="FunctionKW">ASQL</token>
+			<token rule="FunctionKW">ASQLHANDLES</token>
+			<token rule="FunctionKW">ASTA</token>
+			<token rule="FunctionKW">ASTACKINFO</token>
+			<token rule="FunctionKW">ASUB</token>
+			<token rule="FunctionKW">ASUBSCRIPT</token>
+			<token rule="FunctionKW">AT</token>
+			<token rule="FunctionKW">AT_C</token>
+			<token rule="FunctionKW">ATAG</token>
+			<token rule="FunctionKW">ATAGINFO</token>
+			<token rule="FunctionKW">ATAN</token>
+			<token rule="FunctionKW">ATC</token>
+			<token rule="FunctionKW">ATCC</token>
+			<token rule="FunctionKW">ATCL</token>
+			<token rule="FunctionKW">ATCLINE</token>
+			<token rule="FunctionKW">ATLI</token>
+			<token rule="FunctionKW">ATLINE</token>
+			<token rule="FunctionKW">ATN2</token>
+			<token rule="FunctionKW">AUSE</token>
+			<token rule="FunctionKW">AUSED</token>
+			<token rule="FunctionKW">AVCX</token>
+			<token rule="FunctionKW">AVCXCLASSES</token>
+			<token rule="FunctionKW">BARCOUNT</token>
+			<token rule="FunctionKW">BARPROMPT</token>
+			<token rule="FunctionKW">BETW</token>
+			<token rule="FunctionKW">BETWEEN</token>
+			<token rule="FunctionKW">BIND</token>
+			<token rule="FunctionKW">BINDEVENT</token>
+			<token rule="FunctionKW">BINT</token>
+			<token rule="FunctionKW">BINTOC</token>
+			<token rule="FunctionKW">BITA</token>
+			<token rule="FunctionKW">BITAND</token>
+			<token rule="FunctionKW">BITC</token>
+			<token rule="FunctionKW">BITCLEAR</token>
+			<token rule="FunctionKW">BITL</token>
+			<token rule="FunctionKW">BITLSHIFT</token>
+			<token rule="FunctionKW">BITN</token>
+			<token rule="FunctionKW">BITNOT</token>
+			<token rule="FunctionKW">BITO</token>
+			<token rule="FunctionKW">BITOR</token>
+			<token rule="FunctionKW">BITR</token>
+			<token rule="FunctionKW">BITRSHIFT</token>
+			<token rule="FunctionKW">BITS</token>
+			<token rule="FunctionKW">BITSET</token>
+			<token rule="FunctionKW">BITT</token>
+			<token rule="FunctionKW">BITTEST</token>
+			<token rule="FunctionKW">BITX</token>
+			<token rule="FunctionKW">BITXOR</token>
+			<token rule="FunctionKW">BOF</token>
+			<token rule="FunctionKW">CAND</token>
+			<token rule="FunctionKW">CANDIDATE</token>
+			<token rule="FunctionKW">CAPS</token>
+			<token rule="FunctionKW">CAPSLOCK</token>
+			<token rule="FunctionKW">CAST</token>
+			<token rule="FunctionKW">CDOW</token>
+			<token rule="FunctionKW">CDX</token>
+			<token rule="FunctionKW">CEIL</token>
+			<token rule="FunctionKW">CEILING</token>
+			<token rule="FunctionKW">CHANGE</token>
+			<token rule="FunctionKW">CHR</token>
+			<token rule="FunctionKW">CHRS</token>
+			<token rule="FunctionKW">CHRSAW</token>
+			<token rule="FunctionKW">CHRT</token>
+			<token rule="FunctionKW">CHRTRAN</token>
+			<token rule="FunctionKW">CHRTRANC</token>
+			<token rule="FunctionKW">CLEARR</token>
+			<token rule="FunctionKW">CLEARRESULTSET</token>
+			<token rule="FunctionKW">CMON</token>
+			<token rule="FunctionKW">CMONTH</token>
+			<token rule="FunctionKW">CNTB</token>
+			<token rule="FunctionKW">CNTBAR</token>
+			<token rule="FunctionKW">CNTP</token>
+			<token rule="FunctionKW">CNTPAD</token>
+			<token rule="FunctionKW">COL</token>
+			<token rule="FunctionKW">COMA</token>
+			<token rule="FunctionKW">COMARRAY</token>
+			<token rule="FunctionKW">COMC</token>
+			<token rule="FunctionKW">COMCLASSINFO</token>
+			<token rule="FunctionKW">COMP</token>
+			<token rule="FunctionKW">COMPLETED</token>
+			<token rule="FunctionKW">COMPOBJ</token>
+			<token rule="FunctionKW">COMPROP</token>
+			<token rule="FunctionKW">COMR</token>
+			<token rule="FunctionKW">COMRETURNERROR</token>
+			<token rule="FunctionKW">COS</token>
+			<token rule="FunctionKW">CPCO</token>
+			<token rule="FunctionKW">CPCONVERT</token>
+			<token rule="FunctionKW">CPCU</token>
+			<token rule="FunctionKW">CPCURRENT</token>
+			<token rule="FunctionKW">CPDB</token>
+			<token rule="FunctionKW">CPDBF</token>
+			<token rule="FunctionKW">CPNOTRANS</token>
+			<token rule="FunctionKW">CREATEB</token>
+			<token rule="FunctionKW">CREATEBINARY</token>
+			<token rule="FunctionKW">CREATEOBJECT</token>
+			<token rule="FunctionKW">CREATEOBJECTEX</token>
+			<token rule="FunctionKW">CREATEOF</token>
+			<token rule="FunctionKW">CREATEOFFLINE</token>
+			<token rule="FunctionKW">CREATEOFFLINE</token>
+			<token rule="FunctionKW">CTOB</token>
+			<token rule="FunctionKW">CTOBIN</token>
+			<token rule="FunctionKW">CTOD</token>
+			<token rule="FunctionKW">CTOT</token>
+			<token rule="FunctionKW">CURDIR</token>
+			<token rule="FunctionKW">CURSORG</token>
+			<token rule="FunctionKW">CURSORGETPROP</token>
+			<token rule="FunctionKW">CURSORS</token>
+			<token rule="FunctionKW">CURSORSETPROP</token>
+			<token rule="FunctionKW">CURSORTOX</token>
+			<token rule="FunctionKW">CURSORTOXML</token>
+			<token rule="FunctionKW">CURV</token>
+			<token rule="FunctionKW">CURVAL</token>
+			<token rule="FunctionKW">DATE</token>
+			<token rule="FunctionKW">DATET</token>
+			<token rule="FunctionKW">DATETIME</token>
+			<token rule="FunctionKW">DAY</token>
+			<token rule="FunctionKW">DBAL</token>
+			<token rule="FunctionKW">DBALIAS</token>
+			<token rule="FunctionKW">DBC</token>
+			<token rule="FunctionKW">DBGE</token>
+			<token rule="FunctionKW">DBGETPROP</token>
+			<token rule="FunctionKW">DBSE</token>
+			<token rule="FunctionKW">DBSETPROP</token>
+			<token rule="FunctionKW">DBUS</token>
+			<token rule="FunctionKW">DBUSED</token>
+			<token rule="FunctionKW">DDEAB</token>
+			<token rule="FunctionKW">DDEABORTTRANS</token>
+			<token rule="FunctionKW">DDEAD</token>
+			<token rule="FunctionKW">DDEADVISE</token>
+			<token rule="FunctionKW">DDEEN</token>
+			<token rule="FunctionKW">DDEENABLED</token>
+			<token rule="FunctionKW">DDEEX</token>
+			<token rule="FunctionKW">DDEEXECUTE</token>
+			<token rule="FunctionKW">DDEI</token>
+			<token rule="FunctionKW">DDEINITIATE</token>
+			<token rule="FunctionKW">DDEL</token>
+			<token rule="FunctionKW">DDELASTERROR</token>
+			<token rule="FunctionKW">DDEP</token>
+			<token rule="FunctionKW">DDEPOKE</token>
+			<token rule="FunctionKW">DDER</token>
+			<token rule="FunctionKW">DDEREQUEST</token>
+			<token rule="FunctionKW">DDES</token>
+			<token rule="FunctionKW">DDESETOPTION</token>
+			<token rule="FunctionKW">DDESETS</token>
+			<token rule="FunctionKW">DDESETSERVICE</token>
+			<token rule="FunctionKW">DDESETT</token>
+			<token rule="FunctionKW">DDESETTOPIC</token>
+			<token rule="FunctionKW">DDET</token>
+			<token rule="FunctionKW">DDETERMINATE</token>
+			<token rule="FunctionKW">DEFAULTEXT</token>
+			<token rule="FunctionKW">DIFF</token>
+			<token rule="FunctionKW">DIFFERENCE</token>
+			<token rule="FunctionKW">DIRE</token>
+			<token rule="FunctionKW">DIRECTORY</token>
+			<token rule="FunctionKW">DISK</token>
+			<token rule="FunctionKW">DISKSPACE</token>
+			<token rule="FunctionKW">DISP</token>
+			<token rule="FunctionKW">DISPLAYPATH</token>
+			<token rule="FunctionKW">DMY</token>
+			<token rule="FunctionKW">DODE</token>
+			<token rule="FunctionKW">DODEFAULT</token>
+			<token rule="FunctionKW">DOW</token>
+			<token rule="FunctionKW">DRIV</token>
+			<token rule="FunctionKW">DRIVETYPE</token>
+			<token rule="FunctionKW">DRIVETYPE</token>
+			<token rule="FunctionKW">DROP</token>
+			<token rule="FunctionKW">DROPOFFLINE</token>
+			<token rule="FunctionKW">DTOC</token>
+			<token rule="FunctionKW">DTOR</token>
+			<token rule="FunctionKW">DTOS</token>
+			<token rule="FunctionKW">DTOT</token>
+			<token rule="FunctionKW">EDITSOURCE</token>
+			<token rule="FunctionKW">EMPT</token>
+			<token rule="FunctionKW">EMPTY</token>
+			<token rule="FunctionKW">EOF</token>
+			<token rule="FunctionKW">ERRO</token>
+			<token rule="FunctionKW">EVAL</token>
+			<token rule="FunctionKW">EVALUATE</token>
+			<token rule="FunctionKW">EVENT</token>
+			<token rule="FunctionKW">EVENTHANDLER</token>
+			<token rule="FunctionKW">EVL</token>
+			<token rule="FunctionKW">EXEC</token>
+			<token rule="FunctionKW">EXECSCRIPT</token>
+			<token rule="FunctionKW">EXP</token>
+			<token rule="FunctionKW">FCHS</token>
+			<token rule="FunctionKW">FCHSIZE</token>
+			<token rule="FunctionKW">FCLO</token>
+			<token rule="FunctionKW">FCLOSE</token>
+			<token rule="FunctionKW">FCOU</token>
+			<token rule="FunctionKW">FCOUNT</token>
+			<token rule="FunctionKW">FCRE</token>
+			<token rule="FunctionKW">FCREATE</token>
+			<token rule="FunctionKW">FDAT</token>
+			<token rule="FunctionKW">FDATE</token>
+			<token rule="FunctionKW">FEOF</token>
+			<token rule="FunctionKW">FERR</token>
+			<token rule="FunctionKW">FERROR</token>
+			<token rule="FunctionKW">FFLU</token>
+			<token rule="FunctionKW">FFLUSH</token>
+			<token rule="FunctionKW">FGET</token>
+			<token rule="FunctionKW">FGETS</token>
+			<token rule="FunctionKW">FILES</token>
+			<token rule="FunctionKW">FILET</token>
+			<token rule="FunctionKW">FILETOSTR</token>
+			<token rule="FunctionKW">FIXED</token>
+			<token rule="FunctionKW">FKLA</token>
+			<token rule="FunctionKW">FKLABEL</token>
+			<token rule="FunctionKW">FKMA</token>
+			<token rule="FunctionKW">FKMAX</token>
+			<token rule="FunctionKW">FLDCOUNT</token>
+			<token rule="FunctionKW">FLDLIST</token>
+			<token rule="FunctionKW">FLOAT</token>
+			<token rule="FunctionKW">FLOC</token>
+			<token rule="FunctionKW">FLOCK</token>
+			<token rule="FunctionKW">FLOO</token>
+			<token rule="FunctionKW">FLOOR</token>
+			<token rule="FunctionKW">FONT</token>
+			<token rule="FunctionKW">FONTMETRIC</token>
+			<token rule="FunctionKW">FONTMETRIC</token>
+			<token rule="FunctionKW">FOPE</token>
+			<token rule="FunctionKW">FOPEN</token>
+			<token rule="FunctionKW">FORCEE</token>
+			<token rule="FunctionKW">FORCEEXT</token>
+			<token rule="FunctionKW">FORCEP</token>
+			<token rule="FunctionKW">FORCEPATH</token>
+			<token rule="FunctionKW">FOUN</token>
+			<token rule="FunctionKW">FOUND</token>
+			<token rule="FunctionKW">FPUT</token>
+			<token rule="FunctionKW">FPUTS</token>
+			<token rule="FunctionKW">FREA</token>
+			<token rule="FunctionKW">FREAD</token>
+			<token rule="FunctionKW">FSEE</token>
+			<token rule="FunctionKW">FSEEK</token>
+			<token rule="FunctionKW">FSIZ</token>
+			<token rule="FunctionKW">FSIZE</token>
+			<token rule="FunctionKW">FTIM</token>
+			<token rule="FunctionKW">FTIME</token>
+			<token rule="FunctionKW">FV</token>
+			<token rule="FunctionKW">FWRI</token>
+			<token rule="FunctionKW">FWRITE</token>
+			<token rule="FunctionKW">GETA</token>
+			<token rule="FunctionKW">GETAUTOINCVALUE</token>
+			<token rule="FunctionKW">GETB</token>
+			<token rule="FunctionKW">GETBAR</token>
+			<token rule="FunctionKW">GETC</token>
+			<token rule="FunctionKW">GETCOLOR</token>
+			<token rule="FunctionKW">GETCP</token>
+			<token rule="FunctionKW">GETCU</token>
+			<token rule="FunctionKW">GETCURSORADAPTER</token>
+			<token rule="FunctionKW">GETD</token>
+			<token rule="FunctionKW">GETDIR</token>
+			<token rule="FunctionKW">GETE</token>
+			<token rule="FunctionKW">GETENV</token>
+			<token rule="FunctionKW">GETF</token>
+			<token rule="FunctionKW">GETFILE</token>
+			<token rule="FunctionKW">GETFL</token>
+			<token rule="FunctionKW">GETFLDSTATE</token>
+			<token rule="FunctionKW">GETFO</token>
+			<token rule="FunctionKW">GETFONT</token>
+			<token rule="FunctionKW">GETH</token>
+			<token rule="FunctionKW">GETHOST</token>
+			<token rule="FunctionKW">GETI</token>
+			<token rule="FunctionKW">GETINTERFACE</token>
+			<token rule="FunctionKW">GETN</token>
+			<token rule="FunctionKW">GETNEXTMODIFIED</token>
+			<token rule="FunctionKW">GETO</token>
+			<token rule="FunctionKW">GETOBJECT</token>
+			<token rule="FunctionKW">GETP</token>
+			<token rule="FunctionKW">GETPAD</token>
+			<token rule="FunctionKW">GETPEM</token>
+			<token rule="FunctionKW">GETPI</token>
+			<token rule="FunctionKW">GETPICT</token>
+			<token rule="FunctionKW">GETPR</token>
+			<token rule="FunctionKW">GETPRINTER</token>
+			<token rule="FunctionKW">GETR</token>
+			<token rule="FunctionKW">GETRESULTSET</token>
+			<token rule="FunctionKW">GETWORDC</token>
+			<token rule="FunctionKW">GETWORDCOUNT</token>
+			<token rule="FunctionKW">GETWORDN</token>
+			<token rule="FunctionKW">GETWORDNUM</token>
+			<token rule="FunctionKW">GO</token>
+			<token rule="FunctionKW">GOMO</token>
+			<token rule="FunctionKW">GOMONTH</token>
+			<token rule="FunctionKW">HEAD</token>
+			<token rule="FunctionKW">HEADER</token>
+			<token rule="FunctionKW">HOME</token>
+			<token rule="FunctionKW">HOUR</token>
+			<token rule="FunctionKW">HOURS</token>
+			<token rule="FunctionKW">ICAS</token>
+			<token rule="FunctionKW">ICASE</token>
+			<token rule="FunctionKW">ID</token>
+			<token rule="FunctionKW">IDXC</token>
+			<token rule="FunctionKW">IDXCOLLATE</token>
+			<token rule="FunctionKW">IIF</token>
+			<token rule="FunctionKW">IMES</token>
+			<token rule="FunctionKW">IMESTATUS</token>
+			<token rule="FunctionKW">INDB</token>
+			<token rule="FunctionKW">INDBC</token>
+			<token rule="FunctionKW">INDEXSEEK</token>
+			<token rule="FunctionKW">INKE</token>
+			<token rule="FunctionKW">INKEY</token>
+			<token rule="FunctionKW">INLI</token>
+			<token rule="FunctionKW">INLIST</token>
+			<token rule="FunctionKW">INPU</token>
+			<token rule="FunctionKW">INPUTBOX</token>
+			<token rule="FunctionKW">INSM</token>
+			<token rule="FunctionKW">INSMODE</token>
+			<token rule="FunctionKW">INT</token>
+			<token rule="FunctionKW">ISAL</token>
+			<token rule="FunctionKW">ISALPHA</token>
+			<token rule="FunctionKW">ISBL</token>
+			<token rule="FunctionKW">ISBLANK</token>
+			<token rule="FunctionKW">ISCO</token>
+			<token rule="FunctionKW">ISCOLOR</token>
+			<token rule="FunctionKW">ISDI</token>
+			<token rule="FunctionKW">ISDIGIT</token>
+			<token rule="FunctionKW">ISEX</token>
+			<token rule="FunctionKW">ISEXCLUSIVE</token>
+			<token rule="FunctionKW">ISFL</token>
+			<token rule="FunctionKW">ISHO</token>
+			<token rule="FunctionKW">ISHOSTED</token>
+			<token rule="FunctionKW">ISLE</token>
+			<token rule="FunctionKW">ISLEADBYTE</token>
+			<token rule="FunctionKW">ISLO</token>
+			<token rule="FunctionKW">ISLOWER</token>
+			<token rule="FunctionKW">ISME</token>
+			<token rule="FunctionKW">ISMEMOFETCHED</token>
+			<token rule="FunctionKW">ISMO</token>
+			<token rule="FunctionKW">ISMOUSE</token>
+			<token rule="FunctionKW">ISNU</token>
+			<token rule="FunctionKW">ISNULL</token>
+			<token rule="FunctionKW">ISPE</token>
+			<token rule="FunctionKW">ISPEN</token>
+			<token rule="FunctionKW">ISRE</token>
+			<token rule="FunctionKW">ISREADONLY</token>
+			<token rule="FunctionKW">ISRL</token>
+			<token rule="FunctionKW">ISRLOCKED</token>
+			<token rule="FunctionKW">ISTR</token>
+			<token rule="FunctionKW">ISTRANSACTABLE</token>
+			<token rule="FunctionKW">ISUP</token>
+			<token rule="FunctionKW">ISUPPER</token>
+			<token rule="FunctionKW">JUSTD</token>
+			<token rule="FunctionKW">JUSTDRIVE</token>
+			<token rule="FunctionKW">JUSTE</token>
+			<token rule="FunctionKW">JUSTEXT</token>
+			<token rule="FunctionKW">JUSTF</token>
+			<token rule="FunctionKW">JUSTFNAME</token>
+			<token rule="FunctionKW">JUSTP</token>
+			<token rule="FunctionKW">JUSTPATH</token>
+			<token rule="FunctionKW">JUSTS</token>
+			<token rule="FunctionKW">JUSTSTEM</token>
+			<token rule="FunctionKW">KEY</token>
+			<token rule="FunctionKW">KEYM</token>
+			<token rule="FunctionKW">KEYMATCH</token>
+			<token rule="FunctionKW">LASTKEY</token>
+			<token rule="FunctionKW">LEFT</token>
+			<token rule="FunctionKW">LEFTC</token>
+			<token rule="FunctionKW">LEN</token>
+			<token rule="FunctionKW">LENC</token>
+			<token rule="FunctionKW">LIKEC</token>
+			<token rule="FunctionKW">LINENO</token>
+			<token rule="FunctionKW">LOADPICTURE</token>
+			<token rule="FunctionKW">LOCF</token>
+			<token rule="FunctionKW">LOCFILE</token>
+			<token rule="FunctionKW">LOG10</token>
+			<token rule="FunctionKW">LOG1</token>
+			<token rule="FunctionKW">LOG</token>
+			<token rule="FunctionKW">LOOK</token>
+			<token rule="FunctionKW">LOOKUP</token>
+			<token rule="FunctionKW">LOWE</token>
+			<token rule="FunctionKW">LOWER</token>
+			<token rule="FunctionKW">LTRI</token>
+			<token rule="FunctionKW">LTRIM</token>
+			<token rule="FunctionKW">LUPD</token>
+			<token rule="FunctionKW">LUPDATE</token>
+			<token rule="FunctionKW">MAKE</token>
+			<token rule="FunctionKW">MAKETRANSACTABLE</token>
+			<token rule="FunctionKW">MAX</token>
+			<token rule="FunctionKW">MCOL</token>
+			<token rule="FunctionKW">MDOW</token>
+			<token rule="FunctionKW">MDOWN</token>
+			<token rule="FunctionKW">MDX</token>
+			<token rule="FunctionKW">MDY</token>
+			<token rule="FunctionKW">MEMLIMIT</token>
+			<token rule="FunctionKW">MEMLINES</token>
+			<token rule="FunctionKW">MEMORY</token>
+			<token rule="FunctionKW">MENU</token>
+			<token rule="FunctionKW">MESS</token>
+			<token rule="FunctionKW">MESSAGEB</token>
+			<token rule="FunctionKW">MESSAGEBOX</token>
+			<token rule="FunctionKW">MESSAGES</token>
+			<token rule="FunctionKW">MIN</token>
+			<token rule="FunctionKW">MINUS</token>
+			<token rule="FunctionKW">MINUTE</token>
+			<token rule="FunctionKW">MLIN</token>
+			<token rule="FunctionKW">MLINE</token>
+			<token rule="FunctionKW">MOD</token>
+			<token rule="FunctionKW">MONT</token>
+			<token rule="FunctionKW">MONTH</token>
+			<token rule="FunctionKW">MRKB</token>
+			<token rule="FunctionKW">MRKBAR</token>
+			<token rule="FunctionKW">MRKP</token>
+			<token rule="FunctionKW">MRKPAD</token>
+			<token rule="FunctionKW">MROW</token>
+			<token rule="FunctionKW">MTON</token>
+			<token rule="FunctionKW">MWIN</token>
+			<token rule="FunctionKW">MWINDOW</token>
+			<token rule="FunctionKW">NDX</token>
+			<token rule="FunctionKW">NETWORK</token>
+			<token rule="FunctionKW">NEWO</token>
+			<token rule="FunctionKW">NEWOBJECT</token>
+			<token rule="FunctionKW">NORM</token>
+			<token rule="FunctionKW">NORMALIZE</token>
+			<token rule="FunctionKW">NTOM</token>
+			<token rule="FunctionKW">NUML</token>
+			<token rule="FunctionKW">NUMLOCK</token>
+			<token rule="FunctionKW">NVL</token>
+			<token rule="FunctionKW">OBJNUM</token>
+			<token rule="FunctionKW">OBJT</token>
+			<token rule="FunctionKW">OBJTOCLIENT</token>
+			<token rule="FunctionKW">OBJVAR</token>
+			<token rule="FunctionKW">OCCU</token>
+			<token rule="FunctionKW">OCCURS</token>
+			<token rule="FunctionKW">OEMTOANSI</token>
+			<token rule="FunctionKW">OLDV</token>
+			<token rule="FunctionKW">OLDVAL</token>
+			<token rule="FunctionKW">OS</token>
+			<token rule="FunctionKW">PADC</token>
+			<token rule="FunctionKW">PADL</token>
+			<token rule="FunctionKW">PADPROMPT</token>
+			<token rule="FunctionKW">PADR</token>
+			<token rule="FunctionKW">PAYM</token>
+			<token rule="FunctionKW">PAYMENT</token>
+			<token rule="FunctionKW">PCOL</token>
+			<token rule="FunctionKW">PCOU</token>
+			<token rule="FunctionKW">PCOUNT</token>
+			<token rule="FunctionKW">PEMS</token>
+			<token rule="FunctionKW">PEMSTATUS</token>
+			<token rule="FunctionKW">PI</token>
+			<token rule="FunctionKW">PRIM</token>
+			<token rule="FunctionKW">PRIMARY</token>
+			<token rule="FunctionKW">PRINTSTATUS</token>
+			<token rule="FunctionKW">PRMB</token>
+			<token rule="FunctionKW">PRMBAR</token>
+			<token rule="FunctionKW">PRMP</token>
+			<token rule="FunctionKW">PRMPAD</token>
+			<token rule="FunctionKW">PROG</token>
+			<token rule="FunctionKW">PROGRAM</token>
+			<token rule="FunctionKW">PROP</token>
+			<token rule="FunctionKW">PROPER</token>
+			<token rule="FunctionKW">PROW</token>
+			<token rule="FunctionKW">PRTI</token>
+			<token rule="FunctionKW">PRTINFO</token>
+			<token rule="FunctionKW">PUTF</token>
+			<token rule="FunctionKW">PUTFILE</token>
+			<token rule="FunctionKW">PV</token>
+			<token rule="FunctionKW">QUAR</token>
+			<token rule="FunctionKW">QUARTER</token>
+			<token rule="FunctionKW">RAIS</token>
+			<token rule="FunctionKW">RAISEEVENT</token>
+			<token rule="FunctionKW">RAND</token>
+			<token rule="FunctionKW">RAT</token>
+			<token rule="FunctionKW">RATC</token>
+			<token rule="FunctionKW">RATL</token>
+			<token rule="FunctionKW">RATLINE</token>
+			<token rule="FunctionKW">RD</token>
+			<token rule="FunctionKW">RDLEVEL</token>
+			<token rule="FunctionKW">READKEY</token>
+			<token rule="FunctionKW">RECC</token>
+			<token rule="FunctionKW">RECCOUNT</token>
+			<token rule="FunctionKW">RECN</token>
+			<token rule="FunctionKW">RECNO</token>
+			<token rule="FunctionKW">RECS</token>
+			<token rule="FunctionKW">RECSIZE</token>
+			<token rule="FunctionKW">REFR</token>
+			<token rule="FunctionKW">REFRESH</token>
+			<token rule="FunctionKW">REMOVEPROPERTY</token>
+			<token rule="FunctionKW">REPLICATE</token>
+			<token rule="FunctionKW">REQU</token>
+			<token rule="FunctionKW">REQUERY</token>
+			<token rule="FunctionKW">RGB</token>
+			<token rule="FunctionKW">RGBS</token>
+			<token rule="FunctionKW">RGBSCHEME</token>
+			<token rule="FunctionKW">RIGH</token>
+			<token rule="FunctionKW">RIGHT</token>
+			<token rule="FunctionKW">RIGHTC</token>
+			<token rule="FunctionKW">RLOC</token>
+			<token rule="FunctionKW">RLOCK</token>
+			<token rule="FunctionKW">ROLLBACK</token>
+			<token rule="FunctionKW">ROUN</token>
+			<token rule="FunctionKW">ROUND</token>
+			<token rule="FunctionKW">ROW</token>
+			<token rule="FunctionKW">RTOD</token>
+			<token rule="FunctionKW">RTRI</token>
+			<token rule="FunctionKW">RTRIM</token>
+			<token rule="FunctionKW">SAVEPICTURE</token>
+			<token rule="FunctionKW">SCHE</token>
+			<token rule="FunctionKW">SCHEME</token>
+			<token rule="FunctionKW">SCOL</token>
+			<token rule="FunctionKW">SCOLS</token>
+			<token rule="FunctionKW">SEC</token>
+			<token rule="FunctionKW">SECO</token>
+			<token rule="FunctionKW">SECONDS</token>
+			<token rule="FunctionKW">SETF</token>
+			<token rule="FunctionKW">SETFLDSTATE</token>
+			<token rule="FunctionKW">SETR</token>
+			<token rule="FunctionKW">SETRESULTSET</token>
+			<token rule="FunctionKW">SIGN</token>
+			<token rule="FunctionKW">SIN</token>
+			<token rule="FunctionKW">SKPB</token>
+			<token rule="FunctionKW">SKPBAR</token>
+			<token rule="FunctionKW">SKPP</token>
+			<token rule="FunctionKW">SKPPAD</token>
+			<token rule="FunctionKW">SOUN</token>
+			<token rule="FunctionKW">SOUNDEX</token>
+			<token rule="FunctionKW">SPAC</token>
+			<token rule="FunctionKW">SPACE</token>
+			<token rule="FunctionKW">SQLCA</token>
+			<token rule="FunctionKW">SQLCANCEL</token>
+			<token rule="FunctionKW">SQLCANCEL</token>
+			<token rule="FunctionKW">SQLCOL</token>
+			<token rule="FunctionKW">SQLCOLUMNS</token>
+			<token rule="FunctionKW">SQLCOLUMNS</token>
+			<token rule="FunctionKW">SQLCOM</token>
+			<token rule="FunctionKW">SQLCOMMIT</token>
+			<token rule="FunctionKW">SQLCOMMIT</token>
+			<token rule="FunctionKW">SQLCON</token>
+			<token rule="FunctionKW">SQLCONNECT</token>
+			<token rule="FunctionKW">SQLD</token>
+			<token rule="FunctionKW">SQLDISCONNECT</token>
+			<token rule="FunctionKW">SQLE</token>
+			<token rule="FunctionKW">SQLEXEC</token>
+			<token rule="FunctionKW">SQLG</token>
+			<token rule="FunctionKW">SQLGETPROP</token>
+			<token rule="FunctionKW">SQLI</token>
+			<token rule="FunctionKW">SQLIDLEDISCONNECT</token>
+			<token rule="FunctionKW">SQLM</token>
+			<token rule="FunctionKW">SQLMORERESULTS</token>
+			<token rule="FunctionKW">SQLP</token>
+			<token rule="FunctionKW">SQLPREPARE</token>
+			<token rule="FunctionKW">SQLR</token>
+			<token rule="FunctionKW">SQLROLLBACK</token>
+			<token rule="FunctionKW">SQLSE</token>
+			<token rule="FunctionKW">SQLSETPROP</token>
+			<token rule="FunctionKW">SQLST</token>
+			<token rule="FunctionKW">SQLSTRINGCONNECT</token>
+			<token rule="FunctionKW">SQLT</token>
+			<token rule="FunctionKW">SQLTABLES</token>
+			<token rule="FunctionKW">SQRT</token>
+			<token rule="FunctionKW">SROW</token>
+			<token rule="FunctionKW">SROWS</token>
+			<token rule="FunctionKW">STR</token>
+			<token rule="FunctionKW">STRC</token>
+			<token rule="FunctionKW">STRCONV</token>
+			<token rule="FunctionKW">STRE</token>
+			<token rule="FunctionKW">STREXTRACT</token>
+			<token rule="FunctionKW">STRT</token>
+			<token rule="FunctionKW">STRTO</token>
+			<token rule="FunctionKW">STRTOFILE</token>
+			<token rule="FunctionKW">STRTR</token>
+			<token rule="FunctionKW">STRTRAN</token>
+			<token rule="FunctionKW">STUF</token>
+			<token rule="FunctionKW">STUFF</token>
+			<token rule="FunctionKW">STUFFC</token>
+			<token rule="FunctionKW">SUBS</token>
+			<token rule="FunctionKW">SUBSTR</token>
+			<token rule="FunctionKW">SUBSTRC</token>
+			<token rule="FunctionKW">SYSMETRIC</token>
+			<token rule="FunctionKW">TABLEREFRESH</token>
+			<token rule="FunctionKW">TABLEREVERT</token>
+			<token rule="FunctionKW">TABLEU</token>
+			<token rule="FunctionKW">TABLEUPDATE</token>
+			<token rule="FunctionKW">TAGC</token>
+			<token rule="FunctionKW">TAGCOUNT</token>
+			<token rule="FunctionKW">TAGN</token>
+			<token rule="FunctionKW">TAGNO</token>
+			<token rule="FunctionKW">TAN</token>
+			<token rule="FunctionKW">TARG</token>
+			<token rule="FunctionKW">TARGET</token>
+			<token rule="FunctionKW">TIME</token>
+			<token rule="FunctionKW">TRAN</token>
+			<token rule="FunctionKW">TRANSFORM</token>
+			<token rule="FunctionKW">TRIM</token>
+			<token rule="FunctionKW">TTOC</token>
+			<token rule="FunctionKW">TTOD</token>
+			<token rule="FunctionKW">TXNL</token>
+			<token rule="FunctionKW">TXNLEVEL</token>
+			<token rule="FunctionKW">TXNLEVEL</token>
+			<token rule="FunctionKW">TXTW</token>
+			<token rule="FunctionKW">TXTWIDTH</token>
+			<token rule="FunctionKW">TYPEAHEAD</token>
+			<token rule="FunctionKW">UNBI</token>
+			<token rule="FunctionKW">UNBINDEVENTS</token>
+			<token rule="FunctionKW">UNPACK</token>
+			<token rule="FunctCmdKW">UPDATE</token>
+			<token rule="FunctionKW">UPDATED</token>
+			<token rule="FunctionKW">UPPE</token>
+			<token rule="FunctionKW">UPPER</token>
+			<token rule="FunctionKW">USED</token>
+			<token rule="FunctionKW">VAL</token>
+			<token rule="FunctionKW">VARREAD</token>
+			<token rule="FunctionKW">VART</token>
+			<token rule="FunctionKW">VARTYPE</token>
+			<token rule="FunctionKW">VERS</token>
+			<token rule="FunctionKW">VERSION</token>
+			<token rule="FunctionKW">WBOR</token>
+			<token rule="FunctionKW">WBORDER</token>
+			<token rule="FunctionKW">WCHI</token>
+			<token rule="FunctionKW">WCHILD</token>
+			<token rule="FunctionKW">WCOL</token>
+			<token rule="FunctionKW">WCOLS</token>
+			<token rule="FunctionKW">WDOC</token>
+			<token rule="FunctionKW">WDOCKABLE</token>
+			<token rule="FunctionKW">WEEK</token>
+			<token rule="FunctionKW">WEXI</token>
+			<token rule="FunctionKW">WEXIST</token>
+			<token rule="FunctionKW">WFON</token>
+			<token rule="FunctionKW">WFONT</token>
+			<token rule="FunctionKW">WLAS</token>
+			<token rule="FunctionKW">WLAST</token>
+			<token rule="FunctionKW">WLCO</token>
+			<token rule="FunctionKW">WLCOL</token>
+			<token rule="FunctionKW">WLRO</token>
+			<token rule="FunctionKW">WLROW</token>
+			<token rule="FunctionKW">WMAX</token>
+			<token rule="FunctionKW">WMAXIMUM</token>
+			<token rule="FunctionKW">WMIN</token>
+			<token rule="FunctionKW">WMINIMUM</token>
+			<token rule="FunctionKW">WONT</token>
+			<token rule="FunctionKW">WONTOP</token>
+			<token rule="FunctionKW">WOUT</token>
+			<token rule="FunctionKW">WOUTPUT</token>
+			<token rule="FunctionKW">WPAR</token>
+			<token rule="FunctionKW">WPARENT</token>
+			<token rule="FunctionKW">WREAD</token>
+			<token rule="FunctionKW">WROW</token>
+			<token rule="FunctionKW">WROWS</token>
+			<token rule="FunctionKW">WTIT</token>
+			<token rule="FunctionKW">WTITLE</token>
+			<token rule="FunctionKW">WVIS</token>
+			<token rule="FunctionKW">WVISIBLE</token>
+			<token rule="FunctionKW">XMLT</token>
+			<token rule="FunctionKW">XMLTOCURSOR</token>
+			<token rule="FunctionKW">XMLU</token>
+			<token rule="FunctionKW">XMLUPDATEGRAM</token>
+			<token rule="FunctionKW">XMLUPDATEGRAM</token>
+			<token rule="FunctionKW">YEAR</token>
+		</tokens>
+	</tokenset>
+	<tokenset name="Operators" id="operators" forecolor="red">
+		<validscope name=""/>
+		<validscope name="Scope Keywords"/>
+		<validscope name="Parameter Block"/>
+		<tokens>
+			<token action="ListMembers">.</token>
+			<token action="CommitMember">=</token>
+			<token action="CommitMember">+</token>
+			<token action="CommitMember">-</token>
+			<token action="CommitMember">*</token>
+			<token action="CommitMember">/</token>
+			<token action="CommitMember">#</token>
+			<token action="CommitMember">!</token>
+			<token action="CommitMember">$</token>
+			<token action="CommitMember">^</token>
+			<token action="CommitMember">%</token>
+			<token rule="CommandsKW">OR</token>
+			<token>AND</token>
+			<token>NOT</token>
+			<token>NULL</token>
+			<token>.OR.</token>
+			<token>.F.</token>
+			<token>.T.</token>
+			<token>==</token>
+			<token>!=</token>
+			<token>&lt;</token>
+			<token>&lt;=</token>
+			<token>&gt;</token>
+			<token>&gt;=</token>
+			<token>&lt;&gt;</token>
+			<token>:</token>
+			<token>;</token>
+			<token>@</token>
+			<token>\</token>
+			<token>\\</token>
+		</tokens>
+	</tokenset>
+	<tokenset name="Numbers" id="numbers" forecolor="black">
+		<validscope name=""/>
+		<validscope name="Scope Keywords"/>
+		<validscope name="Parameter Block"/>
+		<tokens regexp="yes">
+			<token>&amp;H[a-fA-F0-9]+</token>
+			<token>-?\d+(\.\d*)?([eE]-?\d+)?</token>
+			<token>&amp;O[0-7]+</token>
+		</tokens>
+	</tokenset>
+	<tokenset name="Whitespace" id="whitespace" hidden="yes">
+		<validscope name=""/>
+		<validscope name="Scope Keywords"/>
+		<validscope name="Parameter Block"/>
+		<tokens>
+			<token regexp="yes">\s+</token>
+			<token regexp="yes">\t+</token>
+		</tokens>
+	</tokenset>
+	<tokenset name="Declared Variables" id="variables" normalizecase="no" inheritfrom="Text">
+		<validscope name=""/>
+		<validscope name="Scope Keywords"/>
+		<validscope name="Parameter Block"/>
+		<tokens>
+			<token>M</token>
+		</tokens>
+	</tokenset>
+	<tokenset name="Undeclared Variables" id="unknown" normalizecase="no" forecolor="black" backcolor="yellow">
+		<validscope name=""/>
+		<validscope name="Scope Keywords"/>
+		<validscope name="Parameter Block"/>
+		<tokens rule="UndeclaredVars">
+			<token regexp="yes">.</token>
+		</tokens>
+	</tokenset>
+	<tokenset name="Selected Variable" id="unknown" normalizecase="no" forecolor="black" backcolor="cyan">
+		<validscope name=""/>
+		<validscope name="Scope Keywords"/>
+		<validscope name="Parameter Block"/>
+		<tokens>
+			<token>GKKGKK</token>
+		</tokens>
+	</tokenset>
+	<tokenset name="Text" id="text" normalizecase="no">
+		<validscope name=""/>
+		<validscope name="Scope Keywords"/>
+		<validscope name="Parameter Block"/>
+	</tokenset>
+</language>

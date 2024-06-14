@@ -1,0 +1,32 @@
+IF !('GKTDeclareWinAPI' $ SET( 'Procedure' ))
+	SET PROCEDURE TO GKTDeclareWinAPI ADDITIVE
+ENDIF
+
+IF PEMSTATUS(_SCREEN,"GKKTools",5)
+	IF ISNULL(_SCREEN.GKKTools)
+		_SCREEN.GKKTools = CREATEOBJECT("Empty")
+	ENDIF
+ELSE
+	_SCREEN.AddProperty("GKKTools")
+	_SCREEN.GKKTools = CREATEOBJECT("Empty")
+ENDIF
+IF !PEMSTATUS(_SCREEN.GKKTools,"LastDirectory",5)
+	ADDPROPERTY(_SCREEN.GKKTools,"LastDirectory",ADDBS(SYS(5) + SYS(2003)))
+ENDIF
+
+IF !PEMSTATUS(_SCREEN.GKKTools,"oGKTToolBar",5)
+	ADDPROPERTY(_SCREEN.GKKTools,"oGKTToolBar",.NULL.)
+ENDIF
+
+IF ISNULL(_SCREEN.GKKTools.oGKTToolBar)
+	_SCREEN.GKKTools.oGKTToolBar = NEWOBJECT("GKTTools")
+ENDIF
+
+DEFINE CLASS GKTTools AS Custom
+	FUNCTION Init
+		this.NewObject("GKTToolbar","GKKTOOLBARMRU","GKTTOOLBAR.VCX")
+		this.GKTToolbar.Dock(0)
+		this.GKTToolbar.Left = 646
+		this.GKTToolbar.Visible = .T.
+	ENDFUNC
+ENDDEFINE

@@ -1,0 +1,16 @@
+*-*	Sample Code
+LPARAMETERS tnLineCnt AS Integer
+LOCAL lnNdx AS Integer, lcText AS String
+LOCAL ARRAY laLCode[1]
+WITH thisform.cboUserReqmt
+	.Clear()           && Clear entries
+	FOR lnNdx=1 TO tnLineCnt
+		IF !llCmpLeadWS .AND. llCmpCondWS
+			lcText = UPPER(laLCode[lnNdx])
+		ELSE
+			lcText = "User Requirement " + TRANSFORM(lnNdx)
+		ENDIF
+		.AddListItem(lcText,lnNdx)
+	ENDFOR
+	.ListItemID = 1
+ENDWITH

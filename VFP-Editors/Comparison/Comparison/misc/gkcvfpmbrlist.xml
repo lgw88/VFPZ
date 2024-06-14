@@ -1,0 +1,427 @@
+<memberlist name="VFPMbrList" casesensitive="no">
+<member name="ABS" proto="ABS(nExpression)" help="Returns the absolute value of the specified numeric expression." image="method"/>
+<member name="ACLASS" proto="ACLASS(ArrayName, oExpression)" help="Places an object's class name and its ancestor class names into a variable array." image="method"/>
+<member name="ACOPY" proto="ACOPY(SourceArrayName, DestinationArrayName[, nFirstSourceElement [, nNumberElements [, nFirstDestElement ]]])" help="Copies elements from one array to another array." image="method"/>
+<member name="ACOS" proto="ACOS(nExpression)" help="Returns the arc cosine of a specified numeric expression." image="method"/>
+<member name="ADATABASES" proto="ADATABASES(ArrayName)" help="Places the names of all open databases and their paths into a variable array." image="method"/>
+<member name="ADBOBJECTS" proto="ADBOBJECTS(ArrayName, cSetting)" help="Places the names of named connections, relations, tables, or SQL views in the current database into a variable array." image="method"/>
+<member name="ADDBS" proto="ADDBS(cPath)" help="Adds a backslash (if needed) to a path expression." image="method"/>
+<member name="ADDPROPERTY" proto="ADDPROPERTY(oObjectName, cPropertyName, [, eNewValue ])" help="Adds a new property to an object at run time." image="method"/>
+<member name="ADEL" proto="ADEL(ArrayName, nElementNumber [, 2])" help="Deletes an element from a one-dimensional array, or a row or column from a two-dimensional array." image="method"/>
+<member name="ADIR" proto="ADIR(ArrayName [, cFileSkeleton [, cAttribute [, nFlag]]])" help="Places information about files into an array and then returns the number of files." image="method"/>
+<member name="ADLLS" proto="ADLLS(ArrayName)" help="Returns an array containing the names of functions loaded by DECLARE DLLs." image="method"/>
+<member name="ADOCKSTATE" proto="ADOCKSTATE( ArrayName [, nType | nExtended])" help="Retrieves the dock state of any dockable form, Integrated Development Environment (IDE) window, or toolbar. For forms only, you can use the GetDockState Method. ADOCKSTATE( ) is available in the run time." image="method"/>
+<member name="AELEMENT" proto="AELEMENT(ArrayName, nRowSubscript [, nColumnSubscript])" help="Returns the number of an array element from the element's subscripts." image="method"/>
+<member name="AERROR" proto="AERROR(ArrayName)" help="Creates a variable array containing information about the most recent Visual FoxPro, OLE, or ODBC error." image="method"/>
+<member name="AEVENTS" proto="AEVENTS( ArrayName [, 0 | 1 | oEventObject ] )" help="You can use the AEVENTS( ) function to retrieve the number of existing event bindings." image="method"/>
+<member name="AFIELDS" proto="AFIELDS( ArrayName [, nWorkArea | cTableAlias ] )" help="Retrieves and stores information about the structure of the table in a specified work area, specified by a table alias, or in the currently selected work area in an array and returns the number of fields in the table." image="method"/>
+<member name="AFONT" proto="AFONT(ArrayName [, cFontName [, nFontSize | nFontCharSet [, nFlags]]])" help="Places information about available fonts, such as their names, into an array." image="method"/>
+<member name="AGETCLASS" proto="AGETCLASS(ArrayName [, cLibraryName [, cClassName [, cTitleText[, cFileNameCaption [, cButtonCaption]]]]])" help="Displays class libraries in the Open dialog box and creates an array containing the name of the class library and class chosen." image="method"/>
+<member name="AGETFILEVERSION" proto="AGETFILEVERSION(ArrayName, cFileName)" help="Creates an array containing information about files with Windows version resources such as .exe, .dll, and .fll files, or automation servers created in Visual FoxPro." image="method"/>
+<member name="AINS" proto="AINS(ArrayName, nElementNumber [, 2])" help="Inserts an element into a one-dimensional array, or a row or column into a two-dimensional array." image="method"/>
+<member name="AINSTANCE" proto="AINSTANCE(ArrayName, cClassName)" help="Places instances of a class into a variable array and returns the number of instances placed in the array." image="method"/>
+<member name="ALANGUAGE" proto="ALANGUAGE(ArrayName, nType)" help="Returns an array containing the names of all valid Visual FoxPro commands, functions, or base classes." image="method"/>
+<member name="ALEN" proto="ALEN(ArrayName [, nArrayAttribute])" help="Returns the number of elements, rows, or columns in an array." image="method"/>
+<member name="ALIAS" proto="ALIAS([nWorkArea | cTableAlias])" help="Returns the table alias of the current or specified work area." image="method"/>
+<member name="ALINES" proto="ALINES(ArrayName, cExpression [, nFlags] [, cParseChar [, cParseChar2 [, ...]]])" help="Copies each line in a character expression or memo field to a corresponding row in an array." image="method"/>
+<member name="ALLTRIM" proto="ALLTRIM(Expression [, nFlags] [, cParseChar [, cParseChar2 [, ...]]])" help="Removes all leading and trailing spaces or parsing characters from the specified character expression, or all leading and trailing zero (0) bytes from the specified binary expression." image="method"/>
+<member name="AMEMBERS" proto="AMEMBERS(ArrayName, oObjectName | cClassName [, nArrayContentsID] [, cFlags])" help="Places the names of properties, procedures, and member objects for an object into a variable array." image="method"/>
+<member name="AMOUSEOBJ" proto="AMOUSEOBJ(ArrayName [, 1])" help="Creates an array containing information about the mouse pointer position and the object over which the mouse pointer is positioned." image="method"/>
+<member name="ANETRESOURCES" proto="ANETRESOURCES(ArrayName, cNetworkName, nResourceType)" help="Places the names of network shares or printers into an array and then returns the number of resources." image="method"/>
+<member name="APRINTERS" proto="APRINTERS(ArrayName [, nValue])" help="Stores information about currently-available printers into an array." image="method"/>
+<member name="APROCINFO" proto="APROCINFO(ArrayName, cFileName [, nType])" help="Creates an array containing Visual FoxPro language elements contained in a program file." image="method"/>
+<member name="ASC" proto="ASC(cExpression)" help="Returns the ANSI value for the leftmost character in a character expression." image="method"/>
+<member name="ASCAN" proto="ASCAN(ArrayName, eExpression [, nStartElement [, nElementsSearched [, nSearchColumn [, nFlags ]]]])" help="Searches an array for an element containing the same data and data type as an expression." image="method"/>
+<member name="ASELOBJ" proto="ASELOBJ( ArrayName, [ 1 | 2 | 3 ] )" help="Places an object reference for the currently selected control or container that exists in the Form Designer, Class Designer, or code editing window into a specified variable array. When calling ASELOBJ( ) in a code editing window, the array also includes elements for forms (.scx), visual class libraries (.vcx), and #INCLUDE file names. You can also use ASELOBJ( ) to create control builders." image="method"/>
+<member name="ASESSIONS" proto="ASESSIONS(ArrayName)" help="Creates an array of existing data session IDs." image="method"/>
+<member name="ASIN" proto="ASIN(nExpression)" help="Returns in radians the arc sine of a numeric expression." image="method"/>
+<member name="ASORT" proto="ASORT(ArrayName [, nStartElement [, nNumberSorted [, nSortOrder [, nFlags]]])" help="Sorts elements in an array in ascending or descending order." image="method"/>
+<member name="ASQLHANDLES" proto="ASQLHANDLES(ArrayName [, nStatementHandle])" help="Stores numeric references to all active SQL connection statement handles in an array." image="method"/>
+<member name="ASTACKINFO" proto="ASTACKINFO(ArrayName)" help="Creates an array and populates it with information about the current state of the call stack." image="method"/>
+<member name="ASUBSCRIPT" proto="ASUBSCRIPT(ArrayName, nElementNumber, nSubscript)" help="Returns the row or column subscript of an element from the element's number." image="method"/>
+<member name="AT" proto="AT(cSearchExpression, cExpressionSearched [, nOccurrence])" help="Searches a character expression for the occurrence of another character expression." image="method"/>
+<member name="ATAGINFO" proto="ATAGINFO(ArrayName [,cCDXName [, nWorkArea | cTableAlias]])" help="Creates an array that contains information about index files for the selected table." image="method"/>
+<member name="ATAN" proto="ATAN(nExpression)" help="Returns in radians the arc tangent of a numeric expression." image="method"/>
+<member name="ATC" proto="ATC(cSearchExpression, cExpressionSearched [, nOccurrence])" help="Returns the beginning numeric position of the first occurrence of a character expression or memo field within another character expression or memo field, without regard for the case of these two expressions." image="method"/>
+<member name="ATCC" proto="ATCC(cSearchExpression, cExpressionSearched [, nOccurrence])" help="Returns the beginning numeric position of the first occurrence of a character expression or memo field within another character expression or memo field, without regard for the case of these two expressions." image="method"/>
+<member name="ATCLINE" proto="ATCLINE(cSearchExpression, cExpressionSearched)" help="Returns the line number of the first occurrence of a character expression or memo field within another character expression or memo field, without regard for the case (upper or lower) of the characters in either expression." image="method"/>
+<member name="ATLINE" proto="ATLINE(cSearchExpression, cExpressionSearched)" help="Returns the line number of the first occurrence of a character expression or memo field within another character expression or memo field, counting from the first line." image="method"/>
+<member name="ATN2" proto="ATN2(nYCoordinate, nXCoordinate)" help="Returns the arc tangent in all four quadrants from specified values." image="method"/>
+<member name="AT_C" proto="AT_C(cSearchExpression, cExpressionSearched [, nOccurrence])" help="Returns the beginning numeric position of the first occurrence of a character expression or memo field within another character expression or memo field, counting from the leftmost character." image="method"/>
+<member name="AUSED" proto="AUSED(ArrayName [, nDataSessionNumber [, cTableName]])" help="Places table aliases and work areas for a data session into a variable array." image="method"/>
+<member name="AVCXCLASSES" proto="AVCXCLASSES(ArrayName, cLibraryName)" help="Places the information about classes in a class library into an array." image="method"/>
+<member name="BAR" proto="BAR( )" help="Returns the number of the most recently chosen item from a menu defined with DEFINE POPUP or a menu item chosen from a Visual FoxPro menu." image="method"/>
+<member name="BETWEEN" proto="BETWEEN(eTestValue, eLowValue, eHighValue)" help="Determines whether the value of an expression is inclusively between the values of two expressions of the same type." image="method"/>
+<member name="BINDEVENT" proto="BINDEVENT(oEventSource, cEvent, oEventHandler, cDelegate [, nFlags])" help="Provides ability to execute user code (an object method) when an event occurs." image="method"/>
+<member name="BINDEVENT" proto="BINDEVENT(hWnd | 0, nMessage, oEventHandler, cDelegate [, nFlags])" help="Provides ability to execute user code (an object method) when an event occurs." image="method"/>
+<member name="BINTOC" proto="BINTOC(nExpression [, eFlags])" help="Converts a numeric value to a binary character representation." image="method"/>
+<member name="BITAND" proto="BITAND(nNumericExpression1, nNumericExpression2, ... , nNumericExpression26)" help="Performs a bitwise AND operation on two or more values of Numeric, Varbinary, or Blob type and returns the result. There is a numeric and a binary version of the syntax." image="method"/>
+<member name="BITAND" proto="BITAND(BinaryExpression1, BinaryExpression2, ... , BinaryExpression26)" help="Performs a bitwise AND operation on two or more values of Numeric, Varbinary, or Blob type and returns the result. There is a numeric and a binary version of the syntax." image="method"/>
+<member name="BITCLEAR" proto="BITCLEAR(nNumericExpression1, nNumericExpression2)" help="Clears the specified bit in a Numeric, Varbinary, or Blob value by setting it to 0 and returns the resulting value. There is a numeric and a binary version of the syntax." image="method"/>
+<member name="BITCLEAR" proto="BITCLEAR(BinaryExpression [, nStartBit [, nBitCount]])" help="Clears the specified bit in a Numeric, Varbinary, or Blob value by setting it to 0 and returns the resulting value. There is a numeric and a binary version of the syntax." image="method"/>
+<member name="BITLSHIFT" proto="BITLSHIFT(nExpression1, nExpression2)" help="Moves bits in a numeric value to the left by the specified number of positions and returns the resulting value." image="method"/>
+<member name="BITNOT" proto="BITNOT(nNumericExpression)" help="Performs a bitwise NOT operation on a value of Numeric, Varbinary, or Blob type and returns the bitwise complement on the specified value. There is a numeric and a binary version of the syntax." image="method"/>
+<member name="BITNOT" proto="BITNOT(BinaryExpression [, nStartBit [, nBitCount]])" help="Performs a bitwise NOT operation on a value of Numeric, Varbinary, or Blob type and returns the bitwise complement on the specified value. There is a numeric and a binary version of the syntax." image="method"/>
+<member name="BITOR" proto="BITOR(nNumericExpression1, nNumericExpression2, ... , nNumericExpression26)" help="Perform a bitwise inclusive OR operation on two or more values of Numeric, Varbinary, or Blob type and returns the result. There is a numeric and a binary version of the syntax." image="method"/>
+<member name="BITOR" proto="BITOR(BinaryExpression1, BinaryExpression2, ... , BinaryExpression26)" help="Perform a bitwise inclusive OR operation on two or more values of Numeric, Varbinary, or Blob type and returns the result. There is a numeric and a binary version of the syntax." image="method"/>
+<member name="BITRSHIFT" proto="BITRSHIFT(nExpression1, nExpression2)" help="Moves bits in a numeric value to the right by the specified number of positions and returns the resulting value." image="method"/>
+<member name="BITSET" proto="BITSET(nNumericExpression1, nNumericExpression2)" help="Sets a bit to 1 in a value of Numeric, Varbinary, or Blob type and returns the resulting value. There is a numeric and a binary version of the syntax." image="method"/>
+<member name="BITSET" proto="BITSET(BinaryExpression [, nStartBit [, nBitCount]])" help="Sets a bit to 1 in a value of Numeric, Varbinary, or Blob type and returns the resulting value. There is a numeric and a binary version of the syntax." image="method"/>
+<member name="BITTEST" proto="BITTEST(nNumericExpression1, nNumericExpression2)" help="Determines whether a specific bit in a Numeric, Varbinary, or Blob value is set to 1. There is a numeric and a binary version of the syntax." image="method"/>
+<member name="BITTEST" proto="BITTEST(BinaryExpression, nBitNumber)" help="Determines whether a specific bit in a Numeric, Varbinary, or Blob value is set to 1. There is a numeric and a binary version of the syntax." image="method"/>
+<member name="BITXOR" proto="BITXOR(nNumericExpression1, nNumericExpression2 ..., nNumericExpression26)" help="Perform a bitwise exclusive OR operation on two or more values of Numeric, Varbinary, or Blob type and returns the result. There is a numeric and a binary version of the syntax." image="method"/>
+<member name="BITXOR" proto="BITXOR(BinaryExpression1, BinaryExpression2 ..., BinaryExpression26)" help="Perform a bitwise exclusive OR operation on two or more values of Numeric, Varbinary, or Blob type and returns the result. There is a numeric and a binary version of the syntax." image="method"/>
+<member name="BOF" proto="BOF([nWorkArea | cTableAlias])" help="Determines whether the record pointer is positioned at the beginning of a table." image="method"/>
+<member name="CANDIDATE" proto="CANDIDATE([nIndexNumber] [, nWorkArea | cTableAlias])" help="Returns true (.T.) if an index tag is a candidate index tag; otherwise, returns false (.F.)." image="method"/>
+<member name="CAPSLOCK" proto="CAPSLOCK([lExpression])" help="Returns the current mode of the CAPS LOCK key or sets the CAPS LOCK key mode on or off." image="method"/>
+<member name="CAST" proto="CAST(eExpression AS cDataType [(nFieldWidth [, nPrecision])][NULL | NOT NULL])" help="Converts an expression from one data type to another." image="method"/>
+<member name="CDOW" proto="CDOW(dExpression | tExpression)" help="Returns the day of the week from a given Date or DateTime expression." image="method"/>
+<member name="CDX" proto="CDX(nIndexNumber [, nWorkArea | cTableAlias])" help="Returns the names of the open compound index (.cdx) file that has the specified index position number." image="method"/>
+<member name="CEILING" proto="CEILING(nExpression)" help="Returns the next highest integer that is greater than or equal to the specified numeric expression." image="method"/>
+<member name="CHR" proto="CHR(nANSICode)" help="Returns the character associated with the specified numeric ANSI code." image="method"/>
+<member name="CHRSAW" proto="CHRSAW([nSeconds])" help="Determines whether or not a character is present in the keyboard buffer." image="method"/>
+<member name="CHRTRAN" proto="CHRTRAN(cSearchedExpression, cSearchExpression, cReplacementExpression)" help="Replaces each character in a character expression that matches a character in a second character expression with the corresponding character in a third character expression." image="method"/>
+<member name="CHRTRANC" proto="CHRTRANC(cSearched, cSearchFor, cReplacement)" help="Replaces each character in a character expression that matches a character in a second character expression with the corresponding character in a third character expression." image="method"/>
+<member name="CLEARRESULTSET" proto="CLEARRESULTSET( )" help="Clears the marker from a cursor marked by SETRESULTSET( ) in the current data session." image="method"/>
+<member name="CMONTH" proto="CMONTH(dExpression | tExpression)" help="Returns the name of the month from a given date or DateTime expression." image="method"/>
+<member name="CNTBAR" proto="CNTBAR(cMenuName)" help="Returns the number of menu items on a user-defined menu or the Visual FoxPro system menu." image="method"/>
+<member name="CNTPAD" proto="CNTPAD(cMenuBarName)" help="Returns the number of menu titles on a user-defined menu bar or the Visual FoxPro system menu bar." image="method"/>
+<member name="COL" proto="SPACE(nSpaces)" help="Included for backward compatibility. Use the CurrentX, CurrentY Properties." image="method"/>
+<member name="COMARRAY" proto="COMARRAY(oObject [, nNewValue])" help="Specifies how to pass arrays to COM objects." image="method"/>
+<member name="COMCLASSINFO" proto="COMCLASSINFO(oObject [, nInfoType])" help="Returns registry information about a COM object such as a Visual FoxPro automation server." image="method"/>
+<member name="COMPOBJ" proto="COMPOBJ(oExpression1, oExpression2)" help="Compares the properties of two objects and returns True (.T.) if their properties and property values are identical." image="method"/>
+<member name="COMPROP" proto="COMPROP(oCOMObject, cProperty [, eValue])" help="Sets or returns the behavior setting of a COM object property." image="method"/>
+<member name="COMRETURNERROR" proto="COMRETURNERROR(cExceptionSource, cExceptionText)" help="Populates the COM exception structure with information that Automation clients can use to determine the source of Automation errors." image="method"/>
+<member name="COS" proto="COS(nExpression)" help="Returns the cosine of a numeric expression." image="method"/>
+<member name="CPCONVERT" proto="CPCONVERT(nCurrentCodePage, nNewCodePage, cExpression)" help="Converts character or memo fields or character expressions to another code page." image="method"/>
+<member name="CPCURRENT" proto="CPCURRENT([1 | 2])" help="Returns the code page setting (if any) in your Visual FoxPro configuration file, or returns the current operating system code page." image="method"/>
+<member name="CPDBF" proto="CPDBF([nWorkArea | cTableAlias])" help="Returns the code page with which an open table has been marked." image="method"/>
+<member name="CREATEBINARY" proto="CREATEBINARY(cExpression)" help="Converts character type data created in Visual FoxPro to a binary type character string you can pass to an ActiveX control or automation object." image="method"/>
+<member name="CREATEOBJECT" proto="CREATEOBJECT(cClassName [, eParameter1, eParameter2, ...])" help="Creates an object from a class definition or an Automation-enabled application." image="method"/>
+<member name="CREATEOBJECTEX" proto="CREATEOBJECTEX(cCLSID | cPROGID, cComputerName [, cIID])" help="Creates an instance of a registered COM object (such as a Visual FoxPro Automation server) on a remote computer." image="method"/>
+<member name="CREATEOFFLINE" proto="CREATEOFFLINE(ViewName [, cPath])" help="Takes an existing view offline." image="method"/>
+<member name="CTOBIN" proto="CTOBIN(cExpression [, cFlags])" help="Converts a binary character representation to a numeric value." image="method"/>
+<member name="CTOD" proto="CTOD(cExpression)" help="Converts a character expression to a date expression." image="method"/>
+<member name="CTOT" proto="CTOT(cCharacterExpression)" help="Returns a DateTime value from a character expression." image="method"/>
+<member name="CURDIR" proto="CURDIR([cExpression])" help="Returns the current directory." image="method"/>
+<member name="CURSORGETPROP" proto="CURSORGETPROP(cProperty [, nWorkArea | cTableAlias])" help="Retrieves the current property settings for a Visual FoxPro table or a cursor." image="method"/>
+<member name="CURSORSETPROP" proto="CURSORSETPROP( cProperty [, eExpression] [,cTableAlias | nWorkArea])" help="Specifies property settings for a Visual FoxPro table or a cursor." image="method"/>
+<member name="CURSORTOXML" proto="CURSORTOXML(nWorkArea | cTableAlias, cOutput [, nOutputFormat[, nFlags [, nRecords [, cSchemaName [, cSchemaLocation [, cNameSpace ]]]]]])" help="Converts a Visual FoxPro cursor to XML." image="method"/>
+<member name="CURVAL" proto="CURVAL(cExpression [, cTableAlias | nWorkArea])" help="Returns field values directly from disk for a table or a remote data source." image="method"/>
+<member name="DATE" proto="DATE([nYear, nMonth, nDay])" help="Returns the current system date, which is controlled by the operating system, or creates a year 2000-compliant Date value." image="method"/>
+<member name="DATETIME" proto="DATETIME([nYear, nMonth, nDay [, nHours [, nMinutes [, nSeconds]]]])" help="Returns the current date and time as a DateTime value, or creates a year 2000-compliant DateTime value." image="method"/>
+<member name="DAY" proto="DAY(dExpression | tExpression)" help="Returns the numeric day of the month for a given Date or DateTime expression." image="method"/>
+<member name="DBC" proto="DBC( )" help="Returns the name and path of the current database." image="method"/>
+<member name="DBF" proto="DBF([cTableAlias | nWorkArea])" help="Returns the name of a table open in a specified work area or a table name from a table alias." image="method"/>
+<member name="DBGETPROP" proto="DBGETPROP(cName, cType, cProperty)" help="Retrieves the value of a property for the current database or for fields, named connections, tables, or views in the current database." image="method"/>
+<member name="DBSETPROP" proto="DBSETPROP(cName, cType, cProperty, ePropertyValue)" help="Sets a property for the current database or for fields, named connections, tables, or views in the current database." image="method"/>
+<member name="DBUSED" proto="DBUSED(cDatabaseName)" help="Returns true (.T.) if the specified database is open." image="method"/>
+<member name="DDEAbortTrans" proto="DDEAbortTrans(nTransactionNumber)" help="Ends an asynchronous dynamic data exchange (DDE) transaction." image="method"/>
+<member name="DDEAdvise" proto="DDEAdvise(nChannelNumber, cItemName, cUDFName, nLinkType)" help="Creates a notify link or an automatic link used in a dynamic data exchange (DDE)." image="method"/>
+<member name="DDEEnabled" proto="DDEEnabled([lExpression1 | nChannelNumber [, lExpression2]])" help="Enables or disables dynamic data exchange (DDE) processing or returns the status of DDE processing." image="method"/>
+<member name="DDEExecute" proto="DDEExecute(nChannelNumber, cCommand [, cUDFName])" help="Sends a command to another application, using dynamic data exchange (DDE)." image="method"/>
+<member name="DDEInitiate" proto="DDEInitiate(cServiceName, cTopicName)" help="Establishes a dynamic data exchange (DDE) channel between Visual FoxPro and another Microsoft Windows-based application." image="method"/>
+<member name="DDELastError" proto="DDELastError( )" help="Returns an error number for the last dynamic data exchange (DDE) function." image="method"/>
+<member name="DDEPoke" proto="DDEPoke(nChannelNumber, cItemName, cDataSent[, cDataFormat [, cUDFName]])" help="Sends data between client and server applications in a dynamic data exchange (DDE) conversation." image="method"/>
+<member name="DDERequest" proto="DDERequest(nChannelNumber, cItemName [, cDataFormat [, cUDFName]])" help="Requests data from a server application in a dynamic data exchange (DDE) conversation." image="method"/>
+<member name="DDESetOption" proto="DDESetOption(cOption [, nTimeoutValue | lExpression])" help="Changes or returns dynamic data exchange (DDE) settings." image="method"/>
+<member name="DDESetService" proto="DDESetService(cServiceName, cOption [, cDataFormat | lExpression])" help="Creates, releases, or modifies DDE service names and settings." image="method"/>
+<member name="DDESetTopic" proto="DDESetTopic(cServiceName, cTopicName [, cUDFName])" help="Creates or releases a topic name from a service name in a dynamic data exchange (DDE) conversation." image="method"/>
+<member name="DDETerminate" proto="DDETerminate(nChannelNumber | cServiceName)" help="Closes a dynamic data exchange (DDE) channel established with DDEInitiate( )." image="method"/>
+<member name="DEFAULTEXT" proto="DEFAULTEXT(cFileName, cDefault)" help="Returns a file name with a new extension if one does not already exist." image="method"/>
+<member name="DELETED" proto="DELETED([cTableAlias | nWorkArea])" help="Returns a logical value that indicates whether the current record is marked for deletion." image="method"/>
+<member name="DESCENDING" proto="DESCENDING([CDXFileName[, nIndexNumber [, nWorkArea | cTableAlias]]])" help="Returns a logical value that indicates whether an index tag was created with the DESCENDING keyword or whether the DESCENDING keyword was included in USE, SET INDEX, or SET ORDER." image="method"/>
+<member name="DIFFERENCE" proto="DIFFERENCE(cExpression1, cExpression2)" help="Returns an integer, 0 through 4, which represents the relative phonetic difference between two character expressions." image="method"/>
+<member name="DIRECTORY" proto="DIRECTORY(cDirectoryName [, nFlags])" help="Locates the specified directory." image="method"/>
+<member name="DISKSPACE" proto="DISKSPACE([cVolumeName [, nType]])" help="Retrieves the number of bytes with the specified type that are available on the default or specified hard disk drive or volume." image="method"/>
+<member name="DISPLAYPATH" proto="DISPLAYPATH(cFilename, nMaxLength)" help="Truncates long path expressions to a specified length for display." image="method"/>
+<member name="DMY" proto="DMY(dExpression | tExpression)" help="Returns a character expression in day-month-year format (for example, 31 May 1998) from a Date or DateTime expression. The month name isn't abbreviated." image="method"/>
+<member name="DODEFAULT" proto="DODEFAULT( [ eParameter1 [, eParameter2] ...] )" help="Executes the parent class event or method of the same name from within a subclass." image="method"/>
+<member name="DOW" proto="DOW(dExpression | tExpression [, nFirstDayOfWeek])" help="Returns a numeric day-of-the-week value from a Date or DateTime expression." image="method"/>
+<member name="DRIVETYPE" proto="DRIVETYPE(cDrive)" help="Returns the type of the specified drive." image="method"/>
+<member name="DROPOFFLINE" proto="DROPOFFLINE(cViewName)" help="Discards all changes made to an offline view and takes the offline view back online." image="method"/>
+<member name="DTOC" proto="DTOC(dExpression | tExpression [, 1])" help="Returns a Character-type date from a Date or DateTime expression." image="method"/>
+<member name="DTOR" proto="DTOR(nExpression)" help="Converts degrees to radians." image="method"/>
+<member name="DTOS" proto="DTOS(dExpression | tExpression)" help="Returns a character-string date in a yyyymmdd format from a specified Date or DateTime expression." image="method"/>
+<member name="DTOT" proto="DTOT(dDateExpression)" help="Returns a DateTime value from a Date expression." image="method"/>
+<member name="EDITSOURCE" proto="EDITSOURCE(cShortCutID | [ cFilename [, nLineNo] [, cClassName][, cMethodName|cProcName]])" help="Opens the Visual FoxPro editor and, optionally positions the cursor." image="method"/>
+<member name="EMPTY" proto="EMPTY(eExpression)" help="Determines whether an expression evaluates to empty." image="method"/>
+<member name="EOF" proto="EOF([nWorkArea | cTableAlias])" help="Determines whether the record pointer is positioned past the last record in the current or specified table." image="method"/>
+<member name="ERROR" proto="ERROR( )" help="Returns the error number for the error that triggered an ON ERROR routine." image="method"/>
+<member name="EVALUATE" proto="EVALUATE(cExpression)" help="Evaluates a character expression and returns the result." image="method"/>
+<member name="EVENTHANDLER" proto="EVENTHANDLER(oCOMObject, oVFPObject [, lUnbind])" help="Binds a COM server event to implemented interface methods on a Visual FoxPro object." image="method"/>
+<member name="EVL" proto="EVL( eExpression1, eExpression2 )" help="Returns a non-empty value from two expressions." image="method"/>
+<member name="EXECSCRIPT" proto="EXECSCRIPT(cExpression [, eParameter1, eParameter2, ...])" help="Enables you to run multiple lines of code from variables, tables, and other text at runtime." image="method"/>
+<member name="EXP" proto="EXP(nExpression)" help="Returns the value of ex where x is a specified numeric expression." image="method"/>
+<member name="FCHSIZE" proto="FCHSIZE(nFileHandle, nNewFileSize)" help="Changes the size of a file opened with a low-level file function." image="method"/>
+<member name="FCLOSE" proto="FCLOSE(nFileHandle)" help="Flushes and closes a file or communication port opened with a low-level file function." image="method"/>
+<member name="FCOUNT" proto="FCOUNT([nWorkArea | cTableAlias])" help="Returns the number of fields in a table." image="method"/>
+<member name="FCREATE" proto="FCREATE(cFileName [, nFileAttribute])" help="Creates and opens a low-level file." image="method"/>
+<member name="FDATE" proto="FDATE(cFileName [, nType])" help="Returns the last modification Date or DateTime for a file." image="method"/>
+<member name="FEOF" proto="FEOF(nFileHandle)" help="Determines whether the file pointer is positioned at the end of a file." image="method"/>
+<member name="FERROR" proto="FERROR( )" help="Returns a number corresponding to the most recent low-level file function error." image="method"/>
+<member name="FFLUSH" proto="FFLUSH(nFileHandle [, lForce])" help="Flushes to disk a file opened with a low-level function." image="method"/>
+<member name="FGETS" proto="FGETS(nFileHandle [, nBytes])" help="Returns a series of bytes from a file or a communication port opened with a low-level file function until it encounters a carriage return." image="method"/>
+<member name="FIELD" proto="FIELD(nFieldNumber | cFieldName [, nWorkArea | cTableAlias [, nFlags]])" help="Returns the name of a field, referenced by number, in a table." image="method"/>
+<member name="FILE" proto="FILE(cFileName [, nFlags])" help="Locates the specified file." image="method"/>
+<member name="FILETOSTR" proto="FILETOSTR(cFileName)" help="Returns the contents of a file as a character string." image="method"/>
+<member name="FILTER" proto="FILTER([nWorkArea | cTableAlias])" help="Returns the table filter expression specified in SET FILTER." image="method"/>
+<member name="FKLABEL" proto="FKLABEL(nFunctionKeyNumber)" help="Returns the name of the function key (F1, F2, F3 ...) from the key's corresponding function key number." image="method"/>
+<member name="FKMAX" proto="FKMAX( )" help="Returns the number of programmable function keys or function key combinations on your keyboard." image="method"/>
+<member name="FLOCK" proto="FLOCK([nWorkArea | cTableAlias])" help="Attempts to lock the current or specified table." image="method"/>
+<member name="FLOOR" proto="FLOOR(nExpression)" help="Returns the nearest integer that is less than or equal to the specified numeric expression." image="method"/>
+<member name="FONTMETRIC" proto="FONTMETRIC(nAttribute [, cFontName, nFontSize [, cFontStyle]])" help="Returns font attributes for the current installed operating system fonts." image="method"/>
+<member name="FOPEN" proto="FOPEN(cFileName [, nAttribute])" help="Opens a file for use with low-level file functions." image="method"/>
+<member name="FOR" proto="FOR([nIndexNumber [, nWorkArea | cTableAlias]])" help="Returns the index filter expression, in uppercase, of an open single-entry index (.idx) file or an index tag." image="method"/>
+<member name="FORCEEXT" proto="FORCEEXT(cFileName, cExtension)" help="Returns a string with the old file name extension replaced by a new extension." image="method"/>
+<member name="FORCEPATH" proto="FORCEPATH(cFileName, cPath)" help="Returns a file name with a new path name substituted for the old one." image="method"/>
+<member name="FOUND" proto="FOUND([nWorkArea | cTableAlias])" help="Determines whether the most recently executed CONTINUE, FIND, LOCATE, or SEEK command was successful or if the record pointer was moved in a related table." image="method"/>
+<member name="FPUTS" proto="FPUTS(nFileHandle, cExpression [, nCharactersWritten])" help="Writes a character string, carriage return, and line feed to a file opened with a low-level file function." image="method"/>
+<member name="FREAD" proto="FREAD(nFileHandle, nBytes)" help="Returns a specified number of bytes from a file opened with a low-level function." image="method"/>
+<member name="FSEEK" proto="FSEEK(nFileHandle, nBytesMoved [, nRelativePosition])" help="Moves the file pointer in a file opened with a low-level file function." image="method"/>
+<member name="FSIZE" proto="FSIZE(cFieldName [, nWorkArea | cTableAlias] | cFileName)" help="Returns the size in bytes of a specified field or file." image="method"/>
+<member name="FTIME" proto="FTIME(cFileName)" help="Returns the last modification time for a file." image="method"/>
+<member name="FULLPATH" proto="FULLPATH(cFileName1 [, nMSDOSPath | cFileName2])" help="Returns the path to a specified file or the path relative to another file." image="method"/>
+<member name="FV" proto="FV(nPayment, nInterestRate, nPeriods)" help="Returns the future value of a financial investment." image="method"/>
+<member name="FWRITE" proto="FWRITE(nFileHandle, cExpression [, nCharactersWritten])" help="Writes a character string to a file opened with a low-level file function." image="method"/>
+<member name="GETAUTOINCVALUE" proto="GETAUTOINCVALUE([nDataSessionNumber | 0])" help="Returns the last value generated for an autoincremented field within a data session." image="method"/>
+<member name="GETBAR" proto="GETBAR(MenuItemName, nMenuPosition)" help="Returns the number of an item on a menu defined with DEFINE POPUP or the Visual FoxPro system menu." image="method"/>
+<member name="GETCOLOR" proto="GETCOLOR([nDefaultColorNumber])" help="Displays the Windows Color dialog box and returns the color number of the chosen color." image="method"/>
+<member name="GETCP" proto="GETCP([nCodePage] [, cText] [, cDialogTitle])" help="Prompts for a code page by displaying the Code Page dialog box, and then returns the number of the code page chosen." image="method"/>
+<member name="GETCURSORADAPTER" proto="GETCURSORADAPTER( [ cAlias ] )" help="Returns an object reference to a CursorAdapter object at run time by referencing the cursor name." image="method"/>
+<member name="GETDIR" proto="GETDIR([cDirectory [, cText [, cCaption [, nFlags [, lRootOnly]]]]])" help="Displays the Select Directory dialog box from which you can choose a directory." image="method"/>
+<member name="GETENV" proto="GETENV(cVariableName)" help="Returns the contents of the specified MS-DOS environment variable." image="method"/>
+<member name="GETFILE" proto="GETFILE([cFileExtensions] [, cText] [, cOpenButtonCaption][, nButtonType] [, cTitleBarCaption])" help="Displays the Open dialog box." image="method"/>
+<member name="GETFLDSTATE" proto="GETFLDSTATE(cFieldName | nFieldNumber [, cTableAlias | nWorkArea])" help="Returns a numeric value indicating if a field in a table or cursor has been modified or had a record appended, or if the deleted status of the current record has been changed." image="method"/>
+<member name="GETFONT" proto="GETFONT([cFontName [, nFontSize [, cFontStyle [, nFontCharSet]]]])" help="Displays the Font dialog box and returns information about the font you choose." image="method"/>
+<member name="GETINTERFACE" proto="GETINTERFACE(oObject [, cIID | cInterface[, cTypelib | cProgID]])" help="Provides access to COM object properties, methods, and events through early binding." image="method"/>
+<member name="GETNEXTMODIFIED" proto="GETNEXTMODIFIED(nRecordNumber [, cTableAlias | nWorkArea] [, lNoFire])" help="Returns the record number for the next modified record in a buffered table or cursor." image="method"/>
+<member name="GETOBJECT" proto="GETOBJECT(cFileName | Moniker [, cClassName])" help="Activates an Automation object and creates a reference to the object." image="method"/>
+<member name="GETPAD" proto="GETPAD(cMenuBarName, nMenuBarPosition)" help="Returns the menu title for a given position on the menu bar." image="method"/>
+<member name="GETPEM" proto="GETPEM(oObjectName | cClassName, cProperty | cEvent | cMethod)" help="Returns the current value for a property or program code for an event or method at design time." image="method"/>
+<member name="GETPICT" proto="GETPICT([cFileExtensions] [, cFileNameCaption] [, cOpenButtonCaption])" help="Displays the Open Picture dialog box and returns the name of the picture file you chose." image="method"/>
+<member name="GETPRINTER" proto="GETPRINTER( )" help="Displays the Printer dialog box and returns the name of the selected printer." image="method"/>
+<member name="GETRESULTSET" proto="GETRESULTSET( )" help="Retrieves the work area number of a cursor marked by SETRESULTSET( ) in the current data session." image="method"/>
+<member name="GETWORDCOUNT" proto="GETWORDCOUNT(cString[, cDelimiters])" help="Counts the words in a string." image="method"/>
+<member name="GETWORDNUM" proto="GETWORDNUM(cString, nIndex[, cDelimiters])" help="Returns a specified word from a string." image="method"/>
+<member name="GOMONTH" proto="GOMONTH(dExpression | tExpression, nNumberOfMonths)" help="Returns the date that is a specified number of months before or after a given Date or Date/Time expression." image="method"/>
+<member name="HEADER" proto="HEADER([nWorkArea | cTableAlias])" help="Returns the number of bytes in the header of the current or specified table file." image="method"/>
+<member name="HOME" proto="HOME([nLocation])" help="Returns the names of the Visual FoxPro and Visual Studio directories." image="method"/>
+<member name="HOUR" proto="HOUR(tExpression)" help="Returns the hour portion from a DateTime expression." image="method"/>
+<member name="ICASE" proto="ICASE( lCondition1, eResult1 [, lCondition2, eResult2] ...[, eOtherwiseResult])" help="Evaluates the results from a list of conditions." image="method"/>
+<member name="ID" proto="ID( )" help="ID( ) returns network machine information when using Visual FoxPro in a network environment. The same functionality is available by using SYS(0)" image="method"/>
+<member name="IDXCOLLATE" proto="IDXCOLLATE([cCDXFileName,] nIndexNumber [, nWorkArea | cTableAlias])" help="Returns the collating sequence for an index or index tag." image="method"/>
+<member name="IIF" proto="IIF(lExpression, eExpression1, eExpression2)" help="Returns one of two values depending on the value of a logical expression." image="method"/>
+<member name="IMESTATUS" proto="IMESTATUS([nExpression])" help="Turns the IME (Input Method Editor) window on or off or returns the current IME status." image="method"/>
+<member name="INDBC" proto="INDBC(cDatabaseObjectName, cType)" help="Returns true (.T.) if the specified database object is in the current database; otherwise returns false (.F.)." image="method"/>
+<member name="INDEXSEEK" proto="INDEXSEEK(eExpression [, lMovePointer [, nWorkArea | cTableAlias[, nIndexNumber | cIDXIndexFileName | cTagName]]])" help="Without moving the record pointer, searches an indexed table for the first occurrence of a record whose index key matches a specified expression." image="method"/>
+<member name="INKEY" proto="INKEY([nSeconds] [, cHideCursor])" help="Returns a number corresponding to the first mouse click or key press in the type-ahead buffer." image="method"/>
+<member name="INLIST" proto="INLIST(eExpression1, eExpression2 [, eExpression3 ...])" help="Determines whether an expression matches another expression in a set of expressions." image="method"/>
+<member name="INPUTBOX" proto="INPUTBOX(cInputPrompt [, cDialogCaption [, cDefaultValue [, nTimeout [,cTimeoutValue] [,cCancelValue]]]])" help="Displays a modal dialog used by a parameterized view for input of a single string." image="method"/>
+<member name="INSMODE" proto="INSMODE([lExpression])" help="Returns the current insert mode, or sets the insert mode on or off." image="method"/>
+<member name="INT" proto="INT(nExpression)" help="Evaluates a numeric expression and returns the integer portion of the expression." image="method"/>
+<member name="ISALPHA" proto="ISALPHA(cExpression)" help="Determines whether the leftmost character in a character expression is alphabetic." image="method"/>
+<member name="ISBLANK" proto="ISBLANK(eExpression)" help="Determines whether an expression is blank." image="method"/>
+<member name="ISCOLOR" proto="ISCOLOR( )" help="Determines whether a computer can display color." image="method"/>
+<member name="ISDIGIT" proto="ISDIGIT(cExpression)" help="Determines whether the leftmost character of the specified character expression is a digit (0 through 9)." image="method"/>
+<member name="ISEXCLUSIVE" proto="ISEXCLUSIVE([cTableAlias | nWorkArea | cDatabaseName [, nType]])" help="Returns true (.T.) if a table or database is opened for exclusive use; otherwise, returns false (.F.)." image="method"/>
+<member name="ISFLOCKED" proto="ISFLOCKED([nWorkArea | cTableAlias])" help="Returns the table lock status." image="method"/>
+<member name="ISLEADBYTE" proto="ISLEADBYTE(cExpression)" help="Returns true (.T.) if the first byte of the first character in a character expression is the lead byte of a double-byte character." image="method"/>
+<member name="ISLOWER" proto="ISLOWER(cExpression)" help="Determines whether the leftmost character of the specified character expression is a lowercase alphabetic character." image="method"/>
+<member name="ISMEMOFETCHED" proto="ISMEMOFETCHED(cFieldName | nFieldNumber [, nWorkArea | cTableAlias])" help="Determines if a memo field has been fetched during a delayed memo fetch." image="method"/>
+<member name="ISMOUSE" proto="ISMOUSE( )" help="Returns true (.T.) if mouse hardware is present." image="method"/>
+<member name="ISNULL" proto="ISNULL(eExpression)" help="Returns true (.T.) if an expression evaluates to a null value; otherwise, ISNULL( ) returns false (.F.)." image="method"/>
+<member name="ISPEN" proto="ISPEN( )" help="Determines if the last Tablet PC mouse event was a pen tap." image="method"/>
+<member name="ISREADONLY" proto="ISREADONLY([nWorkArea | cTableAlias])" help="Determines whether a table or database is opened read-only." image="method"/>
+<member name="ISRLOCKED" proto="ISRLOCKED([nRecordNumber, [nWorkArea | cTableAlias]])" help="Returns the record lock status." image="method"/>
+<member name="ISTRANSACTABLE" proto="ISTRANSACTABLE([nWorkArea | cAlias])" help="Returns a logical value indicating if a free table or free cursor supports transactions." image="method"/>
+<member name="ISUPPER" proto="ISUPPER(cExpression)" help="Determines whether the first character in a character expression is an uppercase alphabetic character." image="method"/>
+<member name="JUSTDRIVE" proto="JUSTDRIVE(cPath)" help="Returns the drive letter from a complete path." image="method"/>
+<member name="JUSTEXT" proto="JUSTEXT(cPath)" help="Returns the characters of a file extension from a complete path." image="method"/>
+<member name="JUSTFNAME" proto="JUSTFNAME(cFileName)" help="Returns the file name portion of a complete path and file name." image="method"/>
+<member name="JUSTPATH" proto="JUSTPATH(cFileName)" help="Returns the path portion of a complete path and file name." image="method"/>
+<member name="JUSTSTEM" proto="JUSTSTEM(cFileName)" help="Returns the stem name (the file name before the extension) from a complete path and file name." image="method"/>
+<member name="KEY" proto="KEY([CDXFileName,] nIndexNumber [, nWorkArea | cTableAlias])" help="Returns the index key expression for an index tag or index file." image="method"/>
+<member name="KEYMATCH" proto="KEYMATCH(eIndexKey [, nIndexNumber [, nWorkArea | cTableAlias]])" help="Searches an index tag or index file for an index key." image="method"/>
+<member name="LASTKEY" proto="LASTKEY( )" help="Returns an integer corresponding to the last key pressed." image="method"/>
+<member name="LEFT" proto="LEFT(cExpression, nExpression)" help="Returns a specified number of characters from a character expression, starting with the leftmost character." image="method"/>
+<member name="LEFTC" proto="LEFTC(cExpression, nExpression)" help="Returns a specified number of characters from a character expression, starting with the leftmost character." image="method"/>
+<member name="LEN" proto="LEN(cExpression)" help="Determines the number of characters in a character expression, indicating the length of the expression." image="method"/>
+<member name="LENC" proto="LENC(cExpression)" help="Returns the number of characters in a character expression or memo field." image="method"/>
+<member name="LIKE" proto="LIKE(cExpression1, cExpression2)" help="Determines if a character expression matches another character expression." image="method"/>
+<member name="LIKEC" proto="LIKEC(cExpression1, cExpression2)" help="Determines whether a character expression matches another character expression." image="method"/>
+<member name="LINENO" proto="LINENO([1])" help="Returns the line number of a line being executed in a program relative to the first line of the main program." image="method"/>
+<member name="LOADPICTURE" proto="LOADPICTURE([cFileName])" help="Creates an object reference for a bitmap, icon, or Windows meta file." image="method"/>
+<member name="LOCFILE" proto="LOCFILE(cFileName [, cFileExtensions] [, cFileNameCaption])" help="Locates a file on disk and returns the file name with its path." image="method"/>
+<member name="LOCK" proto="LOCK([nWorkArea | cTableAlias]|[cRecordNumberList, nWorkArea | cTableAlias])" help="Attempts to lock one or more records in a table." image="method"/>
+<member name="LOG" proto="LOG(nExpression)" help="Returns the natural logarithm (base e) of the specified numeric expression." image="method"/>
+<member name="LOG10" proto="LOG10(nExpression)" help="Returns the common logarithm (base 10) of the specified numeric expression." image="method"/>
+<member name="LOOKUP" proto="LOOKUP(ReturnField, eSearchExpression, SearchedField [, cTagName])" help="Searches a table for the first record with a field matching the specified expression." image="method"/>
+<member name="LOWER" proto="LOWER(cExpression)" help="Returns a specified character expression in lowercase letters." image="method"/>
+<member name="LTRIM" proto="LTRIM(Expression [, nFlags] [, cParseChar [, cParseChar2 [, ...]]])" help="Removes all leading spaces or parsing characters from the specified character expression, or all leading zero (0) bytes from the specified binary expression." image="method"/>
+<member name="LUPDATE" proto="LUPDATE([nWorkArea | cTableAlias])" help="Returns the date on which a table was last updated." image="method"/>
+<member name="MAKETRANSACTABLE" proto="MAKETRANSACTABLE([nWorkArea | cAlias])" help="Allows a free table or free cursor to support transactions." image="method"/>
+<member name="MAX" proto="MAX(eExpression1, eExpression2 [, eExpression3 ...])" help="Evaluates a set of expressions and returns the expression with the maximum value." image="method"/>
+<member name="MCOL" proto="MCOL([cWindowName | 0 [, nScaleMode]])" help="Returns the column position of the mouse pointer in the main Visual FoxPro window or a user-defined window or form." image="method"/>
+<member name="MDX" proto="MDX(nIndexNumber [, nWorkArea | cTableAlias])" help="Returns the name of the open .cdx compound index file that has the specified index position number." image="method"/>
+<member name="MDY" proto="MDY(dExpression | tExpression)" help="Returns the specified date or datetime expression in month-day-year format with the name of the month spelled out." image="method"/>
+<member name="MEMLINES" proto="MEMLINES(MemoFieldName)" help="Returns the number of lines in a memo field." image="method"/>
+<member name="MEMORY" proto="MEMORY( )" help="Returns the amount of memory available to run an external program." image="method"/>
+<member name="MENU" proto="MENU( )" help="Returns the name of the active menu bar as an uppercase character string." image="method"/>
+<member name="MESSAGE" proto="MESSAGE([1])" help="Returns the current error message or the program line that caused the error." image="method"/>
+<member name="MESSAGEBOX" proto="MESSAGEBOX(eMessageText [, nDialogBoxType ][, cTitleBarText][, nTimeout])" help="Displays a user-defined dialog box." image="method"/>
+<member name="MIN" proto="MIN(eExpression1, eExpression2 [, eExpression3 ...])" help="Evaluates a set of expressions and returns the expression with the minimum value." image="method"/>
+<member name="MINUTE" proto="MINUTE(tExpression)" help="Returns the minute portion from a DateTime expression." image="method"/>
+<member name="MLINE" proto="MLINE(MemoFieldName, nLineNumber [, nNumberOfCharacters])" help="Returns a specific line from a Memo field as a character string." image="method"/>
+<member name="MOD" proto="MOD(nDividend, nDivisor)" help="Divides one numeric expression by another numeric expression and returns the remainder." image="method"/>
+<member name="MONTH" proto="MONTH(dExpression | tExpression)" help="Returns the number of the month for a given Date or DateTime expression." image="method"/>
+<member name="MRKBAR" proto="MRKBAR(cMenuName, nMenuItemNumber | cSystemMenuItemName)" help="Determines whether a menu item on a user-defined or Microsoft Visual FoxPro system menu is marked." image="method"/>
+<member name="MRKPAD" proto="MRKPAD(cMenuBarName, cMenuTitleName)" help="Determines whether a menu title on a user-defined menu bar or on the Visual FoxPro system menu bar is marked." image="method"/>
+<member name="MROW" proto="MROW([cWindowName | 0 [, nScaleMode]])" help="Returns the row position of the mouse pointer in the main Visual FoxPro window or in a user-defined window or form." image="method"/>
+<member name="MTON" proto="MTON(mExpression)" help="Returns a Numeric value from a Currency expression." image="method"/>
+<member name="MWINDOW" proto="MWINDOW([cWindowName])" help="Returns the name of the window over which the mouse pointer is positioned." image="method"/>
+<member name="NDX" proto="NDX(nIndexNumber [, nWorkArea | cTableAlias])" help="Returns the name of an open index (.IDX) file for the current or specified table." image="method"/>
+<member name="NEWOBJECT" proto="NEWOBJECT(cClassName [, cModule [, cInApplication | 0[, eParameter1, eParameter2, ...]]])" help="Creates a new class or object directly from a visual class library (.vcx) file or program (.prg) file without opening the file." image="method"/>
+<member name="NORMALIZE" proto="NORMALIZE(cExpression)" help="Converts a character expression, supplied by a user, into a form that can be compared with Visual FoxPro function return values." image="method"/>
+<member name="NTOM" proto="NTOM(nExpression)" help="Returns a Currency value from a Numeric expression." image="method"/>
+<member name="NUMLOCK" proto="NUMLOCK([lExpression])" help="Returns the current mode of the NUM LOCK key or sets the mode of the NUM LOCK key on or off." image="method"/>
+<member name="NVL" proto="NVL(eExpression1, eExpression2)" help="Returns a non-null value from two expressions." image="method"/>
+<member name="OBJTOCLIENT" proto="OBJTOCLIENT(ObjectName, nPosition)" help="Returns a position or dimension of a control or object relative to its form." image="method"/>
+<member name="OCCURS" proto="OCCURS(cSearchExpression, cExpressionSearched)" help="Returns the number of times a character expression occurs within another character expression." image="method"/>
+<member name="OLDVAL" proto="OLDVAL(cExpression [, cTableAlias | nWorkArea])" help="Returns original field values for fields that have been modified but not updated." image="method"/>
+<member name="ON" proto="ON(cONCommand [, KeyLabelName])" help="Returns the command assigned to each of these event-handling commands: ON ERROR, ON ESCAPE, ON KEY LABEL, or ON PAGE." image="method"/>
+<member name="ORDER" proto="ORDER([nWorkArea | cTableAlias [, nPath]])" help="Returns the name of the controlling index file or tag for the current or specified table." image="method"/>
+<member name="OS" proto="OS([nValue])" help="Returns the name and version number of the operating system under which Microsoft Visual FoxPro is running." image="method"/>
+<member name="PAD" proto="PAD([cMenuTitle [, cMenuBarName]])" help="Returns as an uppercase character string the menu title most recently chosen from a menu bar, or returns a logical value indicating if a menu title is defined for an active menu bar." image="method"/>
+<member name="PADC" proto="PADC(eExpression, nResultSize [, cPadCharacter])" help="Returns a string from an expression, padded with spaces or characters to a specified length on both sides" image="method"/>
+<member name="PADL" proto="PADL(eExpression, nResultSize [, cPadCharacter])" help="Returns a string from an expression, padded with spaces or characters to a specified length on the left side" image="method"/>
+<member name="PADR" proto="PADR(eExpression, nResultSize [, cPadCharacter])" help="Returns a string from an expression, padded with spaces or characters to a specified length right side" image="method"/>
+<member name="PARAMETERS" proto="PARAMETERS( )" help="Returns the number of parameters passed to the most recently called program, procedure, or user-defined function." image="method"/>
+<member name="PAYMENT" proto="PAYMENT(nPrincipal, nInterestRate, nPayments)" help="Returns the amount of each periodic payment on a fixed-interest loan." image="method"/>
+<member name="PCOL" proto="PCOL( )" help="Returns the current column position of the printer's print head." image="method"/>
+<member name="PCOUNT" proto="PCOUNT( )" help="Returns the number of parameters passed to the current program, procedure, or user-defined function." image="method"/>
+<member name="PEMSTATUS" proto="PEMSTATUS(oObjectName | cClassName, cProperty | cEvent | cMethod| cObject, nAttribute)" help="Retrieves an attribute for a property, event, method, or object." image="method"/>
+<member name="PI" proto="PI( )" help="Returns the numeric constant pi." image="method"/>
+<member name="POPUP" proto="POPUP([cMenuName])" help="Returns as a string the name of the active menu, or a logical value indicating if a menu has been defined." image="method"/>
+<member name="PRIMARY" proto="PRIMARY([nIndexNumber] [, nWorkArea | cTableAlias])" help="Returns true (.T.) if an index tag is a primary index tag; otherwise, returns false (.F.)." image="method"/>
+<member name="PRINTSTATUS" proto="PRINTSTATUS( )" help="Returns the status of the printer. Included for backward compatibility." image="method"/>
+<member name="PRMBAR" proto="PRMBAR(cMenuName, nMenuItemNumber)" help="Returns the text of a menu item." image="method"/>
+<member name="PRMPAD" proto="PRMPAD(MenuBarName, MenuTitleName)" help="Returns the text of a menu title." image="method"/>
+<member name="PROGRAM" proto="PROGRAM([nLevel])" help="Returns the name of the program at a specified program level, the name of the currently executing program, the current program level, or the name of the program executing when an error occurred." image="method"/>
+<member name="PROMPT" proto="PROMPT( )" help="Returns the text for a menu title chosen from a menu bar or for a menu item chosen from a menu." image="method"/>
+<member name="PROPER" proto="PROPER(cExpression)" help="Returns from a character expression a string capitalized as appropriate for proper names." image="method"/>
+<member name="PROW" proto="PROW( )" help="Returns the current row number of the printer's print head." image="method"/>
+<member name="PRTINFO" proto="PRTINFO(nPrinterSetting [, cPrinterName])" help="Returns the current specified printer setting." image="method"/>
+<member name="PUTFILE" proto="PUTFILE([cCustomText] [, cFileName] [, cFileExtensions])" help="Invokes the Save As dialog box and returns the file name you specify." image="method"/>
+<member name="PV" proto="PV(nPayment, nInterestRate, nTotalPayments)" help="Returns the present value of an investment." image="method"/>
+<member name="QUARTER" proto="QUARTER(dExpression | tExpression [, nMonth])" help="Returns the quarter of the year in which a date or datetime expression occurs." image="method"/>
+<member name="RAISEEVENT" proto="RAISEEVENT( oEventSource, cEvent [, eParm1...] )" help="You can use RAISEEVENT( ) to raise, or trigger, an event from a custom method. Though RAISEEVENT( ) applies primarily to custom methods, you can use it for raising native events and methods." image="method"/>
+<member name="RAND" proto="RAND([nSeedValue])" help="Returns a random number between 0 and 1." image="method"/>
+<member name="RAT" proto="RAT(cSearchExpression, cExpressionSearched [, nOccurrence])" help="Returns the numeric position of the last (rightmost) occurrence of a character string within another character string." image="method"/>
+<member name="RATC" proto="RATC(cSearchExpression, cExpressionSearched [, nOccurrence])" help="Returns the numeric position of the last occurrence of a character expression or memo field within another character expression or memo field." image="method"/>
+<member name="RATLINE" proto="RATLINE(cSearchExpression, cExpressionSearched)" help="Returns the line number of the last occurrence of a character expression within another character expression or memo field, counting from the last line." image="method"/>
+<member name="RECCOUNT" proto="RECCOUNT([nWorkArea | cTableAlias])" help="Returns the number of records in the current or specified table." image="method"/>
+<member name="RECNO" proto="RECNO([nWorkArea | cTableAlias])" help="Returns the current record number in the current or specified table." image="method"/>
+<member name="RECSIZE" proto="RECSIZE([nWorkArea | cTableAlias])" help="Returns the size (width) of a table record." image="method"/>
+<member name="REFRESH" proto="REFRESH([nRecords [, nRecordOffset]] [, cTableAlias | nWorkArea])" help="Refreshes data in an updatable SQL remote or local view, or CursorAdapter cursor." image="method"/>
+<member name="RELATION" proto="RELATION(nRelationNumber [, nWorkArea | cTableAlias])" help="Returns a specified relational expression for a table open in a specific work area." image="method"/>
+<member name="REMOVEPROPERTY" proto="REMOVEPROPERTY(oObjectName, cPropertyName)" help="Removes a property from an object at run time." image="method"/>
+<member name="REPLICATE" proto="REPLICATE(cExpression, nTimes)" help="Returns a character string that contains a specified character expression repeated a specified number of times." image="method"/>
+<member name="REQUERY" proto="REQUERY([nWorkArea | cTableAlias])" help="Retrieves data again for a SQL view." image="method"/>
+<member name="RGB" proto="RGB(nRedValue, nGreenValue, nBlueValue)" help="Returns a single color value from a set of red, green, and blue color components." image="method"/>
+<member name="RGBSCHEME" proto="RGBSCHEME(nColorSchemeNumber [, nColorPairPosition])" help="Returns an RGB color pair or an RGB color pair list from a specified color scheme." image="method"/>
+<member name="RIGHT" proto="RIGHT(cExpression, nCharacters)" help="Returns the specified number of rightmost characters from a character string." image="method"/>
+<member name="RIGHTC" proto="RIGHTC(cExpression, nCharacters)" help="Returns the specified number of rightmost characters from a character string." image="method"/>
+<member name="RLOCK" proto="RLOCK([nWorkArea | cTableAlias] | [cRecordNumberList, nWorkArea| cTableAlias])" help="Attempts to lock a table record or records." image="method"/>
+<member name="ROUND" proto="ROUND(nExpression, nDecimalPlaces)" help="Returns a numeric expression rounded to a specified number of decimal places." image="method"/>
+<member name="RTOD" proto="RTOD(nExpression)" help="Converts radians to its equivalent in degrees." image="method"/>
+<member name="RTRIM" proto="RTRIM(cExpression [, nFlags] [, cParseChar [, cParseChar2 [, ...]]])" help="Removes all trailing spaces or parsing characters from the specified character expression, or all trailing zero (0) bytes from the specified binary expression." image="method"/>
+<member name="SAVEPICTURE" proto="SAVEPICTURE(oObjectReference, cFileName)" help="Creates a bitmap (.bmp) file from a picture object reference." image="method"/>
+<member name="SCHEME" proto="SCHEME(nSchemeNumber [, nColorPairNumber])" help="Returns a color pair list or a single color pair from a specified color scheme." image="method"/>
+<member name="SCOLS" proto="SCOLS( )" help="Returns the number of columns available in the main Microsoft Visual FoxPro window." image="method"/>
+<member name="SEC" proto="SEC(tExpression)" help="Returns the seconds portion from a DateTime expression." image="method"/>
+<member name="SECONDS" proto="SECONDS( )" help="Returns the number of seconds that have elapsed since midnight." image="method"/>
+<member name="SEEK" proto="SEEK(eExpression [, nWorkArea | cTableAlias[, nIndexNumber | cIDXIndexFileName | cTagName]])" help="Searches an indexed table for the first occurrence of a record whose index key matches a specified expression. Issuing SEEK( ) is equivalent to issuing SEEK and FOUND( ) in succession." image="method"/>
+<member name="SELECT" proto="SELECT([ 0 | 1 | cTableAlias ])" help="Returns the number of the currently selected work area or the highest-numbered unused work area." image="method"/>
+<member name="SET" proto="SET(cSETCommand [, 1 | cExpression | 2 | 3 | 4])" help="Returns the status of various SET commands." image="method"/>
+<member name="SETFLDSTATE" proto="SETFLDSTATE(cFieldName | nFieldNumber, nFieldState [, cTableAlias| nWorkArea])" help="Assigns a field modification or deletion state value to a field or record in a table or cursor." image="method"/>
+<member name="SETRESULTSET" proto="SETRESULTSET( nWorkArea | cTableAlias )" help="Marks a cursor as a result set in the current data session." image="method"/>
+<member name="SIGN" proto="SIGN(nExpression)" help="Returns a numeric value of 1, -1, or 0 if the specified numeric expression evaluates to a positive, negative, or 0 value." image="method"/>
+<member name="SIN" proto="SIN(nExpression)" help="Returns the sine of an angle." image="method"/>
+<member name="SKPBAR" proto="SKPBAR(cMenuName, MenuItemNumber)" help="Determines if a menu item is enabled or disabled with SET SKIP OF." image="method"/>
+<member name="SKPPAD" proto="SKPPAD(cMenuBarName, cMenuTitleName)" help="Determines whether a menu title is enabled or disabled with SET SKIP OF." image="method"/>
+<member name="SOUNDEX" proto="SOUNDEX(cExpression)" help="Returns a phonetic representation of the specified character expression." image="method"/>
+<member name="SPACE" proto="SPACE(nSpaces)" help="Returns a character string composed of a specified number of spaces." image="method"/>
+<member name="SQLCANCEL" proto="SQLCANCEL(nStatementHandle)" help="Requests cancellation of an executing SQL statement." image="method"/>
+<member name="SQLCOLUMNS" proto="SQLCOLUMNS(nStatementHandle, cTableName[, 'FOXPRO' | 'NATIVE'] [, cCursorName])" help="Stores a list of column names and information about each column for the specified data source table to a Visual FoxPro cursor." image="method"/>
+<member name="SQLCOMMIT" proto="SQLCOMMIT(nStatementHandle)" help="Commits a transaction." image="method"/>
+<member name="SQLCONNECT" proto="SQLCONNECT([nStatementHandle])SQLCONNECT([cConnectionName | cDataSourceName [, cUserID [, cPassword ]][, lShared]])" help="Establishes a connection to a data source. There are two versions of the syntax." image="method"/>
+<member name="SQLDISCONNECT" proto="SQLDISCONNECT(nStatementHandle)" help="Terminates a connection to a data source." image="method"/>
+<member name="SQLEXEC" proto="SQLEXEC(nStatementHandle [, cSQLCommand [, cCursorName[, aCountInfo]]])" help="Sends a SQL statement to the data source, where the statement is processed." image="method"/>
+<member name="SQLGETPROP" proto="SQLGETPROP(nStatementHandle, cSetting)" help="Retrieves the current or default settings for an active connection." image="method"/>
+<member name="SQLIDLEDISCONNECT" proto="SQLIDLEDISCONNECT(nStatementHandle)" help="Allows a SQL pass-through connection or connections to be temporarily disconnected." image="method"/>
+<member name="SQLMORERESULTS" proto="SQLMORERESULTS(nStatementHandle [, cCursorName [, aCountInfo]]))" help="Copies another result set to a Visual FoxPro cursor if more result sets are available." image="method"/>
+<member name="SQLPREPARE" proto="SQLPREPARE(nStatementHandle, cSQLCommand, [cCursorName])" help="Prepares a SQL statement for remote execution by SQLEXEC( )." image="method"/>
+<member name="SQLROLLBACK" proto="SQLROLLBACK(nStatementHandle)" help="Cancels any changes made during the current transaction." image="method"/>
+<member name="SQLSETPROP" proto="SQLSETPROP(nStatementHandle, cSetting [, eExpression])" help="Specifies settings for an active connection. You can use SQLSETPROP( ) to specify settings at the connection level. To specify Visual FoxPro default settings at the environment level, include 0 as the statement handle." image="method"/>
+<member name="SQLSTRINGCONNECT" proto="SQLSTRINGCONNECT([lShared] | [cConnectString [, lSharable]])" help="Establishes a connection to a data source using a connection string." image="method"/>
+<member name="SQLTABLES" proto="SQLTABLES(nStatementHandle [, cTableTypes] [, cCursorName])" help="Stores the names of tables in a data source to a Visual FoxPro cursor." image="method"/>
+<member name="SQRT" proto="SQRT(nExpression)" help="Returns the square root of the specified numeric expression." image="method"/>
+<member name="SROWS" proto="SROWS( )" help="Returns the number of rows available in the main Visual FoxPro window." image="method"/>
+<member name="STR" proto="STR(nExpression [, nLength [, nDecimalPlaces]])" help="Returns the character equivalent of a numeric expression." image="method"/>
+<member name="STRCONV" proto="STRCONV(cExpression, nConversionSetting [, nRegionalIdentifier [, nRegionalIDType]])" help="Converts character expressions between single-byte, double-byte, UNICODE, and locale-specific representations." image="method"/>
+<member name="STREXTRACT" proto="STREXTRACT(cSearchExpression, cBeginDelim [, cEndDelim [, nOccurrence[, nFlag]]]])" help="Retrieves a string between two delimiters." image="method"/>
+<member name="STRTOFILE" proto="STRTOFILE(cExpression, cFileName [, lAdditive | nFlag])" help="Writes the contents of a character string to a file." image="method"/>
+<member name="STRTRAN" proto="STRTRAN(cSearched, cExpressionSought [, cReplacement][, nStartOccurrence] [, nNumberOfOccurrences] [, nFlags])" help="Searches a character expression or memo field for a second character expression or memo field and replaces each occurrence with a third character expression or memo field. You can specify where the replacement begins and how many replacements are made." image="method"/>
+<member name="STUFF" proto="STUFF(cExpression, nStartReplacement, nCharactersReplaced, cReplacement)" help="Returns a character string created by replacing a specified number of characters in a character expression with another character expression." image="method"/>
+<member name="STUFFC" proto="STUFFC(cExpression, nStartReplacement, nCharactersReplaced, cReplacement)" help="Returns a character string created by replacing a specified number of characters in a character expression with another character expression." image="method"/>
+<member name="SUBSTR" proto="SUBSTR(cExpression, nStartPosition [, nCharactersReturned])" help="Returns a character string from the given character expression or memo field, starting at a specified position in the character expression or memo field and continuing for a specified number of characters." image="method"/>
+<member name="SUBSTRC" proto="SUBSTRC(cExpression, nStartPosition [, nCharactersReturned])" help="Returns a character string from the given character expression or memo field." image="method"/>
+<member name="SYS" proto="SYS( )" help="Returns Microsoft Visual FoxPro system information." image="method"/>
+<member name="SYSMETRIC" proto="SYSMETRIC(nScreenElement)" help="Returns the size of the operating system's screen elements." image="method"/>
+<member name="TABLEREVERT" proto="TABLEREVERT( [lAllRows [, cTableAlias | nWorkArea] ] )" help="Discards changes made to a buffered row or a buffered table or cursor and restores the OLDVAL( ) data for remote cursors and the current disk values for local tables and cursors." image="method"/>
+<member name="TABLEUPDATE" proto="TABLEUPDATE( [nRows [, lForce]] [, cTableAlias | nWorkArea] [, cErrorArray] )" help="Commits changes made to a buffered row, a buffered table, cursor, or cursor adapter." image="method"/>
+<member name="TAG" proto="TAG([CDXFileName[, nTagNumber[, nWorkArea | cTableAlias]]])" help="Returns a tag name from an open compound index (.cdx) file or the name of an open single-entry (.idx) index file." image="method"/>
+<member name="TAGCOUNT" proto="TAGCOUNT([CDXFileName [, nWorkArea | cTableAlias]])" help="Returns the number of .cdx compound index file tags and open .idx single-entry index files." image="method"/>
+<member name="TAGNO" proto="TAGNO([IndexName [, CDXFileName [, nExpression | cExpression]]])" help="Returns the index position for .cdx compound index file tags and open .idx single-entry index files." image="method"/>
+<member name="TAN" proto="TAN(nExpression)" help="This trigonometric function returns the tangent of an angle." image="method"/>
+<member name="TARGET" proto="TARGET(nRelationshipNumber [, nWorkArea | cTableAlias])" help="Returns the alias of a table that is the target for a relation as specified in the INTO clause of SET RELATION." image="method"/>
+<member name="TEXTMERGE" proto="TEXTMERGE(cExpression [, lRecursive [, cLeftDelim [, cRightDelim]]])" help="Provides evaluation of a character expression." image="method"/>
+<member name="TIME" proto="TIME([nExpression])" help="Returns the current system time in 24-hour, eight-character string (hh:mm:ss) format." image="method"/>
+<member name="TRANSFORM" proto="TRANSFORM(eExpression, [cFormatCodes])" help="Returns a character string from an expression in a format determined by a format code." image="method"/>
+<member name="TRIM" proto="TRIM(cExpression [, nFlags] [, cParseChar [, cParseChar2 [, ...]]])" help="Removes all trailing spaces or parsing characters from the specified character expression, or all trailing zero (0) bytes from the specified binary expression." image="method"/>
+<member name="TTOC" proto="TTOC(tExpression [, 1 | 2 | 3])" help="Converts a DateTime expression to a Character value with the specified format." image="method"/>
+<member name="TTOD" proto="TTOD(tExpression)" help="Returns a Date value from a DateTime expression." image="method"/>
+<member name="TXNLEVEL" proto="TXNLEVEL( )" help="Returns a numeric value indicating the current transaction level." image="method"/>
+<member name="TXTWIDTH" proto="TXTWIDTH(cExpression [, cFontName, nFontSize [, cFontStyle]])" help="Returns the length of a character expression with respect to the average character width for a font." image="method"/>
+<member name="TYPE" proto="TYPE(cExpression [, 1])" help="Returns the data type of an expression." image="method"/>
+<member name="UNBINDEVENTS" proto="UNBINDEVENTS(oEventSource, cEvent, oEventHandler, cDelegate)" help="You can use UNBINDEVENTS( ) to unbind, or detach, an event that was originally bound to a Visual FoxPro object using BINDEVENT( ). To detach events from Component Object Model (COM) objects, use the EVENTHANDLER( ) function. There are three versions of the syntax." image="method"/>
+<member name="UNBINDEVENTS" proto="UNBINDEVENTS(oEventObject)" help="You can use UNBINDEVENTS( ) to unbind, or detach, an event that was originally bound to a Visual FoxPro object using BINDEVENT( ). To detach events from Component Object Model (COM) objects, use the EVENTHANDLER( ) function. There are three versions of the syntax." image="method"/>
+<member name="UNBINDEVENTS" proto="UNBINDEVENTS(hWnd [, nMessage])" help="You can use UNBINDEVENTS( ) to unbind, or detach, an event that was originally bound to a Visual FoxPro object using BINDEVENT( ). To detach events from Component Object Model (COM) objects, use the EVENTHANDLER( ) function. There are three versions of the syntax." image="method"/>
+<member name="UPPER" proto="UPPER(cExpression)" help="Returns the specified character expression in uppercase." image="method"/>
+<member name="USED" proto="USED([nWorkArea | cTableAlias])" help="Determines if an alias is in use or a table is open in a specific work area." image="method"/>
+<member name="VAL" proto="VAL(cExpression)" help="Returns a numeric or currency value from a character expression composed of numbers. You can use VAL( ) to convert the character strings returned by the Visual FoxPro SYS( ) functions to numeric values." image="method"/>
+<member name="VARTYPE" proto="VARTYPE(eExpression [, lNullDataType])" help="Returns the data type of an expression." image="method"/>
+<member name="VERSION" proto="VERSION(nExpression)" help="Returns information about the Visual FoxPro version you are using." image="method"/>
+<member name="WBORDER" proto="WBORDER([WindowName])" help="Determines whether the active or specified window has a border." image="method"/>
+<member name="WCHILD" proto="WCHILD([WindowName] [nChildWindow])" help="Returns either the number of child windows in a parent window or the names of the child windows in the order in which they are stacked in the parent window." image="method"/>
+<member name="WCOLS" proto="WCOLS([WindowName])" help="Returns the number of columns within the active or specified window." image="method"/>
+<member name="WDOCKABLE" proto="WDOCKABLE(cWindowName [, lEnable])" help="Returns the dockable state of the specified window" image="method"/>
+<member name="WEEK" proto="WEEK(dExpression | tExpression [, nFirstWeek] [, nFirstDayOfWeek])" help="Returns a number representing the week of the year from a Date or DateTime expression." image="method"/>
+<member name="WEXIST" proto="WEXIST(WindowName)" help="Determines whether the specified user-defined window exists." image="method"/>
+<member name="WFONT" proto="WFONT(nFontAttribute [, WindowName])" help="Returns the name, size, or style of the current font for a window in Visual FoxPro for Windows." image="method"/>
+<member name="WLAST" proto="WLAST([WindowName])" help="Returns the name of the window that was active prior to the current window or determines whether the specified window was active prior to the current window." image="method"/>
+<member name="WLCOL" proto="WLCOL([WindowName])" help="Returns the column coordinate of the upper-left corner of the active or specified window." image="method"/>
+<member name="WLROW" proto="WLROW([WindowName])" help="Returns the row coordinate of the upper-left corner of the active or specified window." image="method"/>
+<member name="WMAXIMUM" proto="WMAXIMUM([WindowName])" help="Determines whether the active or specified window is maximized." image="method"/>
+<member name="WMINIMUM" proto="WMINIMUM([WindowName])" help="Determines whether the active or specified window is minimized." image="method"/>
+<member name="WONTOP" proto="WONTOP([WindowName])" help="Determines whether the active or specified window is in front of all other windows." image="method"/>
+<member name="WOUTPUT" proto="WOUTPUT([WindowName])" help="Determines whether output is being directed to the active or specified window." image="method"/>
+<member name="WPARENT" proto="WPARENT([WindowName])" help="Returns the name of the parent window of the active or specified window." image="method"/>
+<member name="WROWS" proto="WROWS([WindowName])" help="Returns the number of rows within the active or specified window." image="method"/>
+<member name="WTITLE" proto="WTITLE([WindowName])" help="Returns the title assigned to the active or specified window." image="method"/>
+<member name="WVISIBLE" proto="WVISIBLE(WindowName)" help="Determines if the specified window has been activated and isn't hidden." image="method"/>
+<member name="XMLTOCURSOR" proto="XMLTOCURSOR(eExpression | cXMLFile [, cCursorName [, nFlags ]])" help="Converts XML text into a Visual FoxPro cursor or table." image="method"/>
+<member name="XMLUPDATEGRAM" proto="XMLUPDATEGRAM( [ cAliasList [, nFlags [, cSchemaLocation]]])" help="Mirrors changes made in a buffered table or cursor in an XML UpdateGram and returns a character string that contains the UpdateGram." image="method"/>
+<member name="YEAR" proto="YEAR(dExpression | tExpression)" help="Returns the year from the specified date or datetime expression." image="method"/>
+</memberlist>

@@ -1,0 +1,654 @@
+
+   0.000553,codemaxbase,codemaxbase.codepeek,24,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,2
+   0.001991,codemaxbase,codemaxbase.codepeek,25,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,2
+   0.000407,editbase,editbase.setmodalbindevents,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000381,editbase,editbase.setmodalbindevents,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000376,editbase,editbase.setmodalbindevents,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000364,editbase,editbase.setmodalbindevents,5,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000390,codemaxbase,codemaxbase.codepeek,26,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,2
+   0.000430,codemaxbase,codemaxbase.codepeek,27,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,2
+   0.000407,codemaxbase,codemaxbase.codepeek,28,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,2
+   0.000377,codemaxbase,codemaxbase.codepeek,29,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,2
+           ,codemaxscx,codemaxscx.contextmenu,248,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000471,codemaxscx,codemaxscx.contextmenu,444,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000468,codemaxscx,codemaxscx.contextmenu,445,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000491,codemaxscx,codemaxscx.contextmenu,446,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.001098,codemaxbase,codemaxbase.quickinfo,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000507,codemaxbase,codemaxbase.quickinfo,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000452,codemaxbase,codemaxbase.quickinfo,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000418,codemaxbase,codemaxbase.quickinfo,5,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000846,codemaxbase,codemaxbase.quickinfo,6,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000042,,gkkgetcommentstyle,11,gkkgetcommentstyle.fxp,2
+   0.000015,,gkkgetcommentstyle,12,gkkgetcommentstyle.fxp,2
+   0.000008,,gkkgetcommentstyle,13,gkkgetcommentstyle.fxp,2
+   0.000307,,gkkgetcommentstyle,14,gkkgetcommentstyle.fxp,2
+   0.000026,,gkkgetregstring_hkcu,4,gkkgetregstring_hkcu.fxp,3
+   0.000007,,gkkgetregstring_hkcu,5,gkkgetregstring_hkcu.fxp,3
+   0.000055,,gkkgetregstring_hkcu,6,gkkgetregstring_hkcu.fxp,3
+   0.000009,,gkkgetregstring_hkcu,7,gkkgetregstring_hkcu.fxp,3
+   0.000008,,gkkgetregstring_hkcu,10,gkkgetregstring_hkcu.fxp,3
+   0.000010,,gkkgetregstring_hkcu,11,gkkgetregstring_hkcu.fxp,3
+   0.000006,,gkkgetregstring_hkcu,12,gkkgetregstring_hkcu.fxp,3
+   0.000038,,gkkgetregstring_hkcu,13,gkkgetregstring_hkcu.fxp,3
+   0.000013,,gkkgetregstring_hkcu,14,gkkgetregstring_hkcu.fxp,3
+   0.000007,,gkkgetregstring_hkcu,15,gkkgetregstring_hkcu.fxp,3
+   0.000007,,gkkgetregstring_hkcu,18,gkkgetregstring_hkcu.fxp,3
+   0.000009,,gkkgetregstring_hkcu,21,gkkgetregstring_hkcu.fxp,3
+   0.000011,,gkkgetcommentstyle,15,gkkgetcommentstyle.fxp,2
+   0.000011,,gkkgetcommentstyle,18,gkkgetcommentstyle.fxp,2
+   0.000418,codemaxbase,codemaxbase.quickinfo,8,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000386,codemaxbase,codemaxbase.quickinfo,9,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000423,codemaxbase,codemaxbase.quickinfo,11,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000460,codemaxbase,codemaxbase.quickinfo,12,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000391,codemaxbase,codemaxbase.quickinfo,14,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000400,codemaxbase,codemaxbase.quickinfo,15,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000380,codemaxbase,codemaxbase.quickinfo,24,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000380,codemaxbase,codemaxbase.quickinfo,15,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000404,codemaxbase,codemaxbase.quickinfo,24,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000390,codemaxbase,codemaxbase.quickinfo,25,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000378,codemaxbase,codemaxbase.quickinfo,26,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000458,codemaxbase,codemaxbase.quickinfo,27,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000490,codemaxbase,codemaxbase.quickinfo,29,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000402,codemaxbase,codemaxbase.quickinfo,30,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000398,codemaxbase,codemaxbase.quickinfo,34,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000393,codemaxbase,codemaxbase.quickinfo,30,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000379,codemaxbase,codemaxbase.quickinfo,34,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000385,codemaxbase,codemaxbase.quickinfo,30,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000417,codemaxbase,codemaxbase.quickinfo,34,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000402,codemaxbase,codemaxbase.quickinfo,30,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000371,codemaxbase,codemaxbase.quickinfo,34,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000386,codemaxbase,codemaxbase.quickinfo,30,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000379,codemaxbase,codemaxbase.quickinfo,34,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000390,codemaxbase,codemaxbase.quickinfo,30,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000392,codemaxbase,codemaxbase.quickinfo,31,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000380,codemaxbase,codemaxbase.quickinfo,32,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000390,codemaxbase,codemaxbase.quickinfo,35,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000425,codemaxbase,codemaxbase.quickinfo,38,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+           ,codemaxbase,codemaxbase.quickinfo,40,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+           ,codemaxbase,codemaxbase.quickinfo,41,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+           ,codemaxbase,codemaxbase.quickinfo,49,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000385,codemaxbase,codemaxbase.quickinfo,58,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000386,codemaxbase,codemaxbase.quickinfo,59,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000421,codemaxbase,codemaxbase.quickinfo,60,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000400,codemaxbase,codemaxbase.quickinfo,61,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000382,codemaxbase,codemaxbase.quickinfo,62,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000388,codemaxbase,codemaxbase.quickinfo,64,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000836,codemaxbase,codemaxbase.quickinfo,65,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+           ,codemaxbase,codemaxbase.quickinfo,66,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+           ,codemaxbase,codemaxbase.quickinfo,67,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+           ,codemaxbase,codemaxbase.quickinfo,72,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000394,codemaxbase,codemaxbase.quickinfo,99,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000422,codemaxbase,codemaxbase.quickinfo,100,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000397,codemaxbase,codemaxbase.quickinfo,101,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000370,codemaxbase,codemaxbase.quickinfo,102,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.000386,codemaxbase,codemaxbase.quickinfo,103,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,1
+   0.001427,gkktab,gkktab.imgright.mouseleave,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkktabframe.vct,1
+   0.000118,gkktab,gkktab.mouseleave,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkktabframe.vct,2
+   0.000096,gkktab,gkktab.mouseleave,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkktabframe.vct,2
+   0.000283,gkktab,gkktab.mouseleave,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkktabframe.vct,2
+   0.000226,gkktab,gkktab.mouseleave,5,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkktabframe.vct,2
+   0.000216,gkktab,gkktab.mouseleave,6,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkktabframe.vct,2
+   0.000076,gkktab,gkktab.mouseleave,7,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkktabframe.vct,2
+   0.000082,gkktab,gkktab.mouseleave,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkktabframe.vct,1
+   0.000079,gkktab,gkktab.mouseleave,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkktabframe.vct,1
+   0.000184,gkktab,gkktab.mouseleave,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkktabframe.vct,1
+   0.000170,gkktab,gkktab.mouseleave,5,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkktabframe.vct,1
+   0.000173,gkktab,gkktab.mouseleave,6,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkktabframe.vct,1
+   0.000065,gkktab,gkktab.mouseleave,7,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkktabframe.vct,1
+   0.072323,editbase,editbase.queryunload,1,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,1
+   0.000468,,_6bk1ctaua.savebuffers,1,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000441,,_6bk1ctaua.savebuffers,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000430,,_6bk1ctaua.savebuffers,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000446,,_6bk1ctaua.savebuffers,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000437,,_6bk1ctaua.savebuffers,5,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000477,,_6bk1ctaua.savebuffers,6,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.005668,,_6bk1ctaua.savebuffers,7,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000413,editbase,editbase.getcodemaxstate,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000375,editbase,editbase.getcodemaxstate,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000494,editbase,editbase.getcodemaxstate,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000418,editbase,editbase.getcodemaxstate,7,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000419,editbase,editbase.getcodemaxstate,10,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000391,editbase,editbase.getcodemaxstate,11,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000389,editbase,editbase.getcodemaxstate,14,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000395,editbase,editbase.getcodemaxstate,15,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000631,editbase,editbase.getcodemaxstate,16,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000404,editbase,editbase.getcodemaxstate,17,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000397,editbase,editbase.getcodemaxstate,18,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000407,editbase,editbase.getcodemaxstate,19,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.002843,,_6bk1ctaua.savebuffers,8,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000255,infodisplay2,infodisplay2.gettabsettings,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000163,infodisplay2,infodisplay2.gettabsettings,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000158,infodisplay2,infodisplay2.gettabsettings,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000149,infodisplay2,infodisplay2.gettabsettings,5,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000151,infodisplay2,infodisplay2.gettabsettings,36,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000150,infodisplay2,infodisplay2.gettabsettings,37,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000154,infodisplay2,infodisplay2.gettabsettings,38,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000146,infodisplay2,infodisplay2.gettabsettings,43,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000172,infodisplay2,infodisplay2.gettabsettings,44,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000149,infodisplay2,infodisplay2.gettabsettings,45,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000150,infodisplay2,infodisplay2.gettabsettings,46,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000144,infodisplay2,infodisplay2.gettabsettings,47,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000147,infodisplay2,infodisplay2.gettabsettings,48,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000150,infodisplay2,infodisplay2.gettabsettings,49,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000439,,_6bk1ctaua.savebuffers,9,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000427,,_6bk1ctaua.savebuffers,12,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000479,,_6bk1ctaua.savebuffers,13,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000444,,_6bk1ctaua.savebuffers,6,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.005336,,_6bk1ctaua.savebuffers,7,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000424,editbase,editbase.getcodemaxstate,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000399,editbase,editbase.getcodemaxstate,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000400,editbase,editbase.getcodemaxstate,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000420,editbase,editbase.getcodemaxstate,7,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000406,editbase,editbase.getcodemaxstate,10,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000415,editbase,editbase.getcodemaxstate,11,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000387,editbase,editbase.getcodemaxstate,14,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000392,editbase,editbase.getcodemaxstate,15,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000383,editbase,editbase.getcodemaxstate,16,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000425,editbase,editbase.getcodemaxstate,17,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000404,editbase,editbase.getcodemaxstate,18,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000380,editbase,editbase.getcodemaxstate,19,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.002671,,_6bk1ctaua.savebuffers,8,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000215,infodisplay2,infodisplay2.gettabsettings,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000151,infodisplay2,infodisplay2.gettabsettings,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000150,infodisplay2,infodisplay2.gettabsettings,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000146,infodisplay2,infodisplay2.gettabsettings,5,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000148,infodisplay2,infodisplay2.gettabsettings,36,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000150,infodisplay2,infodisplay2.gettabsettings,37,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000149,infodisplay2,infodisplay2.gettabsettings,38,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000144,infodisplay2,infodisplay2.gettabsettings,43,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000149,infodisplay2,infodisplay2.gettabsettings,44,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000152,infodisplay2,infodisplay2.gettabsettings,45,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000146,infodisplay2,infodisplay2.gettabsettings,46,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000144,infodisplay2,infodisplay2.gettabsettings,47,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000150,infodisplay2,infodisplay2.gettabsettings,48,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000146,infodisplay2,infodisplay2.gettabsettings,49,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000417,,_6bk1ctaua.savebuffers,9,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000492,,_6bk1ctaua.savebuffers,12,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000595,,_6bk1ctaua.savebuffers,13,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000444,,_6bk1ctaua.savebuffers,6,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.005574,,_6bk1ctaua.savebuffers,7,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000409,editbase,editbase.getcodemaxstate,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000397,editbase,editbase.getcodemaxstate,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000485,editbase,editbase.getcodemaxstate,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000465,editbase,editbase.getcodemaxstate,7,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000487,editbase,editbase.getcodemaxstate,10,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000422,editbase,editbase.getcodemaxstate,11,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000380,editbase,editbase.getcodemaxstate,14,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000386,editbase,editbase.getcodemaxstate,15,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000436,editbase,editbase.getcodemaxstate,16,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000402,editbase,editbase.getcodemaxstate,17,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000398,editbase,editbase.getcodemaxstate,18,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000398,editbase,editbase.getcodemaxstate,19,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.002654,,_6bk1ctaua.savebuffers,8,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000192,infodisplay2,infodisplay2.gettabsettings,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000148,infodisplay2,infodisplay2.gettabsettings,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000147,infodisplay2,infodisplay2.gettabsettings,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000161,infodisplay2,infodisplay2.gettabsettings,5,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000149,infodisplay2,infodisplay2.gettabsettings,36,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000149,infodisplay2,infodisplay2.gettabsettings,37,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000148,infodisplay2,infodisplay2.gettabsettings,38,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000151,infodisplay2,infodisplay2.gettabsettings,43,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000145,infodisplay2,infodisplay2.gettabsettings,44,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000147,infodisplay2,infodisplay2.gettabsettings,45,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000145,infodisplay2,infodisplay2.gettabsettings,46,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000144,infodisplay2,infodisplay2.gettabsettings,47,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000144,infodisplay2,infodisplay2.gettabsettings,48,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000150,infodisplay2,infodisplay2.gettabsettings,49,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000425,,_6bk1ctaua.savebuffers,9,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000457,,_6bk1ctaua.savebuffers,12,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000421,,_6bk1ctaua.savebuffers,13,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000424,,_6bk1ctaua.savebuffers,6,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.005332,,_6bk1ctaua.savebuffers,7,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000403,editbase,editbase.getcodemaxstate,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000393,editbase,editbase.getcodemaxstate,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000397,editbase,editbase.getcodemaxstate,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000404,editbase,editbase.getcodemaxstate,7,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000409,editbase,editbase.getcodemaxstate,10,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000408,editbase,editbase.getcodemaxstate,11,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000392,editbase,editbase.getcodemaxstate,14,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000385,editbase,editbase.getcodemaxstate,15,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000397,editbase,editbase.getcodemaxstate,16,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000403,editbase,editbase.getcodemaxstate,17,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000429,editbase,editbase.getcodemaxstate,18,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.000408,editbase,editbase.getcodemaxstate,19,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,3
+   0.002660,,_6bk1ctaua.savebuffers,8,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000197,infodisplay2,infodisplay2.gettabsettings,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000154,infodisplay2,infodisplay2.gettabsettings,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000154,infodisplay2,infodisplay2.gettabsettings,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000147,infodisplay2,infodisplay2.gettabsettings,5,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000150,infodisplay2,infodisplay2.gettabsettings,36,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000149,infodisplay2,infodisplay2.gettabsettings,37,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000153,infodisplay2,infodisplay2.gettabsettings,38,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000145,infodisplay2,infodisplay2.gettabsettings,43,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000148,infodisplay2,infodisplay2.gettabsettings,44,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000150,infodisplay2,infodisplay2.gettabsettings,45,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000146,infodisplay2,infodisplay2.gettabsettings,46,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000143,infodisplay2,infodisplay2.gettabsettings,47,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000149,infodisplay2,infodisplay2.gettabsettings,48,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000156,infodisplay2,infodisplay2.gettabsettings,49,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000438,,_6bk1ctaua.savebuffers,9,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000425,,_6bk1ctaua.savebuffers,12,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000478,,_6bk1ctaua.savebuffers,13,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.002826,,_6bk1ctaua.savebuffers,14,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000191,infodisplay2,infodisplay2.gettabsettings,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000151,infodisplay2,infodisplay2.gettabsettings,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000147,infodisplay2,infodisplay2.gettabsettings,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000152,infodisplay2,infodisplay2.gettabsettings,5,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000151,infodisplay2,infodisplay2.gettabsettings,6,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000177,infodisplay2,infodisplay2.gettabsettings,7,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000150,infodisplay2,infodisplay2.gettabsettings,8,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000148,infodisplay2,infodisplay2.gettabsettings,9,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000146,infodisplay2,infodisplay2.gettabsettings,10,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000151,infodisplay2,infodisplay2.gettabsettings,11,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000149,infodisplay2,infodisplay2.gettabsettings,31,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000146,infodisplay2,infodisplay2.gettabsettings,32,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000146,infodisplay2,infodisplay2.gettabsettings,35,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000149,infodisplay2,infodisplay2.gettabsettings,48,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000146,infodisplay2,infodisplay2.gettabsettings,49,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000437,,_6bk1ctaua.savebuffers,15,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000428,,_6bk1ctaua.savebuffers,18,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.003864,,_6bk1ctaua.savebuffers,21,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000033,,gkksetstring_vfp,15,gkksetstring_vfp.fxp,3
+   0.000008,,gkksetstring_vfp,16,gkksetstring_vfp.fxp,3
+   0.001584,,gkksetstring_vfp,17,gkksetstring_vfp.fxp,3
+   0.000023,,gkkgetresource,15,gkkgetresource.fxp,4
+   0.000008,,gkkgetresource,16,gkkgetresource.fxp,4
+   0.000009,,gkkgetresource,19,gkkgetresource.fxp,4
+   0.000010,,gkkgetresource,22,gkkgetresource.fxp,4
+   0.000006,,gkkgetresource,23,gkkgetresource.fxp,4
+   0.000377,,gkkgetresource,24,gkkgetresource.fxp,4
+   0.000021,,gkkgetconfigpath,14,gkkgetconfigpath.fxp,5
+   0.000007,,gkkgetconfigpath,15,gkkgetconfigpath.fxp,5
+   0.000020,,gkkgetconfigpath,16,gkkgetconfigpath.fxp,5
+   0.000007,,gkkgetconfigpath,17,gkkgetconfigpath.fxp,5
+   0.000006,,gkkgetconfigpath,18,gkkgetconfigpath.fxp,5
+   0.000007,,gkkgetconfigpath,21,gkkgetconfigpath.fxp,5
+   0.000240,,gkkgetconfigpath,22,gkkgetconfigpath.fxp,5
+   0.000024,,gkkmakepath,15,gkkmakepath.fxp,6
+   0.000006,,gkkmakepath,16,gkkmakepath.fxp,6
+   0.000137,,gkkmakepath,17,gkkmakepath.fxp,6
+   0.000011,,gkkmakepath,51,gkkmakepath.fxp,6
+   0.000010,,gkkgetconfigpath,25,gkkgetconfigpath.fxp,5
+   0.000008,,gkkgetresource,25,gkkgetresource.fxp,4
+   0.000006,,gkkgetresource,26,gkkgetresource.fxp,4
+   0.000990,,gkkgetresource,27,gkkgetresource.fxp,4
+   0.000011,,gkkgetresource,28,gkkgetresource.fxp,4
+           ,,gkkgetresource,30,gkkgetresource.fxp,4
+   0.000010,,gkkgetresource,61,gkkgetresource.fxp,4
+   0.000006,,gkkgetresource,62,gkkgetresource.fxp,4
+   0.000006,,gkkgetresource,65,gkkgetresource.fxp,4
+   0.000006,,gkkgetresource,66,gkkgetresource.fxp,4
+   0.000007,,gkkgetresource,67,gkkgetresource.fxp,4
+           ,,gkksetstring_vfp,19,gkksetstring_vfp.fxp,3
+   0.000011,,gkksetstring_vfp,20,gkksetstring_vfp.fxp,3
+   0.000007,,gkksetstring_vfp,21,gkksetstring_vfp.fxp,3
+           ,,gkksetstring_vfp,22,gkksetstring_vfp.fxp,3
+   0.000009,,gkksetstring_vfp,40,gkksetstring_vfp.fxp,3
+   0.000009,,gkksetstring_vfp,41,gkksetstring_vfp.fxp,3
+   0.000006,,gkksetstring_vfp,43,gkksetstring_vfp.fxp,3
+   0.001229,,gkksetstring_vfp,44,gkksetstring_vfp.fxp,3
+   0.000009,,gkksetstring_vfp,45,gkksetstring_vfp.fxp,3
+   0.000104,,gkksetstring_vfp,46,gkksetstring_vfp.fxp,3
+   0.000031,,gkksetstring_vfp,47,gkksetstring_vfp.fxp,3
+   0.000036,,gkksetstring_vfp,48,gkksetstring_vfp.fxp,3
+   0.000007,,gkksetstring_vfp,49,gkksetstring_vfp.fxp,3
+   0.000010,,gkksetstring_vfp,53,gkksetstring_vfp.fxp,3
+   0.000009,,gkksetstring_vfp,54,gkksetstring_vfp.fxp,3
+   0.000006,,gkksetstring_vfp,55,gkksetstring_vfp.fxp,3
+   0.000128,,gkksetstring_vfp,56,gkksetstring_vfp.fxp,3
+   0.000014,,gkksetstring_vfp,57,gkksetstring_vfp.fxp,3
+   0.000007,,gkksetstring_vfp,58,gkksetstring_vfp.fxp,3
+   0.000008,,gkksetstring_vfp,61,gkksetstring_vfp.fxp,3
+   0.007411,,_6bk1ctaua.savebuffers,22,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000034,,gkksetstring_vfp,15,gkksetstring_vfp.fxp,3
+   0.000009,,gkksetstring_vfp,16,gkksetstring_vfp.fxp,3
+   0.004783,,gkksetstring_vfp,17,gkksetstring_vfp.fxp,3
+   0.000023,,gkkgetresource,15,gkkgetresource.fxp,4
+   0.000009,,gkkgetresource,16,gkkgetresource.fxp,4
+   0.000009,,gkkgetresource,19,gkkgetresource.fxp,4
+   0.000007,,gkkgetresource,22,gkkgetresource.fxp,4
+   0.000007,,gkkgetresource,23,gkkgetresource.fxp,4
+   0.000367,,gkkgetresource,24,gkkgetresource.fxp,4
+   0.000023,,gkkgetconfigpath,14,gkkgetconfigpath.fxp,5
+   0.000008,,gkkgetconfigpath,15,gkkgetconfigpath.fxp,5
+   0.000019,,gkkgetconfigpath,16,gkkgetconfigpath.fxp,5
+   0.000008,,gkkgetconfigpath,17,gkkgetconfigpath.fxp,5
+   0.000006,,gkkgetconfigpath,18,gkkgetconfigpath.fxp,5
+   0.000008,,gkkgetconfigpath,21,gkkgetconfigpath.fxp,5
+   0.000219,,gkkgetconfigpath,22,gkkgetconfigpath.fxp,5
+   0.000022,,gkkmakepath,15,gkkmakepath.fxp,6
+   0.000007,,gkkmakepath,16,gkkmakepath.fxp,6
+   0.000116,,gkkmakepath,17,gkkmakepath.fxp,6
+   0.000017,,gkkmakepath,51,gkkmakepath.fxp,6
+   0.000010,,gkkgetconfigpath,25,gkkgetconfigpath.fxp,5
+   0.000012,,gkkgetresource,25,gkkgetresource.fxp,4
+   0.000007,,gkkgetresource,26,gkkgetresource.fxp,4
+   0.004164,,gkkgetresource,27,gkkgetresource.fxp,4
+   0.000018,,gkkgetresource,28,gkkgetresource.fxp,4
+           ,,gkkgetresource,30,gkkgetresource.fxp,4
+   0.000011,,gkkgetresource,61,gkkgetresource.fxp,4
+   0.000008,,gkkgetresource,62,gkkgetresource.fxp,4
+   0.000009,,gkkgetresource,65,gkkgetresource.fxp,4
+   0.000007,,gkkgetresource,66,gkkgetresource.fxp,4
+   0.000009,,gkkgetresource,67,gkkgetresource.fxp,4
+           ,,gkksetstring_vfp,19,gkksetstring_vfp.fxp,3
+           ,,gkksetstring_vfp,20,gkksetstring_vfp.fxp,3
+   0.000011,,gkksetstring_vfp,22,gkksetstring_vfp.fxp,3
+   0.000007,,gkksetstring_vfp,23,gkksetstring_vfp.fxp,3
+   0.000007,,gkksetstring_vfp,24,gkksetstring_vfp.fxp,3
+   0.000011,,gkksetstring_vfp,25,gkksetstring_vfp.fxp,3
+           ,,gkksetstring_vfp,26,gkksetstring_vfp.fxp,3
+   0.000015,,gkksetstring_vfp,40,gkksetstring_vfp.fxp,3
+   0.000010,,gkksetstring_vfp,41,gkksetstring_vfp.fxp,3
+   0.000007,,gkksetstring_vfp,43,gkksetstring_vfp.fxp,3
+   0.001242,,gkksetstring_vfp,44,gkksetstring_vfp.fxp,3
+   0.000009,,gkksetstring_vfp,45,gkksetstring_vfp.fxp,3
+   0.000212,,gkksetstring_vfp,46,gkksetstring_vfp.fxp,3
+   0.000029,,gkksetstring_vfp,47,gkksetstring_vfp.fxp,3
+   0.000026,,gkksetstring_vfp,48,gkksetstring_vfp.fxp,3
+   0.000008,,gkksetstring_vfp,49,gkksetstring_vfp.fxp,3
+   0.000011,,gkksetstring_vfp,53,gkksetstring_vfp.fxp,3
+   0.000008,,gkksetstring_vfp,54,gkksetstring_vfp.fxp,3
+   0.000006,,gkksetstring_vfp,55,gkksetstring_vfp.fxp,3
+   0.000208,,gkksetstring_vfp,56,gkksetstring_vfp.fxp,3
+   0.000011,,gkksetstring_vfp,57,gkksetstring_vfp.fxp,3
+   0.000007,,gkksetstring_vfp,58,gkksetstring_vfp.fxp,3
+   0.000009,,gkksetstring_vfp,61,gkksetstring_vfp.fxp,3
+   0.013234,,_6bk1ctaua.savebuffers,23,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000035,,gkksetstring_vfp,15,gkksetstring_vfp.fxp,3
+   0.000009,,gkksetstring_vfp,16,gkksetstring_vfp.fxp,3
+   0.005297,,gkksetstring_vfp,17,gkksetstring_vfp.fxp,3
+   0.000023,,gkkgetresource,15,gkkgetresource.fxp,4
+   0.000009,,gkkgetresource,16,gkkgetresource.fxp,4
+   0.000010,,gkkgetresource,19,gkkgetresource.fxp,4
+   0.000007,,gkkgetresource,22,gkkgetresource.fxp,4
+   0.000007,,gkkgetresource,23,gkkgetresource.fxp,4
+   0.000382,,gkkgetresource,24,gkkgetresource.fxp,4
+   0.000022,,gkkgetconfigpath,14,gkkgetconfigpath.fxp,5
+   0.000008,,gkkgetconfigpath,15,gkkgetconfigpath.fxp,5
+   0.000021,,gkkgetconfigpath,16,gkkgetconfigpath.fxp,5
+   0.000008,,gkkgetconfigpath,17,gkkgetconfigpath.fxp,5
+   0.000006,,gkkgetconfigpath,18,gkkgetconfigpath.fxp,5
+   0.000008,,gkkgetconfigpath,21,gkkgetconfigpath.fxp,5
+   0.000231,,gkkgetconfigpath,22,gkkgetconfigpath.fxp,5
+   0.000022,,gkkmakepath,15,gkkmakepath.fxp,6
+   0.000008,,gkkmakepath,16,gkkmakepath.fxp,6
+   0.000129,,gkkmakepath,17,gkkmakepath.fxp,6
+   0.000012,,gkkmakepath,51,gkkmakepath.fxp,6
+   0.000010,,gkkgetconfigpath,25,gkkgetconfigpath.fxp,5
+   0.000013,,gkkgetresource,25,gkkgetresource.fxp,4
+   0.000007,,gkkgetresource,26,gkkgetresource.fxp,4
+   0.004663,,gkkgetresource,27,gkkgetresource.fxp,4
+   0.000016,,gkkgetresource,28,gkkgetresource.fxp,4
+           ,,gkkgetresource,30,gkkgetresource.fxp,4
+   0.000010,,gkkgetresource,61,gkkgetresource.fxp,4
+   0.000009,,gkkgetresource,62,gkkgetresource.fxp,4
+   0.000011,,gkkgetresource,65,gkkgetresource.fxp,4
+   0.000006,,gkkgetresource,66,gkkgetresource.fxp,4
+   0.000008,,gkkgetresource,67,gkkgetresource.fxp,4
+           ,,gkksetstring_vfp,19,gkksetstring_vfp.fxp,3
+   0.000012,,gkksetstring_vfp,20,gkksetstring_vfp.fxp,3
+   0.000007,,gkksetstring_vfp,21,gkksetstring_vfp.fxp,3
+           ,,gkksetstring_vfp,22,gkksetstring_vfp.fxp,3
+   0.000009,,gkksetstring_vfp,40,gkksetstring_vfp.fxp,3
+   0.000012,,gkksetstring_vfp,41,gkksetstring_vfp.fxp,3
+   0.000011,,gkksetstring_vfp,43,gkksetstring_vfp.fxp,3
+   0.001169,,gkksetstring_vfp,44,gkksetstring_vfp.fxp,3
+   0.000010,,gkksetstring_vfp,45,gkksetstring_vfp.fxp,3
+   0.005413,,gkksetstring_vfp,46,gkksetstring_vfp.fxp,3
+   0.000070,,gkksetstring_vfp,47,gkksetstring_vfp.fxp,3
+   0.000040,,gkksetstring_vfp,48,gkksetstring_vfp.fxp,3
+   0.000011,,gkksetstring_vfp,49,gkksetstring_vfp.fxp,3
+   0.000011,,gkksetstring_vfp,53,gkksetstring_vfp.fxp,3
+   0.000016,,gkksetstring_vfp,54,gkksetstring_vfp.fxp,3
+   0.000015,,gkksetstring_vfp,55,gkksetstring_vfp.fxp,3
+   0.000260,,gkksetstring_vfp,56,gkksetstring_vfp.fxp,3
+   0.000016,,gkksetstring_vfp,57,gkksetstring_vfp.fxp,3
+   0.000009,,gkksetstring_vfp,58,gkksetstring_vfp.fxp,3
+   0.000014,,gkksetstring_vfp,61,gkksetstring_vfp.fxp,3
+   0.000732,,_6bk1ctaua.savebuffers,24,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkeditscx.sct,2
+   0.000758,editbase,editbase.queryunload,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,1
+   0.010081,editbase,editbase.queryunload,10,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,1
+   0.000435,editbase,editbase.closesupportforms,1,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000416,editbase,editbase.closesupportforms,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000449,editbase,editbase.closesupportforms,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000425,editbase,editbase.closesupportforms,6,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000393,editbase,editbase.closesupportforms,7,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000386,editbase,editbase.closesupportforms,10,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000625,editbase,editbase.closesupportforms,11,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000410,editbase,editbase.closesupportforms,12,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000397,editbase,editbase.closesupportforms,13,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000439,editbase,editbase.closesupportforms,14,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000408,editbase,editbase.closesupportforms,15,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000376,editbase,editbase.closesupportforms,18,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000380,editbase,editbase.closesupportforms,19,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000383,editbase,editbase.closesupportforms,20,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000356,editbase,editbase.closesupportforms,21,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000382,editbase,editbase.closesupportforms,22,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000357,editbase,editbase.closesupportforms,23,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000366,editbase,editbase.closesupportforms,26,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000398,editbase,editbase.closesupportforms,27,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000378,editbase,editbase.closesupportforms,28,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000350,editbase,editbase.closesupportforms,29,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000348,editbase,editbase.closesupportforms,30,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000373,editbase,editbase.closesupportforms,34,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,2
+   0.000551,editbase,editbase.releasemodelessform,1,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,1
+   0.002116,editbase,editbase.releasemodelessform,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,1
+   0.041521,editbase,editbase.releasemodelessform,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,1
+   0.000247,bbgdilightbox,bbgdilightbox.showlightbox,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000151,bbgdilightbox,bbgdilightbox.showlightbox,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000143,bbgdilightbox,bbgdilightbox.showlightbox,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000155,bbgdilightbox,bbgdilightbox.showlightbox,55,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.001671,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000185,infodisplay2,infodisplay2.visible_assign,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000152,infodisplay2,infodisplay2.visible_assign,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000358,infodisplay2,infodisplay2.visible_assign,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000100,infogrid,infogrid.visible_assign,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkhflxgrid.vct,4
+   0.000087,infogrid,infogrid.visible_assign,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkhflxgrid.vct,4
+   0.000331,infodisplay2,infodisplay2.visible_assign,5,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000096,infogrid,infogrid.visible_assign,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkhflxgrid.vct,4
+   0.000081,infogrid,infogrid.visible_assign,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkhflxgrid.vct,4
+   0.000325,infodisplay2,infodisplay2.visible_assign,6,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000095,infogrid,infogrid.visible_assign,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkhflxgrid.vct,4
+   0.000084,infogrid,infogrid.visible_assign,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkhflxgrid.vct,4
+   0.000126,infodisplay2,infodisplay2.visible_assign,7,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkinfodisplay.vct,3
+   0.000139,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000142,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000135,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000533,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000151,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000155,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000136,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000171,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000137,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000182,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000143,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000171,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000140,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000177,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000263,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000226,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000203,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000222,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000239,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000232,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000143,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000205,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000141,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000176,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000241,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000194,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000190,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000182,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000139,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000160,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000137,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000160,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000134,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000160,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000140,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000157,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000136,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000173,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000141,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000160,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000136,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000161,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000136,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000157,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000138,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000170,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000136,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000174,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000143,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000146,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000132,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000173,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000142,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000185,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000140,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000157,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000134,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000159,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000136,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000175,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000138,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000217,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000138,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000176,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000137,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000171,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000142,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000171,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000136,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000175,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000140,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000141,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000137,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000268,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000138,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000172,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000138,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000173,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000138,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000169,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000137,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000176,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000138,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000169,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000143,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000137,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000130,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000188,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000143,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000169,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000139,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000140,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000130,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000170,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000138,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000173,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000138,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000174,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000136,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000171,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000137,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000143,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000142,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000173,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000134,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000176,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000139,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000136,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000132,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000146,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000131,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000139,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000133,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000173,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000294,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000286,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000264,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000164,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000139,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000185,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000165,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000191,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000161,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000195,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000158,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000173,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000140,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000198,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000137,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000161,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000194,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000194,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000141,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000175,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000141,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000160,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000136,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000143,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000138,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000139,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000131,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000158,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000135,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000141,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000134,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000176,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000137,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000174,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000139,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.001006,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000416,codemaxbase,codemaxbase.visible_assign,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000413,codemaxbase,codemaxbase.visible_assign,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000323,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000160,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000137,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.001703,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000378,codemaxbase,codemaxbase.visible_assign,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000390,codemaxbase,codemaxbase.visible_assign,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000387,codemaxbase,codemaxbase.visible_assign,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000382,codemaxbase,codemaxbase.visible_assign,5,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000270,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000141,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000132,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.001751,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000400,codemaxbase,codemaxbase.visible_assign,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000408,codemaxbase,codemaxbase.visible_assign,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000380,codemaxbase,codemaxbase.visible_assign,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000395,codemaxbase,codemaxbase.visible_assign,5,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000173,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000138,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000132,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.003087,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.001691,codemaxbase,codemaxbase.visible_assign,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000414,codemaxbase,codemaxbase.visible_assign,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000411,codemaxbase,codemaxbase.visible_assign,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000393,codemaxbase,codemaxbase.visible_assign,5,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000180,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000153,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000139,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.002685,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000402,codemaxbase,codemaxbase.visible_assign,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000625,codemaxbase,codemaxbase.visible_assign,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000731,codemaxbase,codemaxbase.visible_assign,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000729,codemaxbase,codemaxbase.visible_assign,5,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcodemax.vct,3
+   0.000191,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000149,bbgdilightbox,bbgdilightbox.showlightbox,56,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000135,bbgdilightbox,bbgdilightbox.showlightbox,57,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000147,bbgdilightbox,bbgdilightbox.showlightbox,58,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000138,bbgdilightbox,bbgdilightbox.showlightbox,59,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkklightboxv6.vct,2
+   0.000357,editbase,editbase.releasemodelessform,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,1
+   0.000427,editbase,editbase.releasemodelessform,5,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,1
+   0.000399,editbase,editbase.releasemodelessform,6,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,1
+   0.000367,editbase,editbase.releasemodelessform,7,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,1
+   0.000367,editbase,editbase.releasemodelessform,8,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkedit.vct,1
+   0.000512,,gkkcodepeek.destroy,1,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkcodepeek.sct,1
+   0.000091,gkkcollection,gkkcollection.removeall,1,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcollection.vct,2
+   0.000083,gkkcollection,gkkcollection.removeall,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcollection.vct,2
+   0.000081,gkkcollection,gkkcollection.removeall,3,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcollection.vct,2
+   0.000084,gkkcollection,gkkcollection.removeall,4,c:\program files (x86)\microsoft visual foxpro 9\gkktools\classes\gkkcollection.vct,2
+   0.000069,,gkkcodepeek.destroy,2,c:\program files (x86)\microsoft visual foxpro 9\gkktools\forms\gkkcodepeek.sct,1
