@@ -1,0 +1,195 @@
+Lparameters toUpdateInfo
+
+Text to lcNote NoShow
+# GoFish Change Log
+
+[Report Issues / Ask Questions / Make Suggestions](https://github.com/VFPX/GoFish/issues)
+
+[FAQ](FAQ.md)
+
+---
+
+## Version 7.1.06 - 2024-06-09
+
+Bug fixes:
+- Wild card search did not handle ? correctly.
+- Plain and wild card search did nothing if search expression had trailing backslash.
+
+## Version 7.1.05 - 2024-06-08
+
+Bug fix:
+- Skip list for folders was being ignored when searching "All Open Projects" (#244)
+
+## Version 7.1.04 - 2024-06-07
+
+- Progress bar is now updated during first pass (using grep to find files) and ESC is recognized.
+
+## Version 7.1.03 - 2024-06-06
+
+- Two new selections in the right-click context menu for nodes in TreeView
+    - Export stem name to clipboard (#240)
+    - GoFish for references to the file or class name
+
+## Version 7.1.02 - 2024-06-02
+
+- Bug fix:
+    - Wild card search gave incomplete results when searching in directories.
+
+## Version 7.1 - Minor version update - 2024-05-31
+
+With this version, there are dramatic speed improvements when searching in directories:
+- as much as four times faster for plain or wild card searching
+- and frequently faster than that when using regular expressions
+
+Concept and code suggestions for this courtesy of Mike Yearwood.
+
+## Version 7.0.34 - 2024-05-29
+
+- Fixed bug (#231) related to file templates on "Advanced" screen (again).  Related changes:
+    - You can enter multiple file templates, separated by commas.
+    - If you do not enter a file extension, the "normal" list of file extensions (appearing on same screen) is used.
+    - If you use '*' as the extension, GF may be bogged down searching files not of interest (such as text files created from binaries, or bak files).
+- Bugs fixed:
+    - Sorting on full path of file name.
+    - Elapsed time was not including time to save results.
+
+## Version 7.0.33 - 2024-05-25
+
+- Add new item "Project in CurDir" to scope type dropdown (#232)
+- Fixed RegEx bug (#231)
+
+## Version 7.0.32 - 2024-05-24
+
+- Speed improvement when searching open projects.
+- Reordered items in scope type dropdown.
+- Bugs fixed:
+    - Typing a folder or project into the scope that was not already in the dropdown did not work.
+    - Elapsed time for Custom UDF execution was not being captured correctly.
+
+## Version 7.0.31 - 2024-05-12
+
+- Added new Scope option "Results" to search only the files in the current Results set, that is, the files currently shown in the grid and Treeview (same list in both places), instead of those in the scope folder or project.
+- Added new Scope option "Custom UDF" to provide for the use of a custom UDF to generate the list of files to be searched (instead of files in the scope folder or project).  See [this FAQ Item](FAQ.md#CustomUDFScope).
+- Fixed bug in wildcard search when search expressions began with '*'
+
+## Version 7.0.30 - 2024-05-04
+
+- Consolidated all the settings introduced in version 6 into a single page ("New in V6") on the Options form.  Many of the captions were edited for clarity and some tooltips were added.
+
+## Version 7.0.29 - 2024-04-23
+
+- Added checkbox on the History form to provide for filtering search history to the current scope.
+- On the Options form, added confirmation prompt if cancelling without changing anything.
+- Bug fixes -
+    - Right-clicking on nodes in treeview sometimes did nothing (#224)
+    - Right-clicking on nodes of treeview or rows of  grid failed with bug if Thor was not active (#224).
+
+## Version 7.0.28 - 2024-04-21
+
+- Added new option on "Options" form, "Janitor" page to indicate how often the janitor runs (default = 7 days)
+
+## Version 7.0.27 - 2024-04-19
+
+- Created new FAQ page
+- Added link to new FAQ page (at bottom left of main form).
+
+## Version 7.0.26 - 2024-04-15
+
+- Dramatic optimization of RegEx searching -- as much as seven times faster.
+- Bug fixes:
+    - Problem when editing (double-clicking a row) could cause the Default property on a commandbutton to be changed to FALSE.
+    - When browsing binary file (VCX/SCX) as a table
+    - When right-clicking on column header.
+    - Search history was not being saved if no matches found.
+
+## Version 7.0.25 - 2024-04-14
+
+- New option added in Options screen: "When editing, select the control in which text is found"
+- Right-clicking on a node in the TreeView includes any of these options (as appropriate):
+    - Modify this file
+    - File name to clipboard
+    - Full file name (with Path) to clipboard
+    - --
+    - Browse as table
+    - SuperBrowse as table
+    - HackCX
+- Right-clicking on a row in the grid includes any of these options (as appropriate):
+    - Filter values in this column
+    - Filter by this file
+    - Filter by this class
+    - --
+    - Modify this file
+    - File name to clipboard
+    - Full file name (with Path) to clipboard
+    - --
+    - Browse as table
+    - SuperBrowse as table
+    - HackCX
+- Right-clicking on the 'Go Fish' button on the main form opens [Object Explorer](https://github.com/VFPX/ObjectExplorer).
+
+## Version 7.0.24 - 2024-04-10
+
+- Progress bar now shows number of files being processing
+- Clicking on the label that shows elapsed search time provides more detail.
+
+## Version 7.0.23 - 2024-04-06
+
+The right-click context menu in the grid (for both headers and cells) has a new entry:
+
+    Filter values in this column
+
+that opens the Filter form to the page matching the selected column.
+
+## Version 7.0.22 - 2024-04-03
+
+If you double-click on a match in a SCX/VCX and then close the SCX/VCX without changing anything, you no longer get the 'Save changes" dialog.
+
+(Enhancement to feature released in Version 7.0.20, #194)
+
+## Version 7.0.21 - 2024-04-02
+
+* Bug fix:
+    * In some cases, Code View shows only matching line and no context at all (#202).
+
+## Version 7.0.20 - 2024-03-28
+
+The normal behavior when you double-click on a row in the grid from a SCX or VCX (that is, opening the method for editing) has been enhanced as follows (#194):
+1.  If the row corresponds to an object in the form or class being edited and the object is at least partially visible, the object will be selected as if you had clicked on the object yourself. Objects that are hidden behind others, are in a page other than the visible page in a pageframe, as well as headers and columns in a grid, will not be selected.
+2. If PEM Editor is open, the object will be selected there, even if the attempted selection in the actual form or class (as described above) does not work.
+
+## Version 7.0.19 - 2024-03-27
+
+* Double-clicking on a file or class name in the TreeView will open that file or class for editing.  This restores a feature available in GF 5.
+* Ctrl+Clicking on a column header sorts on that column and removes any secondary or tertiary sorts.
+
+## Version 7.0.18 - 2024-03-24
+
+* Date/Time expressions now respect user settings for SET DATE and SET HOURS. (#189)
+* Bug fixes:
+    * Error when closing combobox for scope (#192)
+    * Error opening "Advanced" form
+
+## Version 7.0.17 - 2024-03-23
+
+* Multiple identical results were occurring for matches in MNXs using regular expressions (#190).
+* Scope setting "Search All Projects" was not working if projects were not all in the same folder (#188)
+* MRU list for search dropdown was misbehaving under some conditions (#187)
+* The "Advanced" form has been simplified and shows only those options not already appearing on the main form.
+
+## Version 7.0.16 - 2024-03-18
+
+Notes on the previous version (7.0.15) were over-confident about being able to eliminate the problem of files hitting the 2G limit. There has been significant progress in making these problems exceedingly unlikely and this update is one more step in that direction, but it is not possible to promise they will never occur again.
+
+## Version 7.0.15 - 2024-03-17
+
+* Remove redundant (and confusing) display in Code View pane for matches in MNXs
+EndText
+
+AddProperty(toUpdateInfo, 'AvailableVersion', 'GoFish - 7.1.06 - June 09, 2024 - 20240609')
+AddProperty(toUpdateInfo, 'SourceFileUrl', 'https://raw.githubusercontent.com/VFPX/GoFish/master/Source/Source.zip')
+AddProperty(toUpdateInfo, 'LinkPrompt', 'GoFish Home Page')
+AddProperty(toUpdateInfo, 'Link', 'https://github.com/VFPX/GoFish')
+AddProperty(toUpdateInfo, 'Notes', lcNote)
+
+Execscript (_Screen.cThorDispatcher, 'Result=', toUpdateInfo)
+Return toUpdateInfo
