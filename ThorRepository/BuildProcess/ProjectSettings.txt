@@ -1,0 +1,8 @@
+AppName   = Thor Repository
+AppID     = ThorRepository
+Version   = 65.19
+Component = Yes
+
+ChangeLog      = Change Log.MD
+Bin2PRGFolder  = InstalledFiles
+

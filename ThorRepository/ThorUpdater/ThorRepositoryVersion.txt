@@ -1,0 +1,134 @@
+lparameters toUpdateObject
+
+lcDate = '20240113'
+
+With m.toUpdateObject
+	.VersionNumber    = '65.19 - ' + lcDate
+
+	.AvailableVersion = 'Thor Repository - 65.19 - 08778- ' + lcDate
+	.Notes			  = GetNotes()
+	.InstallInTools	  = .T.
+endwith
+return toUpdateObject
+
+procedure GetNotes
+local lcNotes
+text to lcNotes noshow
+### Thor Repository 65.19 - Released 2024-01-13
+* Fix bug in Thor Tool Manager (reported in Thor issue #252 )
+
+### Thor Repository 65.18 - Released 2023-11-12
+* New Thor Proc to un-install deprecated GoFish5; invoked by any update to GoFish
+
+### Thor Repository 65.17 - Released 2023-11-03
+* Some minor refactoring of CleanUpThorTables in Thor_Proc_Utils (Try/Catch)
+* Fix bug in Install Quick Access Menu for hot key for popup menu
+
+### Thor Repository 65.16C - Released 2023-10-29
+* Install Quick Access Menu now reassigns hot keys correctly.
+* If the current window is not a code window, Tool "Cycle Code Windows" goes to the most recent code window.
+* Tool "Open MRUs" moved here from PEMEditor and now respects Thor font size for menus
+* New PROCs added to Thor_Proc_Utils
+
+### Thor Repository 65.15C - Released 2023-10-22
+* Fixed handling in Context Help when download of directory table failed.
+
+### Thor Repository 65.15B - Released 2023-10-13
+* Fixed bug in Quick-Menu help screen
+* Minor enhancement to 'Modify Position and Size' form
+
+### Thor Repository 65.15A - Released 2023-10-11
+* Fixed issue in SuperBrowse when moving a column
+* Fixed issue with 'Execute highlighted text' (if any is highlighted)
+* Renamed "Dropdown Macros" to "Dropdown Command Expansions"
+
+### Thor Repository 65.15 - Released 2023-10-07
+* Enhanced tool "Find Buffer Overrun Threats".
+* Removed option from Tool Manager
+* Fixed issues in SuperBrowse
+    * Bug if IntellisenseX not installed (reported by Phil Sherwood)
+    * Allowed use of Double-Click to view a record in read-only mode.
+    * Took advantage of DynamicForms' memo field editing / editbox
+
+### 2023-10-01, Version 65.14D
+* Fixed more context menu bugs
+
+### 2023-09-24, Version 65.14C
+* Fixed context menu bugs
+
+### 2023-09-02, Version 65.14B
+* Fixed bug in proc for handling context menu "Run" option
+
+### 2023-08-29, Version 65.14
+* Fixed bug in proc for "add words to CKL"
+* Updates / corrections, including new context menus, to two tools
+    * Tool Manager
+    * Browse Hot Keys
+
+### 2023-08-26, Version 65.13B
+* Modified help for hidden context menu tool
+* Some files moved here from Thor
+
+### 2023-08-17, Version 65.12
+* Add new property .AppID to all tools to identify the project they originate in.
+
+### 2023-08-11, Version 65.11
+* Foundational change to support future use of .AppID
+
+### 2023-08-05, Version 65.10
+* Various updates to SuperBrowse, including documentation update
+* Correct "Category" property for a few tools
+
+### 2023-07-23, Version 65.09
+Bug fix; remove extraenous files from Zip
+
+### 2023-07-19, Version 65.08
+Bug fix in SuperBrowse when editing a record using DynamicForm
+
+### 2023-06-26, Version 65.07
+Bug fix; no visible effect on any Tools
+
+### 2023-06-10, Version 65.06
+Mainly updated documentation for a few tools; a bug fix or two
+
+### 2023-05-20, Version 65.05
+Updates of some Procs; no visible effect on any Tools
+
+### 2023-03-19, Version 65.04
+Updates of some Procs; no visible effect on any Tools
+
+### 2023-02-08, Version 65.03
+Updates of some Procs; no visible effect on any Tools
+
+### 2023-02-05, Version 65.02
+Updates of some Procs; no visible effect on any Tools
+
+### 2023-01-29, Version 65.01
+Updates of some Procs; no visible effect on any Tools
+
+### 2023-01-20, Version 65
+New Tools:
+* **Execute Selected Text**
+    * Extension of context menu option "Execute Selection" when editing code.
+    * Selects current (possibly multiple line) statement if nothing highlighted.
+    * Recognizes defined constants in highlighted text.
+* **Highlight Current Statement**
+    * Selects current (possibly multiple line) statement if nothing highlighted.
+
+### Version 64.06
+Added configuration for changes to [PEMEditor](https://github.com/VFPX/PEMEditor) 7.41.00
+
+### Version 64.05
+Missing sources in the zip file
+
+### Version 64.04
+Added configuration for changes to [PEMEditor](https://github.com/VFPX/PEMEditor) 7.40.00
+
+----
+## Contribution
+See [contribution](./.github/CONTRIBUTING.md)
+
+Last changed: _2023/03/19_ ![Picture](./docs/images/vfpxpoweredby_alternative.gif)
+endtext
+return lcNotes
+
