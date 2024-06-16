@@ -1,0 +1,1 @@
+Lparameters tcApplicationName, tcInstallationFolder
