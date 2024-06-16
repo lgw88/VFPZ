@@ -1,0 +1,3284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>TestData\Index\CODELOG.LOG Coverage Analysis</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+<style type="text/css">
+
+body {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial, sans-serif;
+    background-color: #4B7697;
+    color: #F0F0F0;
+    background: #4b7697; /* Old browsers */
+    background: -moz-linear-gradient(left, #4b7697 0%, #a0c1d8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #4b7697 0%,#a0c1d8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #4b7697 0%,#a0c1d8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4b7697', endColorstr='#a0c1d8',GradientType=1 ); /* IE6-9 */
+}
+
+a {
+    color: #00E;
+}
+
+h3 {
+    color: #F0F0F0;
+    margin: 10px 0 2px 0;
+    font-size: 1.4em;
+}
+
+p.subTitle {
+    margin-bottom: 15px;
+}
+
+p {
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+pre {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border: #000 outset 10px;
+    color: #000;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+pre a {
+    color: #00E;
+}
+
+.fileDiv {
+    font-weight: bold;
+}
+
+.preBold {
+    font-weight: bold;
+}
+
+.eofPara {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.hdgChunk {
+    color: #000;
+    padding: 7px 15px;
+    border: inset;
+    display: inline-block;
+}
+
+.hdgChunk .big {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.hdgChunk a {
+    color: #00E;
+}
+
+.colorB {
+    background-color: #D2E3EF;
+}
+
+.colorF {
+    background-color: #D7D7F2;
+}
+
+.colorM {
+    background-color: #D1F1E4;
+}
+
+.advisory {
+    width: 40%;
+    font-size: 0.9em;
+    color: #A4DDC5;
+}
+
+.centertext {
+    text-align: center;
+}
+
+.redBand {
+    background-color: #FFD2CB
+}
+
+.yellowBand {
+    background-color: #FFF4CB
+}
+
+</style>
+</head>
+<body>
+
+<center>
+<h3>TestData\Index\CODELOG.LOG Coverage Analysis</h3>
+<p class="subTitle">Generated on 03/08/2016 at 3:47</p>
+
+<p class="advisory">Please Note - Coverage times are reported by VFP and may be
+    affected by other Windows and/or network events.</p>
+</center>
+
+<p class="hdgChunk colorB">Program: <span class="big">Siteind3.Fxp</span>
+<a name="siteind3_Code"></a><br />
+Starts at Line: 43<br />
+<pre class="colorB">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   nSeleIn = SELECT()
+                   
+                   SET COVERAGE TO CODELOG.LOG
+                   
+                   * Create our object
+   1     0.0529    oObj = CREATEOBJECT('SiteIndexHdgsPage', cProduct, oCaller)
+                   
+                   * Return the generated page
+<span class="redBand">   1     0.7500    cRetHTML = oObj.<a href="#siteindexhdgspage_generatepage">GeneratePage</a>()</span>
+                   
+   1     0.0000    SET COVERAGE TO
+                   
+                   * Clean up and we're outta here
+                   oObj.Release()
+                   SELECT (nSeleIn)
+                   RETURN cRetHTML
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Indexheadings.Assignhelpnos</span><a name="indexheadings_assignhelpnos"></a><br />
+File: e:\aliweb\source\siteind3.fxp<br />
+Starts at Line: 671<br />
+Called by: <a href="#indexproduct_setup">Indexproduct.Setup</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- AssignHelpNos() - Assign help numbers to our cells
+         0.0330    FUNCTION AssignHelpNos(nNewHelp)
+                       LOCAL nHelp, nRow, oObj
+  33     0.0004        WITH THIS
+  33     0.0003            nHelp = nNewHelp
+  33     0.0003            FOR nRow = 1 TO .nCount
+<span class="redBand"> 119     0.0281                oObj = .<a href="#ycollection_getitem">GetItem</a>(nRow)</span>
+ 119     0.0015                oObj.nHelp = nHelp
+ 119     0.0010                nHelp = nHelp + 1
+ 119     0.0009            ENDFOR
+  33     0.0002        ENDWITH
+  33     0.0003        RETURN nHelp
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Indexheadings.Destroy</span><a name="indexheadings_destroy"></a><br />
+File: e:\aliweb\source\siteind3.fxp<br />
+Starts at Line: 733<br />
+Called by: <a href="#arrayobj_release">Arrayobj.Release</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Destroy() - Undo ourselves
+         0.0252    FUNCTION Destroy()
+  66     0.0006        IF PEMSTATUS(THIS, 'oCaller', 5) AND NOT ISNULL(THIS.oCaller)
+  33     0.0003            THIS.oCaller  = NULL
+  33     0.0003        ENDIF
+<span class="redBand">  66     0.0240        <a href="#uemptycollection_destroy">DODEFAULT</a>()</span>
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Indexheadings.Getblockhtml</span><a name="indexheadings_getblockhtml"></a><br />
+File: e:\aliweb\source\siteind3.fxp<br />
+Starts at Line: 685<br />
+Called by: <a href="#indexproduct_getrowhtml">Indexproduct.Getrowhtml</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- GetBlockHTML() - Return the number td and page link td
+         0.0451    FUNCTION GetBlockHTML(nItm, cMargin)
+ 119     0.0011        LOCAL oCell, cExteURL, cText, cID, cTip, cLegend, cClass
+                   
+                       * Get our item
+<span class="redBand"> 119     0.0263        oCell = THIS.<a href="#ycollection_getitem">GetItem</a>(nItm)</span>
+                   
+                       * The number cell looks like:
+                       *   <td class="numb LinkLook" onclick="getNdxPage(LINK)">NUMBER</td>
+                       * Or, if no link
+                       *   <td class="numb">NUMBER</td>
+ 119     0.0014        cExteURL = oCell.cExteHelp
+ 119     0.0010        IF EMPTY(cExteURL)
+  36     0.0003            cText = cMargin + '<td class="numb">'
+  36     0.0003        ELSE
+                           cText = cMargin + [<td class="numb LinkLook" onclick="getNdxPage('] + ;
+  83     0.0007              cExteURL + [')">]
+  83     0.0006        ENDIF
+ 119     0.0011        cText = cText + TRANSFORM(oCell.nHelp) + '</td>' + CR_LF
+                   
+                       * The link cell looks like:
+                       *   <td><span class="LinkLook" onclick="clickMenu('MENU_ID')"
+                       *     title="TITLE TEXT">LINK NAME</span></td>
+                       * (We ALWAYS have a link here.)
+ 119     0.0009        WITH oCell
+ 119     0.0009            cID  = .cMenuID
+ 119     0.0010            cTip = .cToolTip
+ 119     0.0009            cLegend = TRIM(.cCaption)
+ 119     0.0014            IF '&' $ cLegend AND NOT ('&amp;' $ cLegend OR '&eacute;' $ cLegend)
+                               cLegend = STRTRAN(cLegend, '&', '&amp;')
+                           ENDIF
+ 119     0.0009            IF .bIsAvail
+ 119     0.0009                cClass = 'LinkLook'
+ 119     0.0009                IF .bIsMRU
+  33     0.0003                    cClass = cClass + ' mostUsed'
+  33     0.0002                ENDIF
+ 119     0.0008            ELSE
+                               cClass = 'notAvail'
+                           ENDIF
+ 119     0.0009        ENDWITH
+                       cText = cText + cMargin + '<td>' + [<span class="] + cClass + ;
+                         [" onclick="clickMenu('] + cID + [')" title="] + cTip + [">] + ;
+ 119     0.0012          cLegend + [</span></td>] + CR_LF
+                   
+                       * Done
+ 119     0.0011        RETURN cText
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Indexheadings.Init</span><a name="indexheadings_init"></a><br />
+File: e:\aliweb\source\siteind3.fxp<br />
+Starts at Line: 541<br />
+Called by: <a href="#indexproduct_setup">Indexproduct.Setup</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Init() - Initialize ourselves
+         0.5182    FUNCTION Init(cID, cCaption, oCaller)
+<span class="yellowBand">  33     0.1253        IF NOT <a href="#uemptycollection_init">DODEFAULT</a>()</span>
+                           RETURN .F.
+                       ENDIF
+  33     0.0004        WITH THIS
+  33     0.0003            .oCaller   = oCaller
+  33     0.0003            .cCliProds = oCaller.cCliProds
+  33     0.0003            .cHdgID    = cID
+  33     0.0003            .cCaption  = cCaption
+  33     0.0003            .cRowTable = THIS.oCaller.oCaller.cRowTable
+  33     0.0002        ENDWITH
+<span class="redBand">  33     0.3908        RETURN THIS.<a href="#indexheadings_setup">Setup</a>()</span>
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Indexheadings.Loadourlinks</span><a name="indexheadings_loadourlinks"></a><br />
+File: e:\aliweb\source\siteind3.fxp<br />
+Starts at Line: 591<br />
+Called by: <a href="#indexheadings_setup">Indexheadings.Setup</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- LoadOurLinks() - Load all of our Menu links
+         0.1679    FUNCTION LoadOurLinks()
+                       LOCAL cHdgID, cBegLink, cEndLink, cLinkList, cTable, cMenuAlias, ;
+  33     0.0004          cFilter, cCaption, cPosn, oUIUSAGE, dLimit, cLogin, cOldNear
+                   
+                       * Get our links from CLIINDEX
+  33     0.0003        <a href="#kdatafile_select">SELECT</a> CLIINDEX
+  33     0.0003        cHdgID = THIS.cHdgID
+  33     0.0004        SEEK cHdgID
+                   
+                       * Get a list of all of our links
+  33     0.0003        cBegLink = ''
+  33     0.0002        cEndLink = ''
+  33     0.0002        cLinkList = ''
+  33     0.0003        SCAN WHILE PARENT = cHdgID
+ 119     0.0010            cLinkList = cLinkList + MENUID + ','
+ 119     0.0009            IF MENUID < cBegLink OR EMPTY(cBegLink)
+  48     0.0004                cBegLink = MENUID
+  48     0.0003            ENDIF
+ 119     0.0009            IF MENUID > cEndLink OR EMPTY(cEndLink)
+  82     0.0006                cEndLink = MENUID
+  82     0.0006            ENDIF
+ 119     0.0010        ENDSCAN
+                   
+                       * Now, get a table of CLIMENUS data - plus some other fields
+  33     0.0003        cTable = THIS.cRowTable
+  33     0.0003        cMenuAlias = THIS.oCaller.oCaller.oCLIMENUS.cAlias
+                       <a href="#kdatafile_select">SELECT</a> *, ' ' AS MENUROW, SPACE(40) AS DISPTEXT, 003 AS HITS, ;
+                         .F. AS CANUSE FROM (cMenuAlias) ;
+                         WHERE ID >= cBegLink AND ID <= cEndLink AND ID $ cLinkList ;
+<span class="redBand">  33     0.1174          INTO TABLE (cTable)</span>
+  33     0.0120        INDEX ON POSN TAG POSN
+  33     0.0012        INDEX ON ID TAG ID
+                   
+                       * Change the captions to our values and the CANUSE field for filtering
+                       cFilter = ["] + STRTRAN(THIS.cCliProds, ',', [" $ PRODUCTS OR "]) + ;
+  33     0.0006          [" $ PRODUCTS]
+  33     0.0003        <a href="#kdatafile_select">SELECT</a> CLIINDEX
+  33     0.0003        SET RELATION TO MENUID INTO RowMenus
+  33     0.0004        SEEK cHdgID
+  33     0.0003        SCAN WHILE PARENT = cHdgID
+ 119     0.0010            cCaption = CAPTION
+ 119     0.0009            cPosn = ' ' + POSN
+ 119     0.0011            <a href="#kdatafile_select">SELECT</a> RowMenus
+ 119     0.0028            REPLACE DISPTEXT WITH cCaption, POSN WITH cPosn, CANUSE WITH &cFilter
+ 119     0.0011            <a href="#kdatafile_select">SELECT</a> CLIINDEX
+ 119     0.0011        ENDSCAN
+  33     0.0003        SET RELATION TO
+  33     0.0003        <a href="#kdatafile_select">SELECT</a> RowMenus
+                   
+                       * Finally, we have to set the HITS field using oUIUSAGE
+                       *   UIUSAGE.DBF - Client's Usage in the new UI
+                       *       Indexes: DATE - Key: LOGIN + DTOS(DATE) + MENUID
+                       *                MENUID - Key: LOGIN + MENUID + DTOS(DATE)
+  33     0.0002        <a href="#kdatafile_select">SELECT</a> RowMenus
+  33     0.0003        SET ORDER TO ID
+                   
+                       * Setup UIUSAGE
+  33     0.0004        oUIUSAGE = THIS.oCaller.oCaller.oUIUSAGE
+  33     0.0003        dLimit = DATE() - oUIUSAGE.nDateLimit
+  33     0.0022        oUIUSAGE.<a href="#kdatafile_select">SELECT</a>()
+  33     0.0003        SET RELATION TO MENUID INTO RowMenus
+                   
+                       * Look for the first possible record for a client
+  33     0.0003        cLogin = oProcess.cClientLogin
+  33     0.0003        cOldNear = SET('NEAR')
+  33     0.0002        SET NEAR ON
+  33     0.0004        SEEK cLogin + DTOS(dLimit)
+                       REPLACE RowMenus.HITS WITH RowMenus.HITS + HITS FOR FOUND('RowMenus') ;
+  33     0.0114          WHILE LOGIN = cLogin
+  33     0.0003        SET RELATION TO
+  33     0.0003        SET NEAR &cOldNear
+  33     0.0003        oUIUSAGE = NULL
+                   
+                       * Clean up and reset things
+  33     0.0003        <a href="#kdatafile_select">SELECT</a> RowMenus
+  33     0.0003        SET ORDER TO 0
+  33     0.0003        RETURN .T.
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Indexheadings.Setup</span><a name="indexheadings_setup"></a><br />
+File: e:\aliweb\source\siteind3.fxp<br />
+Starts at Line: 556<br />
+Called by: <a href="#indexheadings_init">Indexheadings.Init</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Setup() - Create all of our column objects and load them
+         0.3848    FUNCTION Setup(cIndxID)
+  33     0.0003        LOCAL nMax, nMRUID, bIsMRU
+                   
+                       * Load all of our Menu links
+<span class="redBand">  33     0.1799        IF NOT THIS.<a href="#indexheadings_loadourlinks">LoadOurLinks</a>()</span>
+                           RETURN .F.
+                       ENDIF
+                   
+                       * Get the highest HITS count for our MRU flag
+  33     0.0004        nMax = 0
+  33     0.0003        nMRUID = ' '
+  33     0.0004        SET FILTER TO HITS > 0
+  33     0.0003        SCAN
+ 119     0.0009            IF HITS > nMax
+  46     0.0003                nMax = HITS
+  46     0.0003                nMRUID = ID
+  46     0.0003            ENDIF
+ 119     0.0010        ENDSCAN
+  33     0.0002        SET FILTER TO
+                   
+                       * Create our individual cells
+  33     0.0003        SET ORDER TO POSN
+  33     0.0003        SCAN
+ 119     0.0009            bIsMRU = .F.
+ 119     0.0010            IF ID == nMRUID
+  33     0.0002                bIsMRU = .T.
+  33     0.0002            ENDIF
+<span class="yellowBand"> 119     0.1674            THIS.<a href="#uemptycollection_additem">AddItem</a>(ID, DISPTEXT, bIsMRU, CANUSE, TOOLTIP, EXTEHELP)</span>
+ 119     0.0015        ENDSCAN
+                   
+                       * Done with our table
+  33     0.0284        USE IN RowMenus
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Indexproduct.Destroy</span><a name="indexproduct_destroy"></a><br />
+File: e:\aliweb\source\siteind3.fxp<br />
+Starts at Line: 482<br />
+Called by: <a href="#arrayobj_release">Arrayobj.Release</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Destroy() - Undo ourselves
+         0.0407    FUNCTION Destroy()
+  20     0.0002        LOCAL nX, oHdg
+  20     0.0002        IF PEMSTATUS(THIS, 'oHeadings', 5) AND NOT ISNULL(THIS.oHeadings)
+  10     0.0001            WITH THIS.oHeadings
+  10     0.0001                FOR nX = 1 TO .nRows
+  33     0.0003                    oHdg = .aRA[nX,3]
+  33     0.0004                    .aRA[nX,3] = NULL
+<span class="redBand">  33     0.0303                    oHdg.<a href="#arrayobj_release">Release</a>()</span>
+  33     0.0004                ENDFOR
+  10     0.0001            ENDWITH
+  10     0.0013            THIS.oHeadings.<a href="#arrayobj_release">Release</a>()
+  10     0.0001        ENDIF
+  20     0.0002        IF PEMSTATUS(THIS, 'oCaller', 5) AND NOT ISNULL(THIS.oCaller)
+  10     0.0001            THIS.oCaller  = NULL
+  10     0.0001        ENDIF
+<span class="yellowBand">  20     0.0068        <a href="#uemptycollection_destroy">DODEFAULT</a>()</span>
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Indexproduct.Getcolornumber</span><a name="indexproduct_getcolornumber"></a><br />
+File: e:\aliweb\source\siteind3.fxp<br />
+Starts at Line: 352<br />
+Called by: <a href="#indexproduct_setup">Indexproduct.Setup</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- GetColorNumber() - Return the color number for a row
+         0.0003    FUNCTION GetColorNumber(nRowNum)
+<span class="yellowBand">  10     0.0001        LOCAL nClrNumb</span>
+                   
+                       * What's its background color number? We'll go sequentially through our
+                       *   colors but restart when we need to
+<span class="redBand">  10     0.0001        nClrNumb = MOD((nRowNum-1), THIS.nNumColors) + 1</span>
+<span class="yellowBand">  10     0.0001        RETURN nClrNumb</span>
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Indexproduct.Getheadingrow</span><a name="indexproduct_getheadingrow"></a><br />
+File: e:\aliweb\source\siteind3.fxp<br />
+Starts at Line: 421<br />
+Called by: <a href="#indexproduct_getrowhtml">Indexproduct.Getrowhtml</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- GetHeadingRow() - Return the HTML for our headings row
+         0.0022    FUNCTION GetHeadingRow()
+  10     0.0001        LOCAL cReturn, nRows, nX, cHdg, nRows2Do
+                   
+                       * This won't be anything if we have no headings
+  10     0.0001        cReturn = ''
+  10     0.0001        IF THIS.bHasHdgs
+                   
+                           * Start with 2 empty tds
+                           cReturn = '  <td></td>' + CR_LF + ;
+   9     0.0001              '  <td></td>' + CR_LF
+                   
+                           * Now, add our headings
+   9     0.0001            WITH THIS.oHeadings
+   9     0.0001                nRows = .nRows
+   9     0.0001                FOR nX = 1 TO nRows
+<span class="yellowBand">  32     0.0002                    cHdg = .aRA[nX,2]</span>
+                   
+                                   * Generate the number and heading columns
+                                   cReturn = cReturn + '  <td></td>' + CR_LF + ;
+<span class="redBand">  32     0.0003                      '  <td class="subHdg">' + cHdg + '</td>' + CR_LF</span>
+<span class="yellowBand">  32     0.0002                ENDFOR</span>
+   9     0.0001            ENDWITH
+                   
+                           * Make sure we have 5 heading colums
+   9     0.0001            nRows2Do = 5 - nRows
+   9     0.0001            FOR nX = 1 TO nRows2Do
+                               cReturn = cReturn + '  <td></td>' + CR_LF + ;
+  13     0.0001                  '  <td></td>' + CR_LF
+  13     0.0001            ENDFOR
+                   
+                           * Put this inside a tr
+                           cReturn = '<tr>' + CR_LF + ;
+   9     0.0001              cReturn + '</tr>' + CR_LF
+   9     0.0001        ENDIF
+  10     0.0001        RETURN cReturn
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Indexproduct.Getprodcols</span><a name="indexproduct_getprodcols"></a><br />
+File: e:\aliweb\source\siteind3.fxp<br />
+Starts at Line: 459<br />
+Called by: <a href="#indexproduct_getrowhtml">Indexproduct.Getrowhtml</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- GetProdCols() - Return the roman numeral and product tds
+         0.0012    FUNCTION GetProdCols(cMargin)
+<span class="yellowBand">  10     0.0001        LOCAL nMaxRows, cSpan, cLine, cReturn</span>
+                   
+                       * Add the roman numeral td with a rowspan
+<span class="redBand">  10     0.0001        nMaxRows = MAX(3, THIS.nMaxRows)</span>
+  10     0.0001        cSpan = [rowspan="] + TRANSFORM(nMaxRows) + ["]
+                       cLine = cMargin + [<td class="rowNumb" ] + cSpan + [>] + ;
+  10     0.0001          THIS.cRomanNumb + [</td>] + CR_LF
+  10     0.0001        cReturn = cLine
+                   
+                       * Add a 2nd td with the product, also with a rowspan
+                       cLine = cMargin + [<td class="prodTitle" ] + cSpan + [>] + ;
+  10     0.0001          THIS.cProdTitle
+<span class="yellowBand">  10     0.0001        cImage = THIS.cIconURL</span>
+  10     0.0001        IF NOT EMPTY(cImage)
+                           cLine = cLine + [<br /><center><img src="] + cImage + ;
+   8     0.0001              [" alt="] + THIS.cProdTitle + [" /></center>]
+   8     0.0001        ENDIF
+  10     0.0001        cReturn = cReturn + cLine + [</td>] + CR_LF
+  10     0.0001        RETURN cReturn
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Indexproduct.Getromannumeral</span><a name="indexproduct_getromannumeral"></a><br />
+File: e:\aliweb\source\siteind3.fxp<br />
+Starts at Line: 317<br />
+Called by: <a href="#indexproduct_setup">Indexproduct.Setup</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- GetRomanNumeral() - Return a roman numeral for the passed number
+         0.0010    FUNCTION GetRomanNumeral(nNumb)
+<span class="yellowBand">  10     0.0001        LOCAL cRoman, nRemNumb, nTens</span>
+                   
+                       * WARNING: This method is only good from 1 to 39
+  10     0.0001        cRoman = ''
+<span class="yellowBand">  10     0.0001        nRemNumb = nNumb</span>
+                   
+                       * Tens first
+<span class="redBand">  10     0.0001        nTens = INT(nNumb / 10)</span>
+  10     0.0001        IF nTens > 0
+   1     0.0000            cRoman = REPLICATE('X', nTens)
+   1     0.0000            nRemNumb = nRemNumb - (nTens * 10)
+   1     0.0000        ENDIF
+                   
+                       * Numbers between 5 and 9
+  10     0.0001        IF nRemNumb > 4
+   5     0.0000            IF nRemNumb = 9
+   1     0.0000                cRoman = cRoman + 'IX'
+   1     0.0000                nRemNumb = 0
+   1     0.0000            ELSE
+   4     0.0000                cRoman = cRoman + 'V'
+   4     0.0000                nRemNumb = nRemNumb - 5
+   4     0.0000            ENDIF
+   5     0.0000        ENDIF
+                   
+                       * Numbers between 1 and 4
+  10     0.0001        IF nRemNumb = 4
+   1     0.0000            cRoman = cRoman + 'IV'
+   1     0.0000        ELSE
+   9     0.0001            cRoman = cRoman + REPLICATE('I', nRemNumb)
+   9     0.0001        ENDIF
+  10     0.0001        RETURN cRoman
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Indexproduct.Getrowhtml</span><a name="indexproduct_getrowhtml"></a><br />
+File: e:\aliweb\source\siteind3.fxp<br />
+Starts at Line: 362<br />
+Called by: <a href="#siteindexhdgspage_generatepage">Siteindexhdgspage.Generatepage</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- GetRowHTML() - Return our product's row HTML
+         0.0721    FUNCTION GetRowHTML()
+                       LOCAL cOutput, cMarg, cColorNumb, oHeadings, nHdgCols, nMaxRows, nRow, ;
+  10     0.0001          nRow, cOneRow, nCol, oHdg, cText
+                   
+                       * Generate the subheading line if we have any
+  10     0.0030        cOutput = THIS.<a href="#indexproduct_getheadingrow">GetHeadingRow</a>()
+                   
+                       * Here we have to add up to 5 data tds along with 5 number tds
+  10     0.0001        cMarg = THIS.cMargin
+  10     0.0001        cColorNumb = THIS.cColorNumb
+  10     0.0001        oHeadings = THIS.oHeadings
+  10     0.0001        nHdgCols = oHeadings.nRows
+                   
+                       * Now, we have to add all rows; each row having entries from the headings
+  10     0.0001        nMaxRows = THIS.nMaxRows
+  10     0.0001        FOR nRow = 1 TO nMaxRows
+                   
+                           * Start the row
+  52     0.0005            cOneRow = [<tr class="color] + TRANSFORM(cColorNumb) + [">] + CR_LF
+  52     0.0004            IF nRow = 1
+  10     0.0015                cOneRow = cOneRow + THIS.<a href="#indexproduct_getprodcols">GetProdCols</a>(cMarg)
+  10     0.0001            ENDIF
+                   
+                           * Now, add each of our column's html for this row
+  52     0.0004            WITH oHeadings
+  52     0.0004                FOR nCol = 1 TO nHdgCols
+ 185     0.0016                    oHdg = oHeadings.aRA[nCol,3]
+                   
+                                   * Get this cell's td -- if it exists
+ 185     0.0014                    IF nRow > oHdg.nCount
+  66     0.0006                        cOneRow = cOneRow + THIS.cBlankCell + THIS.cBlankCell
+  66     0.0004                    ELSE
+<span class="redBand"> 119     0.0557                        cText = oHdg.<a href="#indexheadings_getblockhtml">GetBlockHTML</a>(nRow, cMarg)</span>
+ 119     0.0015                        cOneRow = cOneRow + cText
+ 119     0.0009                    ENDIF
+ 185     0.0013                ENDFOR
+                   
+                               * Add the closing tr
+                               cOutput = cOutput + cOneRow + CR_LF + ;
+  52     0.0005                  [</tr>] + CR_LF
+  52     0.0004            ENDWITH
+  52     0.0004        ENDFOR  && nRow = 1 TO nMaxRows
+                   
+                       * If we don't have 3 rows yet, add some more
+  10     0.0001        DO WHILE nMaxRows < 3
+   4     0.0000            nMaxRows = nMaxRows + 1
+   4     0.0000            cOneRow = [<tr class="color] + TRANSFORM(cColorNumb) + [">] + CR_LF
+                   
+                           * Add blank cells
+   4     0.0000            FOR nCol = 1 TO nHdgCols
+  11     0.0001                cOneRow = cOneRow + THIS.cBlankCell + THIS.cBlankCell
+  11     0.0001            ENDFOR
+                           cOutput = cOutput + cOneRow + CR_LF + ;
+   4     0.0000              [</tr>] + CR_LF
+   4     0.0000        ENDDO
+  10     0.0001        RETURN cOutput
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Indexproduct.Init</span><a name="indexproduct_init"></a><br />
+File: e:\aliweb\source\siteind3.fxp<br />
+Starts at Line: 245<br />
+Called by: <a href="#siteindexhdgspage_generatepage">Siteindexhdgspage.Generatepage</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Init() - Initialize ourselves
+         0.6167    FUNCTION Init(cProdCode, cTitle, oCaller, nHelp)
+  10     0.0068        IF NOT <a href="#arrayobj_init">DODEFAULT</a>()
+                           RETURN .F.
+                       ENDIF
+  10     0.0001        WITH THIS
+  10     0.0001            .oCaller    = oCaller
+  10     0.0001            .cProdCode  = cProdCode
+  10     0.0001            .cProdTitle = cTitle
+  10     0.0001            .cCliProds  = oCaller.cCliProds
+  10     0.0001        ENDWITH
+  10     0.0018        THIS.oHeadings = CREATEOBJECT<a href="#arrayobj_init">('ArrayObj'</a>, 5)
+<span class="redBand">  10     0.6074        nHelp = THIS.<a href="#indexproduct_setup">Setup</a>(nHelp)</span>
+  10     0.0001        RETURN .T.
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Indexproduct.Setup</span><a name="indexproduct_setup"></a><br />
+File: e:\aliweb\source\siteind3.fxp<br />
+Starts at Line: 261<br />
+Called by: <a href="#indexproduct_init">Indexproduct.Init</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Setup() - Set ourselves up for processing
+         0.6048    FUNCTION Setup(nNxtHelp)
+                       LOCAL nSeleIn, cProdCode, cIcon, nNumber, cID, cCaption, bHasHdgText, ;
+  10     0.0001          oHdg
+                   
+                       * Get the rest of our properties: Icon URL first
+  10     0.0001        nSeleIn = SELECT()
+  10     0.0001        WITH THIS
+  10     0.0001            cProdCode = .cProdCode
+  10     0.0001            cIcon = '\UIPix\' + TRIM(.cProdCode) + 'Icon.png'
+  10     0.0198            IF FILE(xcHTMLPAGEPATH + cIcon)
+   8     0.0002                .cIconURL = STRTRAN(cIcon, '\', '/')
+   8     0.0001            ENDIF
+                   
+                           * Define our roman numeral
+  10     0.0002            nNumber = INT( AT(cProdCode, .oCaller.cAllProds) / 5) + 1
+  10     0.0016            .cRomanNumb = .<a href="#indexproduct_getromannumeral">GetRomanNumeral</a>(nNumber)
+                   
+                           * Define our color number
+  10     0.0005            .cColorNumb = .<a href="#indexproduct_getcolornumber">GetColorNumber</a>(nNumber)
+  10     0.0001        ENDWITH
+                   
+                       * Create our heading objects
+                       SELECT * FROM CLIINDEX WHERE PARENT = cProdCode ;
+  10     0.0022          ORDER BY POSN INTO CURSOR HEADINGS
+  10     0.0001        nMaxRows = 0
+  10     0.0001        SCAN
+  33     0.0003            cID = ID
+  33     0.0003            cCaption = TRIM(CAPTION)
+  33     0.0003            bHasHdgText = NOT EMPTY(cCaption)
+<span class="redBand">  33     0.5204            oHdg = CREATEOBJECT<a href="#indexheadings_init">('IndexHeadings'</a>, cID, cCaption, THIS)</span>
+                   
+                           * Assign the help numbers
+  33     0.0371            nNxtHelp = oHdg.<a href="#indexheadings_assignhelpnos">AssignHelpNos</a>(nNxtHelp)
+                   
+                           * Add this to our array
+  33     0.0190            THIS.oHeadings.<a href="#arrayobj_addrow">AddRow</a>(cID, cCaption, oHdg, bHasHdgText, oHdg.nCount)
+                   
+                           * Update our settings
+  33     0.0004            IF bHasHdgText
+  32     0.0003                THIS.bHasHdgs = .T.
+  32     0.0002            ENDIF
+  33     0.0002            IF oHdg.nCount > nMaxRows
+  16     0.0001                nMaxRows = oHdg.nCount
+  16     0.0001            ENDIF
+                   
+                           * Next heading
+  33     0.0003        ENDSCAN
+  10     0.0001        THIS.nMaxRows = nMaxRows
+                   
+                       * Done
+  10     0.0001        USE IN HEADINGS
+  10     0.0001        SELECT (nSeleIn)
+  10     0.0001        RETURN nNxtHelp
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Siteindexhdgspage.Generatepage</span><a name="siteindexhdgspage_generatepage"></a><br />
+File: e:\aliweb\source\siteind3.fxp<br />
+Starts at Line: 126<br />
+Called by: <a href="#siteind3_Code">Siteind3</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- GeneratePage() - Return the appropriate index page
+         0.7493    FUNCTION GeneratePage()
+   1     0.0000        LOCAL cTblRows, cProdTitle, nNextHelp, oProd, cThisRow, cRetText
+                   
+                       * Generate the code for each product
+   1     0.0000        cTblRows = ''
+   1     0.0000        cProdTitle = ''
+   1     0.0000        SELECT PRODUCTS
+   1     0.0000        nNextHelp = 1
+   1     0.0000        SCAN
+                   
+                           * Create our product object
+  10     0.0001            IF EMPTY(cProdTitle)
+   1     0.0000                cProdTitle = TRIM(CAPTION)
+   1     0.0000            ENDIF
+                           oProd = CREATEOBJECT<a href="#indexproduct_init">('IndexProduct'</a>, ID, TRIM(CAPTION), THIS, ;
+<span class="redBand">  10     0.6174              @nNextHelp)</span>
+                   
+                           * Get this category's HTML text
+  10     0.0784            cThisRow = oProd.<a href="#indexproduct_getrowhtml">GetRowHTML</a>()
+  10     0.0001            cTblRows = cTblRows + cThisRow
+                   
+                           * Get a blank row's HTML unless this is the last row
+  10     0.0001            IF RECNO() < RECCOUNT()
+   9     0.0001                cTblRows = cTblRows + THIS.cBlankRow
+   9     0.0001            ENDIF
+  10     0.0431            oProd.<a href="#arrayobj_release">Release</a>()
+  10     0.0001        ENDSCAN
+                   
+                       * Load our template page
+   1     0.0097        cRetText = FILETOSTR(THIS.cTemplate)
+                   
+                       * Plug this into our template
+   1     0.0001        cRetText = STRTRAN(cRetText, '<UI TableRows>', cTblRows)
+                   
+                       * Change the title if needed and we're done
+   1     0.0000         IF NOT EMPTY(THIS.cProdIndex)
+                           cRetText = STRTRAN(cRetText, 'Master Index', cProdTitle + ' Index')
+                       ENDIF
+   1     0.0000        RETURN cRetText
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Siteindexhdgspage.Getblankrowhtml</span><a name="siteindexhdgspage_getblankrowhtml"></a><br />
+File: e:\aliweb\source\siteind3.fxp<br />
+Starts at Line: 168<br />
+Called by: <a href="#siteindexhdgspage_setup">Siteindexhdgspage.Setup</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- GetBlankRowHTML() - Return a blank row's HTML text
+         0.0002    FUNCTION GetBlankRowHTML()
+   1     0.0000        LOCAL cRetText, nX
+                   
+                       * We always have 12 columns so we need to return one row with 14 tds
+   1     0.0000        cRetText = ''
+   1     0.0000        FOR nX = 1 TO 12
+<span class="redBand">  12     0.0001            cRetText = cRetText + SPACE(2) + '<td></td>' + CR_LF</span>
+<span class="yellowBand">  12     0.0001        ENDFOR</span>
+                   
+                       * Add the tr stuff to that
+                       cRetText = [<tr class="spacerRow">] + CR_LF + ;
+   1     0.0000          cRetText + '</tr>' + CR_LF
+   1     0.0000        RETURN cRetText
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Siteindexhdgspage.Setup</span><a name="siteindexhdgspage_setup"></a><br />
+File: e:\aliweb\source\siteind3.fxp<br />
+Starts at Line: 90<br />
+Called by: <a href="#siteindexpage_init">Siteindexpage.Init</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Setup() - Set ourselves up for processing
+         0.0518    FUNCTION Setup()
+   1     0.0000        LOCAL cProdIndex, cProds
+                   
+                       * Basic stuff
+   1     0.0000        THIS.cLogin    = THIS.oCaller.cLogin
+   1     0.0001        THIS.cCliProds = THIS.oCaller.<a href="#alicntl_getclientproductcodes">GetClientProductCodes</a>()
+   1     0.0000        THIS.cRowTable = THIS.oCaller.cUserDir + 'RowMenus'
+                   
+                       * Open our tables
+   1     0.0065        THIS.AddObject('oUIUSAGE', 'UIUSAGE', 'DATE')
+   1     0.0031        THIS.AddObject('oCLIMENUS', 'CLIMENUS', 'ID')
+<span class="redBand">   1     0.0415        THIS.AddObject('oCLIINDEX', 'CLIINDEX', 'PARPOSN')</span>
+                   
+                       * Define the products we're to handle
+   1     0.0000        cProdIndex = THIS.cProdIndex
+   1     0.0000        DO CASE
+   1     0.0000        CASE EMPTY(cProdIndex)
+   1     0.0000            THIS.cProducts = THIS.cAllProds     && CRFQ,Rcon,FstQ,WAWF,PtMs,Rese,NPD1,FTP1,Util,KOP1
+   1     0.0000        CASE cProdIndex = 'GEDI'
+                           THIS.cProducts = 'CRFQ,FstQ,WAWF,NPD1,FTP1,KOP1'
+                       OTHERWISE
+                           THIS.cProducts = cProdIndex
+   1     0.0000        ENDCASE
+   1     0.0000        cProds = THIS.cProducts
+                   
+                       * Get a cursor of just our products
+                       SELECT * FROM CLIINDEX WHERE PARENT = '    ' AND ID $ cProds ;
+   1     0.0002          ORDER BY POSN INTO CURSOR PRODUCTS
+                   
+                       * Add our blank row's HTML
+   1     0.0004        THIS.cBlankRow = THIS.<a href="#siteindexhdgspage_getblankrowhtml">GetBlankRowHTML</a>()
+                   
+                       * Done
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Siteindexpage.Init</span><a name="siteindexpage_init"></a><br />
+File: e:\aliweb\source\siteindx.fxp<br />
+Starts at Line: 132<br />
+Called by: <a href="#siteind3_Code">Siteind3</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Init() - Initialize ourselves
+         0.0525    FUNCTION Init(cProduct, oCaller)
+                   
+                       * Do our defaults first
+   1     0.0004        IF NOT <a href="#uchildcollection_init">DODEFAULT</a>()
+                           RETURN .F.
+                       ENDIF
+   1     0.0000        WITH THIS
+   1     0.0000            .oCaller = oCaller
+                   
+                           * Note the product if we have it
+   1     0.0000            IF VARTYPE(cProduct) = 'C' AND NOT EMPTY(cProduct)
+                               THIS.cProdIndex = cProduct
+                           ENDIF
+   1     0.0000        ENDWITH
+<span class="redBand">   1     0.0521        THIS.<a href="#siteindexhdgspage_setup">Setup</a>()</span>
+   1     0.0000        RETURN .T.
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Arrayobj.Addrow</span><a name="arrayobj_addrow"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 352<br />
+Called by: <a href="#cusstringarray_string2array">Cusstringarray.String2array</a>, <a href="#indexarray_indexes2array">Indexarray.Indexes2array</a>, <a href="#indexproduct_setup">Indexproduct.Setup</a>, <a href="#kdatafile_checkindexes">Kdatafile.Checkindexes</a>, <a href="#uemptycollection_additem">Uemptycollection.Additem</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- AddRow() - Add a row to the array and load up to 20 columns in that row
+                   *     Parameters: xVal1 [,xVal2] [,xVal3] [...to xVal20]
+                   *     Returns: the new row number
+                   *     Note - xValX values are ignored if they exceed the number of columns
+         0.1182    FUNCTION AddRow (xVal1, xVal2, xVal3, xVal4, xVal5, xVal6, xVal7, xVal8, ;
+                     xVal9, xVal10, xVal11, xVal12, xVal13, xVal14, xVal15, xVal16, xVal17, ;
+                     xVal18, xVal19, xVal20 )
+ 389     0.0034        LOCAL nNewRowNum, nX, cVarName, xValue
+                   
+                       * Add a new row
+<span class="redBand"> 389     0.0804        nNewRowNum = THIS.<a href="#arrayobj_insertrow">InsertRow</a>()</span>
+                   
+                       * We must always have the first value
+ 389     0.0044        IF THIS.bMultiCol
+ 158     0.0014            THIS.aRA[nNewRowNum, 1] = xVal1
+ 158     0.0011        ELSE
+ 231     0.0018            THIS.aRA[nNewRowNum] = xVal1
+ 231     0.0015        ENDIF
+                   
+                       * How many values did we receive?  Or, rather, will we use?
+ 389     0.0030        nValCount = MIN( PCOUNT(), THIS.nCols )
+                   
+                       * Change only the passed parameters
+ 389     0.0028        FOR nX = 2 TO nValCount
+ 507     0.0038            cVarName = 'xVal' + LTRIM( STR(nX,2,0) )
+ 507     0.0041            xValue = EVAL(cVarName)
+                   
+                           * These can only be for multicolumn arrays
+ 507     0.0041            THIS.aRA[nNewRowNum, nX] = xValue
+ 507     0.0033        ENDFOR
+ 389     0.0031        RETURN nNewRowNum
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Arrayobj.Atnotindelim</span><a name="arrayobj_atnotindelim"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 1,357<br />
+Called by: <a href="#arrayobj_atnotinparen">Arrayobj.Atnotinparen</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- PROT AtNotInDelim() - Return the pos'n of a char NOT within delimeters
+                   *     Input: cTheChar - The character in question
+                   *            cTheStr  - The string to search
+                   *            pcDelim  - The left and right delimeter pair
+                   *      Retn: The position (0 if not there or if only within ())
+                   *      Note: Was AT_DELIM
+         0.0000    PROTECTED FUNCTION AtNotInDelim( pcTheChar, pcTheStr, pcDelim )
+                       LOCAL cRDelim, cLDelim, cWkgStr, cDiscards, nCharPosn, nLPosn, nRPosn, ;
+   4     0.0000          cLeftSide, cRightSide
+                   
+                       * This function will look for, and return, the position of a character
+                       *   in a string but NOT within the passed delimiters.
+                       *            12345678901
+                       *   Example: ABC(DEF)GFX  For "F", returns 10
+                   
+                       * Delimiters may be passed as one pair rather than 2 separate
+                       *   characters.  Delimiter pairs can be anything reasonable (except
+                       *   the character being searched for); for example: "", '', (), {},
+                       *   [], <>, etc.
+                   
+                       * Return quickly if the character isn't in the string at all
+   4     0.0000        IF NOT pcTheChar $ pcTheStr
+   3     0.0000            RETURN 0
+                       ENDIF
+                   
+                       * Separate our delimiters
+   1     0.0000        cRDelim = SUBSTR(pcDelim, 2)
+   1     0.0000        cLDelim = LEFT(pcDelim, 1)
+                   
+                       * Return almost as quickly if the left delimiter isn't in the string --
+                       *   giving the best answer we can
+   1     0.0000        IF NOT cLDelim $ pcTheStr
+   1     0.0000            RETURN AT(pcTheChar,pcTheStr)
+                       ENDIF
+                   
+                       * Now, we know the character is in the string and we DO have
+                       *   delimiters.  But, we really have 2 routines:
+                       *       1. If the delimeters are the same
+                       *       2. If they're different
+                       IF cRDelim = cLDelim
+                   
+                           * This is simpler than different delimeters as, by definition,
+                           *   nested delimeters is a meaningless term
+                           cWkgStr = pcTheStr
+                           cDiscards = ''
+                           nCharPosn = 0
+                           DO WHILE LEN(cWkgStr) > 0
+                   
+                               * Find the first instance of left and right delimiters
+                               nLPosn = AT( cLDelim, cWkgStr )
+                               nRPosn = AT( cLDelim, cWkgStr, 2 )
+                   
+                               * Find the first instance of our character
+                               nCharPosn = AT(pcTheChar,cWkgStr)
+                   
+                               * Possibilities
+                               *   1. nCharPosn = 0 -- just return 0 because it was only
+                               *       in the string inside of delimiters
+                               IF nCharPosn = 0
+                                   RETURN 0
+                               ENDIF
+                   
+                               *   2. nCharPosn < nLPosn -- return nCharPosn + cDiscards length
+                               IF nCharPosn < nLPosn OR nLPosn = 0 OR nRPosn = 0 OR nRPosn < nLPosn
+                                   RETURN nCharPosn + LEN(cDiscards)
+                               ENDIF
+                   
+                               *   3. nCharPosn < nRPosn -- doesn't count as it's within the
+                               *       delimeters
+                               *   4. nCharPosn > nRPosn -- indeterminate as that might be within
+                               *       a later set of delimeters
+                               * Put everything up to and including the right position into Discards
+                               cDiscards = cDiscards + LEFT( cWkgStr, nRPosn )
+                               IF nRPosn = LEN(cWkgStr)
+                                   cWkgStr = ''
+                               ELSE
+                                   cWkgStr = SUBSTR(cWkgStr, nRPosn+1 )
+                               ENDIF
+                           ENDDO   && WHILE LEN(cWkgStr) > 0
+                       ELSE    && Delimiters are different
+                   
+                           * The tricky part with different delimiters is that the delimiters might
+                           *   be nested.
+                           cWkgStr = pcTheStr
+                           cDiscards = ''
+                           nCharPosn = 0
+                           DO WHILE LEN(cWkgStr) > 0
+                   
+                               * Find the first instances of left and right delimiters
+                               nLPosn = AT( cLDelim, cWkgStr )
+                               nRPosn = AT( cRDelim, cWkgStr )
+                   
+                               * Find the first instance of our character
+                               nCharPosn = AT(pcTheChar,cWkgStr)
+                   
+                               * Possibilities
+                               *   1. nCharPosn = 0 -- just return 0 because it was only
+                               *       in the string inside of delimiters
+                               *   2. nCharPosn < nLPosn -- return nCharPosn + cDiscards length
+                               *   3. Delimeters don't match:  i.e. just "(" or just ")" --
+                               *       by definition, the character isn't within nested parens, so
+                               *       return nCharPosn + cDiscards length
+                               *   4. nCharPosn > nRPosn -- indeterminate yet until we extract nested
+                               *       delimiters
+                               IF nCharPosn = 0
+                                   RETURN 0
+                               ENDIF
+                               IF nCharPosn < nLPosn OR nLPosn = 0 OR nRPosn = 0 OR nRPosn < nLPosn
+                                   RETURN nCharPosn + LEN(cDiscards)
+                               ENDIF
+                   
+                               *   3. nCharPosn > nRPosn -- indeterminate yet until we extract nested
+                               *       delimiters
+                               nLPosn = RAT( cLDelim, LEFT(cWkgStr,nRPosn) )        && Match right paren
+                   
+                               * Save that which we are about to extract
+                               cDiscards = cDiscards + SUBSTR( cWkgStr, nLPosn, nRPosn-nLPosn+1 )
+                   
+                               * Extract the nested parenthesis
+                               cLeftSide = IIF( nLPosn=1, '', LEFT(cWkgStr,nLPosn-1) )
+                               cRightSide = IIF( nRPosn=LEN(cWkgStr), '', SUBSTR(cWkgStr,nRPosn+1) )
+                               cWkgStr = cLeftSide + cRightSide
+                   
+                               * Reset for our loop
+                               nCharPosn = 0
+                           ENDDO   && WHILE LEN(cWkgStr) > 0
+                       ENDIF
+                   
+                       * Done
+                       RETURN nCharPosn + LEN(cDiscards)
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Arrayobj.Atnotinparen</span><a name="arrayobj_atnotinparen"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 1,348<br />
+Called by: <a href="#arrayobj_fldsinexpr">Arrayobj.Fldsinexpr</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- PROT AtNotInParen() - Return the pos'n of a char NOT within parentheses
+                   *     Input: cTheChar - The character in question
+                   *            cTheStr - The string to search
+                   *      Retn: The position (0 if not there or if only within ())
+                   *      Note: Was AT_NOPAR
+         0.0002    PROTECTED FUNCTION AtNotInParen( pcTheChar, pcTheStr )
+<span class="redBand">   4     0.0002        RETURN THIS.<a href="#arrayobj_atnotindelim">AtNotInDelim</a>( pcTheChar, pcTheStr, '()' )</span>
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Arrayobj.Destroy</span><a name="arrayobj_destroy"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 1,636<br />
+Called by: <a href="#arrayobj_release">Arrayobj.Release</a>, <a href="#indexarray_indexes2array">Indexarray.Indexes2array</a>, <a href="#kdatafile_checkindexes">Kdatafile.Checkindexes</a>, <a href="#ycollection_destroy">Ycollection.Destroy</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Destroy() - Kill our contents
+         0.0041    PROCEDURE Destroy()
+<span class="redBand"> 152     0.0016        LOCAL nX</span>
+                   
+                       * Kill any objects we added
+<span class="yellowBand"> 152     0.0013        FOR nX = THIS.ControlCount TO 1 STEP -1</span>
+                           DO CASE
+                           CASE ISNULL( THIS.Controls[nX] )
+                               RELEASE THIS.Controls[nX]
+                           CASE PEMSTATUS(THIS.Controls[nX], 'Release', 5)
+                               THIS.Controls[nX].Release()
+                           OTHERWISE
+                               THIS.Controls[nX].Destroy()
+                               RELEASE (THIS.Controls[nX].Name)
+                           ENDCASE
+                       ENDFOR
+<span class="yellowBand"> 152     0.0012        DODEFAULT()</span>
+                   ENDPROC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Arrayobj.Extrfldname</span><a name="arrayobj_extrfldname"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 1,489<br />
+Called by: <a href="#arrayobj_fldsinexpr">Arrayobj.Fldsinexpr</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- ExtrFldName() - Extract the first field name from an expression
+                   *     Input: cExpr - String for extraction
+                   *      Retn: Extracted field name
+                   *      Note: Was EXTRFNAM
+         0.0000    FUNCTION ExtrFldName( pcExpr )
+   4     0.0000        LOCAL cRetName, nX, nY
+                   
+                       * Expressions can have the form:
+                       *   Character fields: field or UPPER(field) or LEFT(field,n)
+                       *        Date fields: DTOS(field)
+                       *     Numeric fields: STR(field,len,dec) or STR(INT(field+str),len,dec)
+                       *     Logical fields: IIF(field,'Y','N')
+                       * Conditional fields: IIF(EMPTY(field),expr1,DTOS(date))
+                       *                 or: IIF(field='A',uvw,xyz)
+   4     0.0000        cRetName = pcExpr
+                   
+                       * In most cases, we'll:
+                       *   A. Throw away whatever's to the left of any '('
+                       *   B. Throw away whatever's to the right of any ')'
+                       * But, notice that the conditional expression has some special problems:
+                       *   1st () removal --> EMPTY(field),expr1,DTOS(date)
+                       *   2nd () removal --> field),expr1,DTOS(date
+                       *   3rd () removal --> ''
+   4     0.0000        DO WHILE '(' $ cRetName
+                           nX = AT('(', cRetName)
+                           nY = RAT(')', cRetName)
+                           IF nY > nX
+                               cRetName = SUBSTR( cRetName, nX+1, nY-nX-1)
+                           ELSE
+                   
+                               * nY < nX: field),expr1,DTOS(date  ... so throw away all to the right
+                               *   of ")"
+                               cRetName = LEFT(cRetName, nY-1)
+                           ENDIF
+                       ENDDO
+                   
+                       *   C. Remove any rightmost portions after commas
+   4     0.0000        DO WHILE ',' $ cRetName
+                           nY = RAT(',', cRetName)
+                           cRetName = LEFT(cRetName, nY-1)
+                       ENDDO
+                   
+                       *   D. Remove any rightmost portions after the equals sign
+   4     0.0000        DO WHILE '=' $ cRetName
+                           nY = RAT('=', cRetName)
+                           cRetName = LEFT(cRetName, nY-1)
+                       ENDDO
+                   
+                       * Done
+   4     0.0000        RETURN cRetName
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Arrayobj.Extrtoken</span><a name="arrayobj_extrtoken"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 1,304<br />
+Called by: <a href="#cusstringarray_string2array">Cusstringarray.String2array</a>, <a href="#indexarray_setindexprops">Indexarray.Setindexprops</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- PROT ExtrToken() - Extract and return the text before a passed token (char)
+                   *     Input: cStrIn - String for extraction (if passed as @cStrIn, the
+                   *                       fragment and token are really extracted)
+                   *            pcTokenChar - Character separator
+                   *      Retn: Text in cStrIn before the first pcTokenChar
+                   *     Tests: 1: ExtrToken('AB^CD', '^') --> 'AB'
+                   *            2: cVar = '123.45'
+                   *               ExtrToken( @cVar, '.') --> '123'
+                   *               cVar now = '45'
+                   *      Note: Was EXTR_TKN
+         0.0166    PROTECTED FUNCTION ExtrToken( pcStrIn, pcTokenChar )
+<span class="redBand"> 235     0.0020        LOCAL cRetTxt, nChrPosn</span>
+                   
+                       * We're passed a block of text (pcStrIn) supposedly containing at
+                       *   least one instance of a character (pcTokenChar).  Our job is to
+                       *   extract and return the text UP TO but not including pcTokenChar,
+                       *   and to remove that text and pcTokenChar from pcStrIn (will only
+                       *   work if pcStrIn passed as @pcStrIn).
+                       * If the text doesn't have the character, we'll return the full string
+                       *   and empty out pcStrIn.
+ 235     0.0016        cRetTxt = ''
+                   
+                       * Look for pcTokenChar
+<span class="yellowBand"> 235     0.0018        nChrPosn = AT( pcTokenChar, pcStrIn)</span>
+                   
+                       * If it isn't there, clear pcStrIn
+ 235     0.0016        IF nChrPosn = 0
+  36     0.0003            cRetTxt = pcStrIn
+  36     0.0004            pcStrIn = ''
+  36     0.0002        ELSE
+                   
+                           * Get the text to the left of the character
+ 199     0.0014            cRetTxt = LEFT( pcStrIn, nChrPosn-1)
+                   
+                           * Remove the text and character from pcStrIn
+ 199     0.0014            IF nChrPosn+1 > LEN( pcStrIn )
+                               pcStrIn = ''
+                           ELSE
+ 199     0.0015                pcStrIn = SUBSTR( pcStrIn, nChrPosn+1 )
+ 199     0.0013            ENDIF
+ 199     0.0014        ENDIF
+<span class="yellowBand"> 235     0.0017        RETURN cRetTxt</span>
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Arrayobj.Fldsinexpr</span><a name="arrayobj_fldsinexpr"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 1,248<br />
+Called by: <a href="#indexarray_setindexprops">Indexarray.Setindexprops</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- PROT FldsInExpr() - Returns a list of field names within an index expression
+                   *     Input: cExpr - The index expression in question
+                   *      Retn: List of Field Names
+                   *      Note: Was EXPRFLDS
+         0.0006    PROTECTED FUNCTION FldsInExpr( pcExpr )
+   3     0.0000        LOCAL cWkgExpr, cFldList, nX, cThisFld
+                   
+                       * First, extract any "FOR" or "UNIQUE" clauses
+   3     0.0000        cWkgExpr = UPPER( ALLTRIM(pcExpr) )
+   3     0.0000        IF ' FOR ' $ cWkgExpr
+                           cWkgExpr = LEFT( cWkgExpr, AT(' FOR ',cWkgExpr)-1 )
+                       ENDIF
+   3     0.0000        IF ' UNIQUE' $ cWkgExpr
+                           cWkgExpr = LEFT( cWkgExpr, AT(' UNIQUE',cWkgExpr)-1 )
+                       ENDIF
+   3     0.0000        IF ' DESCENDING' $ cWkgExpr
+                           cWkgExpr = LEFT( cWkgExpr, AT(' DESCENDING',cWkgExpr)-1 )
+                       ENDIF
+   3     0.0000        IF ' ASCENDING' $ cWkgExpr
+                           cWkgExpr = LEFT( cWkgExpr, AT(' ASCENDING',cWkgExpr)-1 )
+                       ENDIF
+                   
+                       * Initialize our return field list string
+   3     0.0000        cFldList = ''
+                   
+                       * Now, the expression is of the form:
+                       *   fld_nm1 + fld_nm2 + fld_nm3 ...
+                       * So, we have to extract the fields between plus signs.  However, they
+                       *   could be of the form: UPPER(fld_nm1+fld_nm3) + DTOS(fld_nm3)...
+   3     0.0000        DO WHILE LEN(cWkgExpr) > 0
+<span class="redBand">   4     0.0003            nX = THIS.<a href="#arrayobj_atnotinparen">AtNotInParen</a>('+', cWkgExpr)    && But not within parentheses</span>
+                   
+                           * Extract the field from cWkgExpr
+   4     0.0000            IF nX = 0
+   3     0.0000                cThisFld = cWkgExpr
+   3     0.0000                cWkgExpr = ''
+   3     0.0000            ELSE
+   1     0.0000                cThisFld = TRIM( LEFT(cWkgExpr, nX-1) )
+   1     0.0000                cWkgExpr = LTRIM( SUBSTR(cWkgExpr, nX+1) )
+   1     0.0000            ENDIF
+                   
+                           * Remove any field conversions
+<span class="yellowBand">   4     0.0003            cThisFld = THIS.<a href="#arrayobj_extrfldname">ExtrFldName</a>(cThisFld)</span>
+                   
+                           * If we still have a '+' sign in cThisFld, it needs more
+                           *   processing, so put it back in cWkgExpr.  Otherwise, add it to
+                           *   our return string
+   4     0.0000            IF '+' $ cThisFld
+                               cWkgExpr = cThisFld + cWkgExpr
+                           ELSE
+   4     0.0000                cFldList = cFldList + IIF( EMPTY(cFldList), '', ',') + cThisFld
+   4     0.0000            ENDIF
+   4     0.0000        ENDDO
+   3     0.0000        RETURN cFldList
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Arrayobj.Init</span><a name="arrayobj_init"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 320<br />
+Called by: <a href="#cusfldsarray_init">Cusfldsarray.Init</a>, <a href="#cusstringarray_init">Cusstringarray.Init</a>, <a href="#indexarray_init">Indexarray.Init</a>, <a href="#indexproduct_init">Indexproduct.Init</a>, <a href="#kdatafile_checkindexes">Kdatafile.Checkindexes</a>, <a href="#ycollection_init">Ycollection.Init</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Init() - Initialize an array object
+                   *   Parameters: [nCols] (REQUIRED for multi-dimensional arrays)
+                   *     Note - nRows will be 0 after Init()
+         0.0095    FUNCTION Init( nColCnt )
+<span class="redBand"> 101     0.0010        IF NOT DODEFAULT()</span>
+                           RETURN .F.
+                       ENDIF
+                   
+                       * Define the column count if it was passed
+<span class="yellowBand"> 101     0.0009        IF TYPE('nColCnt') = 'N' AND nColCnt >= 1</span>
+<span class="yellowBand"> 101     0.0008            THIS.nCols = nColCnt</span>
+ 101     0.0007        ENDIF
+                   
+                       * Create the barebones array
+ 101     0.0007        IF THIS.nCols = 1
+  43     0.0003            THIS.bMultiCol = .F.
+  43     0.0003        ELSE
+  58     0.0005            DIMENSION THIS.aRA[ 1, THIS.nCols ]
+  58     0.0004            THIS.bMultiCol = .T.
+  58     0.0004        ENDIF
+ 101     0.0007        STORE '' TO THIS.aRA
+ 101     0.0007        THIS.nRows = 0
+ 101     0.0007        THIS.nSortedCol = 0
+ 101     0.0007        NODEFAULT
+ 101     0.0007        RETURN .T.
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Arrayobj.Insertrow</span><a name="arrayobj_insertrow"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 414<br />
+Called by: <a href="#arrayobj_addrow">Arrayobj.Addrow</a>, <a href="#cusfldsarray_flds2array">Cusfldsarray.Flds2array</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- InsertRow() - Add a row to the array (re-size it larger)
+                   *   Parameters: [nBeforeRow]
+                   *   Returns: The new number of rows in the array
+                   *   Notes:
+                   *       1. If nBeforeRow is passed, the new row is inserted into the array
+                   *           just before that row.  If not passed, the new row is added to
+                   *           the end of the array.
+                   *       2. All columns in the new row are initialized to ''
+         0.0538    FUNCTION InsertRow(nRowNum)
+<span class="yellowBand"> 401     0.0035        LOCAL nX</span>
+ 401     0.0028        WITH THIS
+                   
+                           * First, re-dimension the array, but there's a different syntax for
+                           *   single- vs multi-column array.
+ 401     0.0031            IF .bMultiCol
+ 170     0.0016                DIMENSION .aRA[.nRows+1, .nCols]
+ 170     0.0011            ELSE
+ 231     0.0017                DIMENSION .aRA[.nRows+1]
+ 231     0.0015            ENDIF
+                   
+                           * Are we to insert a row or just add one at the end?
+ 401     0.0032            IF TYPE('nRowNum') = 'N' AND BETWEEN(nRowNum, 1, .nRows)
+                               = AINS(.aRA, nRowNum)          && Insert the row
+                           ELSE
+                   
+                               * Add a row at the end (already done), just note the row
+ 401     0.0028                nRowNum = .nRows + 1
+ 401     0.0027            ENDIF
+                   
+                           * Initialize the new row
+ 401     0.0029            IF .bMultiCol
+ 170     0.0013                FOR nX = 1 to .nCols
+<span class="redBand"> 884     0.0064                    .aRA[nRowNum, nX] = ''</span>
+<span class="yellowBand"> 884     0.0058                ENDFOR</span>
+ 170     0.0012            ELSE
+ 231     0.0017                .aRA[nRowNum] = ''
+ 231     0.0015            ENDIF
+                   
+                           * Reset the row count
+ 401     0.0033            .nRows = ALEN(.aRA, 1)
+ 401     0.0027        ENDWITH
+                   
+                       * Return the new row total
+ 401     0.0030        RETURN THIS.nRows
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Arrayobj.Locate</span><a name="arrayobj_locate"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 836<br />
+Called by: <a href="#indexarray_setindexprops">Indexarray.Setindexprops</a>, <a href="#kdatafile_checkindexes">Kdatafile.Checkindexes</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Locate() - Case-Insensitive look thru a non-ordered array for a value
+                   *     Parameters: xLookFor[, nSrchCol[, bExactOn]]
+                   *     Returns: Row found matching xLookFor (0 if not found)
+                   *     Notes: 1. nSrchCol is REQUIRED for multi-dimensional arrays or column
+                   *                 1 will be used for the Locate
+                   *            2. xLookFor's data type must match nSrchCol's
+                   *            3. bExactOn - (optional) If .T., EXACT comparison will be done
+         0.0017    FUNCTION Locate(xLookFor, nSrchCol, bExactOn)
+   7     0.0001        LOCAL cSrchType, nRowx, xChkVal, bGotIt
+                   
+                       * If we got no search col, make it column 1
+   7     0.0001        IF TYPE('nSrchCol') <> 'N' OR NOT BETWEEN(nSrchCol, 1, THIS.nCols)
+                           nSrchCol = 1
+                       ENDIF
+                   
+                   
+                       * What's the type of the variable we're looking for?  If it's
+                       *   Character, make it uppercase
+<span class="yellowBand">   7     0.0001        cSrchType = TYPE('xLookFor')</span>
+   7     0.0000        IF cSrchType = 'C'
+   7     0.0000            xLookFor = UPPER(xLookFor)
+   7     0.0000        ENDIF
+                   
+                       * Set our default near row
+<span class="yellowBand">   7     0.0001        THIS.nNearRow = 0</span>
+                   
+                       * Search thru the array
+   7     0.0001        FOR nRowx = 1 TO THIS.nRows
+                   
+                           * Get this row's value
+  18     0.0001            IF THIS.bMultiCol
+  18     0.0001                xChkVal = THIS.aRA[nRowx, nSrchCol]
+<span class="redBand">  18     0.0001            ELSE</span>
+                               xChkVal = THIS.aRA[nRowx]
+                           ENDIF
+                   
+                           * If character, make it uppercase
+  18     0.0001            IF cSrchType = 'C'
+  18     0.0001                xChkVal = UPPER( xChkVal )
+  18     0.0001            ENDIF
+                   
+                           * Does it match what we're looking for?
+  18     0.0001            IF bExactOn
+                               bGotIt = (xChkVal == xLookFor)
+                           ELSE
+  18     0.0001                bGotIt = (xChkVal = xLookFor)
+  18     0.0001            ENDIF
+  18     0.0001            IF bGotIt
+   7     0.0000                RETURN nRowx
+                           ENDIF
+                   
+                           * Set Near Row (though I'm not sure what it's good for)
+  11     0.0001            IF xChkVal > xLookFor AND THIS.nNearRow = 0
+   5     0.0000                THIS.nNearRow = nRowx
+   5     0.0000            ENDIF
+  11     0.0001        ENDFOR
+                   
+                       * If we didn't return by now, it's not there
+                       RETURN 0
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Arrayobj.Release</span><a name="arrayobj_release"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 1,655<br />
+Called by: <a href="#indexproduct_destroy">Indexproduct.Destroy</a>, <a href="#siteindexhdgspage_generatepage">Siteindexhdgspage.Generatepage</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Release() - Remove this object from memory
+         0.0550    PROCEDURE Release()
+<span class="redBand">  53     0.0538        THIS.<a href="#arrayobj_destroy">Destroy</a>()</span>
+  53     0.0012        Release THIS
+                   ENDPROC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Arrayobj.Zaparray</span><a name="arrayobj_zaparray"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 1,143<br />
+Called by: <a href="#uemptycollection_removeallitems">Uemptycollection.Removeallitems</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- ZapArray() - Removes all data and rows in an array (columns are unchanged)
+         0.0041    PROCEDURE ZapArray()
+<span class="yellowBand">  86     0.0008        IF THIS.bMultiCol</span>
+<span class="redBand">  86     0.0008            DIMENSION THIS.aRA[ 1, THIS.nCols ]</span>
+  86     0.0006        ELSE
+                           DIMENSION THIS.aRA[1]
+                       ENDIF
+<span class="yellowBand">  86     0.0007        THIS.nRows = 0</span>
+  86     0.0007        STORE '' TO THIS.aRA
+  86     0.0005        RETURN
+                   ENDPROC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Cusfldsarray.Flds2array</span><a name="cusfldsarray_flds2array"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 2,464<br />
+Called by: <a href="#cusfldsarray_init">Cusfldsarray.Init</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Flds2Array() - Create an array of a DBF's field structure
+                   *     Parameters: [cDBFAlias | cDBFName]
+                   *     Returns: Number of rows in the array (fields in the DBF)
+                   *   Note: If called directly, the array must have been initialized first,
+                   *           but rows and columns may be changed here.
+         0.0091    FUNCTION Flds2Array( cDBNm )
+   2     0.0000        LOCAL nCurrSele, nOpenedHere, nFldCnt, nX, nY
+   2     0.0000        LOCAL aTemp[1]
+                   
+                       * Open/select the DBF (but note whether we opened it or not)
+   2     0.0000        nCurrSele = SELECT()
+   2     0.0000        nOpenedHere = .F.
+   2     0.0000        IF TYPE('cDBNm') = 'C' AND (NOT EMPTY(cDBNm)) AND ALIAS() <> cDBNm
+                           IF USED(cDBNm)
+                               SELECT (cDBNm)
+                           ELSE
+                               SELECT 0
+                               USE (cDBNm)
+                               nOpenedHere = .T.
+                           ENDIF
+                       ENDIF
+                   
+                       * Save the alias
+   2     0.0000        THIS.cAlias = ALIAS()
+                   
+                       * Put the DBFs fields into a temporary array
+   2     0.0000        nFldCnt = AFIELDS( aTemp )
+                   
+                       * AFIELDS() returns an array with 16 columns.  We're going to return
+                       *   the same structure as follows:
+                       *   .aRA[x,1] - Field name (C)
+                       *   .aRA[x,2] - Field type (C):
+                       *       C = Character       I = Integer
+                       *       D = Date            B = Double
+                       *       L = Logical         Y = Currency
+                       *       M = Memo            T = DateTime
+                       *       N = Numeric         G = General Character
+                       *       F = Float
+                       *   .aRA[x,3] - Field width (N)
+                       *   .aRA[x,4] - Decimal places (N)
+                       *   .aRA[x,5] - Null values allowed (L)
+                       *   .aRA[x,6] - Code page translation not allowed (L)
+                       *   .aRA[x,7] - Field validation expression (C)
+                       *   .aRA[x,8] - Field validation text (C)
+                       *   .aRA[x,9] - Field default value (C)
+                       *   .aRA[x,10] - Table validation expression (C)
+                       *   .aRA[x,11] - Table validation text (C)
+                       *   .aRA[x,12] - Long table name (C)
+                       *   .aRA[x,13] - Insert trigger expression (C)
+                       *   .aRA[x,14] - Update trigger expression (C)
+                       *   .aRA[x,15] - Delete trigger expression (C)
+                       *   .aRA[x,16] - Table comment (C)
+                   
+                       * So, change the current array's rows and columns
+   2     0.0000        IF THIS.nCols < 16
+                           THIS.InsertCols(16 - THIS.nCols)
+                       ENDIF
+   2     0.0000        IF THIS.nRows <> nFldCnt
+   2     0.0000            IF THIS.nRows > nFldCnt
+                               DO WHILE THIS.nRows > nFldCnt
+                                   THIS.DeleteRow(THIS.nRows)
+                               ENDDO
+                           ELSE        && THIS.nRows < nFldCnt
+   2     0.0000                DO WHILE THIS.nRows < nFldCnt
+<span class="redBand">  12     0.0061                    THIS.<a href="#arrayobj_insertrow">InsertRow</a></span>
+  12     0.0001                ENDDO
+   2     0.0000            ENDIF
+   2     0.0000        ENDIF
+                   
+                       * Copy everything from aTemp[] into our array
+   2     0.0000        FOR nX = 1 TO nFldCnt
+  12     0.0001            FOR nY = 1 TO 16
+<span class="yellowBand"> 192     0.0014                THIS.aRA[nX, nY] = aTemp[nX, nY]</span>
+<span class="yellowBand"> 192     0.0013            ENDFOR</span>
+  12     0.0001        ENDFOR
+                   
+                       * Reset the files
+   2     0.0000        IF nOpenedHere
+                           USE
+                       ENDIF
+   2     0.0000        SELECT (nCurrSele)
+                   
+                       * Done
+   2     0.0000        RETURN nFldCnt
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Cusfldsarray.Init</span><a name="cusfldsarray_init"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 2,447<br />
+Called by: <a href="#indexarray_indexes2array">Indexarray.Indexes2array</a>, <a href="#kdatafile_ofldstru_access">Kdatafile.Ofldstru_Access</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Init() - Initialize our array object
+                   *     Parameters: [cDBFAlias | cDBFName]
+                   *   Note: This creates an array containing field info for the passed
+                   *         DBF's fields.  The array is automatically sized as needed.
+         0.0114    FUNCTION Init( cAlias )
+                   
+                       * Do the default Init() for 16 columns
+   2     0.0004        IF NOT <a href="#arrayobj_init">DODEFAULT</a>(16)
+                           RETURN .F.
+                       ENDIF
+                   
+                       * Load the array based on the passed alias
+<span class="redBand">   2     0.0110        THIS.<a href="#cusfldsarray_flds2array">Flds2Array</a>(cAlias)</span>
+   2     0.0000        NODEFAULT
+   2     0.0000        RETURN .T.
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Indexarray.Indexes2array</span><a name="indexarray_indexes2array"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 2,599<br />
+Called by: <a href="#indexarray_init">Indexarray.Init</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Indexes2Array() - Create an array of a DBF's index properties
+                   *     Parameters: [cDBFAlias | cDBFName]
+                   *     Returns: Number of rows in the array (indexes in the DBF)
+                   *   Note: If called directly, the array must have been initialized first,
+                   *           but rows and columns may be changed here.
+         0.0127    FUNCTION Indexes2Array( cDBNm )
+                       LOCAL nCurrSele, bOpenedHere, oFlds, cWkgTag, nLastTag, cNdxExpr, ;
+   1     0.0000          cForCond, x, nTags, aIndexs
+                   
+                       * Open/select the DBF (but note whether we opened it or not)
+   1     0.0000        nCurrSele = SELECT()
+   1     0.0000        bOpenedHere = .F.
+   1     0.0000        IF TYPE('cDBNm') = 'C' AND (NOT EMPTY(cDBNm)) AND ALIAS() <> cDBNm
+                           IF USED(cDBNm)
+                               SELECT (cDBNm)
+                           ELSE
+                               SELECT 0
+                               USE (cDBNm)
+                               bOpenedHere = .T.
+                           ENDIF
+                       ENDIF
+                   
+                       * Save the alias
+   1     0.0000        THIS.cAlias = ALIAS()
+                   
+                       * Add a FldsArray object for this DBF
+<span class="redBand">   1     0.0055        oFlds = CREATEOBJECT('FldsArray', THIS.cAlias)</span>
+                   
+                       * Get all the index info into aIndexs[]:  (all caps)
+                       *     [x,1] - Tag name (.idx name, if open) - Character
+                       *     [x,2] - Tag type (PRIMARY, CANDIDATE, UNIQUE, or REGULAR - Character
+                       *     [x,3] - Key expression - Character
+                       *     [x,4] - Filter - Character
+                       *     [x,5] - Order (ASCENDING or DESCENDING) - Character
+                       *     [x,6] - Collate sequence - Character
+   1     0.0000        DIMENSION aIndexs(1,6)
+   1     0.0000        nTags = ATAGINFO(aIndexs)
+                   
+                       * Keep going as long as we can find indexes
+   1     0.0000        FOR x = 1 to nTags
+                   
+                           * Get the index expression and FOR condition
+   3     0.0000            cNdxExpr = UPPER(aIndexs[x,3])                 && field1 + field2 + ...
+   3     0.0000            cForCond = UPPER(aIndexs[x,4])                 && FOR condition
+                   
+                           * Remove any spaces in the FOR condition
+   3     0.0000            IF ' ' $ cForCond
+                               cForCond = STRTRAN(cForCond, ' ', '')
+                           ENDIF
+                   
+                           * Convert all quotes to double quotes.
+   3     0.0000            IF "'" $ cForCond
+                               cForCond = STRTRAN(cForCond, "'", '"')
+                           ENDIF
+                   
+                           * Fox returns FOR conditions involving inequality with a #, whereas
+                           *   we use "<>"
+   3     0.0000            IF "#" $ cForCond
+                               cForCond = STRTRAN(cForCond, "#", '<>')
+                           ENDIF
+                   
+                           * Add in our UNIQUE and DESCENDING
+   3     0.0000            IF aIndexs[x,5] = 'D'
+                               cNdxExpr = cNdxExpr + ' ' + aIndexs[x,5]
+                           ENDIF
+   3     0.0000            IF aIndexs[x,2] = 'U'
+                               cNdxExpr = cNdxExpr + ' ' + aIndexs[x,2]
+                           ENDIF
+                   
+                           * Add this to the array
+   3     0.0000            cWkgTag = aIndexs[x,1]
+<span class="yellowBand">   3     0.0021            THIS.<a href="#arrayobj_addrow">AddRow</a>(cWkgTag, cNdxExpr, cForCond, cWkgTag, .T.)</span>
+                   
+                           * Convert this index expression into our default display fields
+<span class="yellowBand">   3     0.0050            THIS.<a href="#indexarray_setindexprops">SetIndexProps</a>( x, cNdxExpr, oFlds)</span>
+   3     0.0000        ENDFOR
+                   
+                       * Reset the files
+   1     0.0000        IF bOpenedHere
+                           USE
+                       ENDIF
+   1     0.0000        SELECT (nCurrSele)
+                   
+                       * Done, return the index count
+   1     0.0001        RETURN THIS.nRows
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Indexarray.Init</span><a name="indexarray_init"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 2,582<br />
+Called by: <a href="#kdatafile_checkindexes">Kdatafile.Checkindexes</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Init() - Initialize our array object
+                   *   Parameters: cDBFAlias | cDBFName
+                   *   Note: This creates an array containing info for the passed DBF's
+                   *         indexes.  The array is automatically sized as needed.
+         0.0133    FUNCTION Init( cAlias )
+                   
+                       * Do the default Init() for 14 columns
+   1     0.0001        IF NOT <a href="#arrayobj_init">DODEFAULT</a>(14)
+                           RETURN .F.
+                       ENDIF
+                   
+                       * Load the array based on the passed alias
+<span class="redBand">   1     0.0132        THIS.<a href="#indexarray_indexes2array">Indexes2Array</a>(cAlias)</span>
+   1     0.0000        NODEFAULT
+   1     0.0000        RETURN .T.
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Indexarray.Setindexprops</span><a name="indexarray_setindexprops"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 2,699<br />
+Called by: <a href="#indexarray_indexes2array">Indexarray.Indexes2array</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- PROT SetIndexProps() - Get the fields in an index expr and put in array
+                   *     Parameters: nRowNumb - Row in our aRA[]
+                   *                 cIndexExpr - The Index Expression to evaluate
+                   *                 oFldObj - The Fields object for this DBF
+                   *     Returns: Number of rows in the array (indexes in the DBF)
+                   *   Note: If called directly, the array must have been initialized first,
+                   *           but rows and columns may be changed here.
+         0.0038    PROTECTED FUNCTION SetIndexProps( nRowNumb, cIndexExpr, oFldObj )
+                       LOCAL cFldList, nFldCnt, cFldName, nFldRow, nDispLen, nDec, cType, ;
+   3     0.0000          nStartCol, cFldProp, cDispExpr
+                   
+                       * The passed expression will have one or more fields specified.  We're
+                       *   to extract the individual fields, and load their info into our
+                       *   array at the passed row number
+                   
+                       * First, get a comma delimeted list of fields in the index expression
+                       *   .aRA[nX, 9] - Comma-delimited list of fields to display in search box
+<span class="yellowBand">   3     0.0013        cFldList = THIS.<a href="#arrayobj_fldsinexpr">FldsInExpr</a>(cIndexExpr)</span>
+   3     0.0000        THIS.aRA[nRowNumb,9] = cFldList
+                   
+                       * Now, handle each one (up to 5 max)
+   3     0.0000        nFldCnt = 1
+   3     0.0000        DO WHILE nFldCnt <= 5 AND NOT EMPTY(cFldList)
+<span class="yellowBand">   4     0.0005            cFldName = THIS.<a href="#arrayobj_extrtoken">ExtrToken</a>( @cFldList, ',')</span>
+                   
+                           * Find this field in the Field Object Array
+                           *   oFldObj.aRA[x,1] - Field name (C)
+                           *   oFldObj.aRA[x,2] - Field type (C):
+                           *       C = Character       I = Integer
+                           *       D = Date            B = Double
+                           *       L = Logical         Y = Currency
+                           *       M = Memo            T = DateTime
+                           *       N = Numeric         G = General Character
+                           *       F = Float
+                           *   oFldObj.aRA[x,3] - Field width (N)
+                           *   oFldObj.aRA[x,4] - Decimal places (N)
+                           *   oFldObj.aRA[x,5] - Null values allowed (L)
+                           *   oFldObj.aRA[x,6] - Code page translation not allowed (L)
+                           *   oFldObj.aRA[x,7] - Field validation expression (C)
+                           *   oFldObj.aRA[x,8] - Field validation text (C)
+                           *   oFldObj.aRA[x,9] - Field default value (C)
+                           *   oFldObj.aRA[x,10] - Table validation expression (C)
+                           *   oFldObj.aRA[x,11] - Table validation text (C)
+                           *   oFldObj.aRA[x,12] - Long table name (C)
+                           *   oFldObj.aRA[x,13] - Insert trigger expression (C)
+                           *   oFldObj.aRA[x,14] - Update trigger expression (C)
+                           *   oFldObj.aRA[x,15] - Delete trigger expression (C)
+                           *   oFldObj.aRA[x,16] - Table comment (C)
+<span class="redBand">   4     0.0020            nFldRow = oFldObj.<a href="#arrayobj_locate">Locate</a>( cFldName, 1 )</span>
+   4     0.0000            IF nFldRow = 0
+                               EXIT
+                           ENDIF
+                   
+                           * Get it's length
+   4     0.0000            nDispLen = oFldObj.aRA[nFldRow,3]
+   4     0.0000            nDec = oFldObj.aRA[nFldRow,4]
+   4     0.0000            cType = oFldObj.aRA[nFldRow,2]
+                   
+                           * If this is field #1, it's info also goes into the Search Entry
+                           *   Field's poop
+   4     0.0000            IF nFldCnt = 1
+                   
+                               *   .aRA[nX, 6] - Legend for Search Entry Field
+                               *   .aRA[nX, 7] - Search Entry Field Length
+                               *   .aRA[nX, 8] - Search Entry Field Input Mask
+   3     0.0000                THIS.aRA[nRowNumb, 6] = cFldName
+   3     0.0000                THIS.aRA[nRowNumb, 7] = nDispLen
+   3     0.0000                DO CASE
+   3     0.0000                CASE cType = 'L'
+                                   THIS.aRA[nRowNumb, 8] = 'Y'
+   3     0.0000                CASE cType = 'D'
+                                   THIS.aRA[nRowNumb, 8] = '@D'
+   3     0.0000                CASE cType $ 'NYIFB'
+                                   THIS.aRA[nRowNumb, 8] = REPLICATE('9', nDispLen)
+   3     0.0000                OTHERWISE
+   3     0.0000                    THIS.aRA[nRowNumb, 8] = REPLICATE('X', nDispLen)
+   3     0.0000                ENDCASE
+   3     0.0000            ENDIF
+                   
+                           * Add this field to the array
+                           *   .aRA[nX,10] - Field #1 Legend^Display Expression^Length
+   4     0.0000            nStartCol = nFldCnt + 9             && 10, 11, 12...
+   4     0.0000            cFldProp = cFldName + '^'       && Legend
+   4     0.0000            DO CASE
+   4     0.0000            CASE cType $ 'NYIFB'
+                               cDispExpr = 'STR(' + cFldName + ',' + LTRIM( STR(nDispLen) ) + ;
+                                 ',' + LTRIM( STR(nDec) ) + ')'
+   4     0.0000            CASE cType $ 'CMG'
+   4     0.0000                cDispExpr = cFldName
+   4     0.0000            CASE cType = 'D'
+                               cDispExpr = 'DTOS(' + cFldName + ')'
+                           OTHERWISE
+                               cDispExpr = 'goStr.XToChar(' + cFldName + ')'
+   4     0.0000            ENDCASE
+   4     0.0000            cFldProp = cFldProp + cDispExpr + '^' + LTRIM( STR(nDispLen) ) + '^'
+   4     0.0000            THIS.aRA[nRowNumb,nStartCol] = cFldProp
+                   
+                           * Next field
+   4     0.0000            nFldCnt = nFldCnt + 1
+   4     0.0000        ENDDO   && WHILE NOT EMPTY(cFldList)
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Cusstringarray.Init</span><a name="cusstringarray_init"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 2,820<br />
+Called by: <a href="#uemptycollection_setmtpropertynames">Uemptycollection.Setmtpropertynames</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Init() - Initialize our array object
+                   *   Parameters: cString [, cToken]
+         0.1134    FUNCTION Init( cString, cToken )
+                   
+                       * Do the default Init() for 1 column
+  43     0.0064        IF NOT <a href="#arrayobj_init">DODEFAULT</a>(1)
+                           RETURN .F.
+                       ENDIF
+                   
+                       * Redefine our token if appropriate
+  43     0.0005        IF TYPE('cToken') = 'C' AND LEN(cToken) = 1
+  43     0.0004            THIS.cToken = cToken
+  43     0.0003        ENDIF
+                   
+                       * Load the array from the passed string
+<span class="redBand">  43     0.1050        THIS.<a href="#cusstringarray_string2array">String2Array</a>(cString)</span>
+  43     0.0005        NODEFAULT
+  43     0.0003        RETURN .T.
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Cusstringarray.String2array</span><a name="cusstringarray_string2array"></a><br />
+File: e:\commcode\karrays.fxp<br />
+Starts at Line: 2,840<br />
+Called by: <a href="#cusstringarray_init">Cusstringarray.Init</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- String2Array() - Load the array from the tokenized string
+         0.0982    FUNCTION String2Array( pcString )
+  43     0.0004        LOCAL cString, nRowsDone, cThisItem
+                   
+                       * THIS.cToken already has the token we'll use
+  43     0.0003        cString = pcString
+  43     0.0003        nRowsDone = 0
+  43     0.0003        DO WHILE NOT EMPTY(cString)
+<span class="yellowBand"> 231     0.0277            cThisItem = THIS.<a href="#arrayobj_extrtoken">ExtrToken</a>( @cString, THIS.cToken )</span>
+                   
+                           * If the row already exists, just change it; else add it
+ 231     0.0023            IF THIS.nRows <= nRowsDone
+<span class="redBand"> 231     0.0608                THIS.<a href="#arrayobj_addrow">AddRow</a>( cThisItem )</span>
+ 231     0.0024            ELSE
+                               THIS.aRA[nRowsDone+1] = cThisItem
+                           ENDIF
+ 231     0.0017            nRowsDone = nRowsDone + 1
+ 231     0.0017        ENDDO
+                   
+                       * If there are more rows, delete them
+  43     0.0003        DO WHILE THIS.nRows > nRowsDone
+                           THIS.DeleteRow( THIS.nRows )
+                       ENDDO
+                   
+                       * Done
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Uchildcollection.Init</span><a name="uchildcollection_init"></a><br />
+File: e:\commcode\ucollect.fxp<br />
+Starts at Line: 297<br />
+Called by: <a href="#siteindexpage_init">Siteindexpage.Init</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Init() - Set ourselves up
+         0.0003    FUNCTION Init()
+<span class="redBand">   1     0.0003        IF NOT <a href="#ycollection_init">DODEFAULT</a>()</span>
+                           RETURN .F.
+                       ENDIF
+                   
+                       * Set our level if we have a parent
+   1     0.0000        IF TYPE('THIS.Parent') = 'O' AND NOT ISNULL(THIS.Parent)
+                           IF PEMSTATUS(THIS.Parent, 'nLevel', 5)
+                               THIS.nLevel = THIS.Parent.nLevel + 1
+                           ENDIF
+                       ENDIF
+   1     0.0000        RETURN .T.
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Uemptycollection.Additem</span><a name="uemptycollection_additem"></a><br />
+File: e:\commcode\ucollect.fxp<br />
+Starts at Line: 486<br />
+Called by: <a href="#indexheadings_setup">Indexheadings.Setup</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- AddItem() - Adds an object to the collection
+         0.1366    FUNCTION AddItem(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25)
+                       LOCAL nParms, oObj, nX, cName, cValueName, xValue, cObjName, ;
+ 119     0.0012          cPropName2Use, nRetRow
+                   
+                       * We're to:
+                       *   1. Create an empty object,
+                       *   2. Assign the property names from the saved list,
+                       *   3. Load the passed values, and
+                       *   4. Add the object to this collection
+ 119     0.0009        nParms = PCOUNT()
+                   
+                       * Create an empty object
+ 119     0.0013        oObj = CREATEOBJECT('Empty')
+                   
+                       * Go through our property array adding properties and values
+ 119     0.0011        WITH THIS.oMTPropList
+ 119     0.0011            FOR nX = 1 TO .nRows
+ 833     0.0069                cName = .aRA[nX]
+ 833     0.0065                IF nX <= nParms
+ 714     0.0059                    cValueName = 'x' + TRANSFORM(nX)
+ 714     0.0061                    xValue = EVAL(cValueName)
+ 714     0.0051                ELSE
+<span class="yellowBand"> 119     0.0165                    xValue = THIS.<a href="#uemptycollection_defmtvalue">DefMTValue</a>(cName)</span>
+ 119     0.0014                ENDIF
+ 833     0.0086                ADDPROPERTY(oObj, cName, xValue)
+ 833     0.0062            ENDFOR
+                   
+                           * What property name should we use?
+ 119     0.0010            IF EMPTY(THIS.cPropForName)
+                               cObjName = 'oObj' + TRANSFORM(THIS.nCount + 1)
+                           ELSE
+ 119     0.0010                cPropName2Use = 'oObj.' + THIS.cPropForName
+ 119     0.0014                cObjName = &cPropName2Use
+ 119     0.0009            ENDIF
+ 119     0.0008        ENDWITH
+                   
+                       * Add this to our collection
+<span class="redBand"> 119     0.0600        nRetRow = THIS.<a href="#arrayobj_addrow">AddRow</a>(oObj, cObjName, 'Empty', .F.)</span>
+ 119     0.0016        THIS.nCount = THIS.nRows
+ 119     0.0011        RETURN nRetRow
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Uemptycollection.Defmtvalue</span><a name="uemptycollection_defmtvalue"></a><br />
+File: e:\commcode\ucollect.fxp<br />
+Starts at Line: 529<br />
+Called by: <a href="#uemptycollection_additem">Uemptycollection.Additem</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- DefMTValue() - Return the default, empty value for a variable name
+         0.0042    FUNCTION DefMTValue(cName)
+<span class="redBand"> 119     0.0012        LOCAL cType</span>
+                   
+                       * This is based on Hungarian notation: the first letter of the name
+ 119     0.0009        cType = LEFT(cName, 1)
+ 119     0.0000        DO CASE
+                   
+                       * Character, Memo or General
+ 119     0.0000        CASE cType $ 'CMG'
+                           RETURN ''
+                   
+                       * Numeric, Double, Float, Integer (all 'N') or Currency ('Y')
+ 119     0.0000        CASE cType $ 'NY'
+                           RETURN 0
+                   
+                       * Logical
+ 119     0.0000        CASE cType $ 'LB'
+                           RETURN .F.
+                   
+                       * Object
+ 119     0.0000        CASE cType = 'O'
+                           RETURN NULL
+                   
+                       * Date
+ 119     0.0000        CASE cType = 'D'
+                           RETURN {}
+                   
+                       * DateTime
+ 119     0.0000        CASE cType = 'T'
+                           * DTOT( {} ) also works
+                           RETURN {  /  /    :  :  AM}
+<span class="yellowBand"> 119     0.0011        ENDCASE</span>
+<span class="yellowBand"> 119     0.0010        RETURN ''</span>
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Uemptycollection.Destroy</span><a name="uemptycollection_destroy"></a><br />
+File: e:\commcode\ucollect.fxp<br />
+Starts at Line: 592<br />
+Called by: <a href="#indexheadings_destroy">Indexheadings.Destroy</a>, <a href="#indexproduct_destroy">Indexproduct.Destroy</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Destroy() - Remove our components
+         0.0293    PROCEDURE Destroy()
+<span class="redBand">  86     0.0176        THIS.<a href="#uemptycollection_removeallitems">RemoveAllItems</a>()</span>
+<span class="yellowBand">  86     0.0117        <a href="#ycollection_destroy">DODEFAULT</a>()</span>
+                   ENDPROC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Uemptycollection.Init</span><a name="uemptycollection_init"></a><br />
+File: e:\commcode\ucollect.fxp<br />
+Starts at Line: 445<br />
+Called by: <a href="#indexheadings_init">Indexheadings.Init</a>, <a href="#indexproduct_init">Indexproduct.Init</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Init() - Initialize our collection, THIS.nRows will be 0 after Init()
+         0.1306    FUNCTION Init(cPropNameList, cItmNameProp)
+  43     0.0101        IF NOT <a href="#ycollection_init">DODEFAULT</a>()
+                           RETURN .F.
+                       ENDIF
+                   
+                       * Check our parameters
+  43     0.0005        IF VARTYPE(cPropList) = 'C' AND NOT EMPTY(cPropList)
+                           THIS.THIS.cMTPropNameList = cPropList
+                       ENDIF
+  43     0.0003        IF VARTYPE(cItmNameProp) <> 'C' AND NOT EMPTY(cItmNameProp)
+                           THIS.cPropForName = cItmNameProp
+                       ENDIF
+                   
+                       * Set tne names
+<span class="redBand">  43     0.1192        THIS.<a href="#uemptycollection_setmtpropertynames">SetMTPropertyNames</a>()</span>
+  43     0.0005        RETURN .T.
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Uemptycollection.Removeallitems</span><a name="uemptycollection_removeallitems"></a><br />
+File: e:\commcode\ucollect.fxp<br />
+Starts at Line: 577<br />
+Called by: <a href="#uemptycollection_destroy">Uemptycollection.Destroy</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- RemoveAllItems() - Empty our array and destroy any objects
+         0.0134    FUNCTION RemoveAllItems()
+  86     0.0008        LOCAL nZ
+                   
+                       * Our objects are all empty objects so just null them out
+  86     0.0006        WITH THIS
+  86     0.0007            FOR nZ = 1 TO .nCount
+ 119     0.0013                .aRA[nZ,1] = NULL
+ 119     0.0009            ENDFOR
+<span class="redBand">  86     0.0069            .<a href="#arrayobj_zaparray">ZapArray</a>()</span>
+  86     0.0008            .nCount = 0
+  86     0.0007        ENDWITH
+  86     0.0007        RETURN THIS.nCount
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Uemptycollection.Setmtpropertynames</span><a name="uemptycollection_setmtpropertynames"></a><br />
+File: e:\commcode\ucollect.fxp<br />
+Starts at Line: 464<br />
+Called by: <a href="#uemptycollection_init">Uemptycollection.Init</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- SetMTPropertyNames() - Save a comma-delimited list of property names
+         0.1177    FUNCTION SetMTPropertyNames(cPropList, cItmNameProp)
+  43     0.0004        LOCAL nNumProps
+                   
+                       * Input notes:
+                       *   cPropList - Comma-delimited list of property names (10 max.)
+                   
+                       * Check our parameters
+  43     0.0003        IF VARTYPE(cPropList) = 'C' AND NOT EMPTY(cPropList)
+                           THIS.THIS.cMTPropNameList = cPropList
+                       ENDIF
+  43     0.0004        IF VARTYPE(cItmNameProp) <> 'C' AND NOT EMPTY(cItmNameProp)
+                           THIS.cPropForName = cItmNameProp
+                       ENDIF
+                   
+                       * Save the names as a string list object
+                       THIS.oMTPropList = CREATEOBJECT('StringArray', THIS.cMTPropNameList, ;
+<span class="redBand">  43     0.1157          ',')</span>
+  43     0.0005        nNumProps = THIS.oMTPropList.nRows
+  43     0.0004        RETURN nNumProps
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Ycollection.Cleanupreferences</span><a name="ycollection_cleanupreferences"></a><br />
+File: e:\commcode\ucollect.fxp<br />
+Starts at Line: 1,142<br />
+Called by: <a href="#ycollection_destroy">Ycollection.Destroy</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- CleanUpReferences() - Null out non-child referenced objects (abstract)
+         0.0028    PROCEDURE CleanUpReferences()
+<span class="redBand">  86     0.0008        LOCAL nZ, oItem</span>
+<span class="yellowBand">  86     0.0007        WITH THIS</span>
+<span class="yellowBand">  86     0.0007            FOR nZ = 1 TO .nCount</span>
+                               oItem = .GetItem(nZ)
+                               IF NOT ISNULL(oItem)
+                                   IF PEMSTATUS(oItem, 'CleanUpReferences', 5)
+                                       oItem.CleanUpReferences()
+                                   ENDIF
+                               ENDIF
+                           ENDFOR
+  86     0.0006        ENDWITH
+                   ENDPROC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Ycollection.Destroy</span><a name="ycollection_destroy"></a><br />
+File: e:\commcode\ucollect.fxp<br />
+Starts at Line: 1,157<br />
+Called by: <a href="#uemptycollection_destroy">Uemptycollection.Destroy</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Destroy() - Remove our components
+         0.0096    PROCEDURE Destroy()
+  86     0.0007        IF THIS.nCount > 0
+                           THIS.RemoveAllItems()
+                       ENDIF
+<span class="redBand">  86     0.0049        THIS.<a href="#ycollection_cleanupreferences">CleanUpReferences</a>()</span>
+<span class="yellowBand">  86     0.0040        <a href="#arrayobj_destroy">DODEFAULT</a>()</span>
+                   ENDPROC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Ycollection.Getitem</span><a name="ycollection_getitem"></a><br />
+File: e:\commcode\ucollect.fxp<br />
+Starts at Line: 809<br />
+Called by: <a href="#indexheadings_assignhelpnos">Indexheadings.Assignhelpnos</a>, <a href="#indexheadings_getblockhtml">Indexheadings.Getblockhtml</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- GetItem() - Return an item from the array (returns .F. if not found)
+         0.0433    FUNCTION GetItem(xKey, cPropName)
+ 238     0.0021        LOCAL nFndRow, nRow, oObj, xValue, xRetValue
+                   
+                       * Input Notes:
+                       *   xKey - Row number, Name or Property Value
+                       *   cPropName - Property Name to use for the Property Value parameter
+                       *               (Warning: Will throw a bug if Col. 1 isn't an object.)
+                       * Returns the found row's Col. 1 entry
+                       * Examples
+                       *   oColl.Item(3) - Returns item stored in row 3,
+                       *   oColl.Item('XYZ') - Returns col 1 item whose name is "XYZ"
+                       *   oColl.Item('Class', 'myClass') - Returns the col 1 item whose
+                       *       Class is 'myClass'
+                   
+                       * This is based on a row (numeric) or a name (character)
+ 238     0.0016        IF PCOUNT() = 1
+<span class="redBand"> 238     0.0288            nFndRow = THIS.<a href="#ycollection_getrow">GetRow</a>(xKey)</span>
+ 238     0.0022        ELSE
+                           nFndRow = THIS.<a href="#ycollection_getrow">GetRow</a>(xKey, cPropName)
+                       ENDIF
+                   
+                       * Now, get the return value
+ 238     0.0016        xRetValue = .F.
+ 238     0.0016        IF nFndRow > 0
+ 238     0.0019            xRetValue = THIS.aRA[nFndRow,COLL_ITEM]
+ 238     0.0017        ENDIF
+ 238     0.0018        RETURN xRetValue
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Ycollection.Getrow</span><a name="ycollection_getrow"></a><br />
+File: e:\commcode\ucollect.fxp<br />
+Starts at Line: 872<br />
+Called by: <a href="#ycollection_getitem">Ycollection.Getitem</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- GetRow() - Return the row number for a name or column
+         0.0149    FUNCTION GetRow(xKeyTry, cProp)
+<span class="yellowBand"> 238     0.0020        LOCAL nTheRow, cPropName, bIsChar, xKey, nRow, oObj, xValue</span>
+                   
+                       * Input Notes:
+                       *   xKeyTry - Row number, Name (Col 2) or Property Value
+                       *   cPropName - (optional) Property Name to use for the Property Value
+                       *               parameter. Default = 'Name'
+                       *               (Warning: Will throw a but if Col. 1 isn't an object.)
+                   
+                       * Returns the found row
+ 238     0.0016        nTheRow = 0
+ 238     0.0000        DO CASE
+<span class="redBand"> 238     0.0022        CASE VARTYPE (xKeyTry) = [N] AND EMPTY(cProp)</span>
+<span class="yellowBand"> 238     0.0020            IF BETWEEN(xKeyTry, 1, THIS.nRows)</span>
+ 238     0.0016                nTheRow = xKeyTry
+ 238     0.0017            ENDIF
+ 238     0.0000        CASE PCOUNT() = 2 AND VARTYPE(cProp) = 'C' AND NOT EMPTY(cProp)
+                           IF LOWER(cProp) == 'name'
+                               nTheRow = THIS.Locate(xKeyTry, COLL_NAME, .T.)
+                           ELSE
+                   
+                               * Look for the property
+                               cPropName = cProp
+                               xKey = xKeyTry
+                               bIsChar = .F.
+                               IF VARTYPE(xKey) = 'C'
+                                   xKey = LOWER(xKeyTry)
+                                   bIsChar = .T.
+                               ENDIF
+                               WITH THIS
+                                   FOR nRow = 1 TO .nRows
+                                       oObj = .aRA[nRow,COLL_ITEM]
+                   
+                                       * If we're passed an array row, use that
+                                       IF UPPER(cPropName) == 'ARRAYROW'
+                                           xValue = nRow
+                                       ELSE
+                                           xValue = EVALUATE('oObj.' + cProp)
+                                       ENDIF
+                                       IF bIsChar
+                                           xValue = LOWER(xValue)
+                                       ENDIF
+                                       IF xValue == xKey
+                                           nTheRow = nRow
+                                           EXIT
+                                       ENDIF
+                                   ENDFOR
+                               ENDWITH
+                           ENDIF
+                       OTHERWISE
+                   
+                           * Search by name with exact ON (trailing .T.)
+                           nTheRow = THIS.Locate(xKeyTry, COLL_NAME, .T.)
+ 238     0.0020        ENDCASE
+ 238     0.0018        RETURN nTheRow
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Ycollection.Init</span><a name="ycollection_init"></a><br />
+File: e:\commcode\ucollect.fxp<br />
+Starts at Line: 738<br />
+Called by: <a href="#uchildcollection_init">Uchildcollection.Init</a>, <a href="#uemptycollection_init">Uemptycollection.Init</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Init() - Initialize an array object; THIS.nRows will be 0 after Init()
+         0.0088    FUNCTION Init(nCols)
+  44     0.0004        LOCAL nCols2Use
+  44     0.0003        IF VARTYPE(nCols) = 'N' AND nCols > 0
+                           nCols2Use = nCols
+                       ELSE
+  44     0.0003            nCols2Use = 4
+  44     0.0003        ENDIF
+<span class="redBand">  44     0.0070        IF NOT <a href="#arrayobj_init">DODEFAULT</a>(nCols2Use)</span>
+                           RETURN .F.
+                       ENDIF
+  44     0.0005        RETURN .T.
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Alicntl.Getclientproductcodes</span><a name="alicntl_getclientproductcodes"></a><br />
+File: e:\aliweb\source\alicntl.fxp<br />
+Starts at Line: 386<br />
+Called by: <a href="#siteindexhdgspage_setup">Siteindexhdgspage.Setup</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- GetClientProductCodes() - Return the 2-char product codes for a client
+         0.0000    FUNCTION GetClientProductCodes()
+   1     0.0000        LOCAL cCodes, cTaskLtrs, oCodes, cModules, nX, cCode, cPricing
+                   
+                       * This is easy for developers
+   1     0.0000        IF oProcess.bIsDeveloper
+   1     0.0000            cCodes = THIS.cProdModules + ',' + THIS.cDevModules
+   1     0.0000        ELSE
+                   
+                           * First the simple conversions. First Gov't EDI and its mods
+                           cCodes = ''
+                           cTaskLtrs = oProcess.cClientProds
+                           IF 'C' $ cTaskLtrs
+                               cCodes = 'CR'
+                               DO CASE
+                               CASE oProcess.oUserEdit.SP_MENU = "RFQE"
+                                   cCodes = 'RL'
+                               CASE oProcess.oUserEdit.SP_MENU = "INV"
+                                   cCodes = 'WA'
+                               OTHERWISE
+                                   cCodes = cCodes + ',WA,RC'
+                               ENDCASE
+                           ENDIF
+                           IF 'E' $ cTaskLtrs OR '2' $ cTaskLtrs
+                               cCodes = cCodes + ',CO'
+                           ENDIF
+                           IF 'R' $ cTaskLtrs
+                               cCodes = cCodes + ',RX'
+                           ENDIF
+                           IF 'N' $ cTaskLtrs
+                               cCodes = cCodes + ',NP'
+                           ENDIF
+                           IF 'L' $ cTaskLtrs
+                               cCodes = cCodes + ',SL'
+                           ENDIF
+                           IF 'S' $ cTaskLtrs
+                               cCodes = cCodes + ',FS'
+                           ENDIF
+                           IF 'A' $ cTaskLtrs
+                               cCodes = cCodes + ',CA'
+                           ENDIF
+                           IF 'I' $ cTaskLtrs
+                               cCodes = cCodes + ',IX'
+                           ENDIF
+                           cPricing = THIS.oUserEdit.PRICING
+                           IF 'K' $ cPricing .OR. 'J' $ cPricing .OR. 'N' $ cPricing .OR. 'R' $ cPricing
+                               cCodes = cCodes + ',FP'
+                           ENDIF
+                           IF THIS.cLogin $ 'MARV12^ADS   ^TEST55^ADS234^TAS228^DHS109^UUL325^ASI851^ETC030^WCR287^FFI018^JOI139^CIF980^'
+                               cCodes = cCodes + ',KP'
+                           ENDIF
+                   
+                           * Put these into an array
+                           oCodes = CREATEOBJECT('StringArray', cCodes, ',')
+                   
+                           * Everybody gets PM and AL
+                           cCodes = 'PM,AL'
+                   
+                           * Add only those codes that are in THIS.cProdModules
+                           cModules = THIS.cProdModules
+                           WITH oCodes
+                               FOR nX = 1 TO .nRows
+                                   cCode = .aRA[nX]
+                                   IF cCode $ cModules
+                                       cCodes = cCodes + ',' + cCode
+                                   ENDIF
+                               ENDFOR
+                           ENDWITH
+                       ENDIF   && oProcess.bIsDeveloper
+                   
+                       * Toss any last comma
+   1     0.0000        IF RIGHT(cCodes,1) = ','
+                           cCodes = LEFT(cCodes, LEN(cCodes)-1)
+                       ENDIF
+   1     0.0000        RETURN cCodes
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kdatafile.Checkdbf</span><a name="kdatafile_checkdbf"></a><br />
+File: e:\commcode\datafile.fxp<br />
+Starts at Line: 2,074<br />
+Called by: <a href="#kdatafile_open">Kdatafile.Open</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- CheckDBF() - Check our DBF to make sure it exists according to DATADIC
+         0.0419    PROTECTED PROCEDURE CheckDBF()
+   2     0.0000        LOCAL cTheDBF, bNeedsChk, cDefTag
+                   
+                       * THIS.cDBFDir + THIS.cDBFName defines our file.
+                       * But, first, are our DATADIC files opened?
+   2     0.0000        IF NOT USED('DATADIC')
+                           THIS.InitDDFiles()
+                       ENDIF
+                   
+                       * If we're already used, just return quickly
+                       IF USED( THIS.cAlias )
+                           SELECT (THIS.cAlias)
+                           RETURN RECCOUNT()
+                       ENDIF
+                   
+                       * Do we need to check this file?  Yes if:
+                       *   1. It NEEDS_CHK
+                       *   2. There is no DBF
+                       *   3. It HAS_INDEXES but there is no CDX
+   2     0.0000        SELECT 0
+   2     0.0003        cTheDBF = <a href="#make_len">MAKE_LEN</a>( THIS.cDBFName, LEN(DATADIC.DBF_NAME) )
+   2     0.0011        bNeedsChk = THIS.<a href="#kdatafile_getddinfo">GetDDInfo</a>( 'D', 'NEEDS_CHK' )
+   2     0.0000        IF NOT bNeedsChk
+   1     0.0002            bNeedsChk = NOT FILE( THIS.cDBFDir + THIS.cDBFName + '.DBF')
+   1     0.0000        ENDIF
+   2     0.0000        IF NOT bNeedsChk
+   1     0.0007            IF THIS.<a href="#kdatafile_getddinfo">GetDDInfo</a>( 'I', 'HAS_INDEXES')
+   1     0.0003                bNeedsChk = (NOT FILE( THIS.cDBFDir + THIS.cDBFName + '.CDX'))
+   1     0.0000            ENDIF
+   1     0.0000        ENDIF
+   2     0.0000        IF bNeedsChk
+                   
+                           * Go change whatever needs changing
+<span class="redBand">   1     0.0381            THIS.<a href="#kdatafile_resetdbf">ResetDBF</a>()              && Returns with file closed</span>
+   1     0.0000        ELSE
+                   
+                           * Open the file, Error() will trap for CDX file not found error
+   1     0.0004            USE (THIS.cDBFDir + THIS.cDBFName) ALIAS (THIS.cAlias)
+                   
+                           * If a default tag exists, but the file has none, check the DBF
+   1     0.0007            cDefTag = TRIM( THIS.<a href="#kdatafile_getddinfo">GetDDInfo</a>( 'D', 'DEF_TAG') )
+   1     0.0000            IF EMPTY( TAG(1) ) AND NOT EMPTY(cDefTag)
+                               THIS.<a href="#kdatafile_resetdbf">ResetDBF</a>()             && Returns with file closed
+                           ELSE
+   1     0.0001                USE                         && Close the file
+   1     0.0000            ENDIF
+   1     0.0000        ENDIF
+                   ENDPROC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kdatafile.Checkfldstru</span><a name="kdatafile_checkfldstru"></a><br />
+File: e:\commcode\datafile.fxp<br />
+Starts at Line: 2,359<br />
+Called by: <a href="#kdatafile_resetdbf">Kdatafile.Resetdbf</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- CheckFldStru() - Return .T. if our DBF needs restructuring
+         0.0062    PROTECTED FUNCTION CheckFldStru()
+   1     0.0000        LOCAL oFldStru, cTheDBF, bNeedsStru, nFld, cFldName, cFldType, nFldLen
+                   
+                       * Our DBF is currently OPEN and SELECTed.  Get our structure
+<span class="redBand">   1     0.0061        oFldStru = THIS.oFldStru</span>
+                   
+                       * Count the fields in our data dictionary file
+   1     0.0000        SELECT DATADICF
+   1     0.0001        cTheDBF = <a href="#make_len">MAKE_LEN</a>( THIS.cDBFName, LEN(DBF_NAME) )
+   1     0.0000        SEEK cTheDBF
+   1     0.0000        COUNT TO nDDFieldCnt WHILE DBF_NAME = cTheDBF
+   1     0.0000        SELECT (THIS.cAlias)
+                   
+                       * Obviously, we need to restructure if the field counts are different
+   1     0.0000        IF nDDFieldCnt <> oFldStru.nRows
+                           RETURN .T.
+                       ENDIF
+                   
+                       * The counts are OK, so compare the individual fields
+   1     0.0000        bNeedsStru = .F.
+   1     0.0000        SELECT DATADICF
+   1     0.0000        SEEK cTheDBF
+   1     0.0000        FOR nFld = 1 TO oFldStru.nRows
+                   
+                           * Check the name
+   6     0.0000            cFldName = TRIM( FIELD_NAME )
+                           IF cFldName <> oFldStru.aRA[nFld,1] OR ;
+   6     0.0000              LEN(cFldName) <> LEN(oFldStru.aRA[nFld,1])
+                               bNeedsStru = .T.
+                               EXIT
+                           ENDIF
+                   
+                           * Check the type
+   6     0.0000            cFldType = oFldStru.aRA[nFld,2]
+   6     0.0000            IF DATADICF.FIELD_TYPE <> cFldType
+                               bNeedsStru = .T.
+                               EXIT
+                           ENDIF
+                   
+                           * Check the length - except for date, logical, and memo (we
+                           *   don't use float)
+   6     0.0000            IF cFldType $ 'CN'
+   6     0.0000                nFldLen = oFldStru.aRA[nFld,3]
+   6     0.0000                IF DATADICF.FIELD_LEN <> nFldLen
+                                   bNeedsStru = .T.
+                                   EXIT
+                               ENDIF
+   6     0.0000            ENDIF
+                   
+                           * Check the decimals - but only for numeric
+   6     0.0000            IF cFldType = 'N' AND nFldLen > 2
+                               IF DATADICF.FIELD_DEC <> oFldStru.aRA[nFld,4]
+                                   bNeedsStru = .T.
+                                   EXIT
+                               ENDIF
+                           ENDIF
+                   
+                           * Next field
+   6     0.0000            SKIP
+   6     0.0000        ENDFOR
+   1     0.0000        SELECT (THIS.cAlias)
+   1     0.0000        RETURN bNeedsStru
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kdatafile.Checkindexes</span><a name="kdatafile_checkindexes"></a><br />
+File: e:\commcode\datafile.fxp<br />
+Starts at Line: 2,269<br />
+Called by: <a href="#kdatafile_resetdbf">Kdatafile.Resetdbf</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- CheckIndexes() - Reindex any TAGs that are needed
+         0.0159    PROTECTED PROCEDURE CheckIndexes()
+                       LOCAL cTheDBF, oNdxStru, oDDStru, cTag, cExpr, cCond, nW, ;
+   1     0.0000          cOldExact, bExcl, nFndRow, bNeedIndex, cCmd
+                   
+                       * Our DBF is currently OPEN and SELECTed.
+   1     0.0001        cTheDBF = <a href="#make_len">MAKE_LEN</a>( THIS.cDBFName, LEN(DATADIC.DBF_NAME) )
+                   
+                       * Put this file's index info into an IndexArray object
+<span class="redBand">   1     0.0134        oNdxStru = CREATEOBJECT<a href="#indexarray_init">('IndexArray'</a>, THIS.cAlias)</span>
+                   
+                       * We'll create a matching array object but we'll load it with our
+                       *   DATADICI values
+   1     0.0002        oDDStru = CREATEOBJECT<a href="#arrayobj_init">('ArrayObj'</a>, 3)
+   1     0.0000        SELECT DATADICI
+   1     0.0000        SEEK cTheDBF
+   1     0.0000        SCAN WHILE DBF_NAME = cTheDBF
+   3     0.0000            cTag = TAG_NAME
+   3     0.0000            cExpr = EXPR_I
+   3     0.0000            cCond = ''
+                   
+                           * Our data dictionary expression may contain an embedded FOR
+                           *   expression.  If so, extract it.
+   3     0.0000            IF ' FOR ' $ cExpr
+                               nW = AT(' FOR ',cExpr)
+                               cCond = SUBSTR(cExpr, nW+5)
+                               cExpr = LEFT(cExpr, nW-1)
+                           ENDIF
+                   
+                           * Remove internal spaces from the FOR condition
+   3     0.0000            IF ' ' $ cCond
+                               cCond = STRTRAN(cCond, ' ', '')
+                           ENDIF
+                   
+                           *   Convert all quotes to double quotes.
+   3     0.0000            IF "'" $ cCond
+                               cCond = STRTRAN(cCond, "'", '"')
+                           ENDIF
+   3     0.0000            IF "'" $ cExpr
+                               cExpr = STRTRAN(cExpr, "'", '"')
+                           ENDIF
+                   
+                           * Add this to our array
+   3     0.0012            oDDStru.<a href="#arrayobj_addrow">AddRow</a>( cTag, cExpr, cCond )
+   3     0.0000        ENDSCAN
+   1     0.0000        SELECT (THIS.cAlias)
+                   
+                       * Here we have oDDStru (ArrayObj) with our Data Dictionary Indexes, and
+                       *   oNdxStru (IndexArray) with the actual indexes.  We don't care about
+                       *   any indexes the user may have added - all we want to do is index
+                       *   whatever's needed from oDDStru
+   1     0.0000        cOldExact = SET('EXACT')
+   1     0.0000        SET EXACT ON
+   1     0.0000        bExcl = .F.
+   1     0.0000        FOR nW = 1 TO oDDStru.nRows
+   3     0.0000            cTag = oDDStru.aRA[nW,1]
+   3     0.0000            cExpr = oDDStru.aRA[nW,2]
+   3     0.0000            cCond = oDDStru.aRA[nW,3]
+                   
+                           * Find this tag in oNdxStru
+   3     0.0010            nFndRow = oNdxStru.<a href="#arrayobj_locate">Locate</a>(cTag, 1)
+   3     0.0000            bNeedIndex = (nFndRow = 0)
+   3     0.0000            IF NOT bNeedIndex
+                               IF oNdxStru.aRA[nFndRow,2] <> cExpr OR ;
+   3     0.0000                  oNdxStru.aRA[nFndRow,3] <> cCond
+                                   bNeedIndex = .T.
+                               ENDIF
+   3     0.0000            ENDIF
+                   
+                           * Reindex this if it's needed
+   3     0.0000            IF bNeedIndex
+                   
+                               * Make sure our file is opened exclusively
+                               IF NOT bExcl
+                                   USE (THIS.cDBFDir + THIS.cDBFName) EXCLUSIVE ALIAS (THIS.cAlias)
+                                   bExcl = .T.
+                               ENDIF
+                   
+                               * Define the indexing expression
+                               cCmd = THIS.GetDDInfo( 'I', 'EXPR_I', cTag)
+                   
+                               * Index the sucker
+                               SET TALK ON
+                               INDEX ON &cCmd TAG &cTag
+                               SET TALK OFF
+                           ENDIF
+   3     0.0000        ENDFOR
+   1     0.0000        SET EXACT &cOldExact
+                   ENDPROC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kdatafile.Getddinfo</span><a name="kdatafile_getddinfo"></a><br />
+File: e:\commcode\datafile.fxp<br />
+Starts at Line: 1,112<br />
+Called by: <a href="#kdatafile_checkdbf">Kdatafile.Checkdbf</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- GetDDInfo() - Return requested Data Dictionary information
+                   *   Inputs: cDDType - DD type (D - data files, I - Indexes, F - Fields)
+                   *           cFldName - The DD field name desired
+                   *           c2ndArg - 2nd requirement:
+                   *                       Type I: Index Name
+                   *                       Type F: Field Name
+                   *  Returns: requested info or 'Error!' if not found
+         0.0014    FUNCTION GetDDInfo(cDDType, cFldName, c2ndArg)
+   4     0.0000        LOCAL cOldExact, nCurrSele, cOurDBF, cArg2, xRetVal
+                   
+                       * Save the current setup
+   4     0.0000        cOldExact = SET('EXACT')
+   4     0.0001        IF cOldExact = 'ON'
+                           SET EXACT OFF
+                       ENDIF
+   4     0.0000        nCurrSele = SELECT()
+                   
+                       * Make sure our DATADIC* files are opened
+   4     0.0000        IF NOT USED('DATADIC')
+                           THIS.InitDDFiles()
+                       ENDIF
+                   
+                       * There are 3 possible types:
+                       *   D - Main Data Dictionary File
+                       *   I - Data Dictionary Index File
+                       *   F - Data Dictionary Field File
+                       * Point to the right database
+<span class="yellowBand">   4     0.0005        cOurDBF = <a href="#make_len">MAKE_LEN</a>( THIS.cDBFName, LEN(DATADIC.DBF_NAME) )</span>
+   4     0.0000        DO CASE
+   4     0.0000        CASE cDDType = 'D'
+   3     0.0000            SELECT DATADIC
+<span class="redBand">   3     0.0006            LOCATE FOR DBF_NAME = cOurDBF</span>
+   4     0.0001        CASE cDDType = 'I'
+   1     0.0000            SELECT DATADICI
+   1     0.0000            SEEK cOurDBF
+   1     0.0000        OTHERWISE               && cDDType = 'F'
+                           SELECT DATADICF
+                           SEEK cOurDBF
+   4     0.0000        ENDCASE
+                   
+                       * Types I and F MAY require a 2nd argument
+   4     0.0000        IF TYPE('c2ndArg') = 'C'
+                           IF cDDType = 'F'
+                               cArg2 = <a href="#make_len">MAKE_LEN</a>(c2ndArg, LEN(FIELD_NAME) )
+                               LOCATE FOR FIELD_NAME = cArg2 WHILE DBF_NAME = cOurDBF
+                           ELSE
+                               cArg2 = <a href="#make_len">MAKE_LEN</a>(c2ndArg, LEN(TAG_NAME) )
+                               LOCATE FOR TAG_NAME = cArg2 WHILE DBF_NAME = cOurDBF
+                           ENDIF
+                       ENDIF
+                   
+                       * We may have some special cases
+   4     0.0000        DO CASE
+   4     0.0000        CASE cFldName = 'BLOCKSIZE' AND cDDType = 'D'
+                           xRetVal = THIS.nBlockSize
+   4     0.0000        CASE cFldName = 'HAS_INDEXES' AND cDDType $ 'DI'
+   1     0.0000            xRetVal = FOUND('DATADICI')
+   4     0.0000        CASE cFldName = 'NEEDS_CHK' AND cDDType = 'D'
+   2     0.0000            xRetVal = ( NEEDS_CHK OR DATEF <> DATE() OR DATEI <> DATE() )
+   3     0.0000        CASE EOF()
+                           DO CASE
+                           CASE TYPE(cFldName) = 'L'
+                               xRetVal = .F.
+                           CASE TYPE(cFldName) = 'N'
+                               xRetVal = -1
+                           CASE TYPE(cFldName) = 'D'
+                               xRetVal = {}
+                           OTHERWISE           && TYPE(cFldName) = 'C'
+                               xRetVal = 'Error!'
+                           ENDCASE
+   1     0.0000        OTHERWISE
+   1     0.0000            xRetVal = EVAL( cFldName )
+   4     0.0000        ENDCASE
+                   
+                       * Reset the select area and return with the desired info
+   4     0.0001        SELECT (nCurrSele)
+   4     0.0000        IF cOldExact = 'ON'
+                           SET EXACT ON
+                       ENDIF
+   4     0.0000        RETURN xRetVal
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kdatafile.Getnewalias</span><a name="kdatafile_getnewalias"></a><br />
+File: e:\commcode\datafile.fxp<br />
+Starts at Line: 1,801<br />
+Called by: <a href="#kdatafile_open">Kdatafile.Open</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- GetNewAlias() - Return a valid, unique alias (e.g. CLIENTS5)
+<span class="yellowBand">         0.0004    FUNCTION GetNewAlias()</span>
+   1     0.0000        LOCAL nOpenNumb, cRetAlias, nM
+                   
+                       * How many instances of this file are open
+<span class="redBand">   1     0.0004        nOpenNumb = THIS.<a href="#kdatafile_getusecount">GetUseCount</a>()</span>
+   1     0.0000        cRetAlias = THIS.cDBFName
+   1     0.0000        nM = 2
+   1     0.0000        DO WHILE USED(cRetAlias) AND nM <= 65535
+   1     0.0000            cRetAlias = THIS.cDBFName + LTRIM( STR( nM ) )
+   1     0.0000            nM = nM + 1
+   1     0.0000        ENDDO
+                   
+                       * Our valid, unique alias must be the next one
+   1     0.0000        RETURN cRetAlias
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kdatafile.Getusecount</span><a name="kdatafile_getusecount"></a><br />
+File: e:\commcode\datafile.fxp<br />
+Starts at Line: 1,696<br />
+Called by: <a href="#kdatafile_getnewalias">Kdatafile.Getnewalias</a>, <a href="#kdatafile_isdbfused">Kdatafile.Isdbfused</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- GetUseCount() - Return how many times our DBF has been opened
+         0.0008    FUNCTION GetUseCount()
+   4     0.0000        LOCAL nOpened, aTables[1,2], nOpenCount, cDBFile, nW, nSelArea
+                   
+                       * Get an array of all currently used tables
+                       *   aTables[nW,1] = Alias
+                       *   aTables[nW,2] = Work area
+   4     0.0001        nOpened = AUSED(aTables)
+                   
+                       * Look for our dbf
+   4     0.0000        nOpenCount = 0
+   4     0.0000        cDBFile = UPPER(THIS.cDBFDir + THIS.cDBFName) + '.DBF'
+   4     0.0000        FOR nW = 1 TO nOpened
+<span class="yellowBand">  36     0.0002            nSelArea = aTables[nW,2]</span>
+<span class="redBand">  36     0.0003            IF cDBFile = UPPER( DBF( nSelArea ) )</span>
+   2     0.0000                nOpenCount = nOpenCount + 1
+   2     0.0000            ENDIF
+<span class="yellowBand">  36     0.0002        ENDFOR</span>
+   4     0.0000        RETURN nOpenCount
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kdatafile.Init</span><a name="kdatafile_init"></a><br />
+File: e:\commcode\datafile.fxp<br />
+Starts at Line: 254<br />
+Called by: <a href="#siteindexhdgspage_setup">Siteindexhdgspage.Setup</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Init() - Set ourselves up
+         0.0503    FUNCTION Init( cArgList, xFirstRec, cNewFilter, bDontOpen, cClauses )
+   3     0.0000        LOCAL bWantsMirror, cFuullPath
+   3     0.0000        IF NOT DODEF<a href="#kosfiles_fullpath">FullPath</a>                           RETURN .F.
+                       ENDIF
+                   
+                       * This is an abstract class and cannot be instantiated directly
+   3     0.0001        ASSERT <a href="#isabstract">IsAbstract</a>(THIS.Class, "KDataFile")
+                   
+                       * Parse the argument list
+   3     0.0005        THIS.<a href="#kdatafile_parseargs">ParseArgs</a>(cArgList)
+                   
+                       * Handle the other arguments
+   3     0.0000        IF NOT EMPTY(xFirstRec)
+                           DO CASE
+                           CASE TYPE('xFirstRec') = 'C'
+                               THIS.xStartRec = xFirstRec
+                           CASE TYPE('xFirstRec') = 'N'
+                               THIS.xStartRec = xFirstRec
+                           ENDCASE
+                       ENDIF
+   3     0.0000        IF TYPE('cNewFilter') = 'C' AND NOT EMPTY(cNewFilter)
+                           THIS.cFilter = cNewFilter
+                       ENDIF
+   3     0.0000        IF TYPE('cClauses') = 'C' AND NOT EMPTY(cClauses)
+                           THIS.cOppenClauses = cClauses
+                       ENDIF
+                   
+                       * Assume our alias is our DBF name if it's empty
+   3     0.0000        IF EMPTY(THIS.cAlias)
+   3     0.0000            THIS.cAlias = THIS.cDBFName
+   3     0.0000        ENDIF
+                   
+                       * Make sure our file directory is fully qualified (this might change
+                       *   our mirror status so save that first)
+   3     0.0000        bWantsMirror = THIS.bMirror
+   3     0.0000        IF NOT EMPTY( THIS.cDBFDir )
+   3     0.0029            cFuullPath = ADDBS( goFiles.FullPath( THIS.cDBFDir ))
+   3     0.0000            IF NOT THIS.cDBFDir == cFullPath
+                               THIS.cDBFDir = cFullPath
+                           ENDIF
+   3     0.0000        ENDIF
+                   
+                       * Make sure our starting directories have a trailing backslash
+   3     0.0000        IF (NOT EMPTY(THIS.cDBFDir) AND RIGHT( THIS.cDBFDir, 1) <> '\')
+                           THIS.cDBFDir = THIS.cDBFDir + '\'
+                       ENDIF
+   3     0.0000        IF (NOT EMPTY(THIS.cDDDir) AND RIGHT( THIS.cDDDir, 1) <> '\')
+            <a href="#kdatafile_open">Open</a>           THIS.cDDDir = THIS.cDDDir + '\'
+                       ENDIF
+   3     0.0000        THIS.bMirror = bWantsMirror
+                   
+                       * Now, <a href="#kdatafile_open">Open</a> the file unless they have more to do
+   3     0.0000        IF NOT bDontOppen
+<span class="redBand">   3     0.0468            THIS.nCurrRec = THIS.Open()</span>
+   3     0.0000        ELSE
+                           THIS.nCuurrRec = -1
+                       ENDIF
+   3     0.0000        NODEFAUL<a href="#kdatafile_open">Open</a>  3     0.0000        RETURN .T.
+                   ENDFUNC
+<a href="#kosfiles_fullpath">FullPath</a>
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kdatafile.Isdbfused</span><a name="kdatafile_isdbfused"></a><br />
+File: e:\commcode\datafile.fxp<br />
+Starts at Line: 1,691<br />
+Called by: <a href="#kdatafile_open">Kdatafile.Open</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- IsDBFUsed() - Return .T. if our DBF is opened somewhere else
+         0.0012    FUNCTION IsDBFUsed()
+<span class="redBand">   3     0.0012        RETURN ( THIS.<a href="#kdatafile_getusecount">GetUseCount</a>() > 0 )</span>
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kdatafile.Move</span><a name="kdatafile_move"></a><br />
+File: e:\commcode\datafile.fxp<br />
+Starts at Line: 500<br />
+Called by: <a href="#kdatafile_open">Kdatafile.Open</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Move() - Move within this DBF file
+                   *  xMoveArg: (N) Specific record number to go to
+                   *            (C) 'T' - Top of File, 'N' - Next record, 'P' - Previous
+                   *                   record, 'B' - Bottom of file, 'L' - Last record added
+                   *   Returns: New record number
+                   *     Notes: 1. Alias does NOT have to be SELECTed
+                   *            2. Move is guaranteed safe - No BOF() or EOF() settings
+         0.0000    FUNCTION Move( xMoveArg )
+   3     0.0000        LOCAL nCurrSele, nNewRec
+                   
+                       * We may not be SELECTed
+   3     0.0000        nCurrSele = -1
+   3     0.0000        IF ALIAS() <> THIS.cAlias
+                           nCurrSele = SELECT(0)
+                           SELECT (THIS.cAlias)
+                       ENDIF
+                   
+                       * Doit toit
+   3     0.0000        DO CASE
+                   
+                       * Numeric argument
+   3     0.0000        CASE TYPE('xMoveArg') = 'N' AND BETWEEN( xMoveArg, 1, RECCOUNT() )
+                           GOTO xMoveArg           && Caller worries about any filter
+                   
+                       * Character argument
+   3     0.0000        CASE TYPE('xMoveArg') = 'C' AND xMoveArg $ 'TBPNL'
+   3     0.0000            DO CASE
+   3     0.0000            CASE xMoveArg = 'T'
+   3     0.0000                GO TOP
+   3     0.0000            CASE xMoveArg = 'B'
+                               GO BOTTOM
+                           CASE xMoveArg = 'N'
+                               SKIP +1
+                           CASE xMoveArg = 'P'
+                               SKIP -1
+                           CASE xMoveArg = 'L'         && Last means last one added
+                               GOTO RECCOUNT()
+                   
+                               * This could be an invalid record if we have a filter
+                               IF NOT EMPTY(THIS.cFilter)
+                                   nNewRec = 1
+                                   DO WHILE nNewRec < RECCOUNT() - 1 AND NOT (BOF() OR ;
+                                     &THIS.cFilter)
+                                       GOTO RECCOUNT() - nNewRec
+                                       nNewRec = nNewRec + 1
+                                   ENDDO
+                               ENDIF
+   3     0.0000            ENDCASE
+   3     0.0000        ENDCASE
+                   
+                       * Define our new record number
+   3     0.0000        nNewRec = IIF( BOF() OR EOF(), 0, RECNO() )
+                   
+                       * If we changed select areas, go back to the original
+   3     0.0000        IF nCurrSele <> -1
+                           SELECT (nCurrSele)
+                       ENDIF
+   3     0.0000        RETURN nNewRec
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kdatafile.Ofldstru_Access</span><a name="kdatafile_ofldstru_access"></a><br />
+File: e:\commcode\datafile.fxp<br />
+Starts at Line: 2,424<br />
+Called by: <a href="#kdatafile_checkfldstru">Kdatafile.Checkfldstru</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- oFldStru_Access() - Load our field structure into our property
+<span class="yellowBand">         0.0060    FUNCTION oFldStru_Access()</span>
+   1     0.0000        LOCAL oFlds
+                   
+                       * Get the FldsArray object and put it in our property
+   1     0.0000        IF ISNULL(THIS.oFldStru) AND USED(THIS.cAlias)
+<span class="redBand">   1     0.0060            oFlds = CREATEOBJECT('FldsArray', THIS.cAlias)</span>
+   1     0.0000            THIS.oFldStru = oFlds
+   1     0.0000            RETURN oFlds
+                       ENDIF
+                       RETURN THIS.oFldStru
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kdatafile.Open</span><a name="kdatafile_open"></a><br />
+File: e:\commcode\datafile.fxp<br />
+Starts at Line: 386<br />
+Called by: <a href="#kdatafile_init">Kdatafile.Init</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Open() - Open this DBF file
+         0.0458    FUNCTION Open(cStartOrder, xFirstRec, cNewFilter, cClauses)
+   3     0.0000        LOCAL bIsOpen, cCmdArg, nSeleIn
+                   
+                       * If we're already open, define a new alias
+   3     0.0013        bIsOpen = THIS.<a href="#kdatafile_isdbfused">IsDBFUsed</a>()
+   3     0.0000        IF bIsOpen AND USED(THIS.cAlias)
+   1     0.0005            THIS.cAlias = THIS.<a href="#kdatafile_getnewalias">GetNewAlias</a>()
+   1     0.0000        ENDIF
+                   
+                       * Define the default startup parameters
+   3     0.0000        IF TYPE('cStartOrder') = 'C' AND NOT EMPTY(cStartOrder)
+                           THIS.cOrder = cStartOrder
+                       ENDIF
+   3     0.0000        IF NOT EMPTY(xFirstRec)
+                           DO CASE
+                           CASE TYPE('xFirstRec') = 'C'
+                               THIS.xStartRec = xFirstRec
+                           CASE TYPE('xFirstRec') = 'N'
+                               THIS.xStartRec = xFirstRec
+                           ENDCASE
+                       ENDIF
+   3     0.0000        IF TYPE('cNewFilter') = 'C' AND NOT EMPTY(cNewFilter)
+                           THIS.cFilter = cNewFilter
+                       ENDIF
+   3     0.0000        IF TYPE('cClauses') = 'C' AND NOT EMPTY(cClauses)
+                           THIS.cOpenClauses = cClauses
+                       ENDIF
+                   
+                       * If we're not yet open, check the file
+   3     0.0000        IF NOT bIsOpen
+<span class="redBand">   2     0.0422            THIS.<a href="#kdatafile_checkdbf">CheckDBF</a>()                 && Returns with file closed</span>
+   2     0.0000        ENDIF
+                   
+                       * Create our command (without the USE):
+                       *   USE MENUITMS
+   3     0.0000        cCmdArg = THIS.cDBFDir + THIS.cDBFName
+                   
+                       *   USE MENUITMS ALIAS MENUDB AGAIN
+                       * We'll (almost) always force an alias
+   3     0.0000        DO CASE
+   3     0.0000        CASE bIsOpen
+   1     0.0000            cCmdArg = cCmdArg + ' ALIAS ' + THIS.cAlias
+   1     0.0000            IF NOT 'AGAIN' $ THIS.cOpenClauses
+                               THIS.cOpenClauses = THIS.cOpenClauses + ;
+   1     0.0000                  IIF( EMPTY(THIS.cOpenClauses), '', ', ' ) + 'AGAIN'
+   1     0.0000            ENDIF
+   3     0.0000        CASE NOT EMPTY(THIS.cAlias)
+   2     0.0000            cCmdArg = cCmdArg + ' ALIAS ' + THIS.cAlias
+   3     0.0000        ENDCASE
+                   
+                       *   USE MENUITMS ALIAS MENUDB AGAIN ORDER MENUPOSN
+   3     0.0000        IF NOT EMPTY(THIS.cOrder)
+   3     0.0000            cCmdArg = cCmdArg + ' ORDER ' + THIS.cOrder
+   3     0.0000        ENDIF
+                   
+                       *   USE MENUITMS ALIAS MENUDB AGAIN ORDER MENUPOSN EXCL
+   3     0.0000        IF THIS.bIsExcl
+                           cCmdArg = cCmdArg + ' EXCLUSIVE'
+                       ENDIF
+                   
+                       *   USE MENUITMS ALIAS MENUDB AGAIN ORDER MENUPOSN EXCLUSIVE
+   3     0.0000        IF NOT EMPTY(THIS.cOpenClauses)
+   1     0.0000            cCmdArg = cCmdArg + ' ' + THIS.cOpenClauses
+   1     0.0000        ENDIF
+                   
+                       * Open the file in the next available area
+   3     0.0000        SELECT 0
+   3     0.0011        USE &cCmdArg
+   3     0.0001        THIS.cAlias = ALIAS()
+                   
+                       * Set the filter if we have one
+   3     0.0000        IF NOT EMPTY(THIS.cFilter)
+                           cCmdArg = THIS.cFilter
+                           SET FILTER TO &cCmdArg
+                       ENDIF
+                   
+                       * Point to the desired record
+   3     0.0006        THIS.nCurrRec = THIS.<a href="#kdatafile_move">Move</a>( THIS.xStartRec )
+   3     0.0000        THIS.nNumbRecs = RECCOUNT()
+                   
+                       * Open our Mirror file
+   3     0.0000        IF THIS.bMirror AND NOT VARTYPE(THIS.oMirrorObj) = 'O'
+                           nSeleIn = SELECT()
+                           THIS.OpenMirrorFile(cStartOrder, xFirstRec, cNewFilter, cClauses)
+                           SELECT(nSeleIn)
+                       ENDIF
+                   
+                       * Done
+   3     0.0000        RETURN THIS.nCurrRec
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kdatafile.Parseargs</span><a name="kdatafile_parseargs"></a><br />
+File: e:\commcode\datafile.fxp<br />
+Starts at Line: 317<br />
+Called by: <a href="#kdatafile_init">Kdatafile.Init</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- ParseArgs() - Set our properties from the passed string arguments
+         0.0000    FUNCTION ParseArgs(xArgList)
+   3     0.0000        LOCAL cArgs2Do, cVal, cOneArg, oArgs
+                   
+                       * xArgList could be an object or a string list
+   3     0.0000        DO CASE
+   3     0.0000        CASE VARTYPE(xArgList) = [C]
+                   
+                           * Go thru each possible argument
+   3     0.0000            cArgs2Do = xArgList
+                   
+                           * We may have been passed only one argument; if so, that's the tag
+   3     0.0000            IF (NOT ':' $ cArgs2Do) AND NOT EMPTY(cArgs2Do)
+   3     0.0000                THIS.cOrder = cArgs2Do
+   3     0.0000                cArgs2Do = ''
+   3     0.0000            ENDIF
+                   
+                           * Handle all of the arguments
+   3     0.0000            DO WHILE NOT EMPTY(cArgs2Do)
+                               cVal = ''
+                               cOneArg = UPPER(THIS.GetNextOption( @cArgs2Do, @cVal) )
+                               DO CASE
+                               CASE cOneArg = 'TAG'
+                                   THIS.cOrder = cVal
+                               CASE cOneArg = 'REC'
+                                   IF VAL(cVal) > 0
+                                       THIS.xStartRec = VAL(cVal)
+                                   ELSE
+                                       THIS.xStartRec = cVal
+                                   ENDIF
+                               CASE cOneArg = 'FILTER'
+                                   THIS.cFilter = cVal
+                               CASE cOneArg = 'DIR'
+                                   THIS.cDBFDir = ADDBS(cVal)
+                               CASE cOneArg = 'ALIAS'
+                                   THIS.cAlias = cVal
+                               CASE cOneArg = 'EXCL'
+                                   THIS.bIsExcl = (UPPER(cVal) = 'Y')
+                               CASE cOneArg = 'MIRROR'
+                                   THIS.bMirror = (UPPER(cVal) = 'Y')
+                               ENDCASE
+                           ENDDO
+   3     0.0000        CASE VARTYPE(xArgList) = [O]
+                           oArgs = xArgList
+                           IF PEMSTATUS(oArgs, 'Tag', 5)
+                               THIS.cOrder = oArgs.Tag
+                           ENDIF
+                           IF PEMSTATUS(oArgs, 'Rec', 5)
+                               THIS.xStartRec = oArgs.Rec
+                           ENDIF
+                           IF PEMSTATUS(oArgs, 'Filter', 5)
+                               THIS.cFilter = oArgs.Filter
+                           ENDIF
+                           IF PEMSTATUS(oArgs, 'Dir', 5)
+                               THIS.cDBFDir = oArgs.Dir
+                           ENDIF
+                           IF PEMSTATUS(oArgs, 'Alias', 5)
+                               THIS.cAlias = oArgs.Alias
+                           ENDIF
+                           IF PEMSTATUS(oArgs, 'Excl', 5)
+                               THIS.bIsExcl = oArgs.Excl
+                           ENDIF
+                           IF PEMSTATUS(oArgs, 'Mirror', 5)
+                               THIS.bMirror = oArgs.Mirror
+                           ENDIF
+   3     0.0000        ENDCASE
+   3     0.0000        RETURN .T.
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kdatafile.Resetdbf</span><a name="kdatafile_resetdbf"></a><br />
+File: e:\commcode\datafile.fxp<br />
+Starts at Line: 2,124<br />
+Called by: <a href="#kdatafile_checkdbf">Kdatafile.Checkdbf</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- ResetDBF() - Check the DBF against DATADIC and alter as needed
+         0.0374    PROTECTED PROCEDURE ResetDBF()
+                       LOCAL bShowUI, wOutWin, wAdvisory, nSaveSele, bFieldCheck, cOurDBF, ;
+   1     0.0000          dChgDate, bCheckIt
+                   
+                       * Display an advisory message
+   1     0.0000        bShowUI = .T.
+   1     0.0000        IF VARTYPE(bKillUI) = 'L' AND bKillUI
+                           bShowUI = .F.
+                       ENDIF
+   1     0.0000        IF bShowUI
+   1     0.0000            wOutWin = WOUTPUT()
+                           DEFINE WINDOW wAdvisory FROM 4,18 TO 12,60 TITLE ' Advisory ' ;
+   1     0.0022              DOUBLE NOCLOSE NOFLOAT NOGROW NOSHADOW NOZOOM
+   1     0.0014            ACTIVATE WINDOW wAdvisory
+                   
+                           * THIS.InitDDFiles opened all of the Data Dictionary files and set the
+                           *   NEEDS_CHK check field to .T., otherwise we wouldn't be here.
+   1     0.0002            @ 1,7 SAY 'Checking data file: ' + THIS.cDBFName
+   1     0.0000        ENDIF
+                   
+                       * Make sure we're operating on an open select area
+   1     0.0000        nSaveSele = SELECT()
+   1     0.0000        SELECT 0
+                   
+                       * Assume we need to check the fields
+   1     0.0000        bFieldCheck = .T.
+                   
+                       * 1. If the DBF doesn't exist, create it from the field definitions
+                       *       in DATADICF.
+   1     0.0002        cOurDBF = <a href="#make_len">MAKE_LEN</a>( THIS.cDBFName, LEN(DATADIC.DBF_NAME) )
+   1     0.0002        IF NOT FILE( THIS.cDBFDir + THIS.cDBFName + '.DBF' )
+                           IF bShowUI
+                               ? '    Creating the file...'
+                           ENDIF
+                           THIS.CreateDBF()            && Returns with DBF opened
+                           bFieldCheck = .F.
+                       ELSE
+                   
+                           * Open the file, Error() will trap for CDX file not found error
+<span class="yellowBand">   1     0.0047            USE (THIS.cDBFDir + THIS.cDBFName) ALIAS (THIS.cAlias)</span>
+   1     0.0000        ENDIF
+                   
+                       * 2. Field checks: If the file's fields don't match the dictionary, the
+                       *       file is restructured.
+   1     0.0000        IF bFieldCheck
+   1     0.0000            IF bShowUI
+   1     0.0001                ? '    Checking the fields...'
+   1     0.0000            ENDIF
+<span class="yellowBand">   1     0.0071            IF THIS.<a href="#kdatafile_checkfldstru">CheckFldStru</a>()</span>
+                               IF bShowUI
+                                   ? '    Restructuring the file...'
+                               ENDIF
+                               USE
+                               THIS.RestructureDBF()           && Returns with DBF opened
+                           ENDIF
+   1     0.0000        ENDIF   && bFieldCheck
+                   
+                       *    Index checks: If the file's index tags don't match the dictionary,
+                       *        or if they don't exist reindexing is done (DATEI is updated).
+   1     0.0000        IF bShowUI
+   1     0.0000            ? '    Checking the indexes...'
+   1     0.0000        ENDIF
+<span class="redBand">   1     0.0168        THIS.<a href="#kdatafile_checkindexes">CheckIndexes</a>()</span>
+                   
+                       * Update the Data Dictionary's date check fields and clear the NEEDS_CHK
+                       *   field
+   1     0.0000        dChgDate = DATE()
+   1     0.0000        bCheckIt = .F.
+   1     0.0000        SELECT DATADIC
+   1     0.0000        LOCATE FOR DBF_NAME = cOurDBF
+   1     0.0000        REPLACE DATEF WITH dChgDate, DATEI WITH dChgDate, NEEDS_CHK WITH bCheckIt
+   1     0.0000        UNLOCK
+                   
+                       * Close the DBF
+   1     0.0000        SELECT (THIS.cAlias)
+   1     0.0001        USE
+   1     0.0000        SELECT (nSaveSele)
+                   
+                       * Done
+   1     0.0000        IF bShowUI
+   1     0.0000            IF EMPTY(wOutWin)
+   1     0.0000                ACTIVATE SCREEN
+   1     0.0000            ELSE
+                               ACTIVATE WINDOW (wOutWin)
+                           ENDIF
+   1     0.0044            RELEASE WINDOW wAdvisory
+   1     0.0000        ENDIF
+                   ENDPROC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kdatafile.Select</span><a name="kdatafile_select"></a><br />
+File: e:\commcode\datafile.fxp<br />
+Starts at Line: 486<br />
+Called by: <a href="#indexheadings_loadourlinks">Indexheadings.Loadourlinks</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- Select() - Select this DBF file
+         0.0012    FUNCTION Select()
+                   
+                       * If we're already opened, select ourselves and return quickly
+<span class="redBand">  33     0.0004        IF USED(THIS.cAlias)</span>
+<span class="yellowBand">  33     0.0003            SELECT (THIS.cAlias)</span>
+  33     0.0002        ELSE
+                   
+                           * Otherwise, we'll have to open ourselves
+                           THIS.Open()
+                       ENDIF
+<span class="yellowBand">  33     0.0003        RETURN THIS.nCurrRec</span>
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorF">Function: <span class="big">Isabstract</span><a name="isabstract"></a><br />
+File: e:\aliweb\source\mainproc.fxp<br />
+Starts at Line: 1,932<br />
+Called by: <a href="#kdatafile_init">Kdatafile.Init</a><br />
+<pre class="colorF">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   * IsAbstract() - Return .T. if object's class is NOT abstract
+                   *   Adapted from Codebook 3.0, (c) Flash Creative Management, Inc., 1995
+         0.0000    FUNCTION IsAbstract(pcClass, pcClassName)
+   3     0.0000        RETURN ( UPPER(pcClass) <> UPPER(pcClassName) )
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorF">Function: <span class="big">Make_Len</span><a name="make_len"></a><br />
+File: e:\aliweb\source\mainproc.fxp<br />
+Starts at Line: 288<br />
+Called by: <a href="#kdatafile_checkdbf">Kdatafile.Checkdbf</a>, <a href="#kdatafile_checkfldstru">Kdatafile.Checkfldstru</a>, <a href="#kdatafile_checkindexes">Kdatafile.Checkindexes</a>, <a href="#kdatafile_getddinfo">Kdatafile.Getddinfo</a>, <a href="#kdatafile_resetdbf">Kdatafile.Resetdbf</a><br />
+<pre class="colorF">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   * MAKE_LEN - Return a string at the length specified (space filled if needed)
+         0.0003    FUNCTION MAKE_LEN( cStrIn, nDesLen, bAddMT)
+<span class="yellowBand">   9     0.0001        LOCAL cRetStr</span>
+                   
+                       * If this is a memo field, pick only the stuff to the left of CR's.
+<span class="yellowBand">   9     0.0001        cRetStr = cStrIn</span>
+   9     0.0000        DO CASE
+   9     0.0000        CASE CR_LF $ cStrIn
+                           cRetStr = LEFT(cStrIn, AT( CR, cStrIn) - 1)
+                   
+                       * If it's empty, say so if they asked for it
+   9     0.0000        CASE EMPTY(cStrIn)
+                           cRetStr = IIF( nDesLen >= 7 AND bAddMT, '<empty>', SPACE(nDesLen) )
+<span class="redBand">   9     0.0001        ENDCASE</span>
+                   
+                       * Now, adjust the length
+   9     0.0000        DO CASE
+   9     0.0000        CASE LEN(cRetStr) > nDesLen
+                           cRetStr = LEFT(cRetStr, nDesLen)
+   9     0.0000        CASE LEN(cRetStr) < nDesLen
+   4     0.0000            cRetStr = cRetStr + SPACE(nDesLen - LEN(cRetStr) )
+   9     0.0000        OTHERWISE
+   5     0.0000            cRetStr = cRetStr
+   9     0.0000        ENDCASE
+   9     0.0000        RETURN cRetStr
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kosfiles.Checkdirsep</span><a name="kosfiles_checkdirsep"></a><br />
+File: e:\commcode\kosfiles.fxp<br />
+Starts at Line: 756<br />
+Called by: <a href="#kosfiles_checklastsep">Kosfiles.Checklastsep</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- CheckDirSep() - Return the passed path with all directory separators as \
+                   *    Input: pcPath - Path string to test
+                   *     Retn: pcPath with all directory separators as \
+         0.0000    FUNCTION CheckDirSep( pcPath )
+   3     0.0000        LOCAL cRetSpec
+                   
+                       * Check for valid parameters
+   3     0.0000        IF NOT (PCOUNT() = 1 AND TYPE('pcPath') = 'C')
+                           ERROR 'Invalid parameters were passed'
+                       ENDIF
+                   
+                       * Handle variants in directory separators
+   3     0.0000        cRetSpec = STRTRAN( pcPath, '/', '\')
+                   
+                       * Handle network paths as well
+   3     0.0000        IF '\\' $ cRetSpec
+                           cRetSpec = STRTRAN( cRetSpec, '\\', '\')
+                       ENDIF
+   3     0.0000        RETURN cRetSpec
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kosfiles.Checklastsep</span><a name="kosfiles_checklastsep"></a><br />
+File: e:\commcode\kosfiles.fxp<br />
+Starts at Line: 729<br />
+Called by: <a href="#kosfiles_isadir">Kosfiles.Isadir</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- CheckLastSep() - Make sure the passed path has a trailing \, or remove it
+                   *    Input: pcPath - Path string to test
+                   *           pbKillSep - If .T. last \ is removed if it's there
+                   *     Retn: pcPath with (or without) a trailing \
+<span class="yellowBand">         0.0002    FUNCTION CheckLastSep( pcPath, pbKillSep )</span>
+   3     0.0000        LOCAL cRetSpec
+                   
+                       * Check for valid parameters
+   3     0.0000        IF NOT ((PCOUNT() = 1 OR PCOUNT() = 2) AND TYPE('pcPath') = 'C')
+                           ERROR 'Invalid parameters were passed'
+                       ENDIF
+                   
+                       * Handle variants in directory separators
+<span class="redBand">   3     0.0002        cRetSpec = THIS.<a href="#kosfiles_checkdirsep">CheckDirSep</a>( pcPath )</span>
+                   
+                       * Check for the last separator
+   3     0.0000        IF LEN(cRetSpec) > 0
+   3     0.0000            DO CASE
+   3     0.0000            CASE pbKillSep AND RIGHT(cRetSpec, 1 ) = '\'
+   3     0.0000                cRetSpec = LEFT(cRetSpec, LEN(cRetSpec)-1)
+   3     0.0000            CASE RIGHT(cRetSpec, 1 ) <> '\' AND NOT pbKillSep
+                               cRetSpec = cRetSpec + '\'
+   3     0.0000            ENDCASE
+   3     0.0000        ENDIF
+   3     0.0000        RETURN cRetSpec
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kosfiles.Fullpath</span><a name="kosfiles_fullpath"></a><br />
+File: e:\commcode\kosfiles.fxp<br />
+Starts at Line: 796<br />
+Called by: <a href="#kdatafile_init">Kdatafile.Init</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- FullPath() - Return the full path from a partial directory (e.g. "..\..")
+                   *    Input: pcPathSpec - Path string to test
+                   *     Retn: The fully qualified directory name (e.g. "E:\ALI\DATA")
+         0.0027    FUNCTION FullPath( pcPathSpec )
+   3     0.0000        LOCAL cOrigDir, cFullDir
+                   
+                       * The passed spec must be a valid directory
+<span class="redBand">   3     0.0011        IF NOT THIS.<a href="#kosfiles_isadir">IsADir</a>(pcPathSpec)</span>
+                           RETURN ''
+                       ENDIF
+                   
+                       * Change to that directory
+   3     0.0002        cOrigDir = SET('DEFAULT') + CURDIR()
+<span class="yellowBand">   3     0.0006        SET DEFAULT TO (pcPathSpec)</span>
+   3     0.0002        cFullDir = SET('DEFAULT') + CURDIR()
+<span class="yellowBand">   3     0.0006        SET DEFAULT TO (cOrigDir)</span>
+   3     0.0000        RETURN cFullDir
+                   ENDFUNC
+
+</pre><br />
+<p class="hdgChunk colorM">Method: <span class="big">Kosfiles.Isadir</span><a name="kosfiles_isadir"></a><br />
+File: e:\commcode\kosfiles.fxp<br />
+Starts at Line: 856<br />
+Called by: <a href="#kosfiles_fullpath">Kosfiles.Fullpath</a><br />
+<pre class="colorM">
+<span class="preBold">Hits  Time(secs)   Code</span>
+                   *- IsADir() - Determine whether the passed spec is a directory
+                   *    Input: pcDirName - Directory Name in question
+                   *     Retn: .T. if pcDirName is a directory, else .F.
+         0.0008    FUNCTION IsADir(pcDirName)
+   3     0.0000        LOCAL cCkDir, aTemp[1], nFileCnt, bGotIt, nX
+                   
+                       * Remove the last directory separator
+<span class="redBand">   3     0.0006        cCkDir = THIS.<a href="#kosfiles_checklastsep">CheckLastSep</a>(pcDirName, .T.)</span>
+                   
+                       * If this is a root directory (\ or E:\), it's OK (VFP won't give us
+                       *   anything).
+   3     0.0000        IF EMPTY(cCkDir) OR (LEN(cCkDir) = 2 AND RIGHT(cCkDir,1) = ':')
+                           RETURN .T.
+                       ENDIF
+                   
+                       * Create a temporary array for ADIR()
+<span class="yellowBand">   3     0.0002        nFileCnt = ADIR( aTemp, cCkDir, "D")</span>
+   3     0.0000        bGotIt = .F.
+   3     0.0000        FOR nX = 1 TO nFileCnt
+   3     0.0000            IF 'D' $ aTemp[nX,5]
+   3     0.0000                bGotIt = .T.
+   3     0.0000                EXIT
+                           ENDIF
+                       ENDFOR
+   3     0.0000        RETURN bGotIt
+                   ENDFUNC
+
+</pre><br />
+
+
+<p class="centertext">CvgViewr - Coverage Viewer - by Ken Green at <a
+  href="http://www.AdvanceDataSystems.biz">Advance Data Systems</a></p>
+
+</body>
+</html>
