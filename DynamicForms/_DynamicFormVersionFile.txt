@@ -1,0 +1,205 @@
+Lparameters toUpdateInfo
+
+Text to lcNote NoShow
+Dynamic Forms is a new way to create forms based on a "markup syntax" similar to HTML and XAML, in which you specify both the layout and ControlSources for the various controls to be displayed on the form.
+
+The result will be a dynamically constructed form, specified in code, rather than manually creating it in the Form Designer.
+
+== Ver 1.9.1 (2017-08-30)
+*-- Fixed spelling, capitalization, formatting (no functional changes).
+
+== Ver 1.9.0 (2017-08-27)
+*-- Production release, Migrated from VFPx/CodePlex to GitHub
+
+== Ver 1.8.2 Beta Release (2014-09-29)
+
+=== Ver 1.7.0 Alpha (2013-10-31)
+*-- 1. Added oRenderOrder colleciton to each Field in the oFieldList so the attributes
+*--    will be applied to each rendered conrtol in the same order as they appear in the markup.
+
+=== Ver 1.6.1 Alpha (2012-12-31)
+*-- 1. Added a new UI class which can handle pop-up editing of memo fields via DoubleClicking.
+*--    See class:  DF_MemoFieldEditBox
+*-- 2. Added code to cBodyMarkup_Assign() to store passed value onto form property.
+*-- 3. Adjusted ParseField() method so it would not consider "dot" when picking out ControlSource from passed markup.
+*--    It breaks on whitespace/newline only.
+*-- 4. An object reference to the Render Engine is now added to the passed Container. This is helpful for advanced new features in DF.
+
+
+=== Ver 1.6.0 Alpha (2012-12-31)
+*-- 1. Added new handling for memo fields when binding to fields in a cursor. DF will now render an editbox for
+*--     memo fields on a cursor unless a specific class is specified in the markup.
+*-- 2. DF will now attempt to open the table if cAlias table is not already open.
+*-- 3. Cleaned up the markup in the default footer layout.
+
+=== Ver 1.5.0 Alpha (2012-10-28)
+*-- Added new handling which will automatically detect which delimiters are used in the cBodyMarkup
+*-- (  :attribute => value   or   .attribute = value )
+*-- Revised all markup samples to use . and =, rather than : and =>
+*-- Render Engine: Added new property lResizeContainer (default = .f.). By default, the Render Engine does
+*-- not resize oContainer to fit rendered control. Dynamic Form overrides this property to .t. as it wants
+*-- the container resized to fit controls.
+*-- Render Engine: Renamed method ResizeMainContainer() to ResizeContainer()
+*-- Render Engine: Added oRenderEngine as an object to ParseField() doesn't have to create a new instance
+*-- each time it is called.
+
+=== Ver 1.4.1 Alpha (2012-10-26)
+*-- Fixed a bug when assigning :left attribute with a string value
+
+=== Ver 1.4.0 Alpha (2012-10-23)
+*-- All Form, Render Engine, and Container properties can now be set in the cBodyMarkup block.
+*-- Form.Render() will now accept the cBodyMarkup as a paramter. i.e.: loForm.Render(lcBodyMarkup)
+*-- Fixed bug which prevented was overriding :width setting if markup resulted in a DF_ErrorContainer control to show an error condition.
+
+=== Ver 1.3.0 Alpha	 (2012-10-08)
+*-- Added support in the markup syntax for including code lines to be executed druing render. Simply wrap code statement in parentheses.
+*-- Added support for keeping Modeless forms alive. See Show() method documentation on http://vfpx.codeplex.com/wikipage?title=Dynamic%20Forms%20Properties
+*-- Added properties lInHeader and lInBody (already had lInFooter) to track which area the render engine is working in. See BuildMarkup().
+*-- Refactored some code out of Render() method into new BuildMarkup() method.
+*-- BuildMarkup() injects some embedded code to indicate the rendering area (Header, Body, Footer).
+*-- Added property for oBusinessObject and cBusinessObjectSaveMethod. See http://vfpx.codeplex.com/wikipage?title=Using%20Dynamic%20Forms%20with%20Business%20Objects
+*-- Revised Save button to call the Business Object Save method, if everything is assigned.
+*-- Added better handling for cSkipFields list.
+
+=== Ver 1.2.0 Alpha	 (2012-09-25)
+*-- Added support for new :set-focus => .t. attribute, which indicates which control will have focus when form is shown.
+*-- Improved support for :anchor settings on rendered controls. Code changed in ResizeMainContainer() method.
+*-- Restored ability to display all fields on cAlias or oDataObject if no cBodyMarkup is specified. See GetBodyMarkupForAll() and Render().
+*-- Added new property lInFooter to indicate when the rendering has entered the footer area. This property is set in the Footer markup and is used
+*-- in processing to ensure the footer controls will be rendered at the proper vertical location.
+
+=== Ver 1.1.0 Alpha	 (2012-09-23)
+*-- Default Footer is now anchored to bottom right of form.
+*-- Can now include single lines of FoxPro code in markup to execute at render time. Wrap code code in ( ).
+*-- Adjusted vertical spacing of controls DF_HorizontalLine, CommandButtons, CheckBoxes, Pictures
+*-- Added class property for new vertical spacing listed above.
+*-- Fixed bug when MinHeight and MinWidth are set to a size larger than the render container.
+*-- Fixed bug which did not handle Modeless form mode when calling loForm.Show(0)
+*-- Added new properties nLastControlLeft, nLastControlBottom, nLastControlRight
+
+=== Ver 1.0.0 Alpha	 (2012-09-18)
+* The markup parser now allows attribute values to omit the surrounding quote marks around numeric and Boolean values.
+* Another changed in the markup parser is that expressions used as attribute values (which are evaluated run-time), must now be wrapped in parentheses.
+* (Credit to Jim Nelson for supplying these parser updates.)
+* New properties on the Render Engine allow you to specify custom delimiter patterns for cAttributeNameDelimiterPattern and cAttributeValueDelimiterPattern.
+
+
+=== Ver 0.9.033	 (2012-09-12)
+* Removed Button Bar controls from Form, replaced with cHeaderMarkup and cFooterMarkup.
+* cHeaderMarkup and cFooterMarkup are default markup strings which wrap around cBodyMarkup
+* to create the entire form. Either cHeaderMarkup and cFooterMarkup can be set to empty to
+* prevent them from being added to user supplied cBodyMarkup. They can also be overridden
+* by the developer to create custom Header and Footer markup layouts.
+* Also added cHeading and cHeadingFontSize which used by cHearderMarkup to create a title on the form.
+
+=== Ver 0.9.032	 (2012-09-12)
+* Removed Anchor preset values from DF_SaveButton and DF_CancelButton classes
+
+=== Ver 0.9.031	 (2012-09-11)
+* Refactored main rendering method into many smaller methods
+* For DF_ResultButton, added Caption_Assign() method to set Tag = Caption.
+* Added code in DynamicForm.QueryUnload() method to call RestoreData()
+* Moved code from DynamicForm.cmdSave.Click() and cmdCancel.Click(), down to their baseclasss, DF_SaveButton and DF_CancelButton.
+* Updates notes in sample code prg for steps 1 through 7
+* Documentation updates to VFPx pages.
+
+=== Ver 0.9.030	 (2012-09-10)
+* Added property cButtonBarLocation ('top', 'bottom', 'none')
+* Added support for Horizontal Lines via :class => 'DF_HorizontalLine'
+* Moved default location of "Button Bar" to 'bottom' of form.
+* Renamed lblHeading to lblButtonBar
+* Renamed TopLine to lineButtonBar
+
+=== Ver 0.9.029	 (2012-09-10)
+* Updated vertical positioning logic for better layout flow.
+
+=== Ver 0.9.027	 (2012-09-08)
+* Added new RenderEngine property and logic for: lAutoAdjustVerticalPositionAndHeight
+* Renamed property nMaxHeight to nColumnHeight
+* Major updates to documentation pages. See VFPs site for new and changed pages.
+
+=== Ver 0.9.026	 (2012-09-05)
+* Added more tests on the attribute values to report syntax or value errors
+* Added GetErrorsAsString() method to the RenderEnginer to show any errors.
+* Updates documentation pages on VFPx site.
+
+=== Ver 0.9.025	 (2012-09-04)
+* Added support for OptionGroup (radio buttons)
+
+=== Ver 0.9.022	 (2012-09-04)
+* Another attempt to fix bug that can happen when there is more than one column on the render surface.
+
+=== Ver 0.9.021	 (2012-09-04)
+* Fixed bug that can happen when there is more than one column on the render surface.
+
+=== Ver 0.9.020	 (2012-09-04)
+* By defaualt, the Save button is now set as 'Default' property on the form (will close form on Enter)
+* By defaualt, the Cancel button is now set as 'Cancel' property on the form (will close form on Escape)
+* Fixed bug with rendering all fields via cFieldList = '*'
+* Added properties to form for nMinWidth and nMinHeight
+
+=== Ver 0.9.019	 (2012-09-04)
+* Added complete list of baseclasses to the default class/class lib properlinks on RenderEngine
+
+=== Ver 0.9.018	 (2012-09-04)
+* Added links to the Dynamic Form page on the VFPx site and Google Groups disucssion forum.
+
+=== Ver 0.9.017	 (2012-09-03)
+* Revised logic for column management.
+* Revied to show labels above the error containter (when the field/property is invalid)
+
+=== Ver 0.9.016	 (2012-09-01)
+* Fixed bug in ParseField() that did not properly address cr/lf in passed parameter from cFieldList.
+* Fixed default label captions when binding to variables
+* Documentation updates
+
+=== Ver 0.9.015	 (2012-08-31)
+* Added :render-if attribute
+* Added DF_ErrorContainer class to display errors on the form
+* Added support for commans between attributes in cFieldList (they are optional)
+* Documentation updates
+
+=== Ver 0.9.014	 (2012-08-30)
+* Added RestoreData() support to restore all fields to original values upon Cancel.
+* Documentation updates
+
+=== Ver 0.9.013	 (2012-08-29)
+* Added lClearEventsOnClose property of DynamicForm class
+* Added nErrorCount and oErrors collection to the DynamicFormRenderEngine class
+* Documentation updates
+
+=== Ver 0.9.011	 (2012-08-29)
+* Bug fixes related to new cAlias setting
+* Documentation updates
+
+=== Ver 0.9.010	 (2012-08-28)
+* Added cAlias property to support binding to a cursor/alias
+
+=== Ver 0.9.009	 (2012-08-27)
+* Added Cancel button to DynamicForm
+
+=== Ver 0.9.008	 (2012-08-27)
+* Corrected horizontal spacing between controls when :row-increment => '0'
+
+=== Ver 0.9.007	 (2012-08-26)
+* Added propertied on DynamicFormRenderEnginer to specify custom class/class for Listboxes.
+* Updated Documentation area at top of PRG file.
+
+=== Ver 0.9.005	 (2012-08-25)
+* Separated Render() method from Show() method to give users a chance to modify the controls
+* before the form is shown.
+
+=== Ver 0.9.004	 (2012-08-24)
+* Add lLabelsABove property to RenderEngine to locate labels above the input controls
+* Added :row-increment and :row attributes
+EndText 
+
+
+AddProperty(toUpdateInfo, 'AvailableVersion', 'Dynamic Form - 1.9.1 - August 30, 2017 - 20170830')
+AddProperty(toUpdateInfo, 'SourceFileUrl', 'https://raw.githubusercontent.com/VFPX/DynamicForms/master/DynamicForms.zip')
+AddProperty(toUpdateInfo, 'LinkPrompt', 'Dynamic Forms Home Page')
+AddProperty(toUpdateInfo, 'Link', 'https://github.com/VFPX/DynamicForms')
+AddProperty(toUpdateInfo, 'Notes', lcNote)
+
+Execscript (_Screen.cThorDispatcher, 'Result=', toUpdateInfo)
+Return toUpdateInfo

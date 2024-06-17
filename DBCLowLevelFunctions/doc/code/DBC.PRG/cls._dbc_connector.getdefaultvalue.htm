@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+<head>
+<title>Method GetDefaultValue of class _DBC_Connector</title>
+<meta content="text/html; charset=windows-1250" http-equiv="Content-Type" />
+<meta name="Generator" content="Project Documenting Machine" />
+<meta name="Version" content="1.3.3" />
+<link rel="stylesheet" href="../../css/foxw.css" type="text/css" />
+<link rel="stylesheet" href="../../css/sc.css" type="text/css" />
+<link rel="stylesheet" href="../../repository/dbc.css" type="text/css" />
+<script src="../../js/pdm.js" language="JavaScript" type="text/javascript"></script>
+<script src="../../repository/pdm_ab.js" language="JavaScript" type="text/javascript"></script>
+</head>
+<body>
+<div class="diaxp_mhead">GetDefaultValue Method</div>
+<div class="diaxp_mbody_class">
+
+<table class="clear_table">
+ <tbody>
+  <tr><td>Class: </td><td><a href="cls._dbc_connector.htm" title="Skip to class _dbc_connector">_DBC_Connector</a></td></tr>
+  <tr><td>Description:</td><td>Get default Value</td></tr>
+ </tbody>
+</table>
+</div>
+<div class="diaxp_mbody">
+<!-- Created with _diamp_pdm_ab by Agnes Beste    28.07.2018 18:05 -->
+ <div class="PDM_AB_Descr"><!-- Descr Begin -->
+This method return default value.
+   <!-- Note -->
+
+   <div class="PDM_AB_Note">
+    <div class="Block_Picture" title="Connector - default value">
+     Note
+    </div>
+    <div class="Block_Text">
+
+This method is called automaticaly from  <a class="PDM_AB_See" href="../../code/dbc.prg/cls._dbc.getdefaultvalue.htm" title="Skip to method _DBC::GetDefaultValue()">_DBC::GetDefaultValue()</a> if <a style="border-style:solid; border-width:1px;padding:2px; background-color:antiquewhite" class="PDM_AB_See" href="../../code/dbc.prg/cls._dbc.htm#cls._DBC" title="Link to PEM failed, uses class instead.">_DBC::oConnector</a> object defined.
+
+    </div><!-- end of note text -->
+    <div style="clear: both"></div>
+   </div><!-- end of note -->
+
+
+ </div><!-- Descr End -->
+
+ <div class="DIAMP_PDM_AB_Syntax"><!-- Syntax Begin -->
+  <div class="SColor">
+   <div class="RetVal"><a href="#_59B12RHY5">RetVal</a>&nbsp;</div>   <div class="RetValEq">=</div>   <div class="PEM">
+    Object.GetDefaultValue
+   </div>
+   <div class="Para">
+    (<a href="#_59B12RHY6">liIDProp</a>)
+   </div>
+   <div style="clear: both"></div>
+  </div><!-- Colour End -->
+ </div><!-- Syntax End -->
+
+ <div class="DIAMP_PDM_AB_Params"><!-- Parameters Begin -->
+  <span class="PDM_AB_Head">
+   Parameter
+  </span>
+  <dl class="DIAMP_PDM_AB_Params_List">
+   <dt class="dt_">
+    <a class="DIAMP_PDM_AB_Params_ParaName" id="_59B12RHY6" name="_59B12RHY6">
+     <span class="PDMEXPR PDMNor" ><span class='PDMVar'>liIDProp</span></span>
+
+    </a>
+   </dt>
+   <dd class="dd_">
+    <span class="Params_Short">
+     Property ID
+    </span>
+    <table class="Params_Info">
+     <colgroup>
+      <col class="ColumnValue" />
+      <col class="ColumnData" />
+     </colgroup>
+     <tbody>
+      <tr>
+       <td class="CellValue">Type</td>
+       <td class="CellData">Integer</td>
+      </tr>
+      <tr>
+       <td class="CellValue">Direction</td>
+       <td class="CellData">Input</td>
+      </tr>
+     </tbody>
+    </table>
+    <span class="Params_Detail">
+Property ID. For a list of properties, see  <a class="PDM_AB_See" href="../../code/dbc.prg/cls._dbc.enumproperty.htm" title="Skip to method _DBC::EnumProperty()">_DBC::EnumProperty()</a>.
+
+    </span>
+   </dd>
+  </dl>
+ </div><!-- Parameters End -->
+
+ <div class="DIAMP_PDM_AB_RetVal"><!-- Returns Begin -->
+  <div>
+   <span class="PDM_AB_Head">
+    <a id="_59B12RHY5" name="_59B12RHY5">
+     Return value
+    </a>
+   </span> <span class="RetVal_Ttype">Integer/String/Boolean</span>
+  </div>
+  <div class="PDM_AB_Body">
+
+If the method succeeds, the return value is default value.<br/><br/>
+If the method fails, the return value must be <span class="PDMEXPR PDMNor" ><span class='PDMOper'>.</span><span class='PDMResK'>NULL</span><span class='PDMOper'>.</span></span>
+.
+
+  </div>
+ </div><!-- Returns End -->
+
+ <div class="PDM_AB_Example"><!-- Example Begin -->
+  <span class="PDM_AB_Head">
+   Example
+  </span>
+  <div class="PDM_AB_Body">
+
+<!-- Code Begin -->
+<pre class="PDMCODE PDMNor" >
+<span class='PDMOper'>#</span><span class='PDMResK'>INCLUDE</span> <span class='PDMStr'>"dbc.h"</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>MyProperty</span> <span class='PDMLit'>1000</span> <span class='PDMCom'>&amp;&amp; user cutom property (string)</span>
+<span class='PDMResK'>SET</span> <span class='PDMResK'>PROCEDURE</span> <span class='PDMResK'>TO</span> <span class='PDMResF'>dbc</span><span class='PDMOper'>.</span><span class='PDMVar'>prg</span> <span class='PDMResK'>ADDITIVE</span>
+<span class='PDMResK'>LOCAL</span> <span class='PDMVar'>lcAlias</span><span class='PDMOper'>,</span><span class='PDMVar'>liIDT</span><span class='PDMOper'>,</span><span class='PDMVar'>loDBC</span><span class='PDMOper'>,</span><span class='PDMVar'>luValue</span>
+<span class='PDMResK'>LOCAL</span> <span class='PDMResK'>ARRAY</span> <span class='PDMVar'>laProps</span><span class='PDMOper'>(</span><span class='PDMLit'>1</span><span class='PDMOper'>)</span>
+<span class='PDMVar'>loDBC</span><span class='PDMOper'>=</span><span class='PDMResF'>CREATEOBJECT</span><span class='PDMOper'>(</span><span class='PDMStr'>"_DBC"</span><span class='PDMOper'>)</span>
+<span class='PDMVar'>lcAlias</span><span class='PDMOper'>=</span><span class='PDMResF'>SYS</span><span class='PDMOper'>(</span><span class='PDMLit'>2015</span><span class='PDMOper'>)</span>
+<span class='PDMOper'>=</span><span class='PDMVar'>loDBC</span><span class='PDMOper'>.</span><span class='PDMVar'>OpenTable</span><span class='PDMOper'>(</span><span class='PDMResF'>HOME</span><span class='PDMOper'>(</span><span class='PDMLit'>2</span><span class='PDMOper'>)</span><span class='PDMOper'>+</span><span class='PDMStr'>"\Tastrade\Data\tastrade.dbc"</span><span class='PDMOper'>,</span><span class='PDMVar'>lcAlias</span><span class='PDMOper'>,</span><span class='PDMStr'>""</span><span class='PDMOper'>)</span>
+
+<span class='PDMVar'>liIDT</span><span class='PDMOper'>=</span><span class='PDMVar'>loDBC</span><span class='PDMOper'>.</span><span class='PDMVar'>GetIDObject</span><span class='PDMOper'>(</span><span class='PDMVar'>lcAlias</span><span class='PDMOper'>,</span><span class='PDMVar'>_DBC_Table</span><span class='PDMOper'>,</span><span class='PDMStr'>"products"</span><span class='PDMOper'>)</span>
+<span class='PDMCom'>* How to use connector for own properties</span>
+<span class='PDMVar'>loDBC</span><span class='PDMOper'>.</span><span class='PDMVar'>oConnector</span><span class='PDMOper'>=</span><span class='PDMResF'>CREATEOBJECT</span><span class='PDMOper'>(</span><span class='PDMStr'>"_my_Connector"</span><span class='PDMOper'>)</span>
+<span class='PDMCom'>* Set New property</span>
+<span class='PDMOper'>=</span><span class='PDMVar'>loDBC</span><span class='PDMOper'>.</span><span class='PDMVar'>SetProperty</span><span class='PDMOper'>(</span><span class='PDMVar'>lcAlias</span><span class='PDMOper'>,</span><span class='PDMVar'>liIDT</span><span class='PDMOper'>,</span><span class='PDMVar'>MyProperty</span><span class='PDMOper'>,</span><span class='PDMStr'>"Wow, I can write own property"</span><span class='PDMOper'>)</span>
+<span class='PDMOper'>=</span><span class='PDMVar'>loDBC</span><span class='PDMOper'>.</span><span class='PDMVar'>GetProperty</span><span class='PDMOper'>(</span><span class='PDMVar'>lcAlias</span><span class='PDMOper'>,</span><span class='PDMVar'>liIDT</span><span class='PDMOper'>,</span><span class='PDMVar'>MyProperty</span><span class='PDMOper'>,</span><span class='PDMOper'>@</span><span class='PDMVar'>luValue</span><span class='PDMOper'>)</span>
+<span class='PDMOper'>?</span><span class='PDMVar'>loDBC</span><span class='PDMOper'>.</span><span class='PDMVar'>FormatProperty</span><span class='PDMOper'>(</span><span class='PDMVar'>MyProperty</span><span class='PDMOper'>)</span><span class='PDMOper'>,</span><span class='PDMVar'>luValue</span><span class='PDMOper'>,</span><span class='PDMVar'>loDBC</span><span class='PDMOper'>.</span><span class='PDMVar'>GetDefaultValue</span><span class='PDMOper'>(</span><span class='PDMVar'>MyProperty</span><span class='PDMOper'>)</span>
+
+<span class='PDMOper'>=</span><span class='PDMVar'>loDBC</span><span class='PDMOper'>.</span><span class='PDMVar'>CloseTable</span><span class='PDMOper'>(</span><span class='PDMVar'>lcAlias</span><span class='PDMOper'>)</span>
+<span class='PDMVar'>loDBC</span><span class='PDMOper'>.</span><span class='PDMVar'>CloseTable</span><span class='PDMOper'>(</span><span class='PDMVar'>lcAlias</span><span class='PDMOper'>)</span>
+
+<span class='PDMResK'>RELEASE</span> <span class='PDMVar'>loDBC</span>
+<span class='PDMResK'>RELEASE</span> <span class='PDMResK'>PROCEDURE</span> <span class='PDMResF'>dbc</span><span class='PDMOper'>.</span><span class='PDMVar'>prg</span>
+
+
+<span class='PDMResK'>DEFINE</span> <span class='PDMResK'>CLASS</span> <span class='PDMVar'>_my_Connector</span> <span class='PDMResK'>AS</span> <span class='PDMVar'>_DBC_Connector</span>
+
+   <span class='PDMResK'>PROCEDURE</span> <span class='PDMVar'>FormatProperty</span><span class='PDMOper'>(</span><span class='PDMVar'>liIDProp</span><span class='PDMOper'>)</span> <span class='PDMCom'>&amp;&amp; Convert property ID to Name</span>
+<span class='PDMCom'>      * liIDProp   - Property ID</span>
+      <span class='PDMResK'>RETURN</span> <span class='PDMResF'>IIF</span><span class='PDMOper'>(</span><span class='PDMVar'>liIDProp</span><span class='PDMOper'>=</span><span class='PDMVar'>MyProperty</span><span class='PDMOper'>,</span><span class='PDMStr'>"My New Property"</span><span class='PDMOper'>,</span><span class='PDMStr'>""</span><span class='PDMOper'>)</span> <span class='PDMCom'>&amp;&amp; default return value</span>
+   <span class='PDMResK'>ENDPROC</span>
+
+   <span class='PDMResK'>PROCEDURE</span> <span class='PDMVar'>GetDefaultValue</span><span class='PDMOper'>(</span><span class='PDMVar'>liIDProp</span><span class='PDMOper'>)</span> <span class='PDMCom'>&amp;&amp; Get default Value</span>
+<span class='PDMCom'>      * liIDProp   - Property ID</span>
+      <span class='PDMResK'>RETURN</span> <span class='PDMResF'>IIF</span><span class='PDMOper'>(</span><span class='PDMVar'>liIDProp</span><span class='PDMOper'>=</span><span class='PDMVar'>MyProperty</span><span class='PDMOper'>,</span><span class='PDMStr'>""</span><span class='PDMOper'>,</span><span class='PDMOper'>.</span><span class='PDMResK'>NULL</span><span class='PDMOper'>.</span><span class='PDMOper'>)</span> <span class='PDMCom'>&amp;&amp; default return value</span>
+   <span class='PDMResK'>ENDPROC</span>
+
+   <span class='PDMResK'>PROCEDURE</span> <span class='PDMVar'>GetValueType</span><span class='PDMOper'>(</span><span class='PDMVar'>liIDProp</span><span class='PDMOper'>)</span> <span class='PDMCom'>&amp;&amp; Return the property type</span>
+<span class='PDMCom'>      * liIDProp - Property ID</span>
+      <span class='PDMResK'>RETURN</span> <span class='PDMResF'>IIF</span><span class='PDMOper'>(</span><span class='PDMVar'>liIDProp</span><span class='PDMOper'>=</span><span class='PDMVar'>MyProperty</span><span class='PDMOper'>,</span><span class='PDMOper'>;</span>
+             <span class='PDMVar'>_DBC_ValueType_String</span><span class='PDMOper'>,</span><span class='PDMOper'>;</span>
+             <span class='PDMVar'>_DBC_ValueType_Unknown</span><span class='PDMOper'>)</span> <span class='PDMCom'>&amp;&amp; default return value</span>
+   <span class='PDMResK'>ENDPROC</span>
+<span class='PDMResK'>ENDDEFINE</span></pre>
+ <!-- Code End -->
+
+
+  </div>
+ </div><!-- Example End -->
+
+ <div class="PDM_AB_Other"><!-- Others Begin -->
+<pdm><br />
+</pdm> <br />
+
+ </div><!-- Others End -->
+
+ <div class="PDM_AB_SeeAlso"><!-- SeeAlso Begin -->
+  <span class="PDM_AB_Head">
+   See also
+  </span>
+  <div class="PDM_AB_Body">
+<a style="border-style:solid; border-width:1px;padding:2px; background-color:antiquewhite" class="PDM_AB_See" href="../../code/dbc.prg/cls._dbc.htm#cls._DBC" title="Link to PEM failed, uses class instead.">_DBC::oConnector</a>&nbsp;|
+<a class="PDM_AB_See" href="../../code/dbc.prg/cls._dbc.enumproperty.htm" title="Skip to method _DBC::EnumProperty()">_DBC::EnumProperty()</a>&nbsp;|
+<a class="PDM_AB_See" href="../../code/dbc.prg/cls._dbc.getdefaultvalue.htm" title="Skip to method _DBC::GetDefaultValue()">_DBC::GetDefaultValue()</a>
+  </div><!-- Body End -->
+  <!--- "Applies to" need to be inserted here---->
+  <PlaceAppliesTo_Here />
+  <!--- /"Applies to" need to be inserted here---->
+ </div><!-- SeeAlso End -->
+
+
+<!-- /Created with _diamp_pdm_ab by Agnes Beste    28.07.2018 18:05 -->
+
+ <div class="SC">
+  <img onclick="ExpandSC('SP_5',-1);"class="imgEC" src="../../imgs/uptab.gif" alt="Expand/Collapse source code of procedure GetDefaultValue" id="IMG_SP_5" />
+  <span ondblclick="ExpandSC('SP_5',-1);" class="SCCaption"><a name="_DBC_Connector">Source Code</a></span>
+  <div ondblclick="ExpandSC('SP_5',-1);" class="SCE" id="TX_SP_5">
+<!-- Code Begin -->
+<pre class="PDMCODE PDMNor" >      <span class='PDMResK'>LPARAMETERS</span> <span class='PDMVar'>liIDProp</span>
+<span class='PDMCom'>      * liIDProp   - Property ID</span>
+
+
+      <span class='PDMResK'>RETURN</span> <span class='PDMOper'>.</span><span class='PDMResK'>NULL</span><span class='PDMOper'>.</span> <span class='PDMCom'>&amp;&amp; default return value</span></pre>
+ <!-- Code End -->
+  </div>
+ </div>
+</div>
+<div class="diaxp_mfoot"> <div class="PDM_AB_CopyRight"><!-- Footer Begin -->
+  <hr />
+  <div class="PDM_AB_Body">
+<span class="italic">&copy; 08.08.2005 Martina Jindrov&aacute;</span>
+  </div><!-- Body End -->
+ </div><!-- Footer End -->
+</div>
+<script language="JavaScript" type="text/javascript">
+lo=document.getElementById("TX_SP_5");
+lo.XType="SourceCode";
+lo.Dir="../../imgs/";
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang=cs">
+<head>
+<!-- Sitemap 1.0 -->
+ <title></title>
+ <meta content="text/html; charset=windows-1250" http-equiv="Content-Type" />
+ <meta name="Generator" content="Project Documenting Machine" />
+ <meta name="Version" content="1.3.3" />
+</head>
+<body>
+<ul>
+
+ <li /> <object type="text/sitemap">
+  <param name="Name" value="Code files (procedures and classes), FLL libraries and APP/EXE files">
+  <param name="Local" value="code.htm">
+ </object>
+ <ul>
+  <li /> <object type="text/sitemap">
+   <param name="Name" value="Programs">
+   <param name="Local" value="code/prg_page_dprg.htm">
+  </object>
+  <ul>
+   <li /> <object type="text/sitemap">
+    <param name="Name" value="DBC.PRG">
+    <param name="Local" value="code/dbc.prg/main.htm">
+   </object>
+   <ul>
+    <li /> <object type="text/sitemap">
+     <param name="Name" value="Functions's list of program DBC">
+     <param name="Local" value="">
+    </object>
+    <ul>
+     <li /> <object type="text/sitemap">
+      <param name="Name" value="Procedure Main Program">
+      <param name="Local" value="code/dbc.prg/main_d.main program.htm">
+     </object>
+    </ul>
+    <li /> <object type="text/sitemap">
+     <param name="Name" value="Class tree">
+     <param name="Local" value="code/dbc.prg/main_t.htm">
+    </object>
+    <ul>
+     <li /> <object type="text/sitemap">
+      <param name="Name" value="Class _dbc">
+      <param name="Local" value="code/dbc.prg/cls._dbc.htm">
+     </object>
+     <ul>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method AttachSession of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.attachsession.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method C2ToI of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.c2toi.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method C4ToI of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.c4toi.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method C4ToIRev of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.c4toirev.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method CheckProperties of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.checkproperties.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method CheckValue of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.checkvalue.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method ClearProperty of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.clearproperty.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method CloseTable of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.closetable.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method CnToI of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.cntoi.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method DBCValueToValue of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.dbcvaluetovalue.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method Destroy of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.destroy.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method EnumObjects of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.enumobjects.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method EnumProperty of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.enumproperty.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method Error of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.error.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method FormatProperty of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.formatproperty.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method GetDefaultValue of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.getdefaultvalue.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method GetIDObject of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.getidobject.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method GetProperty of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.getproperty.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method GetSP of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.getsp.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method GetValueType of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.getvaluetype.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method Init of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.init.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method IsBaseType of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.isbasetype.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method IToC2 of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.itoc2.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method IToC4 of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.itoc4.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method IToC4Rev of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.itoc4rev.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method IToCn of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.itocn.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method OpenTable of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.opentable.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method RIInfo of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.riinfo.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method SetCatch of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.setcatch.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method SetProperty of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.setproperty.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method SetSP of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.setsp.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method ValueToDBCValue of class _DBC">
+       <param name="Local" value="code/dbc.prg/cls._dbc.valuetodbcvalue.htm">
+      </object>
+     </ul>
+     <li /> <object type="text/sitemap">
+      <param name="Name" value="Class _dbc_check">
+      <param name="Local" value="code/dbc.prg/cls._dbc_check.htm">
+     </object>
+     <ul>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method Check of class _DBC_Check">
+       <param name="Local" value="code/dbc.prg/cls._dbc_check.check.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method CheckPropertiesOfAllObjects of class _DBC_Check">
+       <param name="Local" value="code/dbc.prg/cls._dbc_check.checkpropertiesofallobjects.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method CheckSPFXP of class _DBC_Check">
+       <param name="Local" value="code/dbc.prg/cls._dbc_check.checkspfxp.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method CheckTablesStructure of class _DBC_Check">
+       <param name="Local" value="code/dbc.prg/cls._dbc_check.checktablesstructure.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method CreateLog of class _DBC_Check">
+       <param name="Local" value="code/dbc.prg/cls._dbc_check.createlog.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method FindLostObjects of class _DBC_Check">
+       <param name="Local" value="code/dbc.prg/cls._dbc_check.findlostobjects.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method BaseClass of class _DBC_Check">
+       <param name="Local" value="code/dbc.prg/cls._dbc_check.findobsoleteobjects.htm">
+      </object>
+     </ul>
+     <li /> <object type="text/sitemap">
+      <param name="Name" value="Class _dbc_checkinfo">
+      <param name="Local" value="code/dbc.prg/cls._dbc_checkinfo.htm">
+     </object>
+     <li /> <object type="text/sitemap">
+      <param name="Name" value="Class _dbc_checkinfo_invalidproperties">
+      <param name="Local" value="code/dbc.prg/cls._dbc_checkinfo_invalidproperties.htm">
+     </object>
+     <li /> <object type="text/sitemap">
+      <param name="Name" value="Class _dbc_connector">
+      <param name="Local" value="code/dbc.prg/cls._dbc_connector.htm">
+     </object>
+     <ul>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method CheckProperties of class _DBC_Connector">
+       <param name="Local" value="code/dbc.prg/cls._dbc_connector.checkproperties.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method CheckValue of class _DBC_Connector">
+       <param name="Local" value="code/dbc.prg/cls._dbc_connector.checkvalue.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method DBCValueToValue of class _DBC_Connector">
+       <param name="Local" value="code/dbc.prg/cls._dbc_connector.dbcvaluetovalue.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method FormatProperty of class _DBC_Connector">
+       <param name="Local" value="code/dbc.prg/cls._dbc_connector.formatproperty.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method GetDefaultValue of class _DBC_Connector">
+       <param name="Local" value="code/dbc.prg/cls._dbc_connector.getdefaultvalue.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method GetValueType of class _DBC_Connector">
+       <param name="Local" value="code/dbc.prg/cls._dbc_connector.getvaluetype.htm">
+      </object>
+      <li /> <object type="text/sitemap">
+       <param name="Name" value="Method ValueToDBCValue of class _DBC_Connector">
+       <param name="Local" value="code/dbc.prg/cls._dbc_connector.valuetodbcvalue.htm">
+      </object>
+     </ul>
+    </ul>
+   </ul>
+  </ul>
+ </ul>
+ <li /> <object type="text/sitemap">
+  <param name="Name" value="Images and text files">
+  <param name="Local" value="other.htm">
+ </object>
+ <ul>
+  <li /> <object type="text/sitemap">
+   <param name="Name" value="h Files">
+   <param name="Local" value="others/xxx_page_dhpp.htm">
+  </object>
+  <ul>
+   <li /> <object type="text/sitemap">
+    <param name="Name" value="DBC.H">
+    <param name="Local" value="others/dbc.h/main.htm">
+   </object>
+  </ul>
+ </ul>
+ <li /> <object type="text/sitemap">
+  <param name="Name" value="Global classes tree">
+  <param name="Local" value="gct.htm">
+ </object>
+</ul>
+</body>
+</html>
+

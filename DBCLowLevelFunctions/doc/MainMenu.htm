@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+<head>
+<title>Main menu</title>
+<meta content="text/html; charset=windows-1250" http-equiv="Content-Type" />
+<meta name="Generator" content="Project Documenting Machine" />
+<meta name="Version" content="1.3.3" />
+<link rel="stylesheet" href="css/foxw.css" type="text/css" />
+<link rel="stylesheet" href="repository/dbc.css" type="text/css" />
+<script src="js/pdm.js" language="JavaScript" type="text/javascript"></script>
+</head><body class="mainmenu">
+<div class="mainmenuLeft">
+ <div class="mainmenu"><img class="mm_hf" src="imgs/header.gif" alt="" /></div>
+  <div class="mainmenu"><a href="Code.htm" target="_top" onfocus="LostFocus()"><img class="mm_body" src="imgs/code.gif" alt="Code files (procedures and classes), FLL libraries and APP/EXE files" title="Code files (procedures and classes), FLL libraries and APP/EXE files" /></a></div>
+  <div class="mainmenu"><img class="mm_line" src="imgs/line.gif" alt="" /></div>
+  <div class="mainmenu"><a href="Other.htm" target="_top" onfocus="LostFocus()"><img class="mm_body" src="imgs/other.gif" alt="Images and text files" title="Images and text files" /></a></div>
+ <div class="mainmenu"><img class="mm_hf" src="imgs/footer.gif" alt="" /></div>
+ <img id="IMG_QUICKVIEW" class="imgQuickView" src=""  alt="" title="" />
+</div>
+<div class="mainmenuRight">
+ <iframe id='IFRAME_LIST' class='iframe_QL' frameborder='0px'  src='Blank_QL.htm' ></iframe>
+</div>
+<script language="JavaScript" type="text/javascript">
+var lcSearch=document.location.search;
+var laParams = lcSearch.split("=");
+var lcRefer= laParams[1];
+var loQL;
+
+if (lcRefer!=null && (loQL=document.getElementById("IFRAME_LIST"))!=null)
+   { 
+   if (lcRefer=='Blank_QL.htm')
+       {
+       loQL.style.visibility="hidden";
+       loQL.parentNode.style.width='0%'; 
+       }
+   else
+       {  
+       loQL.src=lcRefer;
+       loQL.style.visibility="visible";
+       loQL.parentNode.style.width='67%'; 
+       }
+   }
+</script>
+
+</body>
+</html>

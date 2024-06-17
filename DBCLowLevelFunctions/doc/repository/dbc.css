@@ -1,0 +1,17 @@
+.listvalues td {
+             border:1px #C9C9C9 solid; border-left-color: #000000; border-top-color: #000000;
+             padding: 0px 2px 0px 2px; width: auto;
+             }
+.listvalues { border:1px #C9C9C9 solid; border-right-color: #000000; border-bottom-color: #000000;}
+
+
+dl.DIAMP_PDM_AB_Params_List dt {margin-top: 0.5em;}
+dl.DIAMP_PDM_AB_Params_List dt {margin-top: 0.25em;}
+
+div.PDM_AB_Note div {display: inline;}
+div.Block_Picture  {display: inline;}
+div.Block_Text  { display: inline;}
+div.PDM_AB_Note {border:1px #C9C9C9 solid;  display: block; width:99%;}
+
+
+.italic {font-style:italic;}

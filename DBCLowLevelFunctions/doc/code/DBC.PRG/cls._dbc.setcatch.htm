@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+<head>
+<title>Method SetCatch of class _DBC</title>
+<meta content="text/html; charset=windows-1250" http-equiv="Content-Type" />
+<meta name="Generator" content="Project Documenting Machine" />
+<meta name="Version" content="1.3.3" />
+<link rel="stylesheet" href="../../css/foxw.css" type="text/css" />
+<link rel="stylesheet" href="../../css/sc.css" type="text/css" />
+<link rel="stylesheet" href="../../repository/dbc.css" type="text/css" />
+<script src="../../js/pdm.js" language="JavaScript" type="text/javascript"></script>
+<script src="../../repository/pdm_ab.js" language="JavaScript" type="text/javascript"></script>
+</head>
+<body>
+<div class="diaxp_mhead">SetCatch Method</div>
+<div class="diaxp_mbody_class">
+
+<table class="clear_table">
+ <tbody>
+  <tr><td>Class: </td><td><a href="cls._dbc.htm" title="Skip to class _dbc">_DBC</a></td></tr>
+  <tr><td>Description:</td><td>Catching error</td></tr>
+ </tbody>
+</table>
+</div>
+<div class="diaxp_mbody">
+<!-- Created with _diamp_pdm_ab by Agnes Beste    28.07.2018 18:05 -->
+ <div class="PDM_AB_Descr"><!-- Descr Begin -->
+This method set mode error catching.
+ </div><!-- Descr End -->
+
+ <div class="DIAMP_PDM_AB_Syntax"><!-- Syntax Begin -->
+  <div class="SColor">
+   <div class="RetVal"><a href="#_59B12RGXK">RetVal</a>&nbsp;</div>   <div class="RetValEq">=</div>   <div class="PEM">
+    Object.SetCatch
+   </div>
+   <div class="Para">
+    (<a href="#_59B12RGXL">llCatch</a>)
+   </div>
+   <div style="clear: both"></div>
+  </div><!-- Colour End -->
+ </div><!-- Syntax End -->
+
+ <div class="DIAMP_PDM_AB_Params"><!-- Parameters Begin -->
+  <span class="PDM_AB_Head">
+   Parameter
+  </span>
+  <dl class="DIAMP_PDM_AB_Params_List">
+   <dt class="dt_">
+    <a class="DIAMP_PDM_AB_Params_ParaName" id="_59B12RGXL" name="_59B12RGXL">
+     <span class="PDMEXPR PDMNor" ><span class='PDMVar'>llCatch</span></span>
+
+    </a>
+   </dt>
+   <dd class="dd_">
+    <span class="Params_Short">
+     Catch mode
+    </span>
+    <table class="Params_Info">
+     <colgroup>
+      <col class="ColumnValue" />
+      <col class="ColumnData" />
+     </colgroup>
+     <tbody>
+      <tr>
+       <td class="CellValue">Type</td>
+       <td class="CellData">Boolean</td>
+      </tr>
+      <tr>
+       <td class="CellValue">Direction</td>
+       <td class="CellData">Input</td>
+      </tr>
+     </tbody>
+    </table>
+    <span class="Params_Detail">
+Catch mode. 
+<table class="listvalues">
+ <tr class="Head"><td>Value</td><td>Description</td></tr>
+ <tr><td>.T.</td><td>Catch mode</td></tr>
+ <tr><td>.F.</td><td>Error mode</td></tr>
+ <tr><td>.NULL.</td><td>Ignore mode</td></tr>
+</table>
+
+    </span>
+   </dd>
+  </dl>
+ </div><!-- Parameters End -->
+
+ <div class="DIAMP_PDM_AB_RetVal"><!-- Returns Begin -->
+  <div>
+   <span class="PDM_AB_Head">
+    <a id="_59B12RGXK" name="_59B12RGXK">
+     Return value
+    </a>
+   </span> <span class="RetVal_Ttype">Integer</span>
+  </div>
+  <div class="PDM_AB_Body">
+Previous catch mode.
+
+  </div>
+ </div><!-- Returns End -->
+
+ <div class="PDM_AB_Example"><!-- Example Begin -->
+  <span class="PDM_AB_Head">
+   Example
+  </span>
+  <div class="PDM_AB_Body">
+
+ See to source code of <a class="PDM_AB_See" href="../../code/dbc.prg/cls._dbc.opentable.htm" title="Skip to method _DBC::OpenTable()">_DBC::OpenTable()</a>.
+
+  </div>
+ </div><!-- Example End -->
+
+ <div class="PDM_AB_Other"><!-- Others Begin -->
+<pdm><br />
+</pdm> <br />
+
+ </div><!-- Others End -->
+
+ <div class="PDM_AB_SeeAlso"><!-- SeeAlso Begin -->
+  <span class="PDM_AB_Head">
+   See also
+  </span>
+  <div class="PDM_AB_Body">
+<a class="PDM_AB_See" href="../../code/dbc.prg/cls._dbc.opentable.htm" title="Skip to method _DBC::OpenTable()">_DBC::OpenTable()</a>&nbsp;|
+<a class="PDM_AB_See" href="../../code/dbc.prg/cls._dbc.closetable.htm" title="Skip to method _DBC::CloseTable()">_DBC::CloseTable()</a>&nbsp;|
+<a class="PDM_AB_See" href="../../code/dbc.prg/cls._dbc.attachsession.htm" title="Skip to method _DBC::AttachSession()">_DBC::AttachSession()</a>
+  </div><!-- Body End -->
+  <!--- "Applies to" need to be inserted here---->
+  <PlaceAppliesTo_Here />
+  <!--- /"Applies to" need to be inserted here---->
+ </div><!-- SeeAlso End -->
+
+
+<!-- /Created with _diamp_pdm_ab by Agnes Beste    28.07.2018 18:05 -->
+
+ <div class="SC">
+  <img onclick="ExpandSC('SP_1',-1);"class="imgEC" src="../../imgs/uptab.gif" alt="Expand/Collapse source code of procedure SetCatch" id="IMG_SP_1" />
+  <span ondblclick="ExpandSC('SP_1',-1);" class="SCCaption"><a name="_DBC">Source Code</a></span>
+  <div ondblclick="ExpandSC('SP_1',-1);" class="SCE" id="TX_SP_1">
+<!-- Code Begin -->
+<pre class="PDMCODE PDMNor" > <span class='PDMResK'>LPARAMETERS</span> <span class='PDMVar'>llCatch</span>
+<span class='PDMCom'>      * llCatch - Mode cathing (.T. - catch, .F. - nocatch, .NULL. - nocatch,???? )</span>
+
+
+      <span class='PDMResK'>LOCAL</span> <span class='PDMVar'>luCatch</span>
+      <span class='PDMVar'>luCatch</span><span class='PDMOper'>=</span><span class='PDMResK'>This</span><span class='PDMOper'>.</span><span class='PDMResK'>Catch</span>
+      <span class='PDMResK'>This</span><span class='PDMOper'>.</span><span class='PDMResK'>Catch</span><span class='PDMOper'>=</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>llCatch</span>
+      <span class='PDMResK'>IF</span> <span class='PDMVar'>llCatch</span> <span class='PDMCom'>&amp;&amp; If catching</span>
+<span class='PDMCom'>         * the reset error and message number</span>
+         <span class='PDMResK'>This</span><span class='PDMOper'>.</span><span class='PDMVar'>nErr</span><span class='PDMOper'>=</span><span class='PDMLit'>0</span> 
+         <span class='PDMResK'>This</span><span class='PDMOper'>.</span><span class='PDMVar'>cErrMSG</span><span class='PDMOper'>=</span><span class='PDMStr'>""</span>
+      <span class='PDMResK'>ENDIF</span>
+      <span class='PDMResK'>RETURN</span> <span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>luCatch</span> <span class='PDMCom'>&amp;&amp; Return old catch flag</span></pre>
+ <!-- Code End -->
+  </div>
+ </div>
+</div>
+<div class="diaxp_mfoot"> <div class="PDM_AB_CopyRight"><!-- Footer Begin -->
+  <hr />
+  <div class="PDM_AB_Body">
+<span class="italic">&copy; 08.08.2005 Martina Jindrov&aacute;</span>
+  </div><!-- Body End -->
+ </div><!-- Footer End -->
+</div>
+<script language="JavaScript" type="text/javascript">
+lo=document.getElementById("TX_SP_1");
+lo.XType="SourceCode";
+lo.Dir="../../imgs/";
+
+
+</script>
+</body>
+</html>

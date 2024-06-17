@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang=cs">
+<head>
+ <!-- Sitemap 1.0 -->
+ <meta content="text/html; charset=windows-1250" http-equiv="Content-Type" />
+ <meta name="Generator" content="Project Documenting Machine" />
+ <meta name="Version" content="1.3.3" />
+ <title></title>
+</head>
+<body>
+<ul>
+
+
+ <li /><object type="text/sitemap">
+  <param name="Name" value="Procedures/Functions:">
+  <param name="Local" value="about:blank">
+ </object>
+ <ul>
+  <li /><object type="text/sitemap">
+   <param name="Name" value="Main Program">
+   <param name="Local" value="code/dbc.prg/main_d.main program.htm">
+  </object>
+
+ </ul>
+
+
+ <li /><object type="text/sitemap">
+  <param name="Name" value="Methods">
+  <param name="Local" value="about:blank">
+ </object>
+ <ul>
+  <li /><object type="text/sitemap">
+   <param name="Name" value="Init">
+   <param name="Local" value="code/dbc.prg/cls._dbc.init.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="Destroy">
+   <param name="Local" value="code/dbc.prg/cls._dbc.destroy.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="GetIDObject">
+   <param name="Local" value="code/dbc.prg/cls._dbc.getidobject.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="EnumObjects">
+   <param name="Local" value="code/dbc.prg/cls._dbc.enumobjects.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="EnumProperty">
+   <param name="Local" value="code/dbc.prg/cls._dbc.enumproperty.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="RIInfo">
+   <param name="Local" value="code/dbc.prg/cls._dbc.riinfo.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="GetSP">
+   <param name="Local" value="code/dbc.prg/cls._dbc.getsp.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="SetSP">
+   <param name="Local" value="code/dbc.prg/cls._dbc.setsp.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="GetProperty">
+   <param name="Local" value="code/dbc.prg/cls._dbc.getproperty.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="SetProperty">
+   <param name="Local" value="code/dbc.prg/cls._dbc.setproperty.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="ClearProperty">
+   <param name="Local" value="code/dbc.prg/cls._dbc.clearproperty.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="CheckProperties">
+   <param name="Local" value="code/dbc.prg/cls._dbc.checkproperties.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="IsBaseType">
+   <param name="Local" value="code/dbc.prg/cls._dbc.isbasetype.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="GetValueType">
+   <param name="Local" value="code/dbc.prg/cls._dbc.getvaluetype.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="DBCValueToValue">
+   <param name="Local" value="code/dbc.prg/cls._dbc.dbcvaluetovalue.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="ValueToDBCValue">
+   <param name="Local" value="code/dbc.prg/cls._dbc.valuetodbcvalue.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="CheckValue">
+   <param name="Local" value="code/dbc.prg/cls._dbc.checkvalue.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="GetDefaultValue">
+   <param name="Local" value="code/dbc.prg/cls._dbc.getdefaultvalue.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="FormatProperty">
+   <param name="Local" value="code/dbc.prg/cls._dbc.formatproperty.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="CnToI">
+   <param name="Local" value="code/dbc.prg/cls._dbc.cntoi.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="IToCn">
+   <param name="Local" value="code/dbc.prg/cls._dbc.itocn.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="C4ToI">
+   <param name="Local" value="code/dbc.prg/cls._dbc.c4toi.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="C4ToIRev">
+   <param name="Local" value="code/dbc.prg/cls._dbc.c4toirev.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="C2ToI">
+   <param name="Local" value="code/dbc.prg/cls._dbc.c2toi.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="IToC2">
+   <param name="Local" value="code/dbc.prg/cls._dbc.itoc2.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="IToC4">
+   <param name="Local" value="code/dbc.prg/cls._dbc.itoc4.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="IToC4Rev">
+   <param name="Local" value="code/dbc.prg/cls._dbc.itoc4rev.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="SetCatch">
+   <param name="Local" value="code/dbc.prg/cls._dbc.setcatch.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="AttachSession">
+   <param name="Local" value="code/dbc.prg/cls._dbc.attachsession.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="OpenTable">
+   <param name="Local" value="code/dbc.prg/cls._dbc.opentable.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="CloseTable">
+   <param name="Local" value="code/dbc.prg/cls._dbc.closetable.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="Error">
+   <param name="Local" value="code/dbc.prg/cls._dbc.error.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="Check">
+   <param name="Local" value="code/dbc.prg/cls._dbc_check.check.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="FindLostObjects">
+   <param name="Local" value="code/dbc.prg/cls._dbc_check.findlostobjects.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="FindObsoleteObjects">
+   <param name="Local" value="code/dbc.prg/cls._dbc_check.findobsoleteobjects.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="CheckPropertiesOfAllObjects">
+   <param name="Local" value="code/dbc.prg/cls._dbc_check.checkpropertiesofallobjects.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="CheckSPFXP">
+   <param name="Local" value="code/dbc.prg/cls._dbc_check.checkspfxp.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="CheckTablesStructure">
+   <param name="Local" value="code/dbc.prg/cls._dbc_check.checktablesstructure.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="CreateLog">
+   <param name="Local" value="code/dbc.prg/cls._dbc_check.createlog.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="FormatProperty">
+   <param name="Local" value="code/dbc.prg/cls._dbc_connector.formatproperty.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="GetDefaultValue">
+   <param name="Local" value="code/dbc.prg/cls._dbc_connector.getdefaultvalue.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="GetValueType">
+   <param name="Local" value="code/dbc.prg/cls._dbc_connector.getvaluetype.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="DBCValueToValue">
+   <param name="Local" value="code/dbc.prg/cls._dbc_connector.dbcvaluetovalue.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="ValueToDBCValue">
+   <param name="Local" value="code/dbc.prg/cls._dbc_connector.valuetodbcvalue.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="CheckValue">
+   <param name="Local" value="code/dbc.prg/cls._dbc_connector.checkvalue.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="CheckProperties">
+   <param name="Local" value="code/dbc.prg/cls._dbc_connector.checkproperties.htm">
+   <param name="Comment" value="">
+  </object>
+
+ </ul>
+
+
+ <li /><object type="text/sitemap">
+  <param name="Name" value="Properties">
+  <param name="Local" value="about:blank">
+ </object>
+ <ul>
+  <li /><object type="text/sitemap">
+   <param name="Name" value="_DataSessionID">
+   <param name="Local" value="code/dbc.prg/cls._dbc._datasessionid.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="Catch">
+   <param name="Local" value="code/dbc.prg/cls._dbc.catch.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="nErr">
+   <param name="Local" value="code/dbc.prg/cls._dbc.nerr.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="cErrMSG">
+   <param name="Local" value="code/dbc.prg/cls._dbc.cerrmsg.htm">
+   <param name="Comment" value="">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="oConnector">
+   <param name="Local" value="code/dbc.prg/cls._dbc.oconnector.htm">
+   <param name="Comment" value="">
+  </object>
+
+ </ul>
+
+
+ <li /><object type="text/sitemap">
+  <param name="Name" value="Classes">
+  <param name="Local" value="about:blank">
+ </object>
+ <ul>
+  <li /><object type="text/sitemap">
+   <param name="Name" value="_DBC">
+   <param name="Local" value="code/dbc.prg/cls._dbc.htm#cls._dbc">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="_DBC_Check">
+   <param name="Local" value="code/dbc.prg/cls._dbc_check.htm#cls._dbc_check">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="_DBC_CheckInfo">
+   <param name="Local" value="code/dbc.prg/cls._dbc_checkinfo.htm#cls._dbc_checkinfo">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="_DBC_CheckInfo_InvalidProperties">
+   <param name="Local" value="code/dbc.prg/cls._dbc_checkinfo_invalidproperties.htm#cls._dbc_checkinfo_invalidproperties">
+  </object>
+
+  <li /><object type="text/sitemap">
+   <param name="Name" value="_DBC_Connector">
+   <param name="Local" value="code/dbc.prg/cls._dbc_connector.htm#cls._dbc_connector">
+  </object>
+
+ </ul>
+
+
+ <li /><object type="text/sitemap">
+  <param name="Name" value="Programs">
+  <param name="Local" value="about:blank">
+ </object>
+ <ul>
+  <li /><object type="text/sitemap">
+   <param name="Name" value="dbc.prg">
+   <param name="Local" value="code/dbc.prg/main.htm">
+  </object>
+
+ </ul>
+
+
+ <li /><object type="text/sitemap">
+  <param name="Name" value="h Files">
+  <param name="Local" value="about:blank">
+ </object>
+ <ul>
+  <li /><object type="text/sitemap">
+   <param name="Name" value="dbc.h">
+   <param name="Local" value="others/dbc.h/main.htm">
+  </object>
+
+ </ul>
+
+</ul>
+</body>
+</html>
+

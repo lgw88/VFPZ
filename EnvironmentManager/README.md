@@ -1,0 +1,4 @@
+# Environment Manager
+The Environment Manager is a tool you can use to manage and organize environment settings for reusable development needs such as at a specific client or project level. For example, you might have multiple projects for a specific client that all use the same form template (e.g., one with the client's logo) and environment settings (e.g., data paths). The Environment Manager lets you create environment sets which are packages of settings you can apply at any time. These settings include SET commands, Form and Formset templates, and Field class mappings.
+
+Environment Manager is part of [XSource](https://github.com/VFPX/XSource), the source files for various Visual FoxPro components. The license governing XSource can be found in the XSource_EULA.txt included with all of the XSource releases.

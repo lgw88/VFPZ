@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+<head>
+<title>Detail of h file DBC</title>
+<meta content="text/html; charset=windows-1250" http-equiv="Content-Type" />
+<meta name="Generator" content="Project Documenting Machine" />
+<meta name="Version" content="1.3.3" />
+<link rel="stylesheet" href="../../css/foxw.css" type="text/css" />
+<link rel="stylesheet" href="../../css/sc.css" type="text/css" />
+<link rel="stylesheet" href="../../repository/dbc.css" type="text/css" />
+<script src="../../js/pdm.js" language="JavaScript" type="text/javascript"></script>
+<script src="../../repository/pdm_ab.js" language="JavaScript" type="text/javascript"></script>
+</head>
+<body>
+<a name="Main_Program"></a>
+<!-- Code Begin -->
+<pre class="PDMCODE PDMNor" >
+<span class='PDMCom'>* Type of objects</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_DataBase</span>    <span class='PDMResF'>PADR</span><span class='PDMOper'>(</span><span class='PDMStr'>"Database"</span><span class='PDMOper'>,</span><span class='PDMLit'>10</span><span class='PDMOper'>)</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_Table</span>       <span class='PDMResF'>PADR</span><span class='PDMOper'>(</span><span class='PDMStr'>"Table"</span><span class='PDMOper'>,</span><span class='PDMLit'>10</span><span class='PDMOper'>)</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_Field</span>       <span class='PDMResF'>PADR</span><span class='PDMOper'>(</span><span class='PDMStr'>"Field"</span><span class='PDMOper'>,</span><span class='PDMLit'>10</span><span class='PDMOper'>)</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_Index</span>       <span class='PDMResF'>PADR</span><span class='PDMOper'>(</span><span class='PDMStr'>"Index"</span><span class='PDMOper'>,</span><span class='PDMLit'>10</span><span class='PDMOper'>)</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_Relation</span>    <span class='PDMResF'>PADR</span><span class='PDMOper'>(</span><span class='PDMStr'>"Relation"</span><span class='PDMOper'>,</span><span class='PDMLit'>10</span><span class='PDMOper'>)</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_Connection</span>  <span class='PDMResF'>PADR</span><span class='PDMOper'>(</span><span class='PDMStr'>"Connection"</span><span class='PDMOper'>,</span><span class='PDMLit'>10</span><span class='PDMOper'>)</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_View</span>        <span class='PDMResF'>PADR</span><span class='PDMOper'>(</span><span class='PDMStr'>"View"</span><span class='PDMOper'>,</span><span class='PDMLit'>10</span><span class='PDMOper'>)</span>
+
+
+<span class='PDMCom'>* Properties ID</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_Path</span>                 <span class='PDMLit'>1</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_SubType</span>              <span class='PDMLit'>2</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_Comment</span>              <span class='PDMLit'>7</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_RuleExpression</span>       <span class='PDMLit'>9</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_RuleText</span>            <span class='PDMLit'>10</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_DefaultValue</span>        <span class='PDMLit'>11</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_ParameterList</span>       <span class='PDMLit'>12</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_ChildTag</span>            <span class='PDMLit'>13</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_InsertTrigger</span>       <span class='PDMLit'>14</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_UpdateTrigger</span>       <span class='PDMLit'>15</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_DeleteTrigger</span>       <span class='PDMLit'>16</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_Prim_Cand</span>           <span class='PDMLit'>17</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_ParentTable</span>         <span class='PDMLit'>18</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_ParentTag</span>           <span class='PDMLit'>19</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_PrimaryKey</span>          <span class='PDMLit'>20</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_Version</span>             <span class='PDMLit'>24</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_BatchUpdateCount</span>    <span class='PDMLit'>28</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_DataSource</span>          <span class='PDMLit'>29</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_ConnectName</span>         <span class='PDMLit'>32</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_UpdateName</span>          <span class='PDMLit'>35</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_FetchMemo</span>           <span class='PDMLit'>36</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_FetchSize</span>           <span class='PDMLit'>37</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_KeyField</span>            <span class='PDMLit'>38</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_MaxRecords</span>          <span class='PDMLit'>39</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_ShareConnection</span>     <span class='PDMLit'>40</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_SourceType</span>          <span class='PDMLit'>41</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_SQL</span>                 <span class='PDMLit'>42</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_Tables</span>              <span class='PDMLit'>43</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_SendUpdates</span>         <span class='PDMLit'>44</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_Updatable</span>           <span class='PDMLit'>45</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_UpdateType</span>          <span class='PDMLit'>46</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_UseMemoSize</span>         <span class='PDMLit'>47</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_WhereType</span>           <span class='PDMLit'>48</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_DisplayClass</span>        <span class='PDMLit'>50</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_DisplayClassLibrary</span> <span class='PDMLit'>51</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_Format</span>              <span class='PDMLit'>55</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_InputMask</span>           <span class='PDMLit'>54</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_Caption</span>             <span class='PDMLit'>56</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_Asynchronous</span>        <span class='PDMLit'>64</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_BatchMode</span>           <span class='PDMLit'>65</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_ConnectString</span>       <span class='PDMLit'>66</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_ConnectTimeout</span>      <span class='PDMLit'>67</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_DispLogin</span>           <span class='PDMLit'>68</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_DispWarnings</span>        <span class='PDMLit'>69</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_IdleTimeout</span>         <span class='PDMLit'>70</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_QueryTimeout</span>        <span class='PDMLit'>71</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_Password</span>            <span class='PDMLit'>72</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_Transactions</span>        <span class='PDMLit'>73</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_UserID</span>              <span class='PDMLit'>74</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_WaitTime</span>            <span class='PDMLit'>75</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_TimeStamp</span>           <span class='PDMLit'>76</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_DataType</span>            <span class='PDMLit'>77</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_PacketSize</span>          <span class='PDMLit'>78</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_Database</span>            <span class='PDMLit'>79</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_Prepared</span>            <span class='PDMLit'>80</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_CompareMemo</span>         <span class='PDMLit'>81</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_FetchAsNeeded</span>       <span class='PDMLit'>82</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_Offline</span>             <span class='PDMLit'>83</span>
+<span class='PDMCom'>*                                   84</span>
+<span class='PDMCom'>*                                   85</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_DBCEvents</span>               <span class='PDMLit'>86</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_DBCEventFileName</span>        <span class='PDMLit'>87</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_AllowSimultaneousFetch</span>  <span class='PDMLit'>88</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBCID_DisconnectRollback</span>      <span class='PDMLit'>89</span>
+
+
+<span class='PDMCom'>* Property types</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_ValueType_Unknown</span>    <span class='PDMOper'>-</span><span class='PDMLit'>1</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_ValueType_String</span>      <span class='PDMLit'>0</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_ValueType_Byte</span>        <span class='PDMLit'>1</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_ValueType_SI32R</span>       <span class='PDMLit'>2</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_ValueType_I32R</span>        <span class='PDMLit'>3</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_ValueType_Boolean</span>     <span class='PDMLit'>4</span>
+
+
+
+<span class='PDMCom'>* Check errors</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_Check_OK</span>                    <span class='PDMLit'>0</span> 
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_Check_PropertyType_Unknown</span>  <span class='PDMLit'>1</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_Check_PropertyValue_Invalid</span> <span class='PDMLit'>2</span>
+
+
+<span class='PDMCom'>* Stored procedures type</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_SP_Source</span>   <span class='PDMResF'>PADR</span><span class='PDMOper'>(</span><span class='PDMStr'>"StoredProceduresSource"</span><span class='PDMOper'>,</span><span class='PDMLit'>128</span><span class='PDMOper'>)</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_SP_FXP</span>      <span class='PDMResF'>PADR</span><span class='PDMOper'>(</span><span class='PDMStr'>"StoredProceduresObject"</span><span class='PDMOper'>,</span><span class='PDMLit'>128</span><span class='PDMOper'>)</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_SP_TSource</span>  <span class='PDMLit'>0</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_SP_TFXP</span>     <span class='PDMLit'>1</span>
+
+
+
+<span class='PDMCom'>* Stored procedures type</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_SP_CheckFXP_OK</span>      <span class='PDMLit'>0</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_SP_CheckFXP_Failed</span> <span class='PDMOper'>-</span><span class='PDMLit'>1</span>
+
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_SP_CheckFXP_CantSavePRG</span>    <span class='PDMOper'>-</span><span class='PDMLit'>2</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_SP_CheckFXP_CantCompilePRG</span> <span class='PDMOper'>-</span><span class='PDMLit'>3</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_SP_CheckFXP_CantReadFXP</span>    <span class='PDMOper'>-</span><span class='PDMLit'>4</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_SP_CheckFXP_CantReadErr</span>    <span class='PDMOper'>-</span><span class='PDMLit'>5</span>
+
+
+
+<span class='PDMCom'>* Errors</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_ValueInvalid</span>   <span class='PDMOper'>-</span><span class='PDMLit'>3</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_ObjectNotType</span>  <span class='PDMOper'>-</span><span class='PDMLit'>2</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_ObjectNotFound</span> <span class='PDMOper'>-</span><span class='PDMLit'>1</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_ObjectFound</span>     <span class='PDMLit'>0</span>
+
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_ErrParamFailed</span>         <span class='PDMOper'>-</span><span class='PDMLit'>103</span> <span class='PDMCom'>&amp;&amp; Wrong any parameter</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_ErrOther</span>               <span class='PDMOper'>-</span><span class='PDMLit'>100</span> <span class='PDMCom'>&amp;&amp; Any bug</span>
+<span class='PDMOper'>#</span><span class='PDMResK'>DEFINE</span> <span class='PDMVar'>_DBC_ErrOK</span>                   <span class='PDMLit'>0</span>   <span class='PDMCom'>&amp;&amp; OK</span></pre>
+ <!-- Code End -->
+</body>
+</html>

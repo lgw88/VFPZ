@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+<head>
+<title>Method CheckSPFXP of class _DBC_Check</title>
+<meta content="text/html; charset=windows-1250" http-equiv="Content-Type" />
+<meta name="Generator" content="Project Documenting Machine" />
+<meta name="Version" content="1.3.3" />
+<link rel="stylesheet" href="../../css/foxw.css" type="text/css" />
+<link rel="stylesheet" href="../../css/sc.css" type="text/css" />
+<link rel="stylesheet" href="../../repository/dbc.css" type="text/css" />
+<script src="../../js/pdm.js" language="JavaScript" type="text/javascript"></script>
+<script src="../../repository/pdm_ab.js" language="JavaScript" type="text/javascript"></script>
+</head>
+<body>
+<div class="diaxp_mhead">CheckSPFXP Method</div>
+<div class="diaxp_mbody_class">
+
+<table class="clear_table">
+ <tbody>
+  <tr><td>Class: </td><td><a href="cls._dbc_check.htm" title="Skip to class _dbc_check">_DBC_Check</a></td></tr>
+  <tr><td>Description:</td><td>Check stored procedures FXP code</td></tr>
+ </tbody>
+</table>
+</div>
+<div class="diaxp_mbody">
+ <div class="SC">
+  <img onclick="ExpandSC('SP_2',-1);"class="imgEC" src="../../imgs/uptab.gif" alt="Expand/Collapse source code of procedure CheckSPFXP" id="IMG_SP_2" />
+  <span ondblclick="ExpandSC('SP_2',-1);" class="SCCaption"><a name="_DBC_Check">Source Code</a></span>
+  <div ondblclick="ExpandSC('SP_2',-1);" class="SCE" id="TX_SP_2">
+<!-- Code Begin -->
+<pre class="PDMCODE PDMNor" >      <span class='PDMResK'>LPARAMETERS</span> <span class='PDMVar'>lcAlias</span><span class='PDMOper'>,</span><span class='PDMVar'>loInfo</span>
+<span class='PDMCom'>      * lcAlias - Alias of opened DBC</span>
+<span class='PDMCom'>      * loInfo  - Info object</span>
+
+
+<span class='PDMCom'>      * backup SET DEFA</span>
+<span class='PDMCom'>      * set DBC path as SET DEFA</span>
+<span class='PDMCom'>      * save SP as PRG and recompile it</span>
+<span class='PDMCom'>      * Get SP FXP and compare it with recompiled source code</span>
+
+      <span class='PDMResK'>LOCAL</span> <span class='PDMVar'>lcOldDEFA</span><span class='PDMOper'>,</span><span class='PDMVar'>lcSC</span><span class='PDMOper'>,</span><span class='PDMVar'>lcFXP</span><span class='PDMOper'>,</span><span class='PDMVar'>lcTMP</span><span class='PDMOper'>,</span><span class='PDMVar'>lcFRXPN</span><span class='PDMOper'>,</span><span class='PDMVar'>luCatch</span>
+      <span class='PDMVar'>lcOldDEFA</span><span class='PDMOper'>=</span><span class='PDMResF'>SET</span><span class='PDMOper'>(</span><span class='PDMStr'>"DEFA"</span><span class='PDMOper'>)</span><span class='PDMOper'>+</span><span class='PDMResF'>CURDIR</span><span class='PDMOper'>(</span><span class='PDMOper'>)</span>
+
+      <span class='PDMResK'>SET</span> <span class='PDMResK'>DEFAULT</span> <span class='PDMResK'>TO</span> <span class='PDMOper'>(</span><span class='PDMResF'>JUSTPATH</span><span class='PDMOper'>(</span><span class='PDMResF'>DBF</span><span class='PDMOper'>(</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcAlias</span><span class='PDMOper'>)</span><span class='PDMOper'>)</span><span class='PDMOper'>+</span><span class='PDMStr'>"\"</span><span class='PDMOper'>)</span>
+<span class='PDMCom'>      * Get Stored Procedure</span>
+      <span class='PDMOper'>=</span><span class='PDMVar'>loDBC</span><span class='PDMOper'>.</span><span class='PDMVar'>GetSP</span><span class='PDMOper'>(</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcAlias</span><span class='PDMOper'>,</span><span class='PDMVar'>_DBC_SP_TSource</span><span class='PDMOper'>,</span><span class='PDMOper'>@</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcSC</span><span class='PDMOper'>)</span>
+      <span class='PDMOper'>=</span><span class='PDMVar'>loDBC</span><span class='PDMOper'>.</span><span class='PDMVar'>GetSP</span><span class='PDMOper'>(</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcAlias</span><span class='PDMOper'>,</span><span class='PDMVar'>_DBC_SP_TFXP</span><span class='PDMOper'>,</span><span class='PDMOper'>@</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcFXP</span><span class='PDMOper'>)</span>
+      <span class='PDMVar'>lcTMP</span><span class='PDMOper'>=</span><span class='PDMResF'>SYS</span><span class='PDMOper'>(</span><span class='PDMLit'>2023</span><span class='PDMOper'>)</span><span class='PDMOper'>+</span><span class='PDMStr'>"\"</span><span class='PDMOper'>+</span><span class='PDMResF'>SYS</span><span class='PDMOper'>(</span><span class='PDMLit'>2015</span><span class='PDMOper'>)</span><span class='PDMOper'>+</span><span class='PDMStr'>".prg"</span>
+      <span class='PDMVar'>loInfo</span><span class='PDMOper'>.</span><span class='PDMVar'>SPFXP</span><span class='PDMOper'>=</span><span class='PDMVar'>_DBC_SP_CheckFXP_OK</span>
+
+      <span class='PDMVar'>luCatch</span><span class='PDMOper'>=</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMResK'>This</span><span class='PDMOper'>.</span><span class='PDMVar'>SetCatch</span><span class='PDMOper'>(</span><span class='PDMLit'>.T.</span><span class='PDMOper'>)</span>
+      <span class='PDMOper'>=</span><span class='PDMResF'>STRTOFILE</span><span class='PDMOper'>(</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcSC</span><span class='PDMOper'>,</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcTMP</span><span class='PDMOper'>)</span>
+      <span class='PDMResK'>IF</span> <span class='PDMResK'>This</span><span class='PDMOper'>.</span><span class='PDMVar'>nErr</span><span class='PDMOper'>#</span><span class='PDMLit'>0</span>
+         <span class='PDMVar'>loInfo</span><span class='PDMOper'>.</span><span class='PDMVar'>SPFXP</span><span class='PDMOper'>=</span><span class='PDMVar'>_DBC_SP_CheckFXP_CantSavePRG</span>
+      <span class='PDMResK'>ENDIF</span>
+      <span class='PDMResK'>IF</span> <span class='PDMResK'>This</span><span class='PDMOper'>.</span><span class='PDMVar'>nErr</span><span class='PDMOper'>=</span><span class='PDMLit'>0</span>
+         <span class='PDMOper'>=</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMResK'>This</span><span class='PDMOper'>.</span><span class='PDMVar'>SetCatch</span><span class='PDMOper'>(</span><span class='PDMLit'>.T.</span><span class='PDMOper'>)</span>
+         <span class='PDMResK'>COMPILE</span> <span class='PDMOper'>(</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcTMP</span><span class='PDMOper'>)</span> 
+         <span class='PDMResK'>IF</span> <span class='PDMResK'>This</span><span class='PDMOper'>.</span><span class='PDMVar'>nErr</span><span class='PDMOper'>#</span><span class='PDMLit'>0</span>
+            <span class='PDMVar'>loInfo</span><span class='PDMOper'>.</span><span class='PDMVar'>SPFXP</span><span class='PDMOper'>=</span><span class='PDMVar'>_DBC_SP_CheckFXP_CantCompilePRG</span>
+         <span class='PDMResK'>ENDIF</span>
+      <span class='PDMResK'>ENDIF</span>     
+
+      <span class='PDMResK'>IF</span> <span class='PDMResK'>This</span><span class='PDMOper'>.</span><span class='PDMVar'>nErr</span><span class='PDMOper'>=</span><span class='PDMLit'>0</span>
+         <span class='PDMOper'>=</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMResK'>This</span><span class='PDMOper'>.</span><span class='PDMVar'>SetCatch</span><span class='PDMOper'>(</span><span class='PDMLit'>.T.</span><span class='PDMOper'>)</span>
+         <span class='PDMVar'>lcFXPN</span><span class='PDMOper'>=</span><span class='PDMResF'>FILETOSTR</span><span class='PDMOper'>(</span><span class='PDMResF'>FORCEEXT</span><span class='PDMOper'>(</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcTMP</span><span class='PDMOper'>,</span><span class='PDMStr'>"fxp"</span><span class='PDMOper'>)</span><span class='PDMOper'>)</span>
+         <span class='PDMResK'>IF</span> <span class='PDMResK'>This</span><span class='PDMOper'>.</span><span class='PDMVar'>nErr</span><span class='PDMOper'>#</span><span class='PDMLit'>0</span>
+            <span class='PDMVar'>loInfo</span><span class='PDMOper'>.</span><span class='PDMVar'>SPFXP</span><span class='PDMOper'>=</span><span class='PDMVar'>_DBC_SP_CheckFXP_CantReadFXP</span>
+         <span class='PDMResK'>ENDIF</span>
+      <span class='PDMResK'>ENDIF</span>     
+
+      <span class='PDMResK'>IF</span> <span class='PDMResK'>This</span><span class='PDMOper'>.</span><span class='PDMVar'>nErr</span><span class='PDMOper'>=</span><span class='PDMLit'>0</span>
+         <span class='PDMVar'>loInfo</span><span class='PDMOper'>.</span><span class='PDMVar'>SPFXP</span> <span class='PDMOper'>=</span> <span class='PDMResF'>IIF</span><span class='PDMOper'>(</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcFXP</span><span class='PDMOper'>==</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcFXPN</span><span class='PDMOper'>,</span><span class='PDMVar'>_DBC_SP_CheckFXP_OK</span><span class='PDMOper'>,</span><span class='PDMVar'>_DBC_SP_CheckFXP_Failed</span><span class='PDMOper'>)</span> <span class='PDMCom'>&amp;&amp; Stored procedures FXP status</span>
+         <span class='PDMResK'>IF</span> <span class='PDMResF'>FILE</span><span class='PDMOper'>(</span><span class='PDMResF'>FORCEEXT</span><span class='PDMOper'>(</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcTMP</span><span class='PDMOper'>,</span><span class='PDMStr'>"err"</span><span class='PDMOper'>)</span><span class='PDMOper'>)</span>
+            <span class='PDMOper'>=</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMResK'>This</span><span class='PDMOper'>.</span><span class='PDMVar'>SetCatch</span><span class='PDMOper'>(</span><span class='PDMLit'>.T.</span><span class='PDMOper'>)</span>
+            <span class='PDMVar'>loInfo</span><span class='PDMOper'>.</span><span class='PDMVar'>SPFXPResult</span> <span class='PDMOper'>=</span> <span class='PDMResF'>FILETOSTR</span><span class='PDMOper'>(</span><span class='PDMResF'>FORCEEXT</span><span class='PDMOper'>(</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcTMP</span><span class='PDMOper'>,</span><span class='PDMStr'>"err"</span><span class='PDMOper'>)</span><span class='PDMOper'>)</span> <span class='PDMCom'>&amp;&amp; Stored procedures Error result</span>
+            <span class='PDMResK'>IF</span> <span class='PDMResK'>This</span><span class='PDMOper'>.</span><span class='PDMVar'>nErr</span><span class='PDMOper'>#</span><span class='PDMLit'>0</span>
+               <span class='PDMVar'>loInfo</span><span class='PDMOper'>.</span><span class='PDMVar'>SPFXP</span><span class='PDMOper'>=</span><span class='PDMVar'>_DBC_SP_CheckFXP_CantReadErr</span>
+            <span class='PDMResK'>ENDIF</span>
+         <span class='PDMResK'>ENDIF</span>
+      <span class='PDMResK'>ENDIF</span>
+
+      <span class='PDMResK'>DELETE</span> <span class='PDMResK'>FILE</span> <span class='PDMOper'>(</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcTMP</span><span class='PDMOper'>)</span>
+      <span class='PDMResK'>DELETE</span> <span class='PDMResK'>FILE</span> <span class='PDMOper'>(</span><span class='PDMResF'>FORCEEXT</span><span class='PDMOper'>(</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcTMP</span><span class='PDMOper'>,</span><span class='PDMStr'>"fxp"</span><span class='PDMOper'>)</span><span class='PDMOper'>)</span>
+      <span class='PDMResK'>DELETE</span> <span class='PDMResK'>FILE</span> <span class='PDMOper'>(</span><span class='PDMResF'>FORCEEXT</span><span class='PDMOper'>(</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcTMP</span><span class='PDMOper'>,</span><span class='PDMStr'>"err"</span><span class='PDMOper'>)</span><span class='PDMOper'>)</span>
+      <span class='PDMResK'>SET</span> <span class='PDMResK'>DEFAULT</span> <span class='PDMResK'>TO</span> <span class='PDMOper'>(</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcOldDEFA</span><span class='PDMOper'>)</span>
+      <span class='PDMOper'>=</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMResK'>This</span><span class='PDMOper'>.</span><span class='PDMVar'>SetCatch</span><span class='PDMOper'>(</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>luCatch</span><span class='PDMOper'>)</span></pre>
+ <!-- Code End -->
+  </div>
+ </div>
+</div>
+<div class="diaxp_mfoot"> <div class="PDM_AB_CopyRight"><!-- Footer Begin -->
+  <hr />
+  <div class="PDM_AB_Body">
+<span class="italic">&copy; 08.08.2005 Martina Jindrov&aacute;</span>
+  </div><!-- Body End -->
+ </div><!-- Footer End -->
+</div>
+<script language="JavaScript" type="text/javascript">
+lo=document.getElementById("TX_SP_2");
+lo.XType="SourceCode";
+lo.Dir="../../imgs/";
+
+
+</script>
+</body>
+</html>

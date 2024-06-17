@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+<head>
+<title>Method GetSP of class _DBC</title>
+<meta content="text/html; charset=windows-1250" http-equiv="Content-Type" />
+<meta name="Generator" content="Project Documenting Machine" />
+<meta name="Version" content="1.3.3" />
+<link rel="stylesheet" href="../../css/foxw.css" type="text/css" />
+<link rel="stylesheet" href="../../css/sc.css" type="text/css" />
+<link rel="stylesheet" href="../../repository/dbc.css" type="text/css" />
+<script src="../../js/pdm.js" language="JavaScript" type="text/javascript"></script>
+<script src="../../repository/pdm_ab.js" language="JavaScript" type="text/javascript"></script>
+</head>
+<body>
+<div class="diaxp_mhead">GetSP Method</div>
+<div class="diaxp_mbody_class">
+
+<table class="clear_table">
+ <tbody>
+  <tr><td>Class: </td><td><a href="cls._dbc.htm" title="Skip to class _dbc">_DBC</a></td></tr>
+  <tr><td>Description:</td><td>Get Stored Procedure</td></tr>
+ </tbody>
+</table>
+</div>
+<div class="diaxp_mbody">
+<!-- Created with _diamp_pdm_ab by Agnes Beste    28.07.2018 18:05 -->
+ <div class="PDM_AB_Descr"><!-- Descr Begin -->
+This method return source code or fxp code of stored procedures.
+ </div><!-- Descr End -->
+
+ <div class="DIAMP_PDM_AB_Syntax"><!-- Syntax Begin -->
+  <div class="SColor">
+   <div class="RetVal"><a href="#_59B12RDX5">RetVal</a>&nbsp;</div>   <div class="RetValEq">=</div>   <div class="PEM">
+    Object.GetSP
+   </div>
+   <div class="Para">
+    (<a href="#_59B12RDX6">lcAlias</a>
+     <wbr />,<a href="#_59B12RDX7">liType</a>
+     <wbr />,@<a href="#_59B12RDX8">luValue</a>)
+   </div>
+   <div style="clear: both"></div>
+  </div><!-- Colour End -->
+ </div><!-- Syntax End -->
+
+ <div class="DIAMP_PDM_AB_Params"><!-- Parameters Begin -->
+  <span class="PDM_AB_Head">
+   Parameter
+  </span>
+  <dl class="DIAMP_PDM_AB_Params_List">
+   <dt class="dt_">
+    <a class="DIAMP_PDM_AB_Params_ParaName" id="_59B12RDX6" name="_59B12RDX6">
+     <span class="PDMEXPR PDMNor" ><span class='PDMVar'>lcAlias</span></span>
+
+    </a>
+   </dt>
+   <dd class="dd_">
+    <span class="Params_Short">
+     DBC Alias
+    </span>
+    <table class="Params_Info">
+     <colgroup>
+      <col class="ColumnValue" />
+      <col class="ColumnData" />
+     </colgroup>
+     <tbody>
+      <tr>
+       <td class="CellValue">Type</td>
+       <td class="CellData">Character</td>
+      </tr>
+      <tr>
+       <td class="CellValue">Direction</td>
+       <td class="CellData">Input</td>
+      </tr>
+     </tbody>
+    </table>
+    <span class="Params_Detail">
+Alias of opened DBC as table.
+    </span>
+   </dd>
+   <dt class="dt_">
+    <a class="DIAMP_PDM_AB_Params_ParaName" id="_59B12RDX7" name="_59B12RDX7">
+     <span class="PDMEXPR PDMNor" ><span class='PDMVar'>liType</span></span>
+
+    </a>
+   </dt>
+   <dd class="dd_">
+    <span class="Params_Short">
+     Type of returned information.
+    </span>
+    <table class="Params_Info">
+     <colgroup>
+      <col class="ColumnValue" />
+      <col class="ColumnData" />
+     </colgroup>
+     <tbody>
+      <tr>
+       <td class="CellValue">Type</td>
+       <td class="CellData">Integer</td>
+      </tr>
+      <tr>
+       <td class="CellValue">Direction</td>
+       <td class="CellData">Input</td>
+      </tr>
+     </tbody>
+    </table>
+    <span class="Params_Detail">
+
+<table class="listvalues">
+ <tr class="Head"><td>Value</td><td>Description</td></tr>
+ <tr><td>_DBC_SP_TSource</td><td>Source code</td></tr>
+ <tr><td>_DBC_SP_TFXP</td><td>FXP code</td></tr>
+</table>
+
+    </span>
+   </dd>
+   <dt class="dt_">
+    <a class="DIAMP_PDM_AB_Params_ParaName" id="_59B12RDX8" name="_59B12RDX8">
+     <span class="PDMEXPR PDMNor" ><span class='PDMVar'>luValue</span></span>
+
+    </a>
+   </dt>
+   <dd class="dd_">
+    <span class="Params_Short">
+     Returned information.
+    </span>
+    <table class="Params_Info">
+     <colgroup>
+      <col class="ColumnValue" />
+      <col class="ColumnData" />
+     </colgroup>
+     <tbody>
+      <tr>
+       <td class="CellValue">By reference</td>
+       <td class="CellData">&nbsp;</td>
+      </tr>
+      <tr>
+       <td class="CellValue">Direction</td>
+       <td class="CellData">Output</td>
+      </tr>
+     </tbody>
+    </table>
+   </dd>
+  </dl>
+ </div><!-- Parameters End -->
+
+ <div class="DIAMP_PDM_AB_RetVal"><!-- Returns Begin -->
+  <div>
+   <span class="PDM_AB_Head">
+    <a id="_59B12RDX5" name="_59B12RDX5">
+     Return value
+    </a>
+   </span> <span class="RetVal_Ttype">Integer</span>
+  </div>
+  <div class="PDM_AB_Body">
+If the method succeeds, the return value is <span class="PDMEXPR PDMNor" ><span class='PDMVar'>_DBC_ObjectFound</span></span>
+.<br/><br/>
+If the method fails, the return value is <span class="PDMEXPR PDMNor" ><span class='PDMVar'>_DBC_ObjectNotFound</span></span>
+.
+
+  </div>
+ </div><!-- Returns End -->
+
+ <div class="PDM_AB_Example"><!-- Example Begin -->
+  <span class="PDM_AB_Head">
+   Example
+  </span>
+  <div class="PDM_AB_Body">
+
+<!-- Code Begin -->
+<pre class="PDMCODE PDMNor" >
+<span class='PDMOper'>#</span><span class='PDMResK'>INCLUDE</span> <span class='PDMStr'>"dbc.h"</span>
+<span class='PDMResK'>SET</span> <span class='PDMResK'>PROCEDURE</span> <span class='PDMResK'>TO</span> <span class='PDMResF'>dbc</span><span class='PDMOper'>.</span><span class='PDMVar'>prg</span> <span class='PDMResK'>ADDITIVE</span>
+<span class='PDMResK'>LOCAL</span> <span class='PDMVar'>lcAlias</span><span class='PDMOper'>,</span><span class='PDMVar'>loDBC</span><span class='PDMOper'>,</span><span class='PDMVar'>luValue</span>
+<span class='PDMVar'>loDBC</span><span class='PDMOper'>=</span><span class='PDMResF'>CREATEOBJECT</span><span class='PDMOper'>(</span><span class='PDMStr'>"_DBC"</span><span class='PDMOper'>)</span>
+<span class='PDMVar'>lcAlias</span><span class='PDMOper'>=</span><span class='PDMResF'>SYS</span><span class='PDMOper'>(</span><span class='PDMLit'>2015</span><span class='PDMOper'>)</span>
+<span class='PDMOper'>=</span><span class='PDMVar'>loDBC</span><span class='PDMOper'>.</span><span class='PDMVar'>OpenTable</span><span class='PDMOper'>(</span><span class='PDMResF'>HOME</span><span class='PDMOper'>(</span><span class='PDMLit'>2</span><span class='PDMOper'>)</span><span class='PDMOper'>+</span><span class='PDMStr'>"\Tastrade\Data\tastrade.dbc"</span><span class='PDMOper'>,</span><span class='PDMVar'>lcAlias</span><span class='PDMOper'>,</span><span class='PDMStr'>""</span><span class='PDMOper'>)</span>
+<span class='PDMOper'>=</span><span class='PDMVar'>loDBC</span><span class='PDMOper'>.</span><span class='PDMVar'>GetSP</span><span class='PDMOper'>(</span><span class='PDMVar'>lcAlias</span><span class='PDMOper'>,</span><span class='PDMVar'>_DBC_SP_TSource</span><span class='PDMOper'>,</span><span class='PDMOper'>@</span><span class='PDMVar'>luValue</span><span class='PDMOper'>)</span>
+<span class='PDMOper'>?</span><span class='PDMVar'>luValue</span>
+<span class='PDMVar'>loDBC</span><span class='PDMOper'>.</span><span class='PDMVar'>CloseTable</span><span class='PDMOper'>(</span><span class='PDMVar'>lcAlias</span><span class='PDMOper'>)</span>
+<span class='PDMResK'>RELEASE</span> <span class='PDMVar'>loDBC</span>
+<span class='PDMResK'>RELEASE</span> <span class='PDMResK'>PROCEDURE</span> <span class='PDMResF'>dbc</span><span class='PDMOper'>.</span><span class='PDMVar'>prg</span></pre>
+ <!-- Code End -->
+
+
+  </div>
+ </div><!-- Example End -->
+
+ <div class="PDM_AB_Other"><!-- Others Begin -->
+<pdm><br />
+</pdm> <br />
+
+ </div><!-- Others End -->
+
+ <div class="PDM_AB_SeeAlso"><!-- SeeAlso Begin -->
+  <span class="PDM_AB_Head">
+   See also
+  </span>
+  <div class="PDM_AB_Body">
+<a class="PDM_AB_See" href="../../code/dbc.prg/cls._dbc.setsp.htm" title="Skip to method _DBC::SetSP()">_DBC::SetSP()</a>
+  </div><!-- Body End -->
+  <!--- "Applies to" need to be inserted here---->
+  <PlaceAppliesTo_Here />
+  <!--- /"Applies to" need to be inserted here---->
+ </div><!-- SeeAlso End -->
+
+
+<!-- /Created with _diamp_pdm_ab by Agnes Beste    28.07.2018 18:05 -->
+
+ <div class="SC">
+  <img onclick="ExpandSC('SP_1',-1);"class="imgEC" src="../../imgs/uptab.gif" alt="Expand/Collapse source code of procedure GetSP" id="IMG_SP_1" />
+  <span ondblclick="ExpandSC('SP_1',-1);" class="SCCaption"><a name="_DBC">Source Code</a></span>
+  <div ondblclick="ExpandSC('SP_1',-1);" class="SCE" id="TX_SP_1">
+<!-- Code Begin -->
+<pre class="PDMCODE PDMNor" >      <span class='PDMResK'>LPARAMETERS</span> <span class='PDMVar'>lcAlias</span><span class='PDMOper'>,</span><span class='PDMVar'>liType</span><span class='PDMOper'>,</span><span class='PDMVar'>luValue</span>
+<span class='PDMCom'>      * lcAlias  - Alias of opened DBC</span>
+<span class='PDMCom'>      * liType   - Type (Source code/ P-Code)</span>
+<span class='PDMCom'>      * @luValue - (output) Stored procedures source code/P-Code</span>
+
+
+      <span class='PDMResK'>SELE</span> <span class='PDMOper'>(</span><span class='PDMVar'>m</span><span class='PDMOper'>.</span><span class='PDMVar'>lcAlias</span><span class='PDMOper'>)</span> <span class='PDMCom'>&amp;&amp; Skip to DBC </span>
+<span class='PDMCom'>      * Find object</span>
+      <span class='PDMResK'>LOCATE</span> <span class='PDMResK'>FOR</span> <span class='PDMVar'>OBJECTTYPE</span><span class='PDMOper'>=</span><span class='PDMVar'>_DBC_DataBase</span> <span class='PDMOper'>AND</span><span class='PDMOper'>;</span>
+             <span class='PDMResF'>UPPER</span><span class='PDMOper'>(</span><span class='PDMVar'>ObjectName</span><span class='PDMOper'>)</span><span class='PDMOper'>==</span><span class='PDMResF'>UPPER</span><span class='PDMOper'>(</span><span class='PDMResF'>IIF</span><span class='PDMOper'>(</span><span class='PDMVar'>liType</span><span class='PDMOper'>=</span><span class='PDMVar'>_DBC_SP_TSource</span><span class='PDMOper'>,</span><span class='PDMVar'>_DBC_SP_Source</span><span class='PDMOper'>,</span><span class='PDMVar'>_DBC_SP_FXP</span><span class='PDMOper'>)</span><span class='PDMOper'>)</span>
+      <span class='PDMResK'>IF</span> <span class='PDMOper'>!</span><span class='PDMResF'>FOUND</span><span class='PDMOper'>(</span><span class='PDMOper'>)</span> <span class='PDMCom'>&amp;&amp; If not found</span>
+         <span class='PDMResK'>RETURN</span> <span class='PDMVar'>_DBC_ObjectNotFound</span> <span class='PDMCom'>&amp;&amp; Get out</span>
+      <span class='PDMResK'>ENDIF</span>
+      <span class='PDMVar'>luValue</span><span class='PDMOper'>=</span><span class='PDMVar'>CODE</span>
+      <span class='PDMResK'>RETURN</span> <span class='PDMVar'>_DBC_ObjectFound</span></pre>
+ <!-- Code End -->
+  </div>
+ </div>
+</div>
+<div class="diaxp_mfoot"> <div class="PDM_AB_CopyRight"><!-- Footer Begin -->
+  <hr />
+  <div class="PDM_AB_Body">
+<span class="italic">&copy; 08.08.2005 Martina Jindrov&aacute;</span>
+  </div><!-- Body End -->
+ </div><!-- Footer End -->
+</div>
+<script language="JavaScript" type="text/javascript">
+lo=document.getElementById("TX_SP_1");
+lo.XType="SourceCode";
+lo.Dir="../../imgs/";
+
+
+</script>
+</body>
+</html>
