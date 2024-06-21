@@ -1,0 +1,31 @@
+Version=  1.20
+Author=
+Company=
+Address=
+City=
+State=
+Zip=
+Country=
+SaveCode=.T.
+Debug=.T.
+Encrypt=.F.
+NoLogo=.F.
+CommentStyle=1
+Comments=
+CompanyName=
+FileDescription=
+LegalCopyright=
+LegalTrademarks=
+ProductName=
+Major=
+Minor=
+Revision=
+AutoIncrement=.F.
+[OLEServers]
+[OLEServersEnd]
+[ProjectFiles]
+ 817144071,V,newproperty.vcx,.F.,.F.,1252,,,
+ 817147923,P,newpropertydialogstart.prg,.F.,.T.,1252,,,
+ 817385849,T,newpropertydialog.h,.F.,.F.,1252,,,
+ 817385858,T,newpropertydialogenglish.h,.F.,.F.,1252,,,
+[EOF]

@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<title>SQLPrepareEx</title><style type="text/css">
+<!--
+*
+{
+	margin: 0;
+	padding: 0;
+}
+
+html, body
+{
+	border-style: none;
+}
+
+body
+{
+	color: #000;
+	background-color: #FFF;
+	font-size: 1em;
+	font-family: Verdana;
+}
+
+#header
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 53px;
+	background-color: #D4DFFF;
+	padding-top: 5px;
+	border-bottom: 1px solid #C8CDDE;
+	z-index: 99;
+}
+
+#header p
+{
+	margin-left: 10px;
+	margin-bottom: 2px;
+	font-size: 0.6em;
+	color: #3355FF;
+}
+
+#header p.links
+{
+	font-size: 0.8em;
+	font-weight: bold;
+}
+
+#header p.links a
+{
+	padding-right: 8px;
+}
+
+#header h1
+{
+	margin-left: 10px;
+	font-size: 1em;
+	font-weight: bold;
+	color: #003399;
+	padding-left: 20px;
+	background: transparent url(./chm/images/note.gif) no-repeat left center;
+}
+
+#header h1.function
+{
+	background: transparent url(./chm/images/function.gif) no-repeat left center;
+}
+
+#header div.flags
+{
+	margin-left: 10px;
+}
+
+#header div.flags a
+{
+	display: inline-block;
+	height: 17px;
+	color: #000;
+	font-size: 0.6em;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#header div.flags a.initflag
+{
+	padding: 0 0 0 13px;
+	line-height: 16px;
+	background: transparent url(./chm/images/note.gif) no-repeat left center;	
+}
+
+#header div.flags a.initflag:hover
+{
+	text-decoration: underline;
+}
+
+#header div.flags a.threadsafe
+{
+	margin-right: 6px;
+	padding-left: 16px;
+	background: transparent url(./chm/images/threadsafe.gif) no-repeat left top;	
+}
+
+#header div.flags a.notthreadsafe
+{
+	margin-right: 6px;
+	padding-left: 16px;
+	background: transparent url(./chm/images/notthreadsafe.gif) no-repeat left top;	
+}
+
+#content
+{
+	position: relative;
+	top: 58px;
+	padding: 10px 15px 30px 25px;
+}
+
+#footer
+{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	border-top: 1px solid #C8CDDE;
+	background-color: #D4DFFF;
+	z-index: 99;
+}
+
+#footer p
+{
+	margin: 3px 0 0 10px;
+	font-size: 0.65em;
+	color: #003399;
+}
+
+/* margins for elements that are direct descendents of #content */
+#content > p, #content > table, #content > ul
+{
+	margin-left: 15px;
+}
+
+#content > p.description
+{
+	margin-left: 0;
+}
+
+h2
+{
+	font-size: 1em;
+	color: #003399;
+	font-weight: bold;
+	margin: 15px 0 10px;
+}
+
+div.block
+{
+	margin: 10px 0 5px 10px;
+	background-color: #F7F7FF;
+	border: 1px solid #CCC;
+	border-width: 0 0 1px 0;
+	width: 90%;
+}
+
+div.block pre
+{
+	padding: 10px 5px;
+	font-family: Monospace, Courier New, Courier;
+	color:	#000066;
+	font-size: 1em;
+	word-wrap: break-word;
+}
+
+div.block pre a
+{
+	color: #000066;
+	text-decoration: none;
+}
+
+div.block pre a:hover
+{
+	color: #3366FF;
+	text-decoration: underline;
+}
+
+div.block p
+{
+	padding: 5px 5px;
+}
+
+div.blockheader
+{
+	margin: 10px 0 -10px 10px;
+	height: 14px;
+	background-color: #EFEFF7;
+	border-bottom: 1px solid #C8CDDE;
+	width: 90%;
+}
+
+div.blockheader p.note
+{
+	margin-left: 3px;
+	color: #003399;
+	padding-left: 13px;
+	font-size: 0.6em;
+	font-weight: bold;
+	line-height: 14px;
+	background: transparent url(./chm/images/note.gif) no-repeat left center;
+}
+
+div.codeheader
+{
+	position: relative;
+	z-index: 1;
+	margin: 10px 0 -10px 10px;
+	height: 18px;
+	background-color: #EFEFF7;
+	border-bottom: 1px solid #C8CDDE;
+	width: 90%;
+}
+
+div.codeheader a
+{
+	position: absolute;
+	right: 4px;
+	display: block;
+	height: 17px;
+	line-height: 17px;
+	padding-left: 17px;
+	font-size: 0.6em;
+	text-decoration: none;
+	background: transparent url(./chm/images/copycode.gif) no-repeat left center;
+}
+
+div.codeheader a.onhover
+{
+	cursor: pointer;
+	background: transparent url(./chm/images/copycode2.gif) no-repeat left center;
+}
+
+h3
+{
+	font-size: 0.9em;
+	font-weight: bold;
+	margin-top: 15px;
+}
+
+h4
+{
+	font-size: 0.8em;
+	font-weight: bold;
+	margin: 10px 0 5px 15px;
+}
+
+a
+{
+	color: #0000FF;
+}
+
+a:hover
+{
+	color: #3366FF;
+}
+
+p
+{
+	font-size: 0.8em;
+}
+
+p + p
+{
+	margin-top: 15px;
+}
+
+dl.parm dt
+{
+	margin: 10px 0 5px 0;
+	font-size: 0.8em;
+	font-weight: bold;
+	font-style: italic;
+}
+
+dl.parm dt a
+{
+	color: #000;
+	text-decoration: none;
+}
+
+dl.parm dd
+{
+	margin-left: 15px;
+}
+
+table
+{
+	margin-top: 7px;
+	font-size: 0.8em;
+	width: 90%;
+}
+
+table caption
+{
+	text-align: left;
+	padding-bottom: 3px;
+}
+
+table tr
+{
+	margin-bottom: 1px;
+}
+
+table th
+{
+	color: #003399;
+	background-color: #EFEFF7;
+	border-bottom: 1px solid #C8CDDE;
+	text-align: left;
+	padding: 5px;
+	font-weight: bold;
+}
+
+table td
+{
+	background-color: #F7F7FF;
+	border-bottom: 1px solid #C8CDDE;
+	padding: 4px;
+}
+
+ul
+{
+	margin: 5px 0 10px;
+	list-style-position: inside;
+	list-style-image: url(./chm/images/list_bullet.gif);
+}
+
+ul li
+{
+	font-size: 0.8em;
+}
+
+ul li ul
+{
+	margin-left: 15px;
+	list-style-type: disc;
+}
+
+ul li ul li
+{
+	font-size: 1em;
+}
+
+table.list
+{
+	border-collapse: collapse;
+}
+
+table.list tr.even td
+{
+	background-color: #EFEFF7;
+}
+
+table.list tr.uneven td
+{
+	background-color: #F7F7FF;
+}
+
+table.list td
+{
+	border-bottom: 1px solid #C8CDDE;
+	padding: 3px 4px;
+}
+
+table.list td:first-child
+{
+	width: 20%;
+}
+-->
+</style>
+<script type="text/javascript">
+document.write('<script id="ieScriptLoad" defer src="//:"><\/script>');
+document.getElementById('ieScriptLoad').onreadystatechange = function() {
+	if (this.readyState == 'complete') {
+		domReady();
+	}
+}
+
+function domReady()
+{
+	var version = document.getElementById('vfp2c32version');
+	version.innerText = 'VFP2C32 2.0.0.13';
+}			
+			
+function CopyCode(cElement)
+{
+	var oElement = document.getElementById(cElement);
+	window.clipboardData.setData("Text", oElement.innerText);
+}
+
+function ChangeClass(oElement, cClass)
+{
+	oElement.className = cClass;
+}
+
+
+</script>
+</head>		<body>
+<div id="header">
+<p id="vfp2c32version"></p>
+<h1 class="function">SQLPrepareEx</h1>
+<div class="flags"><a class="notthreadsafe" title="Not available in threadsafe version"></a><a  class="initflag" href="/pages/InitVFP2C32.html" title="Needed initialization"></a></div>
+</div>
+<div id="content">
+<p class="description">Extended SQLPREPARE.<br />
+Prepares a SQL statement for remote execution by <a href="/pages/SQLExecEx.html">SQLExecEx</a>( ).</p>
+
+<div class="block"><pre>SQLPrepareEx(<a href="#p1">nConn</a>, <a href="#p2">cSQL</a> [, <a href="#p3">cCursors | cVariables</a> [, <a href="#p4">cArrayName</a> [, <a href="#p5">nFlags</a> [, <a href="#p6">cCursorSchema</a> [, <a href="#p7">cParamSchema</a> [, <a href="#p8">cCallback</a> [, <a href="#p9">nCallbackinterval</a>]]]]]]])</pre></div>
+<h3>Parameters</h3>
+<dl class="parm"><dt><a id="p1">nConn</a></dt>
+<dd><p>A valid ODBC connection handle.</p>
+</dd></dl>
+<dl class="parm"><dt><a id="p2">cSQL</a></dt>
+<dd><p>The SQL statement to execute.<br />
+<br />
+Parameters can be embedded into the SQL statement by enclosing them in curly braces prepended by a "?",<br />
+everything in the statement that is enclosed by " or '  is passed on as is.</p>
+</dd></dl>
+<dl class="parm"><dt><a id="p3">cCursors | cVariables (optional)</a></dt>
+<dd><p>Specifies one or more cursornames seperated by a comma e.g. "yourCursor1, yourCursor2"<br />
+<br />
+If you omit this parameter or pass an empty string, the names are automatically created like in <a href="its:dv_foxhelp.chm::/html/8dd6491b-da44-401f-b972-0d51f12f1a07.htm">SQLEXEC</a>,<br />
+the first cursor is named "sqlresult" and for each additional cursor the resultset number is appended (sqlresult2, sqlresult3 ....).<br />
+<br />
+If you pass SQLEXECEX_DEST_VARIABLE in the <em>nFlags</em> parameter, the value is interpreted as a comma seperated list<br />
+of variable or field names into which the data of the first row of the resultset are stored in sequential order,<br />
+that is column no. 1 is stored into variable/field no. 1, 2 in 2 and so on.</p>
+</dd></dl>
+<dl class="parm"><dt><a id="p4">cArray (optional)</a></dt>
+<dd><p>The name of the array into which the number of returned/deleted/updated/inserted rows is stored for each statement<br />
+</p>
+<table>
+<tr><th>Column</th><th>Content</th></tr>
+<tr><td>1</td><td>The cursorname or an empty string if no resultset is generated.</td></tr>
+<tr><td>2</td><td>The number of rows returned, deleted, updated or inserted.</td></tr>
+</table><p><br />
+This is exaclty the same behaviour as introduced in VFP9.<br />
+If you specify SQLEXECEX_STORE_INFO in the <em>nFlags</em> parameter, additional info is stored into the first column of the array.</p>
+</dd></dl>
+<dl class="parm"><dt><a id="p5">nFlags (optional, additive)</a></dt>
+<dd><p>default = SQLEXECEX_DEST_CURSOR | SQLEXECEX_CALLBACK_PROGRESS | SQLEXECEX_CALLBACK_INFO<br />
+<br />
+If you omit the <em>nFlags</em> parameter or pass the value 0, the default is used.<br />
+</p>
+<table>
+<tr><th>Flag</th><th>Description</th></tr>
+<tr><td>SQLEXECEX_DEST_CURSOR</td><td>Store the resultset into one or more VFP cursors.</td></tr>
+<tr><td>SQLEXECEX_DEST_VARIABLE </td><td>Store the resultset into VFP variables/fields.<br />
+If you pass this flag only the values of the first row of the resultset are saved into the variables/fields.</td></tr>
+<tr><td>SQLEXECEX_REUSE_CURSOR</td><td>Store the resultset into an existing cursor (which is ZAP'ed first).</td></tr>
+<tr><td>SQLEXECEX_NATIVE_SQL</td><td>Don't try to parse the passed SQL statement for parameters, just pass it on to the datasource as it is.<br />
+Of course you cannot embedd any parameters if you set this flag.</td></tr>
+<tr><td>SQLEXECEX_CALLBACK_PROGRESS</td><td>Callback into the function passed in the <i>cCallback</i> parameter while fetching rows, if you omit the <i>cCallback</i> parameter this flag is ignored.</td></tr>
+<tr><td>SQLEXECEX_CALLBACK_INFO</td><td>Callback into the function passed in the <i>cCallback</i> parameter if additional information from the backend is receveived (e.g. from PRINT or RAISERROR statements in a stored procedure).</td></tr>
+<tr><td>SQLEXECEX_STORE_INFO</td><td>Store additional info from the backend into the array passed in the <i>cArray</i> parameter.</td></tr>
+</table></dd></dl>
+<dl class="parm"><dt><a id="p6">cCursorSchema :</a></dt>
+<dd><p>The syntax for the schema is like in CREATE TABLE/CURSOR, a comma seperated list of column name and type description e.g.:<br />
+"myIntCol I, myCharCol C(254) NULL, myBinaryCol C(254) NULL NOCPTRANS, myText M, myBlob W"<br />
+</p>
+<div class="blockheader"><p class="note">Note</p></div>
+<div class="block"><p>Long typenames like 'Numeric' or 'Character' are <strong>NOT</strong> supported! <br />
+If you query the database for Unicode character data the default is to convert to Ansi. If you want to get the unicode data unmodified you can specify NOCPTRANS for the column in the schema. e.g.<br />
+"yourUnicodeSmallText C(254) NOCPTRANS, yourUnicodeLongtext M NOCPTRANS"<br />
+<br />
+If you convert a unicode column to types 'W' or 'Q' the data will also be in Unicode format.
+</p></div>
+</dd></dl>
+<dl class="parm"><dt><a id="p7">cParameterSchema (optional)</a></dt>
+<dd><p>Comma seperated list of parameter number, name and SQL type in wich the data should be send e.g.<br />
+"1 '@parmone' SQL_WCHAR, 2 '@parmtwo' SQL_CHAR"<br />
+</p>
+<div class="codeheader"><a onclick="CopyCode('code_1')" onmouseover="ChangeClass(this, 'onhover')" onmouseout="ChangeClass(this, '')">Copy code</a></div>
+<div class="block"><pre id="code_1">&amp;&amp;  the parameter name must be enclosed with either " (double quotes) or ' (single quotes)
+ lcDocument = STRTOFILE('someFileWithUnicodeContent.txt')
+ ?SQLEXECEX(yourConnection,'UPDATE yourTable SET someField = ?{someVar}, someUnicodeTextField = ?{lcDocument} WHERE yourKey = ?{lnID}','','',0,'','2 SQL_WCHAR')
+
+&amp;&amp; you can also pass a backend specific datatype by specifying the sql type in numerical form
+ ?SQLEXECEX(yourConnection,'UPDATE yourTable SET someField = ?{someVar} WHERE  yourKey = ?{lnID}','','laResult',0,'','1 43')
+</pre></div>
+<p></p>
+<div class="blockheader"><p class="note">Note</p></div>
+<div class="block"><p>Named parameters can only be used if you call stored procedures and the backend &amp; ODBC driver supports it - Microsoft SQL Server for example.<br />
+If you use named parameters all parameters must be named.
+</p></div>
+</dd></dl>
+<dl class="parm"><dt><a id="p8">cCallback (optional)</a></dt>
+<dd><p>Function to call back while fetching the resultset or when a PRINT or RAISERROR statement  or other additional backend information is retrieved.<br />
+<br />
+Function prototype:</p>
+<div class="codeheader"><a onclick="CopyCode('code_1')" onmouseover="ChangeClass(this, 'onhover')" onmouseout="ChangeClass(this, '')">Copy code</a></div>
+<div class="block"><pre id="code_1">FUNCTION SQLCallback(lnSet, lnRow, lnRowCount)
+&amp;&amp; lnSet: number of the resultset which is currently fetched or -1
+&amp;&amp; if a PRINT or RAISERROR statement with low severity is catched
+
+&amp;&amp; lnRow: current row that is fetched, or if lnSet is -1
+&amp;&amp; lnRow contains the message/warning of the PRINT or 
+&amp;&amp; RAISERROR statement
+
+&amp;&amp; lnRowCount: either the number of rows to fetch overall
+&amp;&amp; or 0/-1 if the ODBC driver used doesn't support returning the 
+&amp;&amp; matching rows of a query
+&amp;&amp; if lnSet equals -1 this parameter has no meaning and is always .F.
+ENDFUNC
+</pre></div>
+</dd></dl>
+<dl class="parm"><dt><a id="p9">nCallbackinterval</a></dt>
+<dd><p>default = 100<br />
+<br />
+The interval to use for calling back into the callback procedure while fetching rows.<br />
+Your callback procedure will be called once before the first row is fetched, then on every n'th record and once after the last row was fetched.</p>
+</dd></dl>
+<h2>Return Value</h2>
+<p>A prepared statement handle, -1 if the function failed.</p>
+
+<h2>See Also</h2>
+<h4>Reference</h4>
+<p><a href="/pages/ASQLDataSources.html">ASQLDataSources</a><br />
+<a href="/pages/ASQLDrivers.html">ASQLDrivers</a><br />
+<a href="/pages/ChangeSQLDataSource.html">ChangeSQLDataSource</a><br />
+<a href="/pages/CreateSQLDataSource.html">CreateSQLDataSource</a><br />
+<a href="/pages/DeleteSQLDataSource.html">DeleteSQLDataSource</a><br />
+<a href="/pages/SQLExecEx.html">SQLExecEx</a><br />
+<a href="/pages/SQLGetPropEx.html">SQLGetPropEx</a><br />
+<a href="/pages/SQLSetPropEx.html">SQLSetPropEx</a><br />
+<a href="/pages/SQLCancelEx.html">SQLCancelEx</a><br />
+</p>
+<h4>Used WinApi functions</h4>
+<p><a href="http://msdn.microsoft.com/en-us/library/ms712455(VS.85).aspx">SQLAllocHandle</a></p>
+
+
+</div>
+<div id="footer">
+<p>&copy; <a href="http://vfpx.codeplex.com/wikipage?title=VFP2C32">VFP2C32</a> - Shared Source License for <a href="http://vfpx.codeplex.com">VFPX</a></p>
+</div>
+</body>
+</html>
