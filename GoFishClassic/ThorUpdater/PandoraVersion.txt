@@ -1,0 +1,24 @@
+lparameters toUpdateObject
+
+with toUpdateObject
+	.VersionNumber    = '1.00 - 20230921'
+	.AvailableVersion = 'Pandora-1.00-08664-20230921'
+	.Component        = 'No'
+	.Notes            = GetNotes()
+endwith
+return toUpdateObject
+
+* Get the notes for the project.
+
+procedure GetNotes
+local lcNotes
+text to lcNotes noshow
+### 2023-09=20, Version 1.00 ###
+
+#### Off to the races!
+
+![Picture](./documents/Images/vfpxpoweredby_alternative.gif)
+
+
+endtext
+return lcNotes

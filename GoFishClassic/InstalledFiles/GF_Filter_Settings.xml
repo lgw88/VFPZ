@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="" GeneratedClassName="Settings">
+	<Profiles/>
+	<Settings>
+		<Setting Name="BASECLASS_FILTER" Type="System.String" Scope="User">
+			<Value Profile="(Default)"></Value>
+		</Setting>
+		<Setting Name="CLASS_FILTER" Type="System.String" Scope="User">
+			<Value Profile="(Default)"></Value>
+		</Setting>
+		<Setting Name="CONTAININGCLASS_FILTER" Type="System.String" Scope="User">
+			<Value Profile="(Default)"></Value>
+		</Setting>
+		<Setting Name="FILENAME" Type="System.String" Scope="User">
+			<Value Profile="(Default)"></Value>
+		</Setting>
+		<Setting Name="FILENAME_FILTER" Type="System.String" Scope="User">
+			<Value Profile="(Default)"></Value>
+		</Setting>
+		<Setting Name="FILEPATH" Type="System.String" Scope="User">
+			<Value Profile="(Default)"></Value>
+		</Setting>
+		<Setting Name="FILEPATH_FILTER" Type="System.String" Scope="User">
+			<Value Profile="(Default)"></Value>
+		</Setting>
+		<Setting Name="FILETYPE_ASP" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILETYPE_DBC" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILETYPE_FRX" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILETYPE_H" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILETYPE_HTML" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILETYPE_INI" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILETYPE_JAVA" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILETYPE_JSP" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILETYPE_LBX" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILETYPE_MNX" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILETYPE_MPR" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILETYPE_PJX" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILETYPE_PRG" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILETYPE_SCX" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILETYPE_SPR" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILETYPE_TXT" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILETYPE_VCX" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILETYPE_XML" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILTEREXACTMATCH" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILTERLIKE" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="FILTERNOT" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHLINE_FILTER" Type="System.String" Scope="User">
+			<Value Profile="(Default)"></Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_BASECLASS" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_CLASS" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_CLASSDEF" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_CODE" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_COMMENT" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_CONSTANT" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_CONTAININGCLASS" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_EXPR" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_FILEDATE" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_FILENAME" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_FUNCTION" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_METHOD" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_METHODDEF" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_METHODDESC" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_NAME" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_PARENT" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_PARENTCLASS" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_PICTURE" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_PROCEDURE" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_PROPERTYDEF" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_PROPERTYDESC" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_PROPERTYNAME" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_PROPERTYVALUE" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_SUPEXPR" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_TAG" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_TAG2" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="MATCHTYPE_TIMESTAMP" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="METHODNAME_FILTER" Type="System.String" Scope="User">
+			<Value Profile="(Default)"></Value>
+		</Setting>
+		<Setting Name="NAME_FILTER" Type="System.String" Scope="User">
+			<Value Profile="(Default)"></Value>
+		</Setting>
+		<Setting Name="OBJECTNAME" Type="System.String" Scope="User">
+			<Value Profile="(Default)"></Value>
+		</Setting>
+		<Setting Name="ONLYFIRSTMATCHINPROCEDURE" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="ONLYFIRSTMATCHINSTATEMENT" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="PARENTCLASS_FILTER" Type="System.String" Scope="User">
+			<Value Profile="(Default)"></Value>
+		</Setting>
+		<Setting Name="PARENTNAME" Type="System.String" Scope="User">
+			<Value Profile="(Default)"></Value>
+		</Setting>
+		<Setting Name="PROCCODE_FILTER" Type="System.String" Scope="User">
+			<Value Profile="(Default)"></Value>
+		</Setting>
+		<Setting Name="STATEMENT_FILTER" Type="System.String" Scope="User">
+			<Value Profile="(Default)"></Value>
+		</Setting>
+		<Setting Name="TABLEFILES" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">True</Value>
+		</Setting>
+		<Setting Name="TEXTFILES" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="TIMESTAMP_FILTER" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="TIMESTAMP_FILTERFROM" Type="System.DateTime" Scope="User">
+			<Value Profile="(Default)">0000-00-00T00:00:00</Value>
+		</Setting>
+		<Setting Name="TIMESTAMP_FILTERTO" Type="System.DateTime" Scope="User">
+			<Value Profile="(Default)">0000-00-00T00:00:00</Value>
+		</Setting>
+	</Settings>
+</SettingsFile>

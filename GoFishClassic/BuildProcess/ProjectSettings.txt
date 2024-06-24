@@ -1,0 +1,7 @@
+AppName   = Pandora
+AppID     = Pandora
+Version   = 1.00
+Component = No
+
+ChangeLog      = Change Log.md
+Bin2PRGFolder  = InstalledFiles

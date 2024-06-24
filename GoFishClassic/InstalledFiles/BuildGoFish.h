@@ -1,0 +1,11 @@
+	#DEFINE GOFISH_APP_NAME 'GoFishClassic'
+	#DEFINE GOFISH_APP_FILE  'GoFishClassic.app'
+	#DEFINE GOFISH_VERSION '5.2.02'
+	#DEFINE GOFISH_BUILDDATE 'February 03, 2024'
+	#DEFINE GOFISH_DBUILDDATE Date(2024,2, 3)
+	#DEFINE GOFISH_DOWNLOAD_URL 'https://raw.githubusercontent.com/VFPX/GoFishClassic/master/InstalledFiles/GoFishclassic.zip'
+	#DEFINE GOFISH_VERSION_STRING_FOR_VERSION_FILE 'GoFishClassic - 5.2.02 - February 03, 2024 - 20240203'
+	#DEFINE THOR_TOOL_NAME	'Thor_Tool_GoFishClassic'
+	#DEFINE VERSON_FILE_URL	'https://github.com/VFPX/GoFishClassic/_GoFishClassicVersionFile.txt'
+	#DEFINE VERSION_LOCAL_FILE 'GoFishClassicVersionFile.txt'
+	#DEFINE GOFISH_HOME_PAGE 'https://github.com/VFPX/GoFishClassic'

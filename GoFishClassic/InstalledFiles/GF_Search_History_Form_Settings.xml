@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="" GeneratedClassName="Settings">
+	<Profiles/>
+	<Settings>
+		<Setting Name="FormTop" Type="System.Integer" Scope="User">
+			<Value Profile="(Default)">0</Value>
+		</Setting>
+		<Setting Name="FormLeft" Type="System.Integer" Scope="User">
+			<Value Profile="(Default)">0</Value>
+		</Setting>
+		<Setting Name="FormHeight" Type="System.Integer" Scope="User">
+			<Value Profile="(Default)">391</Value>
+		</Setting>
+		<Setting Name="FormWidth" Type="System.Integer" Scope="User">
+			<Value Profile="(Default)">748</Value>
+		</Setting>
+	</Settings>
+</SettingsFile>
