@@ -1,0 +1,25 @@
+ctl32 Classes README FILE - Carlos Alloatti - calloatti@gmail.com
+
+ctl32_scontainer scrollable container by Carlos Alloatti & Malcolm Greene
+
+http://www.ctl32.com.ar/
+
+TESTED ONLY IN VFP9, Windows 2000, XP, Vista
+
+This classes are free to use, please contribute reporting bugs, 
+proposing changes and updates.
+
+To use these classes you only need the following files added them to your project:
+
+ctl32.h (excluded)
+ctl32.prg 
+ctl32.vct 
+ctl32.vcx 
+ctl32_api.prg 
+ctl32_classes.prg 
+ctl32_functions.prg 
+ctl32_structures.prg 
+ctl32_vfp2c32.prg 
+vfpx.vct 
+vfpx.vcx 
+

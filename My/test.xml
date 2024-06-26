@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="" GeneratedClassName="Settings">
+	<Profiles/>
+	<Settings>
+		<Setting Name="Test1" Type="System.String" Scope="User">
+			<Value Profile="(Default)">Value</Value>
+		</Setting>
+		<Setting Name="Test2" Type="System.Integer" Scope="User">
+			<Value Profile="(Default)">25</Value>
+		</Setting>
+		<Setting Name="Test3" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">True</Value>
+		</Setting>
+		<Setting Name="Test4" Type="System.Boolean" Scope="User">
+			<Value Profile="(Default)">False</Value>
+		</Setting>
+		<Setting Name="Test5" Type="System.Double" Scope="User">
+			<Value Profile="(Default)">17.56</Value>
+		</Setting>
+		<Setting Name="Test6" Type="System.Decimal" Scope="User">
+			<Value Profile="(Default)">$30.02</Value>
+		</Setting>
+	</Settings>
+</SettingsFile>
