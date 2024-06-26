@@ -1,6 +1,7 @@
 # README
-## Install Foxpro (VFP) Syntax Highlighting and code Snippets for VSCode
+## 在VSCode安装Foxpro（VFP）语法高亮显示和代码段
   
-执行 setup.bat (更好支持中文)
+下载本目录下全部
+执行 setup.bat
  
 URL: https://github.com/newdatasystems/vscode-foxpro
