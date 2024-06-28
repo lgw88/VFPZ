@@ -1,0 +1,352 @@
+********************************************
+*
+*  Product:Popup Menu Class
+*  Version:
+*  Country: China
+*  Author by: ShiLingFeng
+*  Create date: 2008.05.29
+*  Last update: 2008.06.06
+* Email 
+* Test environment: Win2000 Advanced Server, WinXP Home
+*                   Chinese version of VFP9SP2
+********************************************
+
+***
+*** The following text of the use of machine translation
+*** Translation Tool: http://translate.google.com/translate_t?sl=en&tl=zh-CN
+*** Original Show about_chs.txt
+***
+
+*-- 
+*-- Purpose of the preparation of 
+*-- 
+Vfp menu too monotonous, especially when the tool bar or system tray on the need to use fast menu button, the Vfp constraints, is less desirable. To this end to create an object of the shortcut menu category, and the menu is quick to change the style to adapt to the theme of the operating system capacity. 
+
+1. BMP and support as a menu icon ICO 
+2. Msk support masking paper (strongly recommended), without masking the BMP picture, from 0, 0:00, as a transparent attempt to deal with transparency. 
+3. Pop-up can be designated location, can choose to use absolute or relative coordinates coordinates, the relative coordinates refer to a relative in a form of coordinates. Absolute coordinates that the entire screen. 
+4. Specify a target in ensuring that the targets of visual circumstances, in its attempt within four weeks effective pop-up menu order are: the upper and lower, left and right. 
+
+*-- 
+*-- Difficult to solve the problem 
+*-- 
+1. Vfp menu items can use PictRes _med_paster, to how to achieve this ? 
+2. Shuangbing mouse known pop-up position is not correct, no environmental testing. 
+3. When a scheduled menu A joint pre-defined menu B, when the B menu event of a change in the content, A menu can not take the initiative to change, the proposed A menu does not use predefined. 
+
+*** Important 
+1. This _ Screen will add a similar value of the property, its value is. T., if you have the procedures used the same attributes, please change the name of the other categories PopMenu name. 
+2. This may be required in your _ Screen add oRefIcons the target, if you have the procedures used the same attributes, in the name PopMenu.Init replacement. 
+3: would have been a number of predefined menu together 
+
+*-- 
+*-- History update: 
+*-- 
+2008-06-29 
+Fix4-1: Since the painting that did not visit the menu button issue. 
+
+2008-06-13 
+Add4-1: pre-defined menu pop-up targets faster, and not always re-structure. 
+
+2008-06-07 
+Add3-1: may have been pre-defined menu with a joint. 
+Add3-2: can specify the return value is nInde, cKey, cTitle columns or object. 
+
+Fix3-1: Laws Show menu, choose not to return value NULL. 
+Fix3-2: Add or modify when AddItem, the return value for the section object. 
+
+2008-06-06 
+Add2-1: the array will be changed to VFP9 collection. 
+Add2-2: Add new methods, the use of this method can be defined sub-menu. Add AddItem and both will return to the new section object. SetPicture and SetMesssage temporary retention. 
+
+2008-06-05 
+Add1-1: AddItem third parameters will be replaced by tlEnabled tvEnabled, allowing expression of character, this change will allow frequent use of the shortcut menu can be pre-defined target for a menu, but in all needed areas can only Show. Thanks to Mihu. 
+
+*-- 
+*-- Object: 
+*-- 
+PopMenu shortcut menu object, could be used as examples or NewObject call. 
+_MenuInfo Shortcut menu tab object, the definition section, or to return to the menu, to return to this subject. 
+IconCollection icon management targets for PopMenu use it to load icon. 
+
+*-- 
+*-- _MenuInfo Object attributes that can read and write 
+*-- 
+cKey = "" 
+	Type: character (read-write) 
+	Note: Menu tab Key, this value target in each case, it must only. 
+
+cParentKey = "" 
+	Type: character (read-write) 
+	Description: Father of the menu section Key 
+	nIndex = 0 
+	Type: numerical type (read-write) 
+	Description: physical sequence, the default situation it is always add a sequence of serial numbers. 
+
+cTitle = "" 
+	Type: character (read-write) 
+	Description: columns of text tips 
+
+cCommand = "" 
+	Type: character (read-write) 
+	Note: Select the menu bar, ordered to be carried out by keywords 
+
+cEnabled = "" 
+	Type: character (read-write) 
+	Note: Enabled expressions, in every pop-up menu, will be calculated separately. 
+
+cPicture = "" 
+	Type: character (read-write) 
+	Description: icon file name 
+
+cMessage = "" 
+	Type: character (read-write) 
+	Note: When the mouse moved to the post in the status bar to display information tips 
+
+nHeight = -1 
+	Type: numerical type (read-write) 
+	Description: columns minimum height, the default for PopMenu.nItemHeight 
+
+nWidth = -1 
+	Type: numerical type (read-write) 
+	Description: minimum width of columns, the default for PopMenu.nItemWidth 
+
+nFlags = 0 
+	Type: numerical type (read-write) 
+	Description: Custom uFlags value. AppendMenu Win32Api reference in the note. 
+
+*-- 
+*-- _MenuInfo Object read-only attribute that 
+*-- 
+cTitle =? 
+	Type: character (read-only) 
+	Note: The columns are formatted text tips 
+
+hParent =? 
+	Type: numerical type (read-only) 
+	Description: section of the parent menu handler 
+
+hMenu =? 
+	Type: numerical type (read-only) 
+	Description: section of the menu handler 
+
+nAddress =? 
+	Type: numerical type (read-only) 
+	Description: Address at the columns 
+
+hPic =? 
+	Type: numerical type (read-only) 
+	Description: icon handler 
+
+hMsk =? 
+	Type: numerical type (read-only) 
+	Description: icon mask handler 
+
+*-- 
+*-- PopMenu object attributes that can read and write 
+*-- 
+lOwnerDraw =. F. 
+	Type: the logic of (read-write) 
+	Note: The use of automatic menu, but purely for the system menu. When this value is. T., the following attributes will come into effect. 
+	Range:. T. Or. F. 
+
+lShareIcons =. T. 
+	Type: the logic of (read-write) 
+	Note: Does all share index icon library, if the value is. T., has read the icon will re-use until the withdrawal application. If this value is. F., is an example of each will create their own icon for the index. 
+	Range:. T. Or. F. 
+
+nMenuBackColor = -1 
+	Type: numerical type (read-write) 
+	Description: The background color settings menu 
+	Range: Rgb (0,0,0) to Rgb (255,255,255) 
+
+nItemHeight = -1 
+	Type: numerical type (read-write) 
+	Description: The default menu items in height, this value set once, and then the AddItem will use this value. If you want a high degree of menu items are not the same, then you need in each AddItem, set this value. 
+	Range: greater than 0. 
+
+nItemWidth = -1 
+	Type: numerical type (read-write) 
+	Description: The width of the default menu items, with nItemHeight. 
+	Range: Greater than 0. 
+
+nBarStyle = 0 
+	Type: numerical type (read-write) 
+	Note: the left side menu bar display style. 
+	Range: 0 = no, 1 = solid colored filling, 2 = level gradually color, 3 = vertical gradient 
+
+nBarWidth = 19 
+	Type: numerical type (read-write) 
+	Note: the menu bar the width of the left column 
+	Range: greater than 0. 
+
+nBarFillColor1 = -1 
+	Type: numerical type (read-write) 
+	Note: the left column of the menu bar filled with color or a gradual start-color 
+	Range: more than Rgb (0,0,0) to Rgb (255, 255, 255) 
+
+nBarFillColor2 = -1 
+	Type: numerical type (read-write) 
+	Description: menu bar to the left of the end of a gradual color color 
+	Range: Rgb (0,0,0) to Rgb (255,255,255) 
+
+nImageLeft = 0 
+	Type: numerical type (read-write) 
+	Description: icon from the left side 
+	Range: + / - value. 
+
+nTextLeft = 20 
+	Type: numerical type (read-write) 
+	Description: text area from the left side 
+	Range: + / - value. 
+
+nTextMargin = 2 
+	Type: numerical type (read-write) 
+	Description: text area for the value of indent 
+	Range: + / - value. 
+
+nSelectedStyle = 0 
+	Type: numerical type (read-write) 
+	Description: mouse over the selected menu item style 
+	Range: 0 = default, 1 = rectangular box selected box, 2 = oval box selected, 3 = uplift selected box, 4 = Aoxia selected box 
+	Note 1: If the value of 1 or 2, and do not specify the background color and borders. The system of light as the high border, filling the high-color menu of light to 80% of the transition - 
+	Note 2: If the value of 3 or 4, without the designated border color, the system as a border of light-colored; filled without the designated color, is transparent. 
+
+nSelectedRoundX = 12 
+	Type: numerical type (read-write) 
+	Description: oval box selected width of the fillet 
+	Range: 0-100 
+
+nSelectedRoundY = 12 
+	Type: numerical type (read-write) 
+	Description: oval box of selected high fillet 
+	Range: 0-100 
+
+lSelectedEnabled =. F. 
+	Type: the logic of (read-write) 
+	Note: Does not the failure of selected menu items in style 
+	Range:. F. Or. T. 
+
+nSelectedBorderColor = -1 
+	Type: numerical type (read-write) 
+	Description: selected border-color box. When nSelectedStyle for 1 or 2 o'clock. 
+	Range: Rgb (0,0,0) to Rgb (255,255,255) 
+
+nSelectedBackColor = -1 
+	Type: numerical type (read-write) 
+	Note: the chosen field of the background color 
+	Range: Rgb (0,0,0) to Rgb (255,255,255) 
+
+nSelectedForeColor = -1 
+	Type: numerical type (read-write) 
+	Note: the chosen field of Qian Jingse 
+	Range: Rgb (0,0,0) to Rgb (255,255,255) 
+
+nSelectImageStyle = 0 
+	Type: numerical type (read-write) 
+	Description: selected icon of the selected style 
+	Range: the same nSelectStyle 
+	Note 1: with nSelectSyle 
+	Note 2: with nSelectSyle 
+
+nReturn = 0 
+	Type: numerical type (read-write) 
+	Note: When the selected tab, and then returned to the results. 
+	Range: 0 = nIndex, 1 = cKey, 2 = cTitle, 3 = _MenuInfo 
+
+*-- 
+*-- PopMenu (read-only) Property Description 
+*-- 
+nMaxLen =? 
+	Type: numerical type (read-only) 
+	Definition of value: the menu heading the largest string length, this menu section allocate memory 
+
+nMenuWidth =? 
+	Type: numerical type (read-only) 
+	Definition of value: their definition of the width of the menu 
+
+nMenuHeight =? 
+	Type: numerical type (read-only) 
+	Definition of value: their definition of the height of the menu 
+
+ClassLibraryRoot =? 
+	Type: character (read-only) 
+	Values are defined: If PopMenu be derived, here will be saved PopMenu the original path. 
+
+hMenu =? 
+	Type: numerical type (read-only) 
+	Definition of value: the main menu handler 
+
+hHwnd =? 
+	Type: numerical type (read-only) 
+	Value definition: dependent form handler 
+
+oItems =? 
+	Type: object-type (read-only) 
+	Definition of value: the current menu of targets set menu tab 
+
+oCollections =? 
+	Type: object-type (read-only) 
+	Definition of value: the number of menu after the collection of columns 
+
+oRefIcons =? 
+	Type: object-type (read-only) 
+	Value definition: at the icon manager 
+
+pProc =? 
+	Type: numerical type (read-only) 
+	Definition of value: the process of correction function address. 
+
+*-- 
+*-- PopMenu methodology 
+*-- 
+Add (tvParentKey, tcKey, tcCaption [, tcCommand [, tvEnabled [, tnAddFlag]]]) 
+	Description: Add scallops can be quick menu item menu 
+	Parameters: 
+		tvParentKey: parent menu Id 
+		tcKey: 		menu Id 
+		tcCaption: 	menu headings, including "\ <[AZ]" will be considered to be key visit, air or "\ -" will be considered to be separator 
+		tcCommand: 	menu results, the Executive Order Series 
+		tvEnabled: 	menu Enalbed state, the logic is the logic of immediate value or expression 
+		tnAddFlag: 	AppendMenu logo, as detailed in Win32api.H 
+	Return value: _ MenInfo target 
+
+AddItem (tcCaption [, tcCommand [, tlEnabled [, tnAddFlag]]]) 
+	Description: Add a quick menu items 
+	Parameters: 
+		tcCaption: 	menu headings, including "\ <[AZ]" will be considered to be key visit, air or "\ -" will be considered to be separator 
+		tcCommand: 	menu command 
+		tlEnabled: 	menu Enabled state 
+		tnAddFlag: 	AppendMenu logo, as detailed in Win32api.H 
+	Return value: _ MenInfo target 
+
+SetPicture (tcPicFile [, tnOrder]) 
+	Description: Add an icon 
+	Parameters: 
+		tcPicFile: 	icon file name 
+		[tnOrder]: 	icon in the menu of priorities, such as the default means the last one to add menu items 
+	Return value: none
+
+SetMessage (tcMessage [, tnOrder]) 
+	Description: Add a message alert status bar 
+	Parameters: 
+		tcMessage: 	status bar text information 
+		[tnOrder]: 	icon in the menu of priorities, such as the default means the last one to add menu items 
+	Return value: none
+
+Show ([tnX [, tnY [, tlAbsolute [, tuFlags ]]]]) 
+	Description: Show menu 
+	Parameters: 
+		[tnX, tnY]:	pop-up position of x, y values, does not specify a location for the mouse 
+		tlAbsolute:	when designated tnX, tnY, this parameter is marked tlAbsolute use absolute or relative coordinates activities in the form of migration 
+		tuFlags:	TrackPopupMenu logo, as detailed in Win32api.H 
+	Return value: by definition attribute nReturn 
+
+
+ShoBy (toObject [, tnAddx [, tnAddY]]) 
+	Description: Show menu 
+	Parameters: 
+		toObject:	toObject form or object, not covered under the premise of this object, in its attempt to surrounding pop-up menu. If the menu on the big or small screen¡­ 
+		tnAddX: 	additional incremental X 
+		tnAddy: 	additional incremental Y 
+	Return value: by definition attribute nReturn
