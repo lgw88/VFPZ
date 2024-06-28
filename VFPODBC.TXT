@@ -1,0 +1,246 @@
+		-----------------------------------------------------------
+		   Microsoft(r) Visual FoxPro(tm) ODBC Driver Version 6.1
+		-----------------------------------------------------------
+
+		(c) Copyright Microsoft Corporation, 1998 - 2001
+	  
+Release Notes
+February 22, 2001
+
+Welcome to this release of the Microsoft(r) Visual FoxPro(tm) ODBC Driver! Please read this important information.
+
+------------------------
+How to Use This Document
+------------------------
+
+To view the ReadMe file in Windows Notepad, maximize the Notepad window and click Word Wrap on the Edit menu. To print the ReadMe file, open it in Notepad or another word processor, and then use the Print command on the File menu.
+
+--------
+CONTENTS
+--------
+
+1.   INSTALLATION NOTES
+     1.1  System Requirements
+     1.2  What's New in this Release
+     1.3  Installation Notes
+     1.4  Adding a Data Source
+     1.5  Help Files
+     1.6  Naming Conventions
+
+2.   Supported Areas  
+     2.1  DBF and DBC (DataBase Container) Support
+     2.2  ODBC 3.51 Compliance
+     2.3  Referential Integrity
+     2.4  Thread Support
+     2.5  dBASE(r) Support
+     2.6  International Support
+
+3.   Unsupported Areas
+
+4.   Known Issues
+
+5.   Troubleshooting
+
+6.   Books
+
+
+1.1  System Requirements
+========================
+To install the Visual FoxPro ODBC Driver, you need:
+ * Windows NT 4 or later, Service Pack 6 recommended; or Windows 95/Windows 98 with MDAC 2.1 or later.
+ * 2 megabytes disk space.
+
+Important: Visual FoxPro ODBC Driver is a 32-bit driver only. Windows 3.1 and Windows for Workgroups platforms are not supported. 
+
+1.2  What's New in this Release
+===============================
+* The information on Thread Support has been updated. See this section of the Readme for details.
+* Certain language commands and functions that were enabled in previous versions are no longer enabled in this version. See the Language Support section for details.
+* If you insert or update a table with a logical field (a column with a SQL_BIT data type), you can now use 1 (true) and 0 (false) to store 
+* The initial setting for SET REPROCESS is changed to 5 so that the Visual FoxPro ODBC Driver tries to lock a record for a limited number of times. If the attempted lock fails, an error is generated.
+*	New keywords have been added to the connection string
+1. NULL=ON|OFF
+2. DELETED=ON|OFF
+
+
+1.3  Installation Notes
+==========================
+The Microsoft Visual FoxPro ODBC Driver installation does not install or update any ODBC components. It is assumed that the ODBC components have previously been, or will concurrently be installed via an appropriate version of the Microsoft Data Access Components (MDAC). Note that this version of the ODBC driver is the same version installed as a System Component on Windows 2000 and Windows Millenium, and by MDAC 2.5. This version of the ODBC driver should only be used to install the driver on systems using MDAC 2.6, which does not include this version of the driver, or on Windows 95 or 98 systesms that have not had a previous version of MDAC installed.
+
+
+1.4  Adding a Data Source
+=========================
+After installing, define a data source:
+1. Open Windows Control Panel (Windows 95/95/ME), Control Panel/Administrative Tools (Windows 2000).
+2. Double-click the Data Sources (ODBC) icon.
+3. Click Add.
+4. Select Microsoft Visual FoxPro Driver.
+5. In the ODBC Visual FoxPro Setup dialog box, enter a data source name.
+6. Select either Visual FoxPro database (.DBC) or Free Table directory.
+7. Enter the name of the database or the path to the free table, or click Browse.
+8. Click OK, and then click Close.
+
+
+1.5  Help Files
+==========================
+The Visual FoxPro ODBC Driver comes with two help files, located in the SYSTEM directory on Windows 95/Windows 98 or the Winnt\Help directory on Windows NT/Windows 2000:
+
+*  DRVVFP.CHM - Visual FoxPro ODBC Driver Setup Dialog Box Help file
+*	DRVVFP.HLP - Visual FoxPro ODBC Driver Detailed Help File 
+
+
+1.6  Naming Conventions
+==========================
+The Visual FoxPro ODBC Driver names columns based on expressions. For example, if you execute the following statement:
+
+	SELECT MIN (customer_id) FROM customers
+
+the Visual FoxPro ODBC Driver returns min_customerid as the name of the column in the result set.
+If you would like to control the resulting field name, use the AS clause, as in this example:
+
+SELECT MIN(customer_id) AS minimum_custid FROM customers 
+
+
+==========================
+2.  Supported Areas
+==========================
+The following section describes areas of particular support by the Visual FoxPro ODBC Driver.
+
+2.1  DBF and DBC Support
+==========================
+*	Supported Versions of FoxBase+ and FoxPro Tables
+The Visual FoxPro ODBC Driver gives you access to Microsoft(r) FoxBase+(r), FoxPro 1.x, FoxPro 2.x and Visual FoxPro tables. Also, the Visual FoxPro ODBC Driver allows you to access tables that are in a Visual FoxPro database container (.DBC file).
+
+The Visual FoxPro ODBC Driver will not work with Visual FoxPro Databases (DBC's) created by Visual FoxPro 7.0, which have had DBC Events enabled. 
+
+Note:	The Visual FoxPro ODBC Driver only allows transactions on tables within a Visual FoxPro database (.DBC file), not free tables.
+
+
+2.2  ODBC 3.51 Compliance 
+==========================
+The Visual FoxPro ODBC Driver is ODBC Level 1 API compliant and also implements several Level 2 APIs. All supported APIs have been implemented at this time. Please report any problems you find regarding the APIs. The MDAC SDK help file documents supported functions and acceptable input parameters. In addition, Visual FoxPro SQL extends the SQL functionality available through the driver. See the Visual FoxPro Language Reference for the extended grammar.
+
+
+2.3  Referential Integrity Support
+==========================
+The Visual FoxPro ODBC Driver supports Visual FoxPro rules, triggers, and default values, provided they contain functions that are supported by the driver. See the detailed help file for details on which Visual FoxPro language elements are supported.
+
+2.4  Thread Support
+==========================
+The driver is NOT thread-safe. The Visual FoxPro ODBC Driver can process queries in the background. However, you should disable this feature if the driver is being called by a multi-threaded application. For more information, see the "ODBC Visual FoxPro Setup Dialog Box" Help topic in DRVVFP.CHM or in the detailed help file.
+
+Remote Views and Parameterized Views
+Any time SQLTables( ) is called, remote and parameterized views are excluded from the list. Local views based on parameterized views are not excluded, but will generate errors if you use them. If you call SQLTables( ) with a unique table name, however, you will find views (if they are present) so you can check for name conflicts.
+
+
+2.5  dBASE(r) Support
+==========================
+Supported Versions of dBASE(r) IV Tables
+The Visual FoxPro ODBC Driver gives you access to dBASE(r) 4 and earlier tables. The dBASE(r) files are supported in the following manner:
+* dBASE(r) v2.x and 3.x: The files are read without conversion.
+* dBASE(r) v4.x and 5.x: If the files do not have memo fields and the table has fewer than 255 columns, the files are read.
+
+Caution   If a dBASE(r) v4.x or 5.x file has associated index files (.MDX, .NDX), the Visual FoxPro ODBC Driver will not update the file properly and the indexes will be corrupted. These files should be accessed read-only.
+
+* dBASE(r)  v4.x and 5.x tables with memo fields: These files require conversion in the full Visual FoxPro for Windows product before using them with the Visual FoxPro ODBC Driver. The driver will not read or convert files.
+
+
+2.6  International Support
+==========================
+The driver is DBCS enabled.
+
+You can now set the collating sequence for index ordering. The list of supported collating sequences can be found in the description of SET COLLATE in the Visual FoxPro Language Reference section of DRVVFP.HLP.
+
+The default collating sequence is "MACHINE". The collating sequence can be changed by executing either a SET COLLATE TO Language with the ODBC C API SQLExecDirect( ), by calling SQLPrepare( ) and SQLExec( ) (see the ODBC SDK Reference manual p. 42-44), or by selecting a different collating sequence from the driver options in the Data Source Setup dialog.
+
+==========================
+3. Unsupported Areas
+==========================
+Refresh is not supported in rules and triggers.
+
+The DRVVFP.HLP help file describes the supported commands and functions and includes a list of the unsupported commands and functions. Any command or function not listed in the Help file is not supported.
+
+The following commands and functions that were enabled in the 6.0 release of the driver, are no longer enabled:
+
+*	COPY MEMO
+*	DELETE FILE
+*	FCREATE
+*	FWRITE
+*	FCHSIZE
+*	FPUTS
+*	STRTOFILE
+*	FCLOSE
+*	FOPEN
+*	FREAD
+*	FSEEK
+*	FEOF
+*	FFLUSH
+*	FGETS
+
+The following command that was not enabled in the 6.0 release of the driver, is now enabled:
+
+*	PACK <table name> (Exclusive USE only)
+ 
+Parameterized views work in a trigger only if the parameter has been assigned a value before the view is opened. Interactive input of a parameter value is not allowed in ODBC.
+
+Remote views to other ODBC data sources are not supported by the Visual FoxPro ODBC Driver; however, local views (non-parameterized) are fully supported.
+
+
+==========================
+4.  Known Issues
+==========================
+The Visual FoxPro ODBC Driver defaults to "Background Fetch=ON". This setting may cause incorrect results to be returned to any application that calls the driver via multiple threads. Thus, this feature should be un-checked on all Visual FoxPro ODBC Driver DSN's, and when making specifying connection strings or for DSN-less connections, unless you are sure that the driver will not be called by another thread.
+
+If you insert, delete, or update a Visual FoxPro table via the Visual FoxPro ODBC Driver, you might get a "Trigger Failed" message. Check for unsupported commands in the trigger.
+
+INDEX ON is not supported in this release.
+
+If a table is opened exclusively and the same table is accessed by another user with SET EXCLUSIVE OFF, then the error "Option Value Changed" is returned by Visual FoxPro ODBC Driver instead of "File is in use by another."
+
+MSQuery returns a "Cannot Open File" error when creating a table with a field name that starts with a number. For example, the field name "1995 Sales" is not allowed. Visual FoxPro does not allow the creation of field names that begin with a number, but MSQuery does.
+
+
+==========================
+5.  Troubleshooting
+==========================
+If you have trouble installing the driver, try the following and then try to reinstall again:
+
+1. Clean-boot the machine. For example, under Windows 95, start in Safe Mode.
+2. Close all other applications, including virus software, third-party shells, or toolbars such as Microsoft Office Manager.
+3. If the computer has video or system ROM shadowing, disable these options before reinstalling.
+4. Check that the .EXE file is not corrupted.
+
+If you are still having problems:
+* Make sure that you are running on a clean configuration when testing issues.
+
+* Use the Tracing tab of the Microsoft ODBC Data Source Administrator to help determine the cause of problems. To open the ODBC Data Source Administrator, open the Windows Control Panel, double-click the Administrative Tools icon, and then double-click the Data Sources (ODBC) icon.
+
+* Check to see if the latest build of the driver is installed. To view the version:
+
+1. In the Windows Control Panel, double-click the Administrative Tools icon, and then double-click the Data Sources (ODBC) icon.
+2. Click on the Drivers tab.
+
+* You can generate an ODBC Trace Log by using the ODBC Data Source Administrator:
+
+1. In the Windows Control Panel, double-click the Administrative Tools icon, and then double-click the Data Sources (ODBC) icon.
+2. Click on the Tracing tab.
+3. Specify a When to trace option.
+4. Specify a log file name.
+5. Click Start Tracing Now.
+
+Now, when you execute your code, all the C ODBC API calls, their input parameters, and their output are written to the log file. The ODBC log file is ASCII text that you can view in any standard ASCII text editor such as Word, Notepad, or WordPad. Occasionally, it might be necessary to include the trace log in a bug report. Since the ODBC trace log can be lengthy, copy only the last four or five function calls and paste them into a separate document before sending the bug report.
+
+
+==========================
+6.  Books
+==========================
+Microsoft ODBC 3.0 Programmer's Reference and SDK Guide (ISBN#: 1-57231-516-4 from Microsoft Press) provides basic reference information.
+
+Inside ODBC (ISBN#: 1-55615-815-7 from Microsoft Press) provides a good background on the development of the ODBC specifications and a CD with ODBC code examples.
+
+Database Developer's Guide with Visual C++ (ISBN#: 0-672-30613-1 from Sams Publishing) has several good C++ examples that use the ODBC API.
+
+
+
+==========================
+
