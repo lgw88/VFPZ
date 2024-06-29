@@ -1,0 +1,1 @@
+<%@ Application Codebehind="VBSource\Global.asax.vb" Inherits="NorthwindWebservice.Global" %>

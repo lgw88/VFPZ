@@ -1,0 +1,5 @@
+SCC = This is a Source Code Control file
+
+[foxisapi.mak]
+SCC_Aux_Path = "\\fox1\wizards\vss"
+SCC_Project_Name = "$/vfp9/Build/xpcsdrop/vfp/Samples/Servers/FoxIsapi/CSource", IYSEAAAA

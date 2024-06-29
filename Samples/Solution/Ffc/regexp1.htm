@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+           "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./regexp1_files/filelist.xml">
+<title>Regular expressions</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Randy Brown</o:Author>
+  <o:LastAuthor>Randy Brown</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>2</o:TotalTime>
+  <o:Created>2000-05-29T20:10:00Z</o:Created>
+  <o:LastSaved>2000-05-29T20:16:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>395</o:Words>
+  <o:Characters>2254</o:Characters>
+  <o:Company>Microsoft Corp.</o:Company>
+  <o:Lines>18</o:Lines>
+  <o:Paragraphs>4</o:Paragraphs>
+  <o:CharactersWithSpaces>2768</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.note, li.note, div.note
+	{mso-style-name:note;
+	margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:1258296637;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-205086706 -540108860 -461321850 -1509412710 -29178690 1360176980 -559535922 -377453864 626826200 882675596;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+<script language="JavaScript"  src="MS-ITS:ntshared.chm::/shared.js">
+</script>
+<meta name=MS-IT-LOC content="Indexing Service">
+<meta name=MS.LOCALE content=EN-US>
+<meta http-equiv=PICS-Label
+content="(PICS-1.1 &quot;http://www.rsac.org/ratingsv01.html&quot; 1 COMMENT &quot;RSACi North America Server&quot; BY &quot;inet@microsoft.com&quot; R (N 0 S 0 V 0 I 0))">
+<meta name=MS-HAID content="a_ismain-concepts_47">
+<meta name=MS-HAID content="a_ismain-concepts_47.htm">
+<link rel=stylesheet media=screen type="text/css"
+href="MS-ITS:ntshared.chm::/coUA.css">
+<link rel=stylesheet media=print type="text/css"
+href="MS-ITS:ntshared.chm::/coUAprint.css">
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h1><a name="ismain-concepts_47"><span style='font-size:12.0pt;mso-bidi-font-size:
+24.0pt;font-family:Verdana'>Regular expressions</span></a><span
+style='font-size:12.0pt;mso-bidi-font-size:24.0pt;font-family:Verdana'><o:p></o:p></span></h1>
+
+<p><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Regular
+expressions are sets of symbols that you use to create queries to match
+property values in properties other than <b>Contents</b> and <b>All</b>. For a table
+of regular expression symbols supported by the query language, see&nbsp;<a
+href="MS-ITS:ISconcepts.chm::/ismain-concepts_66.htm" id=specLoc>Regular
+expression operators</a>.<o:p></o:p></span></p>
+
+<p><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>You
+cannot use the <b>Contents</b> and <b>All</b> properties with regular
+expressions.<o:p></o:p></span></p>
+
+<p><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>The
+following table provides examples of the long and short forms of regular
+expression queries: <o:p></o:p></span></p>
+
+<table border=0 cellpadding=0 style='mso-cellspacing:1.5pt;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Short
+  form<o:p></o:p></span></b></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Long
+  form<o:p></o:p></span></b></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Result<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>#filename *.avi<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>{prop name=filename} {regex}*.avi {/regex}<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>Any file with the .avi extension (usually sound and
+  moving picture files)<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=note><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'>Note<o:p></o:p></span></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo3;tab-stops:list .5in'><span style='font-size:8.0pt;
+     mso-bidi-font-size:12.0pt;font-family:Verdana'>If a property query
+     contains an asterisk (*), question mark (?), or vertical bar (|), it is
+     automatically treated as a regular expression regardless of what mode is
+     indicated. <o:p></o:p></span></li>
+</ul>
+
+<h2><a name="H2_126334272"></a><span style='font-size:10.0pt;mso-bidi-font-size:
+18.0pt;font-family:Verdana'>Sample regular-expression queries<o:p></o:p></span></h2>
+
+<table border=0 cellpadding=0 style='mso-cellspacing:1.5pt;mso-padding-alt:
+ 0in 0in 0in 0in'>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Example<o:p></o:p></span></b></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Query<o:p></o:p></span></b></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'>Result<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>Group<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>#filename = *|(ss|,ing|).cxx</span></b><span
+  style='font-size:8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>Returns all documents with file names ending with either
+  &quot;ss&quot; or &quot;ing&quot; and having the extension &quot;cxx.&quot;<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>NOT</span></b><span style='font-size:8.0pt;mso-bidi-font-size:
+  12.0pt;font-family:Verdana'> operator (<b>^</b>)<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>#filename = |[^f]*.cxx</span></b><span style='font-size:
+  8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>Returns all documents with file names starting with any
+  letter other than &quot;f&quot; and having the extension &quot;cxx.&quot;<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>Range operator (<b>–</b>)<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>#filename = |[a-d]*.cxx</span></b><span
+  style='font-size:8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>Returns all documents with file names starting with a
+  letter in the range a through c and having the extension &quot;cxx.&quot;<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>Exact-count match<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>#filename = *s|{2|}.cxx</span></b><span
+  style='font-size:8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>Returns all documents with file names ending with
+  exactly two &quot;s&quot; characters and having the extension
+  &quot;cxx.&quot;<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>At least one match<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>#filename = es|{1,|}.cxx</span></b><span
+  style='font-size:8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>Returns all documents with file names that are
+  combinations of the string &quot;es&quot; and have the extension
+  &quot;cxx.&quot; Files named &quot;es.cxx&quot; and &quot;eses.cxx&quot;
+  match, but &quot;esese.cxx&quot; does not.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>Matches between two particular variables<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>#filename = ci|{2,4}.cxx</span></b><span
+  style='font-size:8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>Returns all documents with file names that are
+  combinations of two to four occurrences of the string &quot;ci&quot; and have
+  the extension &quot;cxx.&quot; Files named &quot;cici.cxx&quot; and
+  &quot;cicicici.cxx&quot; match, but &quot;ci.cxx&quot; does not.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>Zero or more matches<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>#filename = c|*ss.cxx</span></b><span style='font-size:
+  8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>Returns all documents with file names starting with zero
+  or more &quot;c&quot; characters, ending with &quot;ss,&quot; and having the
+  extension &quot;cxx.&quot; Files named &quot;ss.cxx,&quot;
+  &quot;css.cxx,&quot; and &quot;cccccss.cxx&quot; match, but
+  &quot;cctss.cxx&quot; does not.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>Zero or one match<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>#filename = c|?ss.cxx</span></b><span style='font-size:
+  8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>Returns all documents with file names starting with zero
+  or one &quot;c&quot; character, ending with &quot;ss,&quot; and having the
+  extension &quot;cxx.&quot; Files named &quot;ss.cxx&quot; and
+  &quot;css.cxx&quot; match.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>One or more matches<o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><b><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>#filename = c|+ss.cxx</span></b><span style='font-size:
+  8.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>Returns all documents with file names starting with one
+  or more &quot;c&quot; characters, ending with &quot;ss,&quot; and having the
+  extension &quot;cxx.&quot; Files named &quot;css.cxx&quot; and
+  &quot;cccccss.cxx&quot; match, but &quot;cctss.cxx&quot; and
+  &quot;ss.cxx&quot; do not.<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span style='font-size:8.0pt;mso-bidi-font-size:12.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

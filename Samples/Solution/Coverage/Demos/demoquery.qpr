@@ -1,0 +1,5 @@
+SELECT *;
+ FROM  demo!demo INNER JOIN demo!demochild ;
+   ON  Demo.f1 = Demochild.f2;
+ WHERE Demo.f1 = "1";
+ INTO CURSOR Demoquery

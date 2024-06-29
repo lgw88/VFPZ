@@ -1,0 +1,7 @@
+[ODBC]
+DRIVER=SQL Server
+UID=sa
+DATABASE=pubs
+APP=Microsoft(R) Windows NT(TM) Operating System
+SERVER=(local)
+Description=VFP Transaction Demo

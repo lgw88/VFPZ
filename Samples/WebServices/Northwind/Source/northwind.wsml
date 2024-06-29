@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+ <!-- Generated 10/11/02 by Microsoft SOAP Toolkit WSDL File Generator, Version 3.00.1325.0 --> 
+  <servicemapping name='Northwind' xmlns:dime='http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/'>
+  <service name='Northwind'>
+    <using PROGID='northwindwebservice_vfp.Northwind' cachable='0' ID='NorthwindObject' />
+    <port name='NorthwindSoapPort'>
+      <operation name='UpdateSingleTable'>
+        <execute uses='NorthwindObject' method='UpdateSingleTable' dispID='4'>
+          <parameter callIndex='-1' name='retval' elementName='Result' />
+          <parameter callIndex='1' name='tcXMLDiffGram' elementName='tcXMLDiffGram' />
+          <parameter callIndex='2' name='rcErrorMessage' elementName='rcErrorMessage' />
+        </execute>
+      </operation>
+      <operation name='GetCustomerByID'>
+        <execute uses='NorthwindObject' method='GetCustomerByID' dispID='3'>
+          <parameter callIndex='-1' name='retval' elementName='Result' />
+          <parameter callIndex='1' name='cID' elementName='cID' />
+        </execute>
+      </operation>
+      <operation name='GetCustomersByCountryName'>
+        <execute uses='NorthwindObject' method='GetCustomersByCountryName' dispID='2'>
+          <parameter callIndex='-1' name='retval' elementName='Result' />
+          <parameter callIndex='1' name='cCountryName' elementName='cCountryName' />
+        </execute>
+      </operation>
+      <operation name='GetSupplierProducts'>
+        <execute uses='NorthwindObject' method='GetSupplierProducts' dispID='1'>
+          <parameter callIndex='-1' name='retval' elementName='Result' />
+        </execute>
+      </operation>
+      <operation name='GetOrdersByCustomerID'>
+        <execute uses='NorthwindObject' method='GetOrdersByCustomerID' dispID='0'>
+          <parameter callIndex='-1' name='retval' elementName='Result' />
+          <parameter callIndex='1' name='cCustomerID' elementName='cCustomerID' />
+        </execute>
+      </operation>
+    </port>
+  </service>
+</servicemapping>
+ 

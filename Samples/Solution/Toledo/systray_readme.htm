@@ -1,0 +1,400 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+</head>
+<style>
+<!--
+body {font-size:10.0pt;font-family:Verdana;}
+-->
+</style>
+<body>
+
+<h2>Systray Class</h2>
+
+<p><a href="#Introduction">Introduction</a><br>
+<a href="#Quick Start">Quick Start</a><br>
+<a href="#Properties">Properties</a><br>
+<a href="#Methods">Methods</a><br>
+<a href="#Icon Events">Icon Events</a><br>
+<a href="#Balloon Tip Events">Balloon Tip Events</a><br>
+<a href="#Working with Menus">Working with Menus</a></p>
+
+<h3><a name="Introduction">Introduction</a></h3>
+
+<p>The Systray class, located in the Samples\Solution\Toledo\ folder, provides support for using icons in the Taskbar Notification Area (commonly 
+referred to as the “System Tray”). It supports mouse events and balloon tips. 
+Certain features, such as balloon tips, are only supported if the Operating 
+System supports them. With the support of an external timer object, you can 
+animate the System tray icon.<br>
+<br>
+The Systray class supports Visual FoxPro shortcut menus for your System Tray 
+icon, so you can use all the features of the Visual FoxPro menu designer.<br>
+<br>
+Each icon maintains its own communication pathway with the operating system. 
+This means you can use multiple instances of the Systray class in the same 
+application, without worrying about the multiple icons interfering with each 
+other.<br>
+<br>
+The Systray class cannot be used in a DLL. If the project is to be compiled, it 
+must be compiled as an EXE (or APP) in order for Systray to work correctly.</p>
+
+<h3><a name="Quick Start">Quick Start</a></h3>
+
+<p>The Systray class is based on the VFP Hyperlink class. This allows the Systray 
+class to be dropped on a form, just like any other visual class. <br>
+<br>
+After adding the Systray class to a form, often the only properties you need to 
+set are:</p>
+
+<p>IconFile – provide the full path and filename for an icon file<br>
+TipText – the tip text to display when the mouse is moved over the icon<br>
+MenuText – A menu definition string or an MPR filename.<br>
+MenuTextIsMPR – Set to .T. if MenuText contains the name of an MPR file.<br>
+<br>
+The default behavior is to add the icon to the system tray when the object is 
+instantiated, and to display the menu when the icon is clicked with the left or 
+right mouse button.<br>
+<br>
+The Systray class can also be used without a form, so it can provide your 
+application’s only user interface. For example, the following code adds an icon 
+to the systray, and waits for a user to click on the icon.</p>
+
+<pre>x = NEWOBJECT('systray', 'systray.vcx')
+x.IconFile 	= HOME() + &quot;Graphics\Icons\Misc\Question.ico&quot;
+x.TipText 	= &quot;Taskbar Icon example&quot;
+x.MenuText 	= &quot;Systray_shortcut.mpr&quot;
+x.MenuTextIsMPR = .T.
+x.AddIconToSystray() 
+READ EVENTS &amp;&amp; Wait for user input.</pre>
+<p>The above code assumes that at least one menu item, or a separate timer object, 
+will execute a CLEAR EVENTS.<br>
+<br>
+When the Systray object is released, it automatically removes the icon from the 
+System Tray, and releases all icon resources.</p>
+<h3><a name="Properties">Properties</a></h3>
+<h5>AddIconToSystrayAtInit (Logical, Default is .T.) </h5>
+<p>If true, and IconFile property points to a valid Icon file, the icon is added to 
+the System Tray when the systray object is instantiated.</p>
+<h5><a name="CurrentIconIndex">CurrentIconIndex</a> (Numeric) </h5>
+<p>Index into the list of icons used for this System tray item. Use 
+AddIconToIconList() method to load several icons. Then CurrentIconIndex can be 
+used to select which of those icons is displayed, or can be read to determine 
+which icon is currently displayed. See also: SwitchIcon() method, 
+AddIconToIconList() method.</p>
+<h5><a name="IconFile">IconFile</a> (Character – no default value) </h5>
+<p>Set to the full path and filename of a single icon file to be displayed. The 
+icon file can be included in a compiled EXE or DLL file. </p>
+<p>Use the IconFile property for setting only a single icon, or setting an initial 
+icon. If you want to use multiple icons for animation, use the AddIconToIconList() 
+method. Setting the IconFile property after instantiation will trigger the 
+ClearIconList() method, releasing all previously loaded icons.</p>
+<h6>See also: <a href="#AddIconToIconList">AddIconToIconList()</a>,
+<a href="#ClearIconList">ClearIconList()</a>, <a href="#AddIconToSystray">AddIconToSystray()</a>,
+<a href="#SwitchIcon">SwitchIcon()</a></h6>
+<h5><a name="MenuOffsetFromRight">MenuOffsetFromRight</a> (Numeric – Default is 200 pixels)</h5>
+<p>Number of pixels to shift the menu when the taskbar is docked on the right side 
+of the screen. Only used when the taskbar is docked on the right.</p>
+<p>Because Visual FoxPro shortcut menus are not drawn over the top of the taskbar, 
+we need to make sure the menu does not overlap the taskbar when it is docked on 
+the right. Set the MenuOffsetFromRight property to adjust the position of the 
+shortcut menu.</p>
+<h5><a name="MenuText">MenuText</a> (Character – no default value)</h5>
+<p>Contains text defining a menu, or contains the path and filename of a Visual 
+FoxPro menu file (.MPR), depending on the value of the MenuTextIsMPR property.</p>
+<p>If MenuTextIsMPR = .F. (default), then MenuText should contain numeric ID’s and 
+the item text for each bar of the menu. Items in the MenuText string should be 
+separated by semicolons. For example:</p>
+<pre>Systray.MenuText = “1; This is bar one; 2; This is bar two”</pre>
+<p>By default, when the icon is clicked, the menu defined by the MenuText property 
+is displayed. When the menu is clicked, or cleared by clicking outside the menu, 
+the ProcessMenuEvent() method is called, with one parameter containing the 
+numeric ID of the item that was selected. So with the MenuText sample above, if 
+the user clicked on “This is bar two”, the ProcessMenuEvent() would be called, 
+and the parameter would be the numeric value 2. If the user clears the menu 
+without selecting an item, the ProcessMenuEvent parameter is 0.</p>
+<p>If MenuTextIsMPR = .T., then the MenuText property should contain the full path 
+and filename of a Visual FoxPro shortcut menu (.MPR). The ProcessMenuEvent() 
+method is not called when MenuTextIsMPR = .T.</p>
+<h6>See also: <a href="#ShowMenu">ShowMenu()</a>, <a href="#ProcessMenuEvent">ProcessMenuEvent()</a>,
+<a href="#IconClickEvent">IconClickEvent()</a>, <a href="#IconRightClickEvent">IconRightClickEvent()</a>,
+<a href="#MenuTextIsMPR">MenuTextIsMPR</a>, <a href="#MenuOffsetFromRight">MenuOffsetFromRight</a></h6>
+<h5><a name="MenuTextIsMPR">MenuTextIsMPR</a> (Logical, default .F.)</h5>
+<p>Specifies whether the MenuText property describes the path and filename of a 
+Visual FoxPro shortcut menu file (.MPR), or describes the numeric tokens and bar 
+text for a simple menu to be generated on the fly.</p>
+<h6>See also: <a href="#MenuText">MenuText</a>, <a href="#ShowMenu">ShowMenu()</a></h6>
+<h5>TipText (Character, no default value)</h5>
+<p>The text to be displayed when the user moves the mouse pointer over the icon in 
+the System Tray. Limited to 63 characters, with no linefeeds, on Windows 98, 
+Windows NT4, and earlier. Limited to 127 characters, linefeeds allowed, on 
+Windows ME, Windows 2000/XP, and later operating systems.</p>
+<h3><a name="Methods">Methods</a></h3>
+<h5><a name="AddIconToIconList">AddIconToIconList</a>(cIconFileName) </h5>
+<p>Loads an icon resource, and adds it to an internal list of icons. If there is no 
+need to change or animate icons, use the IconFile property instead.
+The cIconFileName parameter should contain the full path and filename of a valid 
+icon file. The icon file can be included in the compiled exe or dll file.
+After an icon has been added to the icon list, SwitchIcon() and the 
+CurrentIconIndex property can be used to change the icon that is displayed in 
+the System Tray.
+You can also change the icon just by changing the IconFile property. But if this 
+is to be done often, using the icon list will provide greater performance, 
+because the icon resources only need to be loaded once.</p>
+<h5><a name="AddIconToSystray">AddIconToSystray</a>() </h5>
+<p>Adds the icon to the System Tray (“Taskbar Notification Area”), and enables all 
+icon events. Occurs automatically when the Systray object is instantiated if the 
+AddIconToSystrayAtInit property is .T. (true) and the IconFile property points 
+to a valid icon file.</p>
+<h5><a name="ClearIconList">ClearIconList</a>() </h5>
+<p>Removes all icons from the icon list, and removes the displayed icon from the 
+System Tray.</p>
+<h5>GetShellVersion() </h5>
+<p>Returns the numeric version of the Windows Shell. Used internally for 
+determining which features are supported by the operating system.<br>
+Returns 4.xx on Windows 98. No balloon tips supported.<br>
+Returns 5.0 on Windows 2000. Balloon tips supported, but no balloon events.<br>
+Returns 5.5 on Windows ME. Full support for balloon tips.<br>
+Returns 6.0 on Windows XP. Full support for balloon tips.</p>
+<h5>GetTaskbarPosition()</h5>
+<p>Used internally to determine where the menu needs to be displayed.<br>
+Returns:<br>
+0 = Taskbar docked at bottom of screen.<br>
+1 = Taskbar docked on left side.<br>
+2 = Taskbar docked at top of screen.<br>
+3 = Taskbar docked on right side.</p>
+<h5>IconClickEvent(), IconRightClickEvent(), IconMiddleClickEvent(), 
+IconDblClickEvent()</h5>
+<p>See discussion of icon events below.</p>
+<h5><a name="ProcessMenuEvent">ProcessMenuEvent</a>(nMenuItemID) </h5>
+<p>This “event” is called by Systray after the shortcut menu has been cleared by 
+the user, either by selecting an item from the menu, or by clicking outside the 
+menu. It only occurs if the MenuTextIsMPR property is .F. (False), and no 
+parameters were passed to the ShowMenu() method.</p>
+<p>If the user selected an item from the menu, the parameter will be the numeric ID 
+for that menu item, as specified in the MenuText property. If the user cleared 
+the menu by clicking outside the menu or changing focus to another window, the 
+property will be 0 (zero).</p>
+<h6>See also: <a href="#MenuText">MenuText</a>, <a href="#MenuTextIsMPR">MenuTextIsMPR</a>,
+<a href="#ShowMenu">ShowMenu()</a></h6>
+<h5>RemoveIconFromSystray()</h5>
+<p>Removes the icon from the System Tray. Is called automatically when the Systray 
+object is released, so this method is rarely used.</p>
+<h6>See also: <a href="#AddIconToSystray">AddIconToSystray()</a>,
+<a href="#ClearIconList">ClearIconList()</a></h6>
+<h5>SetForeGroundWindow([hWnd])</h5>
+<p>Used internally, but exposed for versatility. The hWnd parameter is the system 
+window handle for the window to be made the foreground window. If hWnd is not 
+supplied, the form containing the Sytray class, if it is on a form, is brought 
+forward.</p>
+<h5>ShowBalloonTip(cBalloonText [, cBalloonTitle [, nStandardIcon [, nTimeOut]]])</h5>
+<p>Displays a balloon tip near the icon, on supported operating systems. Balloon 
+tips are supported on Windows ME, Windows 2000, Windows XP, and later operating 
+systems. Windows 2000 does not support balloon events, but on Windows ME/XP, you 
+can receive events via the BalloonClickEvent(), BalloonTimeoutEvent(), 
+BalloonShowEvent(), and BalloonHideEvent() methods.</p>
+<p><i>Parameters:</i></p>
+<p><i>cBalloonText</i> (Character, required) Text to display in the balloon, up to 255 
+characters in length. May contain linefeed characters. Set to an empty string to 
+clear an existing balloon.</p>
+<p><i>cBalloonTitle</i> (Character, optional, default “”) Text to display as the title of 
+the balloon, up to 63 characters in length. Set to an empty string to have no 
+title.</p>
+<p><i>nStandardIcon</i> (Numeric, optional, default 0) Numeric ID of the standard icon to 
+display. 0 = No icon, 1 = Info, 2 = Warning, 3 = Error.</p>
+<p><i>nTimeOut</i> (Numeric, optional, default 0) The length of time, in seconds, to 
+display the balloon. The timeout is subject to operating system minimum and 
+maximum values, typically 10 and 30 seconds, respectively. The timeout is also 
+dependent on user activity. If the mouse and keyboard are idle, the timeout 
+period will be extended.</p>
+<p>On Windows XP, calling ShowBalloonTip() will release any existing balloon tip 
+associated with this icon. On previous operating system, the balloons for the 
+same icon would be queued.</p>
+<p>Only one balloon tip may be displayed at any time, so the operating system 
+queues requests for balloon tips. If another application is displaying a balloon 
+tip when your application calls the ShowBalloonTip() method, your balloon tip 
+will wait until the previous balloon’s minimum timeout has expired. On operating 
+systems that support balloon events, you can add code the to BalloonShowEvent() 
+method to detect when your balloon has been displayed.</p>
+<h6>See also: <a href="#BalloonClickEvent">BalloonClickEvent()</a>,
+<a href="#BalloonTimeoutEvent">BalloonTimeoutEvent()</a>,
+<a href="#BalloonShowEvent">BalloonShowEvent()</a>, <a href="#BalloonHideEvent">BalloonHideEvent()</a></h6>
+<h5><a name="ShowMenu">ShowMenu</a>([cMPRFileName [, p1 [, p2 [, p3 [, p4 [, p5 [, p6]]]]]]]) method</h5>
+<p>Displays a shortcut menu near the System Tray icon. If no parameters are 
+specified, ShowMenu uses the contents of the MenuText and MenuTextIsMPR 
+properties to define the menu to be displayed. Use the ShowMenu() parameters to 
+override the contents of MenuText, and to pass parameters (by reference) to the 
+menu program (.MPR).</p>
+<p><i>Parameters</i>:</p>
+<p><i>cMPRFileName</i> (Character, optional)
+The name of an MPR file that defines a Visual FoxPro shortcut menu. If this 
+parameter is not supplied, the contents of MenuText and MenuTextIsMPR properties 
+are used to define the menu.</p>
+<p><i>p1 … p6</i> (Any data type, optional)
+Parameters to be passed (by reference) to the MPR file specified in cMPRFileName. 
+These parameters are ignored if cMPRFileName is empty or invalid. The menu 
+definition must have a PARAMETERS statement in its Setup code.</p>
+<h5><a name="SwitchIcon">SwitchIcon</a>() </h5>
+<p>Displays the next icon in the icon list, and returns the numeric index of the 
+currently displayed icon. For example, if three icons have been loaded using the 
+AddIconToIconList() method, and icon #1 is currently displayed, calling 
+SwitchIcon() will diplay icon #2. If the last icon in the list is currently 
+displayed, calling SwitchIcon() will display icon #1. Read the CurrentIconIndex 
+property to determine which icon is currently displayed.</p>
+<h6>See also: <a href="#AddIconToIconList">AddIconToIconList()</a>,
+<a href="#CurrentIconIndex">CurrentIconIndex</a>, <a href="#IconFile">IconFile</a></h6>
+<h3><a name="Icon Events">Icon Events</a></h3>
+<p>The following methods are called by Systray when an Icon event occurs. These 
+methods receive no parameters.</p>
+<h5><a name="IconClickEvent">IconClickEvent</a>()</h5>
+<p>Is called when the user clicks on the icon with the left mouse button. Default 
+behavior is to call the ShowMenu() method to display the menu. This behavior can 
+be overridden simply by placing code in the IconClickEvent method of the 
+subclassed systray object. </p>
+<h5><a name="IconRightClickEvent">IconRightClickEvent</a>()</h5>
+<p>Called when the user clicks on the icon with the right mouse button. Default 
+behavior is to call the ShowMenu() method to display the menu. This behavior can 
+be overridden simply by placing code in the IconRightClickEvent method of the 
+subclassed systray object.</p>
+<h5>IconMiddleClickEvent()</h5>
+<p>Called when the user clicks on the icon with the middle mouse button (or 
+mousewheel). No default behavior.</p>
+<h5>IconDoubleClickEvent()</h5>
+<p>Called when the user double-clicks on the icon with any mouse button. On Windows 
+ME/XP and later, the system sends the second Click event immediately after 
+sending the Double-click event. <br>
+<br>
+It can be difficult to support behavior on both the click and double-click 
+events, since creating a modal condition (such as displaying a menu) on the 
+Click event can prevent the Double-click from occurring. One commonly used 
+option is to display the menu only on the right-click event. <br>
+<br>
+See the Systray sample form for an example of using an external timer object to 
+provide clean support for both click and double-click behavior.</p>
+<h3><a name="Balloon Tip Events">Balloon Tip Events</a></h3>
+<p>The following methods are called by Systray when it receives a Balloon event.</p>
+<h5><a name="BalloonClickEvent">BalloonClickEvent</a>()</h5>
+<p>Called when the user clicks on a balloon tip, or clicks on the icon while the 
+balloon tip is displayed. Balloon events are supported on Windows ME/XP and 
+later operating systems only.</p>
+<h5><a name="BalloonShowEvent">BalloonShowEvent</a>()</h5>
+<p>Called when the balloon tip is displayed by the operating system. Because 
+balloon tips are queued by the system, this “event” may occur several seconds 
+after the ShowBalloonTip() method is called. Balloon events are supported on 
+Windows ME/XP and later operating systems only.</p>
+<h5><a name="BalloonTimeoutEvent">BalloonTimeoutEvent</a>()</h5>
+<p>Called when the balloon is cleared due to timeout, or is released by the user 
+clicking the close button on the balloon tip. Balloon events are supported on 
+Windows ME/XP and later operating systems only.</p>
+<h5><a name="BalloonHideEvent">BalloonHideEvent</a>()</h5>
+<p>Called when the balloon tip is hidden for other reasons, such as when the icon 
+is removed from the System Tray. Balloon events are supported on Windows ME/XP 
+and later operating systems only.</p>
+<h3><a name="Working with Menus">Working with Menus</a></h3>
+<p>There are three methods of using Menus with the Systray class. Deciding which 
+one is most appropriate for your application requires knowledge of the three 
+options.</p>
+<h5>Option 1: MenuTextIsMPR = .F., and no parameters passed to ShowMenu()</h5>
+<p>This is the simplest method for using menus with the Systray class. Define a 
+menu using numeric tokens and text, and place that in the MenuText property. 
+After the menu has been cleared by the user, either by selecting an item or 
+clicking outside the menu, Systray calls the ProcessMenuEvent() method, passing 
+it the numeric token for the menu item that the user selected.</p>
+<pre>oSystray = CREATEOBJECT(&quot;MenuSample1&quot;)
+READ EVENTS
+
+DEFINE CLASS MenuSample1 AS Systray OF Systray.VCX
+
+	IconFile = HOME() + &quot;Graphics\Icons\Misc\Face02.ico&quot;
+	TipText = &quot;Menu Sample #1&quot;
+	MenuText = &quot;1;Display Status; 2; Exit Application&quot;
+
+	PROCEDURE ProcessMenuEvent
+		LPARAMETERS nMenuItemID
+		DO CASE
+			CASE nMenuItemID = 0
+				* User cleared the menu. Do nothing.
+			CASE nMenuItemID = 1
+				* Display Status
+				MESSAGEBOX(&quot;Status&quot;)
+			CASE nMenuItemID = 2
+				* Exit Application
+				THIS.RemoveIconFromSystray()
+				CLEAR EVENTS
+		ENDCASE
+	ENDPROC
+ENDDEFINE</pre>
+<h5><br>
+Option 2: MenuTextIsMPR = .T., and no parameters passed to ShowMenu()</h5>
+<p>If MenuTextIsMPR is True, then the MenuText property should contain the path 
+and filename of a generated Visual FoxPro menu file (.MPR). The Systray object 
+will then execute that MPR instead of generating a menu on the fly. This allows 
+you to use all the features of Visual FoxPro menus, including submenus, icons, 
+disabled items, etc. <br>
+<br>
+The ProcessMenuEvent() method does not get called after an MPR file is run.</p>
+<pre>oSystray = CREATEOBJECT(&quot;MenuSample2&quot;)
+READ EVENTS
+
+DEFINE CLASS MenuSample2 AS Systray OF Systray.VCX
+	IconFile = HOME() + &quot;Graphics\Icons\Misc\Face03.ico&quot;
+	TipText = &quot;Menu Sample #2&quot;
+	MenuText = &quot;Systray_shortcut.mpr&quot;
+	MenuTextIsMPR = .T.
+	* All work should done in the menu code, so 
+	* no further code is needed here.
+	* For this example, make sure at least one
+	* menu item does a CLEAR EVENTS.
+ENDDEFINE
+</pre>
+<h5>Option 3: Pass parameters to the ShowMenu() method.</h5>
+<p>By passing the name of an MPR file to the ShowMenu() method, you override the 
+contents of the MenuText property. This also allows you to pass parameters (by 
+reference) to the menu, and check the contents of those parameters when the 
+ShowMenu() method returns.<br>
+<br>
+In the previous examples, note that we didn’t have to add any code to display 
+the menu. By default, the menu is displayed whenever the user clicks or 
+right-clicks on the icon. This default behavior can be blocked by overriding the 
+IconClickEvent and IconRightClick, as shown in this example.</p>
+<pre>oSystray = CREATEOBJECT(&quot;MenuSample3&quot;)
+READ EVENTS
+
+DEFINE CLASS MenuSample3 AS Systray OF Systray.VCX
+	IconFile = HOME() + &quot;Graphics\Icons\Misc\Face03.ico&quot;
+	TipText = &quot;Menu Sample #3&quot;
+
+	PROCEDURE IconClickEvent
+		LOCAL lcUserChoice 
+		lcUserChoice = &quot;Unchanged&quot; &amp;&amp; Initialize our variable.
+
+		THIS.ShowMenu(&quot;Systray_Shortcut.mpr&quot;, @lcUserChoice)
+
+		* ShowMenu() has returned, therefore menu has
+		* been clicked or cleared.
+		DO CASE
+			CASE lcUserChoice == &quot;Unchanged&quot;
+				* User cleared the menu without selecting item.
+				* Do nothing.
+			OTHERWISE
+				* Take action on the user choice.
+				WAIT WINDOW lcUserChoice NOWAIT
+
+		ENDCASE
+	ENDPROC
+
+	PROCEDURE IconRightClickEvent
+		* Duplicate the above behavior for the right-click event.
+		THIS.IconClickEvent
+	ENDPROC
+ENDDEFINE
+
+
+
+
+</pre>
+
+</body>
+
+</html>

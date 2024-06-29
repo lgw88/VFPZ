@@ -1,0 +1,5 @@
+SCC = This is a Source Code Control file
+
+[GREETING.MAK]
+SCC_Aux_Path = "\\fox1\wizards\vss"
+SCC_Project_Name = "$/vfp9/Build/xpcsdrop/vfp/Samples/api", RPSEAAAA

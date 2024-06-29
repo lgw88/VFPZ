@@ -1,0 +1,1068 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./readme_files/filelist.xml">
+<title>VFP COM+ Samples</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Microsoft</o:Author>
+  <o:LastAuthor>Microsoft</o:LastAuthor>
+  <o:Revision>42</o:Revision>
+  <o:TotalTime>686</o:TotalTime>
+  <o:Created>2000-05-23T23:28:00Z</o:Created>
+  <o:LastSaved>2001-02-12T19:24:00Z</o:LastSaved>
+  <o:Pages>5</o:Pages>
+  <o:Words>3817</o:Words>
+  <o:Characters>21757</o:Characters>
+  <o:Company>Microsoft Corp.</o:Company>
+  <o:Lines>181</o:Lines>
+  <o:Paragraphs>43</o:Paragraphs>
+  <o:CharactersWithSpaces>26719</o:CharactersWithSpaces>
+  <o:Version>9.4119</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+  <w:HideSpellingErrors/>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+h1
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Verdana;
+	mso-font-kerning:0pt;}
+h2
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:12.0pt;
+	mso-bidi-font-size:14.0pt;
+	font-family:Verdana;
+	mso-bidi-font-family:Arial;
+	color:blue;
+	font-style:italic;}
+h3
+	{mso-style-update:auto;
+	mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;
+	color:teal;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:120416434;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1338505912 67698703 67698713 67698689 254328796 67698713 67698715 67698703 67698713 67698715;}
+@list l0:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:117.0pt;
+	mso-level-number-position:left;
+	margin-left:117.0pt;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1
+	{mso-list-id:388844216;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1306448588 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2
+	{mso-list-id:449860015;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1195755462 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l3
+	{mso-list-id:556207010;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-383773328 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4
+	{mso-list-id:1414739912;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1442436680 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l4:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5
+	{mso-list-id:1963684661;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-294124210 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l5:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6
+	{mso-list-id:2044164940;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1214874452 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l7
+	{mso-list-id:2055083491;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-811547812 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l7:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	margin-left:1.5in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h1><a name=COMPlusHome></a>VFP COM+ Services Samples</h1>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><a href="#Intro">Introduction</a></p>
+
+<p class=MsoNormal><a href="#Transactions">COM+ Transactions</a></p>
+
+<p class=MsoNormal><a href="#COMPlusEvents">COM+ Events</a>:</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.75in;mso-list:l1 level1 lfo2;
+tab-stops:list .5in 1.0in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><a href="#Persist_Subs">Persistent Subscriptions</a></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.75in;mso-list:l1 level1 lfo2;
+tab-stops:list .5in 1.0in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><a href="#Trans_Subs">Transient Subscriptions</a></p>
+
+<p class=MsoNormal><a href="#QC">Queued Components</a></p>
+
+<p class=MsoNormal><a href="#CRM">Compensating Resource Managers</a></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><a name=Intro>Introduction</a></h2>
+
+<p class=MsoNormal>Windows 2000 introduces a new set of component services
+(COM+ Services) that extend the ability to create rich distributed
+transactional solutions for your Windows or web applications. Visual FoxPro 7.0
+includes new features to improve its COM Server story to better support many of
+these great services. These features include the ability to implement an
+interface as well as reference objects that don’t necessarily have an IDispatch
+interface.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Some of the COM+ Services such as Transactions (formerly
+known as Microsoft Transaction Server) existed prior to Windows 2000 and were
+supported by Visual FoxPro. New services such as COM+ Events and Queued
+Components offer new options for your applications that weren’t previously
+available in Visual FoxPro. For more information on COM+ Services, see the COM+
+(Components Services) section of the Platform SDK <a
+href="http://msdn.microsoft.com/developer/sdk/platform.asp">http://msdn.microsoft.com/developer/sdk/platform.asp</a>.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>The samples below are very simple and merely meant to show
+basic concepts of using a specific service. Use of these services in real world
+applications will typically require better data validation and error handling.
+You should be familiar with the basics of using COM+ Applications such as
+creating a new application (formerly known as MTS package), adding new
+components, and setting transaction attributes. Instructional details on using
+COM+ Services are available in the Platform SDK.</p>
+
+<h2><a name=Transactions>COM+ Transactions</a></h2>
+
+<p class=MsoNormal><span style='mso-bookmark:Transactions'>Microsoft
+Transaction Server introduced a great story for building distributed
+transactional applications. With VFP6 SP3, you could create highly scalable
+applications using VFP MTDLL servers. </span>This example shows transactions
+using a VFP database containing remote views to SQL Server. Because SQL Server
+data supports OLE Transactions, its actions are processed by the Microsoft
+Distributed Transaction Coordinator (MS DTC). So, all data inserts, updates and
+deletes will automatically be rolled back if the transaction is aborted. Since
+VFP data does not support OLE Transactions, its data is not automatically
+rolled back with an aborted transaction. However, you can use Compensating
+Resource Managers (see below) to achieve the same outcome. This example also
+includes a component that sends a message to an MSMQ queue. Since MSMQ queues
+can be transactional via the MS DTC, messages sent to a queue will be removed
+if the transaction is aborted.</p>
+
+<h3>Running the sample:<span style='font-size:10.0pt;mso-bidi-font-size:13.0pt;
+font-family:Verdana'><o:p></o:p></span></h3>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list .5in'>You
+     will first need to upsize your Testdata.DBC database in \Samples\Data to
+     your SQL Server Pubs database. You can use the Upsizing Wizard to do this.
+     Once done, open up the Testdata.DBC in the \Samples\COM+\Transactions
+     folder and change the MTXPubs connection so that it points to your Pubs
+     database. The remote views in this DBC should then open correctly.</li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list .5in'>Change
+     #DEFINES in FOXTXN.H which have paths in them.</li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list .5in'>Build
+     the DLL as a multi-threaded DLL.</li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list .5in'>Create
+     a COM+ Application (any name is fine) and add all 4 components. Register
+     all but ORDER to Supports Transactions. The ORDER component should be
+     marked as Requires Transaction. Note: if you build your DLL with Windows
+     95/98, make sure to select both DLL and TLB files when adding VFP
+     components to the COM+ application.</li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list .5in'>If you
+     have MSMQ running, you can optionally create a private queue to include as
+     another part of the distributed application (see MSMQ_QUEUE in FOXTXN.H
+     for name to use). The sample does not require MSMQ in order to run. You
+     can also comment out lines in ORDER.PRG.</li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo5;tab-stops:list .5in'>Run
+     the CustOrder form (it is the base client for this application). Choose a
+     customer from the dropdown at top. You can then pick items to add to the
+     order from the products dropdown below. The Add button adds new items.
+     When you are ready to process the entire order, which could contain
+     multiple products, click on the Process button. A message box will appear
+     when the entire order is completed (remember, there are 4 VFP COM
+     Components to process things).</li>
+ <ol style='margin-top:0in' start=1 type=a>
+  <li class=MsoNormal style='mso-list:l4 level2 lfo5;tab-stops:list 1.0in'>You
+      can test a bad customer by selecting a customer with a Max Order Amount
+      less than $5000. If this is the case, the transaction will abort
+      (including all actions). You can view MSMQ queue to see if message
+      arrived or didn’t (due to abort). Also, the Products form shows current
+      product amounts in database.</li>
+  <li class=MsoNormal style='mso-list:l4 level2 lfo5;tab-stops:list 1.0in'>You
+      can test bad product (another abort scenario) by ordering a quantity
+      greater than what is available (see Products form for quantity in stock).</li>
+ </ol>
+</ol>
+
+<h3>Behind the scenes:<span style='font-size:10.0pt;mso-bidi-font-size:13.0pt;
+font-family:Verdana'><o:p></o:p></span></h3>
+
+<p class=MsoNormal>The example is fairly complex in that it uses 4 VFP COM
+Components (OLEPUBLICs). The ORDER component is actually the first one called
+and it initiates the transaction. The first component it calls is the MSMQ one
+(if setup). A message is sent to an MSMQ Queue containing the details of the
+order. When the MSMQ component is finished, it calls SetComplete() to commit
+its part of the transaction and deactivate itself. The ORDER component next
+calls the CUSTOMER component. If the customer is valid (maxordamt &gt; $5000)
+then the order amount is debited from account and SetComplete() is called. If
+invalid customer, then SetAbort() is called and entire transaction including
+MSMQ message is rolled back. Finally, if the order is still intact, the ORDER
+component calls the PRODUCT component to debit quantity amounts. Again, if not
+enough quantity of an item is in stock, the entire transaction is rolled back
+including the MSMQ message and any PRODUCT data edits.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>One of the enhancements added to transaction support in the new
+COM+ Services is the ability to separate the transaction and activation
+functionality provided by SetComplete()/SetAbort(). With MTS, calling
+SetComplete() not only committed your transaction, it also deactivated the
+component. There are many scenarios, however, where you would want to set a
+particular transaction state in a method calls of an object and possibly change
+this in a subsequent method call. With MTS, you needed to provide fancy error
+trapping sorts of routines to accomplish such behavior. COM+ now provides a new
+interface called IContextState which allows for more granular control of
+Consistency and Doneness. The following code snippet can be used in your COM+
+Applications to obtain reference to the ContextState object and make these
+settings. Notice the use of new GetInterface() function.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span>LOCAL oMTX, oContext, oContextState<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span>LOCAL lTxnState, lGetTxnState, lDone,
+lGetDone<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span>lGetDone = .F.<span style="mso-spacerun:
+yes">     </span>&amp;&amp; initialize setting<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span>lGetTxnState = 0<span style='mso-tab-count:
+1'>  </span> &amp;&amp; initialize setting<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span>oMTX = CREATEOBJECT(&quot;MTXAS.APPSERVER.1&quot;)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span>oContext = oMTX.GetObjectContext()<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span>oContextState =
+GetInterface(oContext,&quot;IContextState&quot;)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span>* Handle activation setting (Doneness)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span>* Values: .T. - Deactivate, .F. - Leave
+activated<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span>lDone = .T.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span>oContextState.SetDeactivateOnReturn(lDone)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span>oContextState.GetDeactivateOnReturn(@lGetDone)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span>* Handle transaction setting (Consistency)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span>* Values: 0 - commit, 1 - abort<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span>lTxnState = 1<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span>oContextState.SetMyTransactionVote(lTxnState)<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'><span
+style='mso-tab-count:1'>      </span>oContextState.GetMyTransactionVote(@lGetTxnState)<o:p></o:p></span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><a name=COMPlusEvents>COM+ Events</a></h2>
+
+<p class=MsoNormal>These samples show how to use the new COM+ Events (also known as
+Loosely Coupled Events or LCE) model with VFP 7.0 servers. With COM+ Events, you have two 
+options for creating events.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Persistent Subscriptions. With Persistent Subscriptions, you have
+a publish/subscribe relationship where multiple clients can subscribe to a
+single published Event. The key word here with Persistent Subscriptions is
+&quot;class&quot;. Objects do not need to exist for events to occur since they
+are handled by the COM+ Event System managed by the operating system.
+Subscriber objects are created (and subsequently destroyed) only when an event
+is triggered. A single event can trigger multiple Subscriptions. Additionally,
+you can set up filtering conditions so that a Subscriber event is only triggered
+when a particular condition is met. Persistent Subscriptions are stored in the COM+ catalog
+and survive system shutdowns.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Transient Susbscriptions. Rather than being tied to classes, 
+Transient Subscriptions work with existing objects. They are also stored in the
+COM+ catalog, but they do not survive a system shutdown. In addition, you cannot have
+multiple Subscriber objects receiving the event. Transient Subscriptions offer the advantage of
+having objects always being live, so performance is maximized.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>The COM+ Component Services MMC snap-in allows you to manage
+Persistent Subscriptions through a nice user-interface. With Transient Subscriptions, you need to 
+set up events using administrative API routines. The Transient Subscriptions example below shows 
+how to do this.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>The samples below show a simple Book Company that needs to
+perform two actions:</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo8;tab-stops:list .5in'>Publish
+     a new book</li>
+ <li class=MsoNormal style='mso-list:l6 level1 lfo8;tab-stops:list .5in'>Announce
+     a price change to an existing book</li>
+</ul>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Both of these actions are considered events in the COM+
+Events system. An Event is set up in the system merely to establish the
+specific methods (and parameters) for Subscribers to use. The Event is
+simply a VFP COM Server with a class definition containing no code (i.e.,
+Interface). Subscribers need to be able to IMPLEMENT that interface so that
+specific code can be written to handle events. With VFP 7.0, your COM Servers
+can IMPLEMENT the Event interface.</p>
+
+<h3><a name="Persist_Subs">Persistent Subscription Example</a></h3>
+
+<p class=MsoNormal>The Persistent Subscription sample shows setup and creation of a 
+common COM+ Event using VFP7 Servers. Much of the work involves using the Component
+Services MMC (Microsoft Management Console) similarly to how you may have
+worked with Microsoft Transaction Server packages.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo11;tab-stops:list .5in'>Create
+     and Set Up Event Class:</li>
+</ol>
+
+<p class=MsoNormal style='margin-left:.25in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <ol style='margin-top:0in' start=1 type=a>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo11;tab-stops:list 1.0in'>The
+      FOXBOOK_PUB.PJX project in the \Samples\COM+\Events folder can be used to
+      build the VFP MTDLL COM Server used for the event class. If you look at
+      the BOOK_PUB.PRG file, you will see a simple OLEPUBLIC class definition
+      with two methods (NewBook and PriceChange). These methods correspond to
+      the two actions performed by Book Company (see above). Build a
+      multi-threaded DLL from this project (FOXBOOK_PUB.DLL). Important: make
+      sure to update constants in the EVENTS.H file as needed.</li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo11;tab-stops:list 1.0in'>Create
+      a new COM+ Application named FoxBookPub.</li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo11;tab-stops:list 1.0in'>Now,
+      expand the new FoxBookPub node, select the Components node, right-click
+      on New-&gt;Component menu item to bring up Component Wizard:</li>
+ </ol>
+</ol>
+
+<p class=MsoNormal style='margin-left:117.0pt;text-indent:-.25in;mso-list:l0 level3 lfo11;
+tab-stops:list 117.0pt'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Click on Install new event class(es) button,</p>
+
+<p class=MsoNormal style='margin-left:117.0pt;text-indent:-.25in;mso-list:l0 level3 lfo11;
+tab-stops:list 117.0pt'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Select the FOXBOOK_PUB.DLL file,</p>
+
+<p class=MsoNormal style='margin-left:117.0pt;text-indent:-.25in;mso-list:l0 level3 lfo11;
+tab-stops:list 117.0pt'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Click Next buttons until done</p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <ol style='margin-top:0in' start=4 type=a>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo11;tab-stops:list 1.0in'>The
+      event class work is now complete, so you can close the FOXBOOK_PUB
+      project.</li>
+ </ol>
+</ol>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<ol style='margin-top:0in' start=2 type=1>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo11;tab-stops:list .5in'>Create
+     and Set Up a Subscriber:</li>
+</ol>
+
+<p class=MsoNormal style='margin-left:.25in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<ol style='margin-top:0in' start=2 type=1>
+ <ol style='margin-top:0in' start=1 type=a>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo11;tab-stops:list 1.0in'>The
+      FOXBOOK_SUB.PJX project can be used to build the VFP MTDLL COM Server
+      used for the Subscriber. If you look at the BOOK_SUB1.PRG file, you will
+      see the same class definition as that of the Event class. However, it
+      uses the IMPLEMENTS keyword to implement the interface of the
+      Event class. Here is where you put your code to handle events
+      triggered by COM+ Events System. Build a multi-threaded DLL from this
+      project (FOXBOOK_SUB.DLL).</li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo11;tab-stops:list 1.0in'>Create
+      a new COM+ Application and call it FoxBookSub.</li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo11;tab-stops:list 1.0in'>Create
+      a new Component, however, instead of selecting the Install new event
+      class button, select Install new component (and pick the FOXBOOK_SUB.DLL
+      file).</li>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo11;tab-stops:list 1.0in'>Now
+      comes the important part: creating the Subscription. Expand the
+      Components node to expose the new VFP component. Expand that node and
+      right-click on the Subscriptions node to select New-&gt;Subscriptions
+      menu item. In the dialog:</li>
+ </ol>
+</ol>
+
+<p class=MsoNormal style='margin-left:117.0pt;text-indent:-.25in;mso-list:l0 level3 lfo11;
+tab-stops:list 117.0pt'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>On the second page, select the check box at bottom
+labeled ‘Use all interfaces for this component’ and click the Next button,</p>
+
+<p class=MsoNormal style='margin-left:117.0pt;text-indent:-.25in;mso-list:l0 level3 lfo11;
+tab-stops:list 117.0pt'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Click on the FOXBOOK_PUB.BOOKPUB ProgID that appears in
+the list box,</p>
+
+<p class=MsoNormal style='margin-left:117.0pt;text-indent:-.25in;mso-list:l0 level3 lfo11;
+tab-stops:list 117.0pt'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Click Next and enter a name for subscription (e.g., Fox
+Subscription 1),</p>
+
+<p class=MsoNormal style='margin-left:117.0pt;text-indent:-.25in;mso-list:l0 level3 lfo11;
+tab-stops:list 117.0pt'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Click on Enable this subscription immediately checkbox
+and Next/Finish buttons until done</p>
+
+<ol style='margin-top:0in' start=2 type=1>
+ <ol style='margin-top:0in' start=5 type=a>
+  <li class=MsoNormal style='mso-list:l0 level2 lfo11;tab-stops:list 1.0in'>The
+      first Subscription is now set up. You can set up multiple Subscriptions if you like
+      (one of the nice advantages of Persistent Subscriptions).</li>
+ </ol>
+</ol>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>          </span></p>
+
+<ol style='margin-top:0in' start=3 type=1>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo11;tab-stops:list .5in'>Running
+     the Application</li>
+</ol>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'>You are now ready to try out your
+Persistent Subscription. Run the BOOKS.SCX form (in FOXBOOK_CLIENT project) which uses a
+sample BOOKS.DBF table. You can click on the New Book button to bring up a
+dialog for adding a new book. When you do this and click OK, a record is
+inserted into the BOOKS table and the NewPrice method on the Event is
+called. This causes an event to be triggered for all Subscribers. In our
+example, the NewBook event code in the Subscriber writes out an entry to the
+audit log. You can click on the Audit Log button to see this. In addition, you
+can see the active objects in the Component Services MMC window. The
+PriceChange event works the same way. Take a look at the code in these forms to
+see how event gets triggered.</p>
+
+<p class=MsoNormal style='margin-left:.5in'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'>COM+ Events lets you control a
+number of factors related to events that may be of interest in your
+application. At the Publisher end, you can open up the Properties dialog in
+Component Services window. The Advanced tab has several options under the LCE
+frame including ability to allow in-process Subscribers. Perhaps most
+interesting is ability to add Parameter Filters for Subscribers. If you open a
+Subscriber's properties dialog, the Options tab has a text box called Filter
+Criteria. You can enter a valid condition string here to control whether an
+event fires for a Subscriber. For example, you may have a Filter set for a
+specific book (e.g., cBookName=&quot;Biking Across the Road&quot;). A
+Subscriber object is only created if criteria for the filter are met.</p>
+
+<h3><a name="Trans_Subs">Transient Subscription Example</a></h3>
+
+<p class=MsoNormal>As mentioned earlier, Transient Subscriptions cannot be
+created using the COM+ Component Services Explorer.  Setup is handled via the 
+COM+ admin objects. The Publisher and Subscriber are created only when needed. 
+Although Transient  Subscriptions are stored in the COM+ catalog, they do not
+survive a system shutdown. In fact, since this information is not persisted, your 
+Subscribers do not need to be VFP COM servers.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Before you begin, make sure you update any necessary
+constants in EVENTS.H. Also, the FOXBOOKS_PUB.DLL file needs to be created
+(this was done automatically with Persistent Subscriptions sample above). Because 
+there is no setup required for Transient Subscriptions, you can run the sample now. 
+Launch the TCE_EVENTS.SCX form (in FOXBOOK_CLIENT project). There are 
+several sections on this form. Click the Create button to create a COM+ Event . 
+At this point, we have created a new PROGID which you can  test in the Command 
+Window (this is one stored in EVENTS.H file -- &quot;Books.Publisher&quot;).
+Type oPub = CreateObject(&quot;Books.Publisher&quot;) and then try using
+Intellisense in the Command Window typing oPub. . At this point, we have only
+created an Event, so no action occurs if you enter something like:
+oPub.PriceChange(&quot;Foo&quot;,100).</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Next click on the Subscribe button. We now have a Subscriber
+set up to handle the Event. This Subscriber object is an instance of the class
+definition in the BOOK_TCE.PRG file. Notice that this class IMPLEMENTS the same
+bookpub interface used in the Persistent Subscription example. And the action of the 
+user events is to write out an entry to the audit log file.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>We can now test our Transient Subscription sample by running 
+the BOOKS client form again and clicking on the Change Price... button. Make sure to select the
+TCE checkbox. If you view the audit file, you will see a new TCE entry.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><a name=QC>Queued Components</a></h2>
+
+<p class=MsoNormal>Queued Components (QC), a key feature of COM+ and based on
+Message Queuing Services (MSMQ), provides an easy way to invoke and execute
+components asynchronously. Processing can occur without regard to the availability
+or accessibility of either the sender or receiver. A shop-at-home television
+network is an example of asynchronous processing. Viewers call in their
+purchases and the information is taken by order processors — who may or may not
+be connected to the server. In an asynchronous, disconnected scenario, the
+orders are taken as quickly as they can be phoned in and are queued for later
+retrieval and processing by the server.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>The sample below is a simple Pizza Order system in which
+customer name and pizza order is made to a VFP COM server running as a Queued
+Component. The calls are made and the order is sent to a simple Order text
+file. Because they are Queued, the orders are made asynchronously, so many can
+be taken at once. Depending on how the QC application is setup, you can have
+the orders simply recorded (where no Order text file is created) and played
+back later.</p>
+
+<h3>Running the sample:</h3>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo20;tab-stops:list .5in'>Before
+     you begin, ensure that you have MSMQ running on your machine otherwise you
+     will be unable to create the necessary MSMQ queues needed for Queued
+     Components. You can check this by opening the Computer Management administrative
+     tool. If enabled, you will see a Message Queuing item under the Services
+     and Applications group.</li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo20;tab-stops:list .5in'>In
+     the \Samples\COM+\QC folder, build a MTDLL COM server from the FoxQC
+     project.<span style="mso-spacerun: yes">  </span></li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo20;tab-stops:list .5in'>Create
+     a new COM+ Application. You should name it QC1 (otherwise you need to
+     change the #DEFINE in FOXQC.H and rebuild DLL). </li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo20;tab-stops:list .5in'>Open
+     the Properties dialog for the QC1 application and make the following
+     changes:</li>
+ <ol style='margin-top:0in' start=1 type=a>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo20;tab-stops:list 1.0in'>In
+      the Securities tab, uncheck the &quot;Enforce access checks…&quot;
+      checkbox.</li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo20;tab-stops:list 1.0in'>In
+      the Securities tab, change the &quot;Authentication level…&quot; dropdown
+      to None.</li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo20;tab-stops:list 1.0in'>In
+      the Queuing tab, check the two checkboxes.</li>
+ </ol>
+</ol>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>          </span>Note: for
+purposes of the sample only, we are not enforcing any security settings. Production 
+applications should always enforce strong security.</p>
+
+<ol style='margin-top:0in' start=5 type=1>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo20;tab-stops:list .5in'>Add
+     the FoxQC DLL to this application and make sure the &quot;Enforce
+     component level access checks&quot; checkbox in the Security tab of its
+     Properties dialog is not checked.</li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo20;tab-stops:list .5in'>Open
+     up the Interfaces node under the FoxQC.Pizza component and select the
+     Ipizza interface. Open up its Properties dialog, select the Queuing tab
+     and check the Queued checkbox.</li>
+ <li class=MsoNormal style='mso-list:l5 level1 lfo20;tab-stops:list .5in'>You
+     are now ready to try the example. Run the Pizza form in the project.</li>
+ <ol style='margin-top:0in' start=1 type=a>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo20;tab-stops:list 1.0in'>You
+      should first run a simple test to ensure your component is working
+      outside of the Queued Components environment by checking the Test…
+      checkbox at the bottom of the form. If all functioned as expected, you
+      should see your order in a text file.</li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo20;tab-stops:list 1.0in'>Uncheck
+      the checkbox to test under Queued Components. Again, if the call was
+      successful, you should see text file with the order. Additionally, you
+      can open up the Component Services explorer and view the QC1 application
+      still running.</li>
+ </ol>
+</ol>
+
+<p class=MsoBodyTextIndent2>Note: if you are not running from local machine,
+set the QC_MACHINE #DEFINE of the FOXQC.H file to your specific machine name
+where COM+ Application is located and recompile the Pizza form.</p>
+
+<ol style='margin-top:0in' start=7 type=1>
+ <ol style='margin-top:0in' start=3 type=a>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo20;tab-stops:list 1.0in'>Let's
+      now simulate running Queued Components with Listener turned off so that
+      calls are recorded and played back later.</li>
+ </ol>
+</ol>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l3 level1 lfo24;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Quit your running instance of VFP</p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l3 level1 lfo24;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>In Component Services explorer, Shutdown the QC1
+application if it is running.</p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l3 level1 lfo24;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>In Properties dialog of QC1 application, uncheck the
+2nd Listen checkbox in the Queuing tab.</p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l3 level1 lfo24;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Restart VFP and run the Pizza form. Click on the
+Cleanup button to delete any existing order text file.</p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l3 level1 lfo24;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Select ingredients you want for a new order and click
+on the Place Order button. You will not see an Order file open. You can click
+Refresh all you want, but it isn't there since the Queued Components listener
+is turned off.</p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l3 level1 lfo24;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Quit VFP again</p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l3 level1 lfo24;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>In Component Services explorer, Shutdown the QC1
+application if it is running.</p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l3 level1 lfo24;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>In Properties dialog of QC1 application, check the 2nd
+Listen checkbox in the Queuing tab.</p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l3 level1 lfo24;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Restart VFP and run the Pizza form. Notice the View
+button is still disabled since Order text file still doesn't exist.</p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l3 level1 lfo24;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>Back in the Component Services explorer, Start the QC1
+application.</p>
+
+<p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in;mso-list:l3 level1 lfo24;
+tab-stops:list 1.25in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>In VFP, click on the Refresh button of the Pizza form.
+You should now see View button enabled. Click on it to see your earlier
+recorded order now appear.</p>
+
+<h3>Behind the scenes:</h3>
+
+<p class=MsoNormal>This example is quite simple. Take a look at the Pizza class
+in FOXQC.PRG. Classes registered for Queued Components have specific
+requirements. These include write-only properties (see the _COMATTRIB
+settings), no return values for methods (see AS VOID settings) and no in/out
+parameters (by reference). You should also avoid passing objects as parameters
+or setting properties to object references. Because the server object is not
+available when the client makes the call, server results can be returned by
+sending a message that creates another object. In this way, two-way
+communication occurs not in every case but only when it is required, by a
+series of one-way messages between objects. Since actual actions are recorded
+in a queue, you should take precautions to ensure your code does not rely on
+either a specific machine (since it could be run back on a different one).
+Also, the code may be played back hours or even days after the original
+recording was made.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='tab-stops:175.5pt'>The MSMQ Workgroup configuration
+does not permit Queued Components to support application security. If you've
+installed MSMQ with the &quot;Workgroup&quot; configuration, you must also
+disable security on each Queued Application accessed in this configuration. In
+the Properties dialog of the COM+ Application with your Queued Component,
+select the Security tab and change Authentication Level for Calls to None. In
+this sample, we are not using transactions. However, because MSMQ supports
+transactions, its probably a good idea to setup your QC application using
+transactions (see the Transaction sample for getting an ObjectContext reference
+and calling SetAbort/SetComplete). </p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='tab-stops:175.5pt'>Open up the TESTQC.PRG file to see
+how clients need to make calls to a QC component. There are two important
+steps. First, you need to make sure the COM+ application containing the Queued
+Component is running. You can automate starting this using the COM Catalog
+Administration API routines such as in the example. The second step is to
+create an instance of the component using the special Queue moniker and
+GetObject(). Instead of CreateObject() or NewObject(), you need to go through
+the Queued moniker so that COM calls are recorded instead of being made
+immediately.</p>
+
+<p class=MsoNormal style='tab-stops:175.5pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<h2><a name=CRM>Compensating Resource Managers</a></h2>
+
+<span style='mso-bookmark:CRM'></span>
+
+<p class=MsoNormal>One of the exciting new COM+ Services for VFP developers is
+that of Compensating Resource Managers (CRMs). A CRM provide a quick and easy
+way to integrate application resources with Microsoft Distributed Transaction
+Coordinator (MS DTC) transactions. It is an alternative to developing a full
+Microsoft Transaction Services resource manager. CRMs allow you to have user
+code participate in transactions. You can now write VFP COM servers that get
+triggered when a transaction is committed or aborted. </p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>The sample below shows CRMs in transactions that create or
+delete files. One of the components of your distributed application might want
+to create a new file. With a CRM, you can have that file removed if the transaction
+is aborted. The good news for VFP developers is that with CRMs you can now have
+VFP data participate in transactions. For example, you can use a CRM to
+rollback records added to a VFP table if an abort occurs.</p>
+
+<h3>Running the sample:</h3>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo27;tab-stops:list .5in'>In
+     the \Samples\COM+\crm folder, build MTDLL COM servers from both projects
+     (crmfilesvfp and crmfilesclient). </li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo27;tab-stops:list .5in'>Create
+     a new COM+ Application (e.g., CRMFILESVFP) and in the Advanced tab of its
+     Property dialog, check the option to Enable Compensating Resource
+     Managers. </li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo27;tab-stops:list .5in'>Add
+     both DLLs to this application and set their Transaction attributes as
+     follows:</li>
+</ol>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l7 level1 lfo29;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>CrmFilesClient.CrmFilesVFP - Required</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l7 level1 lfo29;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>CrmFilesVFP.CrmFilesCompensatorVFP – Not Supported</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l7 level1 lfo29;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>CrmFilesVFP.CrmFilesWorkerVFP – Required</p>
+
+<ol style='margin-top:0in' start=4 type=1>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo27;tab-stops:list .5in'>Important:
+     in the Properties dialog of the Compensator class, select the Activation
+     tab and uncheck Enable Just In Time Activation. Now select the Concurrency
+     tab and click on the Not Supported radio button for Synchronization
+     support.</li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo27;tab-stops:list .5in'>Run
+     the CRMFILES form.</li>
+</ol>
+
+<ol style='margin-top:0in' start=7 type=1>
+ <ol style='margin-top:0in' start=4 type=a>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo20;tab-stops:list 1.0in'>If
+      you choose to Create a file, the abort will remove it.</li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo20;tab-stops:list 1.0in'>If
+      you choose to Delete a file, a temp backup copy is made and then the
+      original is deleted. An abort will restore original by copying temp
+      backup to it.</li>
+  <li class=MsoNormal style='mso-list:l5 level2 lfo20;tab-stops:list 1.0in'>The
+      Log button shows what is happening behind the scenes in terms of which methods
+      are being called on the CRMs.</li>
+ </ol>
+</ol>
+
+<ol style='margin-top:0in' start=6 type=1>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo27;tab-stops:list .5in'>View
+     source code.</li>
+</ol>
+
+<h3>Behind the scenes:</h3>
+
+<p class=MsoNormal>A CRM is provided as a pair of COM components – a CRM Worker
+and a CRM Compensator. The CRM Worker is responsible for doing the main work of
+the specific CRM. The CRM infrastructure provides an interface to the CRM
+Worker through which the CRM Worker can write records to a durable log file on
+disk. The CRM Worker must write records to the log and make them durable before
+it performs its work so that, if a crash occurs, recovery can occur correctly.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>The CRM Compensator is the component that is created by the
+CRM infrastructure at the completion of the transaction. It implements a
+defined interface by which the CRM infrastructure can pass on notifications of
+transaction completion and the log records that were previously written by the
+CRM Worker. Because VFP COM servers have a single-threaded apartment model, it
+is important that you set the<span style="mso-spacerun: yes"> 
+</span>synchronization property to “not supported” in order to avoid a deadlock
+in the prepare phase.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>CRMs are intended for advanced developers since you will
+need to handle a variety of possible scenarios that can occur with your
+application including that of a crash which could occur between the time the log
+is written out and the actual action is taken.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>The CRMWORKER.PRG file contains the OLEPUBLIC class used by
+the CRM Worker to handle writing out to log and actual action (create or delete
+file). Notice the CREATEOBJECTEX() call. This is used to create an instance of
+“CrmClerk.CrmClerk.1” which does not support an IDispatch interface. We can
+then write to the durable log with this object. The WriteLogRecordVariants()
+function, which writes out the durable log, must be passed an array which is
+zero-based (hence use of COMARRAY function). The CRMCOMP.PRG file contains the
+CRM Compensator class. Notice that it has an IMPLEMENTs clause so that it can
+implement the interface for the compensator events. These events allow you to
+handle commit or abort actions against the transaction. The pLogRecord variant
+parameter returned by several events contains the array written out to the log
+by the CRM worker. The CRM flags and sequence number are appended as the last
+two elements in the array (see the ICrmCompensator::PrepareRecord topic in MSDN
+for more details).</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

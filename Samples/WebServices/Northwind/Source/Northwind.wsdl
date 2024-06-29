@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- Generated 10/11/02 by Microsoft SOAP Toolkit WSDL File Generator, Version 3.00.1325.0 --> 
+<definitions
+	name='Northwind'
+	targetNamespace='http://ToledoSamples/Northwind/wsdl/'
+	xmlns:wsdlns='http://ToledoSamples/Northwind/wsdl/'
+	xmlns:typens='http://ToledoSamples/Northwind/type/'
+	xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+	xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+	xmlns:stk='http://schemas.microsoft.com/soap-toolkit/wsdl-extension'
+	xmlns:dime='http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/'
+	xmlns:ref='http://schemas.xmlsoap.org/ws/2002/04/reference/'
+	xmlns:content='http://schemas.xmlsoap.org/ws/2002/04/content-type/'
+	xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'
+	xmlns='http://schemas.xmlsoap.org/wsdl/'>
+
+	<types>
+		<schema
+			targetNamespace='http://ToledoSamples/Northwind/type/'
+			xmlns='http://www.w3.org/2001/XMLSchema'
+			xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/'
+			xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'
+			elementFormDefault='qualified'>
+
+			<import namespace='http://schemas.xmlsoap.org/soap/encoding/'/>
+			<import namespace='http://schemas.xmlsoap.org/wsdl/'/>
+			<import namespace='http://schemas.xmlsoap.org/ws/2002/04/reference/'/>
+			<import namespace='http://schemas.xmlsoap.org/ws/2002/04/content-type/'/>
+
+		</schema>
+	</types>
+
+	<message name='Northwind.UpdateSingleTable'>
+		<part name='tcXMLDiffGram' type='xsd:string'/>
+		<part name='rcErrorMessage' type='xsd:string'/>
+	</message>
+
+	<message name='Northwind.UpdateSingleTableResponse'>
+		<part name='Result' type='xsd:boolean'/>
+		<part name='rcErrorMessage' type='xsd:string'/>
+	</message>
+
+	<message name='Northwind.GetCustomerByID'>
+		<part name='cID' type='xsd:string'/>
+	</message>
+
+	<message name='Northwind.GetCustomerByIDResponse'>
+		<part name='Result' type='xsd:string'/>
+	</message>
+
+	<message name='Northwind.GetCustomersByCountryName'>
+		<part name='cCountryName' type='xsd:string'/>
+	</message>
+
+	<message name='Northwind.GetCustomersByCountryNameResponse'>
+		<part name='Result' type='xsd:string'/>
+	</message>
+
+	<message name='Northwind.GetSupplierProducts'>
+	</message>
+
+	<message name='Northwind.GetSupplierProductsResponse'>
+		<part name='Result' type='xsd:string'/>
+	</message>
+
+	<message name='Northwind.GetOrdersByCustomerID'>
+		<part name='cCustomerID' type='xsd:string'/>
+	</message>
+
+	<message name='Northwind.GetOrdersByCustomerIDResponse'>
+		<part name='Result' type='xsd:string'/>
+	</message>
+
+	<portType name='NorthwindSoapPort'>
+
+		<operation name='UpdateSingleTable' parameterOrder='tcXMLDiffGram rcErrorMessage'>
+			<input message='wsdlns:Northwind.UpdateSingleTable'/>
+			<output message='wsdlns:Northwind.UpdateSingleTableResponse'/>
+		</operation>
+
+		<operation name='GetCustomerByID' parameterOrder='cID'>
+			<input message='wsdlns:Northwind.GetCustomerByID'/>
+			<output message='wsdlns:Northwind.GetCustomerByIDResponse'/>
+		</operation>
+
+		<operation name='GetCustomersByCountryName' parameterOrder='cCountryName'>
+			<input message='wsdlns:Northwind.GetCustomersByCountryName'/>
+			<output message='wsdlns:Northwind.GetCustomersByCountryNameResponse'/>
+		</operation>
+
+		<operation name='GetSupplierProducts' parameterOrder=''>
+			<input message='wsdlns:Northwind.GetSupplierProducts'/>
+			<output message='wsdlns:Northwind.GetSupplierProductsResponse'/>
+		</operation>
+
+		<operation name='GetOrdersByCustomerID' parameterOrder='cCustomerID'>
+			<input message='wsdlns:Northwind.GetOrdersByCustomerID'/>
+			<output message='wsdlns:Northwind.GetOrdersByCustomerIDResponse'/>
+		</operation>
+
+	</portType>
+
+	<binding name='NorthwindSoapBinding' type='wsdlns:NorthwindSoapPort' >
+
+		<stk:binding preferredEncoding='UTF-8'/>
+		<soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/>
+
+		<operation name='UpdateSingleTable'>
+			<soap:operation soapAction='http://ToledoSamples/Northwind/action/Northwind.UpdateSingleTable'/>
+			<input>
+				<soap:body
+					use='encoded'
+					namespace='http://ToledoSamples/Northwind/message/'
+					encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'
+					parts='tcXMLDiffGram rcErrorMessage'/>
+			</input>
+			<output>
+				<soap:body
+					use='encoded'
+					namespace='http://ToledoSamples/Northwind/message/'
+					encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'
+					parts='Result rcErrorMessage'/>
+			</output>
+		</operation>
+
+		<operation name='GetCustomerByID'>
+			<soap:operation soapAction='http://ToledoSamples/Northwind/action/Northwind.GetCustomerByID'/>
+			<input>
+				<soap:body
+					use='encoded'
+					namespace='http://ToledoSamples/Northwind/message/'
+					encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'
+					parts='cID'/>
+			</input>
+			<output>
+				<soap:body
+					use='encoded'
+					namespace='http://ToledoSamples/Northwind/message/'
+					encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'
+					parts='Result'/>
+			</output>
+		</operation>
+
+		<operation name='GetCustomersByCountryName'>
+			<soap:operation soapAction='http://ToledoSamples/Northwind/action/Northwind.GetCustomersByCountryName'/>
+			<input>
+				<soap:body
+					use='encoded'
+					namespace='http://ToledoSamples/Northwind/message/'
+					encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'
+					parts='cCountryName'/>
+			</input>
+			<output>
+				<soap:body
+					use='encoded'
+					namespace='http://ToledoSamples/Northwind/message/'
+					encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'
+					parts='Result'/>
+			</output>
+		</operation>
+
+		<operation name='GetSupplierProducts'>
+			<soap:operation soapAction='http://ToledoSamples/Northwind/action/Northwind.GetSupplierProducts'/>
+			<input>
+				<soap:body
+					use='encoded'
+					namespace='http://ToledoSamples/Northwind/message/'
+					encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+			</input>
+			<output>
+				<soap:body
+					use='encoded'
+					namespace='http://ToledoSamples/Northwind/message/'
+					encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'
+					parts='Result'/>
+			</output>
+		</operation>
+
+		<operation name='GetOrdersByCustomerID'>
+			<soap:operation soapAction='http://ToledoSamples/Northwind/action/Northwind.GetOrdersByCustomerID'/>
+			<input>
+				<soap:body
+					use='encoded'
+					namespace='http://ToledoSamples/Northwind/message/'
+					encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'
+					parts='cCustomerID'/>
+			</input>
+			<output>
+				<soap:body
+					use='encoded'
+					namespace='http://ToledoSamples/Northwind/message/'
+					encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'
+					parts='Result'/>
+			</output>
+		</operation>
+
+	</binding>
+
+	<service name='Northwind' >
+		<port name='NorthwindSoapPort' binding='wsdlns:NorthwindSoapBinding' >
+			<soap:address location='http://localhost/NorthwindWebService/Northwind.WSDL'/>
+		</port>
+	</service>
+
+</definitions>

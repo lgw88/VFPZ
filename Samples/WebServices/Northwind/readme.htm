@@ -1,0 +1,863 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="readme_files/filelist.xml">
+<link rel=Edit-Time-Data href="readme_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>VFP8</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Randy Brown</o:Author>
+  <o:LastAuthor>Randy Brown</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>1</o:TotalTime>
+  <o:Created>2003-08-05T15:43:00Z</o:Created>
+  <o:LastSaved>2003-08-05T15:44:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>2325</o:Words>
+  <o:Characters>13254</o:Characters>
+  <o:Company>Microsoft Corporation</o:Company>
+  <o:Lines>110</o:Lines>
+  <o:Paragraphs>31</o:Paragraphs>
+  <o:CharactersWithSpaces>15548</o:CharactersWithSpaces>
+  <o:Version>11.5329</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p
+	{font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+pre
+	{margin-top:0in;
+	margin-bottom:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:9113850;
+	mso-list-template-ids:349847498;}
+@list l1
+	{mso-list-id:128331261;
+	mso-list-template-ids:235835562;}
+@list l2
+	{mso-list-id:204490655;
+	mso-list-template-ids:-1623976334;}
+@list l3
+	{mso-list-id:331422016;
+	mso-list-template-ids:-1626841832;}
+@list l3:level1
+	{mso-level-start-at:8;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:398482802;
+	mso-list-template-ids:1202458916;}
+@list l5
+	{mso-list-id:447940030;
+	mso-list-template-ids:-65640044;}
+@list l5:level1
+	{mso-level-start-at:2;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6
+	{mso-list-id:568930961;
+	mso-list-template-ids:1648642330;}
+@list l6:level1
+	{mso-level-start-at:2;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7
+	{mso-list-id:666514049;
+	mso-list-template-ids:1628200250;}
+@list l8
+	{mso-list-id:1132669001;
+	mso-list-template-ids:2016814656;}
+@list l9
+	{mso-list-id:1199781975;
+	mso-list-template-ids:842138286;}
+@list l10
+	{mso-list-id:1204486793;
+	mso-list-template-ids:-235614548;}
+@list l11
+	{mso-list-id:1231191254;
+	mso-list-template-ids:-491095338;}
+@list l12
+	{mso-list-id:1304311960;
+	mso-list-template-ids:-605247734;}
+@list l13
+	{mso-list-id:1402098309;
+	mso-list-template-ids:-456382772;}
+@list l14
+	{mso-list-id:1413775083;
+	mso-list-template-ids:-1421019320;}
+@list l14:level1
+	{mso-level-start-at:2;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l15
+	{mso-list-id:1530101498;
+	mso-list-template-ids:537407420;}
+@list l16
+	{mso-list-id:1676223539;
+	mso-list-template-ids:-238934122;}
+@list l17
+	{mso-list-id:1713967575;
+	mso-list-template-ids:1173156674;}
+@list l18
+	{mso-list-id:1785688603;
+	mso-list-template-ids:1871496704;}
+@list l18:level1
+	{mso-level-start-at:3;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l19
+	{mso-list-id:1871189791;
+	mso-list-template-ids:1318242892;}
+@list l1:level1 lfo7
+	{mso-level-start-at:7;}
+@list l17:level1 lfo9
+	{mso-level-start-at:2;}
+@list l12:level1 lfo10
+	{mso-level-start-at:3;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+<meta http-equiv=Content-Language content=en-us>
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h2><span style='font-family:Verdana'>XML Web Services Sample for Visual FoxPro
+and Visual Basic .NET<o:p></o:p></span></h2>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'><a href="#Introduction">Introduction</a><br>
+<a href="#Setting_up_the_Samples">Setting Up the Samples</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#Prerequisites">Prerequisites</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#Installing_the_samples">Installing the Samples</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#Verifying_Database_connection_strings">Verifying
+Database</a><a href="#Verifying_Database_Connection_Strings"> Connection
+Strings</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#Configuring_the_VFP_web_service_to_use_">Configuring
+the Visual FoxPro Web Service to Use Local Data</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#Specifying_a_different_Virtual_Director">Specifying
+a Different Virtual Directory</a><br>
+<a href="#Testing_the_Samples">Testing the Samples</a><br>
+<a href="#Running_the_Client_Form">Running the Client Form</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#Updating_Data">Updating Data</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#Inserting_Data">Inserting Data</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#Deleting_Data">Deleting Data</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#Middle-tier_Validation_Messages">Middle-Tier
+Validation Messages</a><br>
+&nbsp;&nbsp;&nbsp; <a href="#Database_Errors_Messages">Database Error Messages</a><br>
+<a href="#CursorAdapter_with_XMLAdapter_on_the_Cl"><span class=SpellE>CursorAdapter</span>
+with <span class=SpellE>XMLAdapter</span> on the Client</a><br>
+<a href="#VFP_Client_and_VFP_XML_Web_Service">Visual FoxPro Client and Visual
+FoxPro XML Web Service Diagram</a><br>
+<a href="#VFP_Client_and_VB.NET_XML_Web_Service">Visual FoxPro Client and
+Visual Basic .NET XML Web Service Diagram</a><o:p></o:p></span></p>
+
+<h3><a name=Introduction><span style='font-family:Verdana'>Introduction</span></a><span
+style='font-family:Verdana'><o:p></o:p></span></h3>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>This sample shows
+different architectures for exchanging data between a Visual FoxPro client and
+a middle tier written in Visual FoxPro and Visual Basic .NET using XML Web
+Services. This sample uses two Visual FoxPro classes, <span class=SpellE>XMLAdapter</span>
+and <span class=SpellE>CursorAdapter</span>. You can use the <span
+class=SpellE>XMLAdapter</span> class to create cursors from hierarchical <span
+class=SpellE>DataSets</span> generated from other Visual FoxPro <span
+class=SpellE>XMLAdapter</span> objects or from ADO.NET. You can use the <span
+class=SpellE>CursorAdapter</span> class in the client to bind to Visual FoxPro
+cursors that are created from XML <span class=SpellE>DataSets</span> or in the
+middle tier to customize updates to different data sources. This sample also
+uses the SQL Server or MSDE <span class=SpellE>Northwind</span> database as its
+data store.<o:p></o:p></span></p>
+
+<h3><a name="Setting_up_the_Samples"><span style='font-family:Verdana'>Setting </span></a><span
+class=GramE><span style='mso-bookmark:Setting_up_the_Samples'><span
+style='font-family:Verdana'>Up</span></span></span><span style='mso-bookmark:
+Setting_up_the_Samples'><span style='font-family:Verdana'> the Samples</span></span><span
+style='font-family:Verdana'><o:p></o:p></span></h3>
+
+<h5><a name=Prerequisites><span style='font-family:Verdana'>Prerequisites</span></a><span
+style='font-family:Verdana'>:<o:p></o:p></span></h5>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo1;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>Windows 2000 Service Pack 3 or later (Windows XP
+     recommended) with Internet Information Services (IIS) 5.0 or later
+     installed.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo1;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>SQL Server or MSDE with <span class=SpellE>Northwind</span>
+     database installed. If you do not have the <span class=SpellE>Northwind</span>
+     SQL Server or MSDE database, you can still run the Visual FoxPro Web
+     service described in the section, &quot;Configuring a Visual FoxPro Web
+     Service to Use Local Data&quot;.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo1;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>Visual FoxPro with SOAP Toolkit 3.0, installed by
+     default with Visual FoxPro<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo1;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>Visual Studio .NET version 1.0 or later for building
+     and running the Visual Basic .NET Web service. If you do not have Visual
+     Studio .NET installed, you can still run the Visual FoxPro Web service.<o:p></o:p></span></li>
+</ol>
+
+<h5><a name="Installing_the_samples"><span style='font-family:Verdana'>Installing
+the Samples</span></a><span style='font-family:Verdana'>:<o:p></o:p></span></h5>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l9 level1 lfo2;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>To install source code, components, and IIS Virtual
+     Directory, in the Visual FoxPro <span class=GramE>directory ..</span>\Samples\<span
+     class=SpellE>WebServices\Northwind</span>, open the setup program <span
+     class=SpellE>NorthwindWebservice_Setup.msi</span>. <o:p></o:p></span></li>
+</ol>
+
+<blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>It is
+recommended that you use the default name for the Virtual Directory (<span
+class=SpellE>NorthwindWebService</span>). Otherwise, you need to update the Web
+Services Description Language (WSDL) file, client form, and project files. For
+more information about the files you need to update, see the section,
+&quot;Specifying a Different Virtual Directory&quot;. <o:p></o:p></span></p>
+
+</blockquote>
+
+<ol start=2 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l14 level1 lfo3;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>After the installation completes, configure SOAP 3.0
+     for the virtual directory. Open a command line window and browse to the <span
+     class=GramE>directory ..</span>\Program Files\MSSOAP\Binaries. On the
+     command line, run the batch file <span class=SpellE>SoapDir.cmd</span> as
+     shown:<o:p></o:p></span></li>
+</ol>
+
+<p style='margin-left:.5in'><span style='font-size:10.0pt;font-family:Verdana'>C:\Program
+Files\MSSOAP\Binaries&gt; <b>SOAPVDIR UPDATE <span class=SpellE>NorthwindWebService</span></b><o:p></o:p></span></p>
+
+<blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Running the batch file
+sets up the virtual directory's Application Mappings.&nbsp;<o:p></o:p></span></p>
+
+</blockquote>
+
+<ol start=3 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l18 level1 lfo4;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>To verify the setup, open IIS, right-click the <span
+     class=SpellE>NorthwindWebService</span> virtual directory, and select
+     Properties. Click the configuration button to open Mappings. Scroll to the
+     bottom to see the .<span class=SpellE>wsdl</span> extension.&nbsp;<o:p></o:p></span></li>
+</ol>
+
+<blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>The executable path is
+the path to your SOAP 3.0 Application Extension, which is located in the
+following directory:<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>C:\Program Files\Common
+Files\MSSoap\Binaries\SOAPIS30.dll<o:p></o:p></span></p>
+
+</blockquote>
+
+<h5><a name="Verifying_Database_connection_strings"><span style='font-family:
+Verdana'>Verifying Database Connection Strings</span></a><span
+style='font-family:Verdana'>:<o:p></o:p></span></h5>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Before
+running the sample, you need to modify and verify the connection strings to
+your SQL Server.&nbsp; <o:p></o:p></span></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l15 level1 lfo5;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>To modify the Visual FoxPro code, open the project <span
+     class=SpellE>NorthwindWebService_VFP.pjx</span> in the <span class=GramE>directory
+     ..</span>\<span class=SpellE>InetPub\wwwRoot\NorthwindWebService\VFPSource</span>.&nbsp;<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l15 level1 lfo5;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>In the project, open and edit the <span class=SpellE>DataAccessLayer.prg</span>
+     file and modify the connection strings in the class definitions so they
+     are valid and secure.<o:p></o:p></span></li>
+</ol>
+
+<blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>For example, the SQL
+Server access information appears in the connection string of the <span
+class=SpellE>SQLNorthwind</span> class:<o:p></o:p></span></p>
+
+<pre><span class=SpellE><span class=GramE>cConnectionstring</span></span> = &quot;Driver={SQL Server};Server=localhost;<b>Uid=myUsername;Pwd=myPassword</b>;Database=northwind&quot;</pre>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Change the default values
+of <span class=SpellE>Uid</span> and <span class=SpellE>Pwd</span> to a more
+secure user name and password. <o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>If you do not have SQL
+Server or MSDE <span class=SpellE>Northwind</span> database installed, you can
+still run the Visual FoxPro Web service with local data. For more information,
+see &quot;Configuring the Visual FoxPro Web service to Use Local Data&quot;. <o:p></o:p></span></p>
+
+</blockquote>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l10 level1 lfo6;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>Recompile the <span class=SpellE>NorthwindWebService_VFP</span>
+     project as a Multi-threaded COM Server (DLL). Note: If you accidentally
+     ran the component as a Web service before modifying the connection string,
+     close IIS before recompiling by typing <span class=SpellE><b>iisreset</b></span>
+     on the command line.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l10 level1 lfo6;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>To modify the Visual Basic .NET source code,
+     double-click the Visual Basic .NET project <span class=SpellE>NorthwindWebService.vbproj</span>
+     in the <span class=GramE>directory ..</span>\<span class=SpellE>Inetpub\wwwroot\NorthwindWebService</span>.
+     Visual Studio .NET opens.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l10 level1 lfo6;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>In Solution Explorer, expand the <span class=SpellE>VBSource</span>
+     folder and double-click the <span class=SpellE>DataAccessLayer.vb</span>
+     file to display the code in the editor window. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l10 level1 lfo6;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>Modify the connection strings at the top of this
+     class as appropriate.&nbsp;<o:p></o:p></span></li>
+</ol>
+
+<blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>If you use Integrated Security,
+you can enter a valid username and password in the impersonation section of the
+<span class=SpellE>Web.config</span> file. Instead of running the Web service
+on the local ASPNET account, you can run it under the account you specify.
+Remove the comments from the impersonation section in the <span class=SpellE>Web.config</span>
+file and enter the user name and password. For example:<o:p></o:p></span></p>
+
+<pre>&lt;<span class=SpellE>system.web</span>&gt;</pre><pre><span class=GramE>&lt;!--</span> IMPERSONATION</pre><pre>You can set the identity below so that this web service will run as a domain or </pre><pre><span
+class=GramE>local</span> user account.</pre><pre>--&gt;</pre><pre>&lt;identity impersonate=&quot;true&quot; </pre><pre><span
+class=SpellE><span class=GramE>userName</span></span>=&quot;<b>DOMAIN/<span
+class=SpellE>myusername</span></b>&quot;</pre><pre><span class=GramE>password</span>=&quot;<span
+class=SpellE><b>mypassword</b></span>&quot;/&gt;</pre></blockquote>
+
+<ol start=7 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo7;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>To recompile, press CTRL+F5. You will be prompted to
+     save the Solution first before recompiling the Web service. If you are
+     prompted to set an initial start page before it runs, in Solution
+     Explorer, right-click the <span class=SpellE>GetNorthwindData.asmx</span> <span
+     class=GramE>file</span>. On the shortcut menu, select &quot;Set as Start
+     Page&quot;. You can test the Visual Basic .NET Web service through the
+     default Web page access Visual Studio .NET provides. <o:p></o:p></span></li>
+</ol>
+
+<p><a name="Configuring_the_VFP_web_service_to_use_l"><b><span
+style='font-size:10.0pt;font-family:Verdana'>Configuring the Visual FoxPro Web
+service to Use Local Data</span></b></a><span style='mso-bookmark:Configuring_the_VFP_web_service_to_use_l'></span><span
+style='font-size:10.0pt;font-family:Verdana'><o:p></o:p></span></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo8;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>To modify the Visual FoxPro code to use local data,
+     open the project <span class=SpellE>NorthwindWebService_VFP.pjx</span>
+     from the <span class=GramE>directory ..</span>\<span class=SpellE>InetPub\wwwRoot\NorthwindWebService\VFPSource</span>.
+     To verify that the <span class=SpellE>Datasource</span> property of the <span
+     class=SpellE>VFPNorthwind</span> class is the correct absolute path to the
+     Visual FoxPro sample database, <span class=SpellE>Northwind.dbc</span> in <span
+     class=GramE>the ..</span>\ Samples\<span class=SpellE>Northwind</span>
+     folder, <span class=GramE>open</span> the program file, <span
+     class=SpellE>DataAccessLayer.prg</span> from the project.<o:p></o:p></span></li>
+</ol>
+
+<blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'><pre><span
+class=SpellE>DataSource</span> = &quot;C:\PROGRAM FILES\MICROSOFT VISUAL FOXPRO 8\SAMPLES\Northwind\Northwind.dbc&quot;</pre></blockquote>
+
+<ol start=2 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l17 level1 lfo9;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>In the <span class=SpellE>DataAccessLayer.prg</span>,
+     modify the class definitions of the data source classes to inherit from
+     the <span class=SpellE>VFPNorthwind</span> <span class=SpellE>CursorAdapter</span>
+     class. There are five concrete data source classes you need to change: <span
+     class=SpellE>CustomerDataSource</span>, <span class=SpellE>SupplierDataSource</span>,
+     <span class=SpellE>ProductDataSource</span>, <span class=SpellE>OrderDataSource</span>,
+     and <span class=SpellE>OrderDetailDataSource</span>.&nbsp; <o:p></o:p></span></li>
+</ol>
+
+<blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'><pre>DEFINE CLASS <span
+class=SpellE>CustomerDataSource</span> as <span class=SpellE><b>VFPNorthwind</b></span><span style='mso-spacerun:yes'>  </span></pre></blockquote>
+
+<ol start=3 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l12 level1 lfo10;tab-stops:list .5in'><span style='font-size:
+     10.0pt;font-family:Verdana'>Recompile the <span class=SpellE>NorthwindWebService_VFP</span>
+     project as a Multi-threaded COM Server (DLL). Note: If you accidentally
+     ran the component as a Web service, you need to shutdown IIS before
+     recompiling. From a command prompt, type <span class=SpellE><b>iisreset</b></span>.<o:p></o:p></span></li>
+</ol>
+
+<h5><a name="Specifying_a_different_Virtual_Directory"><span style='font-family:
+Verdana'>Specifying a Different Virtual Directory</span></a><span
+style='font-family:Verdana'><o:p></o:p></span></h5>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>If you changed the name
+of the Virtual Directory when setting up Web services, you need to update the
+following files:<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Using a text editor, update
+the following files to point to the correct virtual directory:<o:p></o:p></span></p>
+
+<p><span class=SpellE><span style='font-size:10.0pt;font-family:Verdana'>Intepub\wwwroot\<i>MyVirtualDirectory</i>\<b>Northwind.wsdl</b></span></span><span
+style='font-size:10.0pt;font-family:Verdana'><br>
+<span class=SpellE>Intepub\wwwroot\<i>MyVirtualDirectory</i>\<b>NorthwindWebService.webinfo</b></span><o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>In the Visual FoxPro Form
+Designer, open the following forms:<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Samples\<span
+class=SpellE>WebServices\Northwind\<b>frmcustomersws.scx</b></span><b><br>
+</b>Samples\<span class=SpellE>WebServices\Northwind\<b>frmcustomersca.scx</b></span><o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>In the top left area of
+the form, update <span class=SpellE>wsdl</span> property for the <span
+class=SpellE>oVFPWS</span> and <span class=SpellE>oVBWS</span> Web service
+objects by changing it in the Properties window to the correct location of the
+WSDL files. For example, the property value for the <span class=SpellE>oVFPWS</span>
+object is the following:<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>http://localhost/NorthwindWebService/Northwind.wsdl<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>You should change the
+property to the following:<o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>http://localhost/<i>MyVirtualDirectory</i>/Northwind.wsdl<o:p></o:p></span></p>
+
+<h3><a name="Testing_the_Samples"><span style='font-family:Verdana'>Testing the
+Samples</span></a><span style='font-family:Verdana'><o:p></o:p></span></h3>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Before running the client
+application, test it to make sure the Web services and components are running
+properly. <o:p></o:p></span></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l13 level1 lfo11;tab-stops:list .5in'><span style='font-size:
+     10.0pt;font-family:Verdana'>To test the Visual Basic .NET Web service,
+     open your browser to <a
+     href="http://localhost/NorthwindWebService/GetNorthwindData.asmx">http://localhost/NorthwindWebService/GetNorthwindData.asmx</a>.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l13 level1 lfo11;tab-stops:list .5in'><span style='font-size:
+     10.0pt;font-family:Verdana'>Select the <span class=SpellE>GetCustomerByID</span>
+     method.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l13 level1 lfo11;tab-stops:list .5in'><span style='font-size:
+     10.0pt;font-family:Verdana'>Type &quot;ALFKI&quot; for the <span
+     class=SpellE>cID</span> parameter value, and click Invoke.<o:p></o:p></span></li>
+</ol>
+
+<blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>A window
+opens with the contents of the customer <span class=SpellE>DataSet</span>. <o:p></o:p></span></p>
+
+</blockquote>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>Test
+Visual FoxPro code through COM to make sure it works before accessing it
+through SOAP. You should always test your Visual FoxPro components through COM
+before accessing them through SOAP. <o:p></o:p></span></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l11 level1 lfo12;tab-stops:list .5in'><span style='font-size:
+     10.0pt;font-family:Verdana'>In the Visual FoxPro Command window or a
+     program (.<span class=SpellE>prg</span>) file, type the following:<o:p></o:p></span></li>
+</ol>
+
+<blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'><pre>o = <span
+class=SpellE><span class=GramE>Createobject</span></span><span class=GramE>(</span>&quot;<span
+class=SpellE>NorthwindWebService_VFP.Northwind</span>&quot;)</pre><pre>? <span
+class=SpellE><span class=GramE>o.GetCustomerByID</span></span><span
+class=GramE>(</span>&quot;ALFKI&quot;)</pre><pre>o = null</pre>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>The
+customer XML <span class=SpellE>DataSet</span> should display on your screen. <o:p></o:p></span></p>
+
+</blockquote>
+
+<ol start=2 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l6 level1 lfo13;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>To test this as a Visual FoxPro Web service through
+     SOAP, on the Visual FoxPro Tools menu, open the Toolbox. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l6 level1 lfo13;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>Click My XML Web Services and double-click Register
+     to open the Web Services Registration dialog box. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l6 level1 lfo13;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>Type the location of the Visual FoxPro Web service
+     WSDL file as &quot;<a
+     href="http://localhost/NorthwindWebService/Northwind.wsdl">http://localhost/NorthwindWebService/Northwind.wsdl</a>&quot;,
+     and click <span class=GramE>Done</span> to generate IntelliSense
+     scripts.&nbsp; <o:p></o:p></span></li>
+</ol>
+
+<blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>The <span class=SpellE>Northwind</span>
+Web service appears in the Toolbox.<o:p></o:p></span></p>
+
+</blockquote>
+
+<ol start=2 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l5 level1 lfo14;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>Open a new Visual FoxPro program (.<span
+     class=SpellE>prg</span>) file.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l5 level1 lfo14;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>To insert the appropriate SOAP client code for
+     calling the <span class=SpellE>Northwind</span> Web service, drag the <span
+     class=SpellE>Northwind</span> Web service from the Toolbox to the editing
+     window.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l5 level1 lfo14;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>In the TRY block, type a call to the <span
+     class=SpellE>GetCustomerByID</span> method:<o:p></o:p></span></li>
+</ol>
+
+<blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'><pre>...</pre><pre>TRY</pre><pre><span
+style='mso-tab-count:1'>  </span><span class=SpellE>loWSHandler</span> = NEWOBJECT(&quot;<span
+class=SpellE>WSHandler&quot;,IIF</span>(VERSION(2)=0,&quot;&quot;,HOME()+&quot;FFC\&quot;)+&quot;_ws3client.vcx&quot;)</pre><pre><span
+style='mso-tab-count:1'>  </span><span class=SpellE><span class=GramE>loNorthwind</span></span> = <span
+class=SpellE>loWSHandler.SetupClient</span>(&quot;http://localhost/NorthwindWebService/Northwind.wsdl&quot;, &quot;<span
+class=SpellE>Northwind</span>&quot;, &quot;<span class=SpellE>NorthwindSoapPort</span>&quot;)</pre><pre><span
+style='mso-tab-count:1'>  </span>* Type your XML Web service code here:</pre><pre><span
+style='mso-tab-count:1'>  </span>* <span class=GramE>ex</span>: <span
+class=SpellE>leResult</span> = <span class=SpellE>loNorthwind.somemethod</span>()</pre><pre><span
+style='mso-tab-count:1'>  </span><b>? <span class=SpellE><span class=GramE>loNorthwind.GetCustomerByID</span></span><span
+class=GramE>(</span>&quot;ALFKI&quot;)</b></pre><pre><o:p>&nbsp;</o:p></pre><pre>CATCH TO <span
+class=SpellE>loException</span></pre><pre>....</pre></blockquote>
+
+<ol start=8 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo15;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>Save and run the program.<o:p></o:p></span></li>
+</ol>
+
+<blockquote style='margin-top:5.0pt;margin-bottom:5.0pt'>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Verdana'>The
+customer XML <span class=SpellE>DataSet</span> displays on the screen. <o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>If you have problems
+running Web services, the components might not have installed correctly. Follow
+the steps in the section &quot;Verifying Database Connection Strings&quot; to
+recompile and register the necessary files. Make sure you have updated SOAPVDIR
+on the virtual directory in the section &quot;Installing the Samples&quot;. <o:p></o:p></span></p>
+
+</blockquote>
+
+<h3><a name="Running_the_Client_Form"><span style='font-family:Verdana'>Running
+the Client Form</span></a><span style='font-family:Verdana'><o:p></o:p></span></h3>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>The client form
+demonstrates working with multiple disconnected records returned from the <span
+class=SpellE>Northwind</span> database through Web services. It also generates
+XML <span class=SpellE>DiffGrams</span> that are sent to the Web services to
+update, insert and delete records form the <span class=SpellE>Northwind</span>
+database. The Visual FoxPro Web service uses the <span class=SpellE>XMLAdapter</span>
+class to reconstruct the changed cursor in the middle-tier and attaches it to a
+<span class=SpellE>CursorAdapter</span> object, which performs simple data
+validation using the <span class=SpellE>BeforeCursorUpdate</span> event. This
+event occurs before data is sent to the database. You can use <span
+class=SpellE>CursorAdapter</span> events to customize your table update
+operations. If you want design-time data binding and know the table schemas,
+you can also use the <span class=SpellE>CursorAdapter</span> on the client.<o:p></o:p></span></p>
+
+<h5><span style='font-family:Verdana'>To run the client form&nbsp;<o:p></o:p></span></h5>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l16 level1 lfo16;tab-stops:list .5in'><span style='font-size:
+     10.0pt;font-family:Verdana'>In the Visual FoxPro Command window, run the <span
+     class=SpellE>frmCustomersWS</span> form from the Visual FoxPro <span
+     class=GramE>directory ..</span>\Samples\<span class=SpellE>WebServices\Northwind</span>
+     by typing DO FORM <span class=SpellE>frmCustomersWS</span>.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l16 level1 lfo16;tab-stops:list .5in'><span style='font-size:
+     10.0pt;font-family:Verdana'>Select the Access method from the drop-down
+     list located in the upper right location of the form. It defaults to
+     Visual FoxPro Web Service.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l16 level1 lfo16;tab-stops:list .5in'><span style='font-size:
+     10.0pt;font-family:Verdana'>At the top of the form, click Find Customers.
+     This returns an XML <span class=SpellE>DataSet</span>, which displays as a
+     cursor in the grid that appears on the form.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l16 level1 lfo16;tab-stops:list .5in'><span style='font-size:
+     10.0pt;font-family:Verdana'>To view the <span class=SpellE>DataSet</span>,
+     at the bottom of the form, click Show Dataset.&nbsp;<o:p></o:p></span></li>
+</ol>
+
+<h5><a name="Updating_Data"><span style='font-family:Verdana'>Updating Data</span></a><span
+style='font-family:Verdana'>:<o:p></o:p></span></h5>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo17;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>Make changes in a record and click <span class=GramE>Save</span>.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo17;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>To view the <span class=SpellE>DiffGram</span> sent
+     to the Web service, at the bottom of <span class=GramE>the for</span>,
+     click Show <span class=SpellE>DiffGram</span>.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo17;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>To retrieve the data and verify changes, click Find
+     Customers.<o:p></o:p></span></li>
+</ol>
+
+<h5><a name="Inserting_Data"><span style='font-family:Verdana'>Inserting Data:</span></a><span
+style='font-family:Verdana'><o:p></o:p></span></h5>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l8 level1 lfo18;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>To add a new record in the grid, scroll to the last
+     record and press the DOWN arrow. <o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l8 level1 lfo18;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>Type an ID and a company name and click <span
+     class=GramE>Save</span> to insert the record.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l8 level1 lfo18;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>To view the <span class=SpellE>DiffGram</span> sent
+     to the Web service, at the bottom of <span class=GramE>the for</span>,
+     click Show <span class=SpellE>DiffGram</span>.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l8 level1 lfo18;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>To retrieve the data and verify changes, click Find
+     Customers.<o:p></o:p></span></li>
+</ol>
+
+<h5><a name="Deleting_Data"><span style='font-family:Verdana'>Deleting Data</span></a><span
+style='font-family:Verdana'>:<o:p></o:p></span></h5>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l19 level1 lfo19;tab-stops:list .5in'><span style='font-size:
+     10.0pt;font-family:Verdana'>To delete the record you just added, click the
+     delete mark and click Save.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l19 level1 lfo19;tab-stops:list .5in'><span style='font-size:
+     10.0pt;font-family:Verdana'>To view the <span class=SpellE>DiffGram</span>
+     sent to the Web service, at the bottom of <span class=GramE>the for</span>,
+     click Show <span class=SpellE>DiffGram</span>.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l19 level1 lfo19;tab-stops:list .5in'><span style='font-size:
+     10.0pt;font-family:Verdana'>To retrieve the data and verify changes, click
+     Find Customers.<o:p></o:p></span></li>
+</ol>
+
+<h5><a name="Middle-tier_Validation_Messages"><span style='font-family:Verdana'>Middle-Tier
+Validation Messages</span></a><span style='font-family:Verdana'>:<o:p></o:p></span></h5>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Validation and error
+messages are sent to the client through a reference parameter when calling the <span
+class=SpellE>UpdateSingleTable</span> method of the Web service. To view this,
+open the form's <span class=GramE>Save</span> method. You can test the
+validation message by inserting or updating a record without specifying a value
+for Company Name. The validation message appears in a message box.<o:p></o:p></span></p>
+
+<h5><a name="Database_Errors_Messages"><span style='font-family:Verdana'>Database
+Error Messages</span></a><span style='font-family:Verdana'>:<o:p></o:p></span></h5>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>Database messages are
+sent to the client through the same referenced parameter. You can test database
+<span class=SpellE>database</span> messages by inserting or updating a record without
+specifying a value for <span class=SpellE>CustomerID</span>. You can also try
+deleting a customer who has orders or inserting a duplicate value for <span
+class=SpellE>CustomerID</span>. The database message appears in a message box
+on your screen.<o:p></o:p></span></p>
+
+<h3><a name="CursorAdapter_with_XMLAdapter_on_the_Cli"></a><span class=SpellE><span
+style='mso-bookmark:CursorAdapter_with_XMLAdapter_on_the_Cli'><span
+style='font-family:Verdana'>CursorAdapter</span></span></span><span
+style='mso-bookmark:CursorAdapter_with_XMLAdapter_on_the_Cli'><span
+style='font-family:Verdana'> with <span class=SpellE>XMLAdapter</span> on the
+Client</span></span><span style='font-family:Verdana'><o:p></o:p></span></h3>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>This sample also includes
+a second client form that uses a <span class=SpellE>CursorAdapter</span> class
+with the <span class=SpellE>XMLAdapter</span> class called <span class=SpellE>frmCustomersCA.scx</span>.
+This client form makes it possible for you to design forms and use data binding
+in the same manner as when working with local tables. You can drag fields from
+the <span class=SpellE>CursorAdapter</span> object to the form, which sets the <span
+class=SpellE>ControlSource</span> property automatically to the <span
+class=SpellE>CursorAdapter</span> fields that you added. <o:p></o:p></span></p>
+
+<h5><span style='font-family:Verdana'>To run the client form<o:p></o:p></span></h5>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l7 level1 lfo20;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>In the Visual FoxPro Command window, run the <span
+     class=SpellE>rmCustomersCA</span> form from the Visual FoxPro <span
+     class=GramE>directory ..</span>\Samples\<span class=SpellE>WebServices\Northwind</span>
+     by typing DO FORM <span class=SpellE>rmCustomersCA</span>.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l7 level1 lfo20;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>Select the Access method from the drop-down list
+     located in the upper right location of the form. It defaults to Visual
+     FoxPro Web Service.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l7 level1 lfo20;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>At the top of the form, click Find Customers. This
+     returns an XML <span class=SpellE>DataSet</span>. This <span class=SpellE>DataSet</span>
+     is attached to a <span class=SpellE>CursorAdapter</span> in the form's <span
+     class=SpellE>DataEnvironment</span> and is bound to the grid and text
+     boxes on the form.<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l7 level1 lfo20;tab-stops:list .5in'><span style='font-size:10.0pt;
+     font-family:Verdana'>To view the <span class=SpellE>DataSet</span>, at the
+     bottom of the form, click Show Dataset.&nbsp;<o:p></o:p></span></li>
+</ol>
+
+<h3><a name="VFP_Client_and_VFP_XML_Web_Service"><span style='font-family:Verdana'>Visual
+FoxPro Client and Visual FoxPro XML Web Service</span></a><span
+style='font-family:Verdana'> Diagram<o:p></o:p></span></h3>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'><img border=0 width=1016
+height=527 id="_x0000_i1025" src=readme1.gif><o:p></o:p></span></p>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'>&nbsp;<o:p></o:p></span></p>
+
+<h3><a name="VFP_Client_and_VB.NET_XML_Web_Service"><span style='font-family:
+Verdana'>Visual FoxPro Client and Visual Basic .NET XML Web Service</span></a><span
+style='font-family:Verdana'> Diagram<o:p></o:p></span></h3>
+
+<p><span style='font-size:10.0pt;font-family:Verdana'><img border=0 width=956
+height=380 id="_x0000_i1026" src=readme2.jpg><o:p></o:p></span></p>
+
+<h3><span style='font-family:Verdana'>&nbsp;<o:p></o:p></span></h3>
+
+</div>
+
+</body>
+
+</html>

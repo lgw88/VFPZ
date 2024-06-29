@@ -1,0 +1,83 @@
+****************************************************************************************************
+MAIN EXECUTION  2019-03-05T13:20:48
+****************************************************************************************************
+> EXTERNAL PARAMETERS:
+	tc_InputFile:                 C:\Users\dhennig\Desktop\Tools\Samples\Solution\Ffc\whandler.scx
+	tcType:                       BIN2PRG
+	tcTextName:                   0
+	tlGenText:                    0
+	tcDontShowErrors:             1
+	tcDebug:                      1
+	tcDontShowProgress:           1
+	tlRelanzarError:              (empty)
+	tcOriginalFileName:           (empty)  -> Will use Default [C:\Users\dhennig\Desktop\Tools\Samples\Solution\Ffc\webvwr.scx]
+	tcRecompile:                  C:\Users\dhennig\Desktop\Tools\Samples\Solution\Ffc
+	tcNoTimestamps:               1
+	tcBackupLevels:               (empty)  -> Will use Default [0]
+	tcClearUniqueID:              (empty)  -> Will use Default [.T.]
+	tcOptimizeByFilestamp:        (empty)  -> Will use Default [0]
+
+> USING THIS SETTINGS: D:\DEVELOPMENT\TOOLS\THOR\THOR\TOOLS\COMPONENTS\FOXBIN2PRG\FOXBIN2PRG.CFG  => C:\Users\dhennig\Desktop\Tools\Samples\Solution\Ffc\whandler.scx
+> Option: BIN2PRG
+> InputFile is a FILE
+
+****************************************************************************************************
+CONVERSION PROCESS  2019-03-05T13:20:48
+****************************************************************************************************
+> USING THIS SETTINGS: D:\DEVELOPMENT\TOOLS\THOR\THOR\TOOLS\COMPONENTS\FOXBIN2PRG\FOXBIN2PRG.CFG  => C:\Users\dhennig\Desktop\Tools\Samples\Solution\Ffc\whandler.scx
+	c_OriginalFileName:           C:\Users\dhennig\Desktop\Tools\Samples\Solution\Ffc\whandler.scx
+
+	c_foxbin2prg.changefileattribute >> [C:\Users\dhennig\Desktop\Tools\Samples\Solution\Ffc\whandler.SC2] lnRet = 0, dwFileAttributes_Orig = -1
+
+	Converting file C:\Users\dhennig\Desktop\Tools\Samples\Solution\Ffc\whandler.SC2...
+		- File: C:\Users\dhennig\Desktop\Tools\Samples\Solution\Ffc\whandler.SC2 (8.54/8.54 KiB)
+
+
+****************************************************************************************************
+MAIN EXECUTION  2019-03-05T13:20:48
+****************************************************************************************************
+> EXTERNAL PARAMETERS:
+	tc_InputFile:                 C:\Users\dhennig\Desktop\Tools\Samples\Solution\Ffc\_agent.h
+	tcType:                       BIN2PRG
+	tcTextName:                   0
+	tlGenText:                    0
+	tcDontShowErrors:             1
+	tcDebug:                      1
+	tcDontShowProgress:           1
+	tlRelanzarError:              (empty)
+	tcOriginalFileName:           (empty)  -> Will use Default [C:\Users\dhennig\Desktop\Tools\Samples\Solution\Ffc\whandler.scx]
+	tcRecompile:                  C:\Users\dhennig\Desktop\Tools\Samples\Solution\Ffc
+	tcNoTimestamps:               1
+	tcBackupLevels:               (empty)  -> Will use Default [0]
+	tcClearUniqueID:              (empty)  -> Will use Default [.T.]
+	tcOptimizeByFilestamp:        (empty)  -> Will use Default [0]
+
+> USING THIS SETTINGS: D:\DEVELOPMENT\TOOLS\THOR\THOR\TOOLS\COMPONENTS\FOXBIN2PRG\FOXBIN2PRG.CFG  => C:\Users\dhennig\Desktop\Tools\Samples\Solution\Ffc\_agent.h
+> Option: BIN2PRG
+> InputFile is unsupported
+
+
+****************************************************************************************************
+MAIN EXECUTION  2019-03-05T13:20:48
+****************************************************************************************************
+> EXTERNAL PARAMETERS:
+	tc_InputFile:                 C:\Users\dhennig\Desktop\Tools\Samples\Solution\Ffc\_PoolManager.sct
+	tcType:                       BIN2PRG
+	tcTextName:                   0
+	tlGenText:                    0
+	tcDontShowErrors:             1
+	tcDebug:                      1
+	tcDontShowProgress:           1
+	tlRelanzarError:              (empty)
+	tcOriginalFileName:           (empty)  -> Will use Default [C:\Users\dhennig\Desktop\Tools\Samples\Solution\Ffc\whandler.scx]
+	tcRecompile:                  C:\Users\dhennig\Desktop\Tools\Samples\Solution\Ffc
+	tcNoTimestamps:               1
+	tcBackupLevels:               (empty)  -> Will use Default [0]
+	tcClearUniqueID:              (empty)  -> Will use Default [.T.]
+	tcOptimizeByFilestamp:        (empty)  -> Will use Default [0]
+
+> USING THIS SETTINGS: D:\DEVELOPMENT\TOOLS\THOR\THOR\TOOLS\COMPONENTS\FOXBIN2PRG\FOXBIN2PRG.CFG  => C:\Users\dhennig\Desktop\Tools\Samples\Solution\Ffc\_PoolManager.sct
+> Option: BIN2PRG
+> InputFile is unsupported
+
+
