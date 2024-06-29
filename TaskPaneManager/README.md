@@ -1,0 +1,4 @@
+# Task Pane Manager
+The Task Pane Manager displays links to useful information and dialogs for performing essential tasks. Individual panes can contain static or dynamic information, gather content from the Internet, expose wizards to accomplish routine tasks, display Help, and present samples. Users can create customized panes that can be shared with other users.
+
+Task Pane Manager is part of [XSource](https://github.com/VFPX/XSource), the source files for various Visual FoxPro components. The license governing XSource can be found in the XSource_EULA.txt included with all of the XSource releases.

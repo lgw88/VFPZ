@@ -1,0 +1,33 @@
+Version=  1.20
+Author=
+Company=
+Address=
+City=
+State=
+Zip=
+Country=
+SaveCode=.T.
+Debug=.T.
+Encrypt=.F.
+NoLogo=.F.
+CommentStyle=1
+Comments=
+CompanyName=
+FileDescription=
+LegalCopyright=
+LegalTrademarks=
+ProductName=
+Major=
+Minor=
+Revision=
+AutoIncrement=.F.
+[OLEServers]
+[OLEServersEnd]
+[ProjectFiles]
+ 925860269,K,run_tdx.scx,.F.,.T.,1252,,,
+ 925860271,K,forms\tabledesignerx.scx,.F.,.F.,1253,,,
+ 925860271,K,forms\property_sheet.scx,.F.,.F.,1253,,,
+ 925860279,T,include\tdx.h,.F.,.F.,1252,,,
+ 925860281,M,menus\tdx_list.mnx,.F.,.F.,1252,,,
+ 925860285,P,progs\table_manager.prg,.F.,.F.,1252,,,
+[EOF]
