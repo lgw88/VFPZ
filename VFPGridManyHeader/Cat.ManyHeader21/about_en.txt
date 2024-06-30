@@ -1,0 +1,430 @@
+*!*******************************************************
+* Product: Vfp Grid ManyHeader
+* Version: 2.1.0.0
+* Country: China
+* Author : LingFeng Shi
+* Date   :
+* Email  : ydks@pub1.qz.fj.cn
+* Test environment: Win2000 Advanced Server, WinXP Home, Win2003
+*                   Chinese version of VFP9SP2
+*!*******************************************************
+
+What is the ManyHeader ?
+1. Allow 2 of headers per column. These custom headers can also be merged with one another
+2. Provide a more intuitive operation and interface for the grid¡¯s lock columns feature
+3. Address the flaw: a column can¡¯t be moved after having been locked
+4. Resolve the problem: user can unlock columns by right clicking with their mouse.
+5. Support Theme (new for ver 2.1)
+*** 
+*** Alert: Ver 2.1 Or later only run in vfp9
+*** 
+
+History:
+--- 2008-07-07
+Add14-1: MergeHeader method can Designated new header height. If value Equivalent to -1 or not designated, The average allocation grid's headerheight.
+Add14-2: If change header height in runtime, try move mouse to The bottom left corner
+	Note:When you restore header height to the average allocation grid's headerheight. Hold down the adjustment of the high and move up, and let the mouse out of from grid. If you want to adjust the merger is all out of the height, please release the mouse before the press the Ctrl keyboard letting go, until the completion of adjustment.
+Add14-3: Use \n as the line breaks. If you need the characters, use \\n.
+Add14-4: Add property _FontName, _FontSize, _FontStyle, _BackColor, _ForeColor And _Align, When you combined the head when the head table will default to this property,Cancel the original header from the first row of the set.
+***
+*** thanks to JimRNelson
+***
+
+-- 2008-07-06
+Add13-1: can be edited directly part property in gird's header
+	Property list: Caption, ForeColor, FontName, FontSize, FontBold, FontItalic, FontStrikethru, FontUnderline
+	Note: When lTheme = .T., ForeColor there is no role.
+Fix13-1: very sorry very serious mistake, when lTheme With .T., class title no refresh.
+
+-- 2008-07-05 
+Add12-1: Invoke on original headers events.
+	Event list: Click, RightClick, DblClick, MouseMove, MouseDown, MouseUp, MouseEnter, MouseLeave, MouseWheel, MiddleClick
+Add12-2: Resolution of the ManyHeader original of main ManyHeader events.
+	Event list: OnLock, OnDrag, OnClick, OnRightClick, OnDblClick, OnMouseMove, OnMouseDown, OnMouseUp, OnMouseEnter, OnMouseLeave, OnMouseWheel, OnMiddleClick
+***
+*** thanks to JimRNelson
+***
+
+--- 2008-06-26
+Add11-1: Support Theme.
+
+--- 2008-06-24
+Fix10-1: When close Grid.RecordSource and remove ManyHeader, form can't be destroy.
+
+--- 2008-06-20
+Add9-1: Bindevent column's Width£¬you can changed the column width in program.
+Fix9-1: That some less important results.
+
+--- 2008-06-18
+Fix8-1: Repair use the right mouse button lock out, if the column was away, this judgement should be locked out several errors
+
+--- 2008-06-17
+Add7-1: Bindevent grid's headerheight£¬you can changed the grid headerheight in program.
+Add7-2: Bindevent grid's visible
+Add7-3: When grid's parent is container, Bindevent then container resize event
+		* vfp9 bug!, when container's height zero, Most containers are still the object is visible
+
+--- 2008-05-20
+Fix6-1:The error of scope that segmentation line betwen the two header can be placed where 
+
+--- 2008-05-05
+Fix5-1: The error will be trigger when Grid.ColumnCount = 0.
+Fix5-2: The error will be trigger while user move mouse into ManyHeader and click it and if the ManyHeader object was release by code in Vaild event
+
+--- 2008-05-04
+Add4-1: Add Hidden Property "ClassLibraryRoot", now you can drag and drop or Derivative it into other class library files, But I hope the name of each class you derived is not the same.
+
+--- 2008-04-28
+Fix3-1: User can drag and drop any column that unlocked and can moved into area that locked by custom property nMinLock ,even user had set custom property nMinLock.
+
+--- 2008-04-21
+Add2-1: Add custom property nMinLock,minimal number of lock columns,To prevent inadvertent operation of unlock columns.Yet,custom method HeaderLock() is not limit for it.
+Add2-2: Add custom property lAlignment,to read value of Alignment for Column.Header .
+Add2-3: Auto-adjust width of header when user double click mouse on segmentation line between the two header.
+
+Fix2-1: When grid be split to far right,An error occurred:LOHEADER is not an object.
+Fix2-2: When double click on segmentation line betwen the two header,the line don't AutoFit 
+Fix2-3: Application will crash if form have more than one instance of subclass that have Different styles.
+Fix2-4: Class instance will disappearance when form lost focus if selected cell is not visible(by scrolling).
+Fix2-5: The error of place for segmentation line betwen the two header.
+Fix2-6: When arbitrarya columns of group are locked,while other columns are being hidden or away, columns locked will can't unlock.
+
+--- 2008-04-20
+Fix1-1: Array overflow When a wide range to be lock.
+Fix1-2: Class instance can't scroll with column in vfp9sp2(it's possible to still can't scroll in vfp9sp1).
+Fix1-3: Columns can't AutoFit when double click mouse on upper left corner of grid.(thank to dkfdtf)
+
+
+Crucial£º
+1. While container is be draw,at runtime,every Column of grid will be add two custom property:nIndex and aRefHeaders.
+   while you use this class,if you had define same property in your column,it's possible that some error occurred.
+2. container that include grid will be add instance of this class after grid was splited.
+3. Form will be add a object that it name is __UnLockScreen at runtime.
+   While you use this class,if you had same name object in form,it's possible that some error occurred.
+4. For different styles,so,members of every header(LineTop,LineBottom,LineLeft,LineRight,Header1)can be free to set property.
+
+To solve:
+1. Screen will be locked when user click on horizontal scroll bar.so,you can't drag horizontal scrool bar,and the state of horizontal scroll bar will be display in time.
+2. Column will be locked on the right.
+3. user will have to write arbitrarya codes in Valid when Grid.AllowCellSelection = .F.
+4. support skin
+5. Class instance will disappearance when grid was unsplite after grid was splite.
+
+stipulation:
+1. In the following text,ManyHeader is the name of class instance that in form.
+2. In the following text,grid is object that will always pass to custom method HeaderInit.
+3. In the following text,column? is one column of grid.
+4. In the following text,ColumnOrder is property of column.
+5. In the following text,Header is member of ManyHeader.
+6. In the following text,form is object that include ManyHeader and grid.
+
+Note:
+	*-- Group header will can't move if all of columns that in a group is set to movable = .F. .
+	*-- Group header will can't resize if all of columns that in a group is set to resizable = .F. .
+	*-- The difference between the width because of resize group header will be shared in every column of group.The width of The last column will include remainder that not be sharing.
+
+
+	*-- Custom property
+	nMinLock
+        Value type   : Numeric
+        Default value: none
+        R/W          : read/write
+        minimal number of lock columns.
+        Remarks:
+        Custom method HeaderLock() is not limit for it.
+
+	lAlignment
+        Value type   : Logical
+        Default value: False
+        R/W          : read/write
+        Column.Header.Alignment is available when lAlignment = .T.
+
+	nDeleteMask
+        Value type   : Numeric
+        Default value: 8
+        R/W          : read/write
+        The width of grid DeleteMask
+
+	nRecordMask
+        Value type   : Numeric
+        Default value: 10
+        R/W          : read/write
+        The width of grid RecordMask
+
+	nTopOffset
+        Value type   : Numeric
+        Default value: 0
+        R/W          : read/write
+        Offset at the top.To be use other effect.Allow for the negative.
+
+	nLeftOffset
+        Value type   : Numeric
+        Default value: 0
+        R/W          : read/write
+        Offset at the left.To be use other effect.The left and width of header base on this value.Allow for the negative.
+
+	nRef
+        Value type   : Numeric
+        Default value: -1
+        R/W          : read only
+        It is used to describe that the class instance is which instance.
+        Remarks:
+        1. nRef = 1 for first class instance.
+        2. nRef = 2 after class instance was splited.
+
+	nPanel 
+        Value type   : Numeric
+        Default value: 1 = left
+        R/W          : read/write
+        Object reference will put left panel of grid when nPanel = 1 - left(default);Against,Object reference will put right panel of grid when nPanel = 0 - right.
+
+	lSplitBar
+        Value type   : Logical
+        Default value: True
+        R/W          : read/write
+        It's auto when grid was splited if lSplitbar = .T. . Note that class instance will don't respond to user events.In other words,You will only be able to watch it.(You will be located in a state that wait indefinitely if you try to make it respond to user events:) )If this is not you want,you will have to set lSplitBar = .F. ,and put two ManyHeader into a container that include grid.
+
+	oRefGrid
+        Value type   : object
+        Default value: .null.
+        R/W          : read only
+	Object reference of grid that was passed to custom method InitHeader.
+
+	oRefPanel
+        Value type   : object
+        Default value: .null.
+        R/W          : read only
+        it's object reference of header that was split when grid was auto-split.
+        Remarks:
+        It is also to grid that was splited. Along the following lines:A -> B -> A
+
+	oRefControl
+        Value type   : object
+        Default value: .null.
+        R/W          : read only
+        Object reference of Additional tools.
+
+
+        *-- custom method/event
+
+        InitHeader(oGrid)
+        Describe : initialize ManyHeader instance.
+        Syntax   : [Form.]Object.InitHeader(oGrid)
+        Parameter:
+            oGrid      object.Grid have to in a container that include ManyHeader instance also.
+        Return value:none
+
+	MergeHeader(nStart, nEnd, cCaption)
+        Describe  : Some columns of grid will be unite into a new group header.
+        Syntax    : [Form.]Object.MergeHeader(nStart, nEnd, cCaption)
+        Parameter :
+            nStart     Numeric.First columns of group.Its value is equal to Grid.Column.ColumnOrder of first column.
+            nEnd       Numeric.End columns of group.Its value is equal to Grid.Column.ColumnOrder of end column.
+            cCaption   Character.Caption of group header.
+        Return value: object of group header.
+        Remarks   :
+        1. New group will have column if it already exists in other groups,and other groups will lose this column.
+        2. ColumnOrder will remain the same if columns that will be add a new group don't belong to any one group.
+        3. If member of new group already exists in other groups,and it's in the far left or far right of group,then,new group will be created in left or right of the original group,and ColumnOrder will remain the same.
+        4. If member of new group already exists in other groups,and it is not in the far left or far right of group,then,newgroup will be created in left of original group,and ColumnOrder will be automatically adjusted.
+        5. Don't have any variables pointing to the merger within the target header before use this method.It might be released after the completion of the operation.
+        6. Although the general header will never be released, but their property information has been immediately changed,and will give rise to accidents if you try to use it.
+
+        GetHeaderLeft(oHeader)
+        Describe   : It will be get object that left neighbors of oHeader.This object will hidden if Visible = .F. .
+        Syntax     : [Form.]Object.GetHeaderLeft(oHeader)
+        Parameter  :
+            oHeader    Object. Header.
+        Return value: Object or .null.
+
+        GetHeaderRight(oHeader)
+        Describe   : It will be get object that right neighbors of oHeader.This object will hidden if Visible = .F. .
+        Syntax     : [Form.]Object.GetHeaderRight(oHeader)
+        Parameter  :
+            oHeader    Object. Header.
+        Return value: Object or .null.
+
+        GetColumn(nColumnOrder)
+        Describe  : It will be get object of grid column.
+        Syntax    : [Form.]Object.GetColumn(nColumnOrder)
+        Parameter :
+            nColumnOrder   Numeric. ColumnOrder of grid column.
+        Return value:Object
+        Remarks   :
+        1. you can pointing to corresponding header through property aRefHeaders[nRef] of returned object.
+        2. Property oRefup that returned object is already the target of the group header.
+
+        HeaderRedraw()
+        Describe   : It will redraw objects of headers.
+        Syntax     : [Form.]Object.HeaderRedraw()
+        Parameter  : None
+        Return value: None
+
+        HeaderResize()
+        Describe   : it will resize ManyHeader after grid was resize.
+        Syntax     : [Form.]Object.HeaderResize()
+        Parameter  : None
+        Return value: None
+
+        HeaderDelete(<oHeader|nColumnOrder>)
+        Describe   : Header that selected will be deleted.
+        Syntax     : [Form.]Object.(<oHeader|nColumnOrder>)
+        Parameter  :
+            oHeader        Object. Header.
+            oColumnOrder   Numeric. ColumnOrder of grid column.
+        Return value: None
+        Remarks    :
+        1. ColumnOrder will remain the same if Header that selected is the far left or far right of group.
+        2. Header will be moved and become right neighbors of group if header that selected is not the far left or far right of group.
+        3. If the group has one and only one member,Group will be disband and group header will be auto-deleted after member was deleted.
+
+        HeaderSwap(oHeaderA, oHeaderB)
+        Describe   : It will swap the location(ColumnOrder) of two headers.
+        Parameter  :
+            oHeaderA      Object. first header.
+            oHeaderB      Object. second header.
+        Return value : None
+        Remarks    :
+        1. They will be directly swapped if two headers is not in any group.
+        2. They will be directly swapped if two headers is in same group.
+        3. Group will be swapped If two headers belong to different groups.
+
+        HeaderLock(nVal)
+        Describe   : To lock nVal columns from current leftColumn of grid began.
+        Parameter  :
+            nVal    Numeric.Number of columns that will be locked
+        Return value: None
+        Remarks    :
+        1. Columns before LeftColumn will be moved and become right neighbors of columns that locked.
+        2. It's default to use LockColumns or LockColumnsLeft in vfp9.
+
+
+
+
+        OnClick(oHeader)
+        Describe   : Custom event.Occurs when the user clicks a header.
+        Parameter  :
+            oHeader   Object.Header.
+        Remarks    :
+        1. It will call the click event of corresponding Grid.Column.Header in defulat.If you add code in this event,then,code that added will be run.
+
+        OnRightClick(oHeader)
+        Describe   : Custom event.Occurs when the user rightclick a header.
+        Parameter  :
+            oHeader   Object.Header.
+        Remarks    :
+        1. It will call the rightclick event of corresponding Grid.Column.Header in default.If you add code in this event,then,code that added will be run.
+
+        OnDblClick(oHeader)
+        Describe   : Custom event.Occurs when the user presses and releases the mouse button twice in quick succession on a header.
+        Parameter  :
+            oHeader   Object.Header.
+        Remarks    :
+        1. It will call the DblClick enent of corresponding Grid.Column.Header in default.If you add code in this event,then,code that added will be run.
+
+        OnDrag(oHeader, nType)
+        Describe   : Custom event.Occurs after header was drag and drop.
+        Parameter  :
+            oHeader   Object.Header.
+            nType     Numeric.Header will be moved to left when nType = 0;Header will be moved to right when nType = 1.
+
+        OnStyle(oHeader, oColumnHeader)
+        Describe   : Custom event.Occurs after header was created.
+        Parameter  :
+            oHeader         Object.Header.
+            oColumnHeader   Object.Corresponding Grid.Column.Header
+        Remarks    :
+        1. Some codes already exists in this event.If you add custom code in this event,then,Code that added wil be run.Default code will be not run.
+        2. Note for member of Header:
+           oHeader.Header1         Label,all property can be set up in addition to Name property.
+           oHeader.LineTop         Line,all property can be set up in addition to Name property.
+           oHeader.LineBottom      Line,all property can be set up in addition to Name property.
+           oHeader.LineLeft        Line,all property can be set up in addition to Name property.
+           oHeader.LineRight       Line,all property can be set up in addition to Name property.
+        3. oHeader.Header1.Left,oHeader.Header1.Top,oHeader.header1.Width,oHeader.header1.Height will be reset after HeaderRedraw.Object that LineTop or LineLeft is also.
+        4. HeaderRedraw will be call after object was scrolled
+
+        OnResize(oHeader)
+        Describe   : Custom event.Occurs after resize event of header.
+        Parameter  :
+            oHeader    Object.Header.
+        Remarks    :
+        It is generally used for custom header style.
+
+
+
+	*-- Property that added at runtime for Grid.Column
+	Column.nIndex		Numeric. Index of grid.column
+	Column.aRefHeaders 	array object,point to corresponding header.
+                                      When you have more than a ManyHeader for same grid,Array dimension will increase.
+
+
+	*-- Note for subobject of header
+	*-- Header is a container.its property can be set up.
+	Header.nType 		Numeric. Type of header: 0 - general header,1 - header in group,2 - group header
+	Header.lMovable 	Logical. Whether the columns can be moved.its value is Grid.Column.Movable in defalut.
+	Header.lResizable 	Logical. Whether the columns can be resize.its value is Grid.Column.Resizable in default.
+	Header.nMegeCount 	Numeric. Member number of group.
+	Header.oRefup		Object.It can be point to group header for member of group.For group header or general header,its value is Null.
+	Header.aRefColumns 	Arry object.You can enumerate column member compared to grid.for group header,you can have some members.
+	*-- subobject of header
+	Header.HeaderSort(0|1)
+	*-- Describe : It can be use to group header only.to sort members by current ColumnOrder
+	*-- Parameter:
+		* 0			ascending
+		* 1			descending
+	*-- Remarks:Members of the order will be very frequent adjustments while header was moved.To ensure that the order is expected, please sort before enumerate members.
+
+
+
+
+	Others......
+	*-- Type of oheader in event
+	Do Case
+	Case toHeader.nType = 0
+		*-- Object is general header
+	Case toHeader.nType = 1
+		*-- Object is header in group
+	Case toHeader.nType = 2
+		*-- Object is group header
+	EndCase
+
+
+	1. Caption of general header is Grid.Column.Header.Caption after InitHeader,you can use object that have same caption of Grid.Column.Header and set up property .
+		Samples: 
+			Form.ManyHeader.Column1.Header1.Caption = "New Caption"
+			Form.ManyHeader.Column1.BackColor = Rgb(255, 0, 0)
+
+	2. oRefHeader that new added in every columns will point to corresponding object of class.
+		Samples: 
+			Form.Grid.Column1.oRefHeader.Caption = "New Caption"
+			Form.Grid.Column1.oRefHeader.BackColor = Rgb(255, 0, 0)
+
+	3. Caption of group will be Sys(2015) also.If you don't save group,then,you can find this object by oRefup only.
+		Sample1:
+			lo = Form.ManyHeader.MergeHeader(1, 2, "New group")
+			lo.Caption = "NewGroup2"
+			--or--
+			Form.ManyHeader.Column1.oRefup.Caption = "NewGroup2"
+			--or--
+			Form.Grid.Column1.aRefHeaders[1].oRefup.Caption = "NewGroup2"
+		Sample2:
+			lo = Form.ManyHeader.MergeHeader(1, 2, "New group")
+			lo.Name = "NewHeader"
+			Form.ManyHeader.NewHeader.Caption = "NewGroup2"
+
+	4. All object of columns can be find by enumerate array aRefColumns of group.
+		Samples:
+			For Each loColumn In Form.ManyHeader.Column1.oRefup.aRefColumns
+				? loColumn.ControlSource
+			EndFor
+
+	5. ALL header that corresponding columns can be find by enumerate array aRefHeaders of group.
+		Samples:
+			For Each lo In Form.Grid.Column1.aRefHeaders
+				? lo.Caption = "Rename all header caption"
+			EndFor
+
+	6. You can rename Grid.column.header.caption in runtime,but,caption of header in class will be not rename never.
+
+	7. You can't add/deleted columns in grid at runtime.in this case,please use HeaderInit().

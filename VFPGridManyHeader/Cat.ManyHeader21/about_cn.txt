@@ -1,0 +1,413 @@
+*!*******************************************************
+* 项目名称: Vfp Grid ManyHeader
+* 项目版本: 2.1.0.0
+* 国    家: China
+* 作    者: 施凌峰
+* 日    期:
+* Email  : ydks@pub1.qz.fj.cn
+* 测试环境: Win2000 Advanced Server, WinXP Home, Win2003
+*                   Chinese version of VFP9SP2
+*!*******************************************************
+***
+*** 如果它确实对您有所帮助，并且你也非常喜欢，您可以通过网上汇款略表您的心意，让我们在辛劳制作中得到欣慰, 谢谢。
+***
+*** 银行账号
+*** 中国工商银行： 9558 8014 0810 5404 077 
+*** 中国建设银行： 4367 4218 3350 0044 031 
+*** 开户人：施凌峰
+***
+*** 赞助金额不限，只作对我们努力的认可。
+***
+*** 我们的网址：http://xykjsoft.blog.163.com
+***
+***
+*** 测试环境：Windows 2000、Windows XP
+*** 开发语言：Vfp9 SP2
+***
+
+Ver 2.1 主要功能描述
+*** 
+*** 注意：2.1 版不再支持 vfp6，只能运行于 Vfp9 ！！
+*** 
+1. 双层列标头。
+2. 提供简易与可视的锁列标记。
+3. 可随时自定义拆并组。
+4. 支持 Theme。
+
+*** 难以解决的问题。
+1. Grid 的 Valid 事件必须要随便写一行代码哪怕只是空行，不然 Grid 失去焦点时，表头会消失。
+
+*** 重要信息:
+	一、被绘制的表格对象它的每一个 Column 将会被新增两个属性 nIndex, aRefHeaders。
+		如果你的表格列有使用到这两个属性之一，你将不能正常使用这个类或者你的程序。
+	二、当表格被 SplitBar 拆分后，表格的同层容器将会添加一个本类的实例对象。
+	三、表格所在的表单将会被新增一个名为 __UnLockScreen 的对象。
+		如果你的表单使用到这个名称的对象，你将不能正常使用这个类或者你的程序。
+	四、如果你的系统支持 Theme，那么表格所在的表单将会被新增一个名为 Wm_ThemeChanged_Proxy 的对象。
+		如果你的表单使用到这个名称的对象，你将不能正常使用这个类或者你的程序。
+	五、每一个标头的 LineTop、LineBottom、LineLeft、LineRight、Header1 成员皆可自由设置属性，以便组合出各种不同表格效果
+	六、运行期间，会在 _Screen 添加 ThemeImage、Wm_Proxy 的属性。
+
+历史更新：
+
+--- 2008-07-07
+Add14-1: 在合并列时，允许指定合并列的高度
+Add14-2: 允许运行时调整合并标头的高度，当鼠标移动到合并标头的左下角时，鼠标将会变成垂直调整光标。
+	注意：如果想恢复为自动按表格的 HeaderHeight 分配高度，在鼠标变为垂直调整光标，按住鼠标并往上移动直至鼠标移出表格范围后松开。如果你想调整的是所有的合并列的高度，请在松开鼠标之前按下键盘的 Ctrl 不放，直至调整完成。
+Add14-3: 使用 \n 做为换行符。如果需要使用该字符，请使用 \\n。
+Add14-4: 在 ManyHeader 中新增属性_fontName, _FontSize 等属性，它们用来设置默认合并列标头的设置，同时取消原取合并最左列设置。
+** 感谢 vfpx 的 JimRNelson 提出以上意见
+
+--- 2008-07-06
+Add13-1: 可直接修改表格标头的属性。可以接受改变的属性包括：Caption, ForeColor, FontName, FontSize, FontBold, FontItalic, FontStrikethru, FontUnderline
+	注意：在 lTheme = .T. 时，ForeColor 不会起作用。
+Fix13-1: 很严重的失误，当 Theme = .T. 时，图片并不会自动更新。
+
+--- 2008-07-05
+Add12-1: 增加触发原标头的 MouseMove, MouseDown, MouseUp, MouseEnter, MouseLeave, MouseWheel, MiddleClick, Click, RightClick, DblClick 事件
+Add12-2: 被自动拆分的标头响应主要标头事件
+*** 感谢 vfpx 的 JimRNelson 提出以上意见。
+
+--- 2008-06-26
+Add11-1: 支持 Theme 主题。
+
+--- 2008-06-24
+Fix10-1: 当直接关闭表格的数据源并同时在表单上删除 ManyHeader 对象时，表单不能被释放的问题。
+
+--- 2008-06-20
+Add9-1: 绑定列的 Width 事件，允许在程序中直接调整列宽。
+Fix9-1: 修正一些不太重要效果。
+
+--- 2008-06-18
+Fix8-1: 修复使用鼠标右键锁列，如果列被收起，此时判断应锁列数错误。
+
+--- 2008-06-17
+Add7-1: 绑定 Grid.HeaderHeight 事件，允许程序中以程序代码的方式修改 Grid.HeaderHeight。
+Add7-2: 绑定 Grid.Visible 事件，允许程序中以程序的方式修改 Grid.Visible。
+Add7-3: 绑定表格容器的 Resize 事件，以避开 vfp9 中容器高度为0时，容器内仍有部份对象是可以看得见的 Bug 。
+
+--- 2008-05-20
+Fix6-1: 列宽调整条允许的调整范围计算错误。
+
+--- 2008-05-05
+Fix5-1: 当 Grid 对象 ColumnCount = 0 时程序报错。
+Fix5-2: 当 Combobox.Style = 0 时，如果让 Combobox 的 Valid 事件中删除表头实例，此时如果鼠标点在 ManyHeader 实例上，程序报错。
+
+--- 2008-05-04
+Add4-1: 增加 ClassLibraryRoot 属性，允许类被多次派生，但我希望你派生出来的每个类名称都不重名。
+
+--- 2008-04-28
+Fix3-1: 不允许用户拖放可移动的的列到被固定锁定的 mMinLock 指定的区域，除了直接使用 HeaderSwap() 指令。
+
+--- 2008-04-21
+Add2-1: 增加 nMinLock，最小锁定列数，防止锁定列被误解锁。但由程序发出 HeaderLock() 不受此限。
+Add2-2: 增加 lAlignment ，允许读取 Column.Header 的 Alignment 设置。
+Add2-3: 双击列宽调整条自动列宽
+
+Fix2-2: 修复拆分到至表格最右端不是对象的问题。
+Fix2-2: 修复双击列宽调整条的 AutoFit 
+Fix2-3: 修复当派生 ManyHeader 后，反复加载派生出来的不同样式的表头在切换时会挂掉。
+Fix2-4: 修复当表格选定行不可视时，表单离开焦点，表头消失的问题。
+Fix2-5: 修复列宽调整条位置错误
+Fix2-6: 修复虽然锁定组的左列，同时将组其他列隐藏时无法取消把组从锁中撤销的问题。
+
+--- 2008-04-20
+Fix1-1: 修复大范围锁定列时数组溢出
+Fix1-2: 修复 Vfp9 SP2 表头不能滚动的问题.
+Fix1-3: 修复 dkfdtf 提到的双击表格左上四方块的 AutoFit 问题
+
+约定:
+	以下文本所指的 ManyHeader 总是指放置在表单的本类派生对象名
+	以下文本所指的 Grid 总是指与本类派生对象 HeaderInit 后绑定的表格对象
+	以下文本所指的 Column? 总是指表格的 Column 列
+	以下文本所指的 ColumnOrder 总是指 Column 的 ColumnOrder 属性
+	以下文本所指的 Header 总是指 ManyHeader 中的标头成员
+	以下文本所指的 Form 总是指放放置 ManyHeader 与 Grid 表单对象
+说明:
+	当组内的所有列都不可移动时，组标头也不可移动
+	当组内的所有列都不可调整大小时，组标头也不可调整大小
+	调整组标头大小时，总是均分宽度到可调整大小的组内列成员上，无法均分的余数被加到最后一列。
+
+*--
+*-- 属性说明
+*--
+lTheme = .T.
+	类型: 逻辑
+	说明: 是否使用 xp 主题绘制表头
+
+nMinLock = 0
+	类型: 数值
+	说明: 最小锁定列，锁定控制不能解除小于该列的锁
+	注解: 由程序指令发出的 HeaderLock(0) 并不受此限制
+	取值范围: 0 < nMinLock <= ColumnCount
+
+lAlignment = .F.
+	类型: 逻辑
+	说明: 是否使用 Column.Header.Alignment 设置
+
+nDeleteMask = 8
+	类型: 数值
+	说明: 常量，指出表格的 DeleteMask 占用的宽度
+
+nRecordMask = 10
+	类型: 数值
+	说明: 常量，指出表格的 RecordMask 占用的宽度
+
+nTopOffset = 0
+	类型: 数值
+	说明: 表头顶边距表格顶的偏移值，如果表格另有其他外观效果，允许标头按此值往下移动，可以是正负值
+
+nLeftOffset = 0
+	类型: 数值
+	说明: 表头左边距表格左的偏移值，如果表格另有其他外观效果，允许标头按此值往下移动，可以是正负值
+
+nRef = 0 (只读)
+	类型: 数值 
+	说明: 说明这个标头是表格对象的第几个实例标头，通常用于对 Column.aRefHeaders[nRef] 中的存取
+	注解1: 第一个实例对象，nRef 为 1
+	注解2: 每一个实例对象被拆分后，nRef 为 2
+
+nPanel  = 1
+	类型: 数值
+	说明: 指出链接拆分表格的哪一边
+	取值范围: 0 = 右， 1 = 左
+
+lSplitBar = .T.
+	类型: 逻辑
+	说明: 表格拆分时，是否自动拆分。默认为 .T.，但自动拆分的表头将不响应用户事件
+	注解: 当表格需要拆分并分别响应事件时，该值必须为 .F.，并且在表格的同层容器内放置两个 ManyHeader
+
+oRefGrid = NULL (只读)
+	类型: 对象
+	说明: 指向 InitHeader 中指定的表格对象
+
+oRefPanel = NULL (只读)
+	类型: 对象
+	说明: 当表格自动拆分时，这里将指向被拆分的标头（只读）
+	注解: 被拆分的表格同样也自动具有 oRefPanel 指向。大意如下：A -> B -> A
+
+oRefControl = NULL (只读)
+	类型: 对象
+	说明: 指向额外附加的工具组（只读）
+
+*--
+*-- 方法说明
+*--
+InitHeader(oGrid)
+	说明: 初始化表头对象，表格与本类派生的实例对象必须属于同一对象层上
+	参数:
+		oGrid		与本类实例对象同一对象容器层的表格对象
+	返回值: 无。
+
+MergeHeader(nStart, nEnd, "cCaption")
+	说明:	合并表格列做为一个新组标头，nStart 与 nEnd 均指表格的 ColumnOrder。
+	参数:
+		nStart	合并组的起始列，指 Grid.Column.ColumnOrder
+		nEnd 		合并组的终止列，指 Grid.Column.ColumnOrder
+		cCaption	合并组的标题名
+	返回值: 该组列标头对象
+	注1: 如果指定的范围内有任一列己是组成员，新组将拥有这个对象，而对象的原组将失去这个成员。
+	注2: 如果新组成员不属于任何组，表格 ColumnOrder 保持不变。
+	注3: 如果新组的成员属于某一个组，并且是左列或者右列，那么在原组的最左或者最右边创建新组，表格 ColumnOrder 保持不变。
+	注4: 如果新组的成员属于某一个组，并且不是左列或者右列，那么在原组的最左边创建新组，表格 ColumnOrder 被自动调整
+	注5: 在准备 MergeHeader 时，不要有任何变量指向合并范围内的标头对象，该对象可能会在 MergeHeader 后被释放。
+	注6: 虽然普通标头永远不会被释放，但是其属性信息己立即发生变化，再对其操作会引发意外。
+
+GetHeaderLeft(oHeader)
+	说明: 获取 toHeader 左邻标头对象，如果对象 Visible = .F. 表示该对象不可视
+	参数:
+		oHeader		标头对象
+	返回值: 对象或者 NULL
+
+GetHeaderRight(oHeader)
+	说明: 获取 toHeader 右邻标头对象，如果对象 Visible = .F. 表示该对象不可视
+	参数:
+		oHeader		标头对象
+	返回值: 对象或者 NULL
+
+GetColumn(nColumnOrder)
+	说明:	获取指定表格 Column 对象
+	参数:
+		nColumnOrder	表格的 ColumnOrder 序。
+	返回值: 对象
+	注1:通过返回的对象的 aRefHeaders[nRef] 指向对应的标头
+	注2:通过标头的 oRefup 属性指向其组标头
+
+HeaderRedraw()
+	说明: 重画标头内对象
+	返回值: 无
+
+HeaderResize()
+	说明: 重画标头位置及大小，一般在表格改变大小与改变位置时使用
+	返回值: 无
+
+HeaderDelete(<oHeader|nColumnOrder>)
+	说明: 从组标头删除一个成员
+	参数:
+		oHeader|nColumnOrder		组标头成员对象或者指定 ColumnOrder 
+	返回值: 无
+	注1: 如果指定的标头是组中最左或者最右列，则删除后表格的 ColumnOrder 不变化。
+	注2: 如果指定的标头不是组中的最左列或者最右列，则该列往右移，做为组的左邻对象
+	注3: 如果组删除组后只剩下一个组成员，则该组标头自动被删除
+
+HeaderSwap(oHeaderA, oHeaderB)
+	说明: 将指定的两个标头交换 ColumnOrder 位置
+	参数:
+		oHeaderA		指定标头A
+		oHeaderB		指定标头B
+	注 1: 如果 oHeaderA 或者 oHeaderB 是普通成员，直接对调
+	注 2: 如果 oHeaderA 或者 oHeaderB 是同组成员，直接对调
+	注 3: 如果 oHeaderA 或者 oHeaderB 是组标头或者都是不同组的成员，则整个组都会对调。
+
+HeaderLock(nVal)
+	说明:从表格当前的 LeftColumn 起，往右锁定 tnVal 段列
+	参数:
+		nVal	将要锁定的列数
+	注1: 当锁定后，LeftColumn 之前的列将被移到锁定标头右端
+	注2: vfp9 默认使用 LockColumns 或 LockColumnsLeft
+
+*--
+*-- 事件说明
+*--
+OnClick(oHeder)
+	说明:标头鼠标左键单击事件
+	参数:
+		oHeader 	为发生该事件标头实例对象
+	注1: 默认执行表格原 Column.Header 对应事件。在此事件的自定义代码将覆盖默认事件。
+
+OnRightClick(oHeder)
+	说明: 标头鼠标右键单击事件
+	参数
+		 oHeader 	为发生该事件标头实例对象
+	注1: 默认执行表格原 Column.Header 对应事件。在此事件的自定义代码将覆盖默认事件。
+
+OnDblClick(toHeder)
+	说明: 标头鼠标左键双击事件
+	参数
+		toHeader 	为发生该事件标头实例对象
+	注1: 默认执行表格原 Column.Header 对应事件。在此事件的自定义代码将覆盖默认事件。
+
+OnDrag(oHeder, nType)
+	说明: 完成一次拖放后，发生此事件
+	参数
+		oHeader 	为发生该事件标头实例对象
+		nType		移动类型，0 列左移，1 列右移
+
+OnStyle(oHeader, oColumnHeader)
+	说明: 创建一个标头后发生此事件
+	参数
+		oHeader 			为发生该事件标头实例对象
+		oColumnHeader		表格相应列标头的实例对象
+	注1: 该事件有默认设置代码，在此事件的自定义代码将覆盖默认事件。
+	注2: 标头 oHeader 成员说明
+		oHeader.Header1 		Label 对象，除了 Name 全部属性可设置。
+		oHeader.LineTop 		Line 对象，除了 Name 全部属性可设置。
+		oHeader.LineBottom 		Line 对象，除了 Name 全部属性可设置。
+		oHeader.LineLeft 		Line 对象，除了 Name 全部属性可设置。
+		oHeader.LineRight 		Line 对象，除了 Name 全部属性可设置。
+	注3: Header1、LineTop、LineLeft 在每一次 HeaderRedraw 时都会再次设整其 Left, Top, Width, Height
+	注4: 表格对象每一次滚动都会执行 HeaderRedraw
+
+OnThemeStyle(oHeader)
+	说明: 当 OnStyle 与系统主题发生变化时，发生此事件。
+	参数:
+		oHeader 			为发生该事件标头实例对象
+	注1: 该事件有默认设置代码，在此事件的自定义代码将覆盖默认事件。
+	注2: 如果系统不支持 Theme 或者 lTheme = .F.，则此事件无任何作用。
+
+OnMouseEnter
+	说明: 当鼠标移入一个标头时发生此事件
+	参数:
+		oHeader 			为发生该事件标头实例对象
+	注: 一般用于自定义表头风格时使用
+
+OnMouseLeave
+	说明: 当鼠标离开一个标头时发生此事件
+	参数:
+		oHeader 			为发生该事件标头实例对象
+	注: 一般用于自定义表头风格时使用
+
+OnResize(oHeader)
+	说明: 当一个标头发生 Resize 事件后触发此事件
+	参数: 
+		oHeader 			为发生该事件标头实例对象
+	注: 一般用于自定义表头风格时使用
+
+*--
+*-- 原表格列 Column 新增属性说明
+*--
+Column.nIndex		数值，表格列顺序号
+Column.aRefHeaders 	数组对象引用，指向与其相对应的列标头。
+					当一个表格与多个表头绑定时，aRefHeaders 维数将递增
+*--
+*-- 子对象标头 Header 属性说明
+*-- Header 对象为一个容器对象，设置其属性有效
+*--
+Header.nType 		数值型，标头类型 0 普通，1 组内标头，2 组标头
+Header.lMovable 	逻辑型，列是否可移动，默认取表格列的 Movable 值
+Header.lResizable 	逻辑型，列是否可调整大小，默认取表格列的 Resizable 值
+Header.nMegeCount 	数值型，标头组的成员数。
+Header.oRefup		对象引用，用于组内成员指向它的组标头，组标头与普通标头此值为 NULL
+Header.aRefColumns 	数组对象引用，枚举该标头相对于表格的 Column 成员，对于组标头，会有多个成员。
+
+*--
+*-- 子对象标头 Header 方法说明
+*--
+Header.HeaderSort(0|1)
+	说明: 只有组标头可用，对组成员按目前的 ColumnOrder 排序
+	参数:
+		0			升序
+		1			降序
+	注: 在移动标头时，会频繁地调整成员顺序，为确保顺序是期望的，请在枚举成员时对其进行排序
+
+
+*--
+*-- 其他说明......
+*--
+* 事件中 toHeader 关于标头类型的判定
+Do Case
+Case toHeader.nType = 0
+	*-- 对象是普通标头
+Case toHeader.nType = 1
+	*-- 对象是组内标头
+Case toHeader.nType = 2
+	*-- 对象是组标头
+EndCase
+
+
+1. InitHeader 后普通标头的名称与表格列同名，可以使用与原表格列同名的对象来引用这个标头内的对象，并设置其属性。
+	Samples: 
+		Form.ManyHeader.Column1.Header1.Caption = "新的名称"
+		Form.ManyHeader.Column1.BackColor = Rgb(255, 0, 0)
+
+2. 表格每一列新增的 oRefHeader 将指向本类中与其相对应的对象。
+	Sample: 
+		Form.Grid.Column1.oRefHeader.Caption = "新的名称"
+		Form.Grid.Column1.oRefHeader.BackColor = Rgb(255, 0, 0)
+
+3. 组名称总是用 Sys(2015) 随机生成，如果你未保存合并组后返回对象，那么只能使用其组成员的 oRefup 来找到这个列对象。
+	Sample1:
+		lo = Form.ManyHeader.MergeHeader(1, 2, "新的合并")
+		以下是等价操作:
+		Form.ManyHeader.Column1.oRefup.Caption = "新的合并2"
+		以下是等价操作:
+		Form.Grid.Column1.aRefHeaders[1].oRefup.Caption = "新的合并2"
+	Sample2:
+		lo = Form.ManyHeader.MergeHeader(1, 2, "新的合并")
+		lo.Name = "NewHeader"
+		Form.ManyHeader.NewHeader.Caption = "新的合并2"
+		
+4. 通过枚举合并组的 aRefColumns 数组可获取被它合并的所有列对象
+	Sample:
+		For Each loColumn In Form.ManyHeader.Column1.oRefup.aRefColumns
+			? loColumn.ControlSource
+		EndFor
+
+5. 通过枚举表格列 aRefHeaders 数组可获取与列相对应的标头成员
+	Sample:
+		For Each lo In Form.Grid.Column1.aRefHeaders
+			? lo.Caption = "更改所有标头的标题"
+		EndFor
+
+6. 你可以在运行时更改表格 Column 对象的名称，但这个类对应的名称不会更改。
+7. 本类暂时不能在运行时新增、删除列。如果有此类情况，请重新 HeaderInit()。

@@ -1,0 +1,1462 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="aatesthelp_filelist.xml">
+<title>Active Accessibility, Automated Test Harness</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="stockticker"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>RANDYBR</o:Author>
+  <o:LastAuthor>Randy Brown</o:LastAuthor>
+  <o:Revision>66</o:Revision>
+  <o:TotalTime>241</o:TotalTime>
+  <o:Created>2001-04-10T22:10:00Z</o:Created>
+  <o:LastSaved>2001-04-24T02:40:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1697</o:Words>
+  <o:Characters>9679</o:Characters>
+  <o:Company>Microsoft Corp.</o:Company>
+  <o:Lines>80</o:Lines>
+  <o:Paragraphs>22</o:Paragraphs>
+  <o:CharactersWithSpaces>11354</o:CharactersWithSpaces>
+  <o:Version>10.2625</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:DoNotOrganizeInFolder/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	font-family:Arial;
+	mso-font-kerning:16.0pt;
+	font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-weight:bold;
+	font-style:italic;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:.75in;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoBodyTextIndent3, li.MsoBodyTextIndent3, div.MsoBodyTextIndent3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:.25in;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:110051515;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-96558928 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:260184239;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-257894598 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:748423054;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2062607054 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l2:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:918519750;
+	mso-list-type:hybrid;
+	mso-list-template-ids:947972342 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l3:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:1116483296;
+	mso-list-type:hybrid;
+	mso-list-template-ids:282474878 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l4:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5
+	{mso-list-id:1469277089;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-549520026 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l5:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6
+	{mso-list-id:1707102408;
+	mso-list-type:hybrid;
+	mso-list-template-ids:55980430 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l6:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7
+	{mso-list-id:1849828420;
+	mso-list-type:hybrid;
+	mso-list-template-ids:238063928 67698691 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l7:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8
+	{mso-list-id:2000503188;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-991920006 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l8:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l8:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l8:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:1.75in;
+	mso-level-number-position:right;
+	margin-left:1.75in;
+	text-indent:-9.0pt;}
+@list l8:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+table.MsoTableSimple1
+	{mso-style-name:"Table Simple 1";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	border-top:solid green 1.5pt;
+	border-left:none;
+	border-bottom:solid green 1.5pt;
+	border-right:none;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+table.MsoTableSimple1FirstRow
+	{mso-style-name:"Table Simple 1";
+	mso-table-condition:first-row;
+	mso-tstyle-border-bottom:.75pt solid green;
+	mso-tstyle-diagonal-down:0in none windowtext;
+	mso-tstyle-diagonal-up:0in none windowtext;}
+table.MsoTableSimple1LastRow
+	{mso-style-name:"Table Simple 1";
+	mso-table-condition:last-row;
+	mso-tstyle-border-top:.75pt solid green;
+	mso-tstyle-diagonal-down:0in none windowtext;
+	mso-tstyle-diagonal-up:0in none windowtext;}
+table.MsoTableClassic1
+	{mso-style-name:"Table Classic 1";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	border-top:solid black 1.5pt;
+	border-left:none;
+	border-bottom:solid black 1.5pt;
+	border-right:none;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+table.MsoTableClassic1FirstRow
+	{mso-style-name:"Table Classic 1";
+	mso-table-condition:first-row;
+	mso-tstyle-border-bottom:.75pt solid black;
+	mso-tstyle-diagonal-down:0in none windowtext;
+	mso-tstyle-diagonal-up:0in none windowtext;
+	mso-ansi-font-style:italic;
+	mso-bidi-font-style:italic;}
+table.MsoTableClassic1LastRow
+	{mso-style-name:"Table Classic 1";
+	mso-table-condition:last-row;
+	mso-tstyle-border-top:.75pt solid black;
+	mso-tstyle-diagonal-down:0in none windowtext;
+	mso-tstyle-diagonal-up:0in none windowtext;
+	color:windowtext;}
+table.MsoTableClassic1FirstCol
+	{mso-style-name:"Table Classic 1";
+	mso-table-condition:first-column;
+	mso-tstyle-border-right:.75pt solid black;
+	mso-tstyle-diagonal-down:0in none windowtext;
+	mso-tstyle-diagonal-up:0in none windowtext;}
+table.MsoTableClassic1NECell
+	{mso-style-name:"Table Classic 1";
+	mso-table-condition:ne-cell;
+	mso-tstyle-diagonal-down:0in none windowtext;
+	mso-tstyle-diagonal-up:0in none windowtext;
+	mso-ansi-font-weight:bold;
+	mso-bidi-font-weight:bold;
+	mso-ansi-font-style:normal;
+	mso-bidi-font-style:normal;}
+table.MsoTableClassic1SWCell
+	{mso-style-name:"Table Classic 1";
+	mso-table-condition:sw-cell;
+	mso-tstyle-diagonal-down:0in none windowtext;
+	mso-tstyle-diagonal-up:0in none windowtext;
+	mso-ansi-font-weight:bold;
+	mso-bidi-font-weight:bold;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h1><span style='font-family:Verdana'>Visual FoxPro Automated Test Harness<o:p></o:p></span></h1>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Verdana'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><u><span style='font-family:Verdana'><a href="#INTRODUCTION"><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Introduction</span></a><o:p></o:p></span></u></p>
+
+<p class=MsoNormal><u><span style='font-family:Verdana'><a
+href="#RUNNING_THE_TOOL"><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Running
+the Tool</span></a><o:p></o:p></span></u></p>
+
+<p class=MsoNormal><u><span style='font-family:Verdana'><a href="#FEATURES"><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Features</span></a><o:p></o:p></span></u></p>
+
+<p class=MsoNormal><u><span style='font-family:Verdana'><a href="#UI_WINDOW"><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Test Harness Window</span></a><o:p></o:p></span></u></p>
+
+<p class=MsoNormal><u><span style='font-family:Verdana'><a href="#_Advanced"><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Advanced</span></a><o:p></o:p></span></u></p>
+
+<p class=MsoNormal><u><span style='font-family:Verdana'><a href="#_Limitations"><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Limitations</span></a><o:p></o:p></span></u></p>
+
+<p class=MsoNormal><u><span style='font-family:Verdana'><a href="#TIPS"><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Tips</span></a><o:p></o:p></span></u></p>
+
+<p class=MsoNormal><u><span style='font-family:Verdana'><a
+href="#Test_tool_files"><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'>Test
+Harness files</span></a><o:p></o:p></span></u></p>
+
+<h2><a name=INTRODUCTION></a><span style='font-size:12.0pt;mso-bidi-font-size:
+14.0pt;font-family:Verdana;color:blue'>Introduction<o:p></o:p></span></h2>
+
+<p class=MsoBodyText>The Automated Test Harness tool has been built on
+Microsoft Active Accessibility (MSAA) technology supported in Visual FoxPro.
+The Mouse and Keyboard events in your VFP applications can be recorded and
+played back at any time. This is useful for doing automated testing.</p>
+
+<h2><a name="RUNNING_THE_TOOL"></a><span style='font-size:12.0pt;mso-bidi-font-size:
+14.0pt;font-family:Verdana;color:blue'>Running the Tool<o:p></o:p></span></h2>
+
+<p class=MsoBodyTextIndent3>All files for the test harness are installed in the
+\Tools\Test\ folder under the VFP home directory.</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l7 level1 lfo2;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>To launch the test harness application
+(AATEST.APP):</p>
+
+<p class=MsoBodyText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoBodyTextIndent>Select the <b style='mso-bidi-font-weight:normal'>Do&#8230;</b>
+menu item from the Program menu. When the Do dialog appears, locate and select
+the <b style='mso-bidi-font-weight:normal'>AATEST.APP</b> file in your
+\Tools\Test folder.</p>
+
+<p class=MsoBodyTextIndent><o:p>&nbsp;</o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in'>- <span class=GramE>or</span>
+-</p>
+
+<p class=MsoBodyTextIndent><o:p>&nbsp;</o:p></p>
+
+<p class=MsoBodyTextIndent>From the Command Window, type the following:</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.5in'><b><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:"Courier New"'>DO (<span class=GramE>HOME(</span>) +
+&quot;tools\test\<span class=SpellE>aatest</span>&quot;)<o:p></o:p></span></b></p>
+
+<p class=MsoBodyTextIndent><o:p>&nbsp;</o:p></p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>To record a script:</p>
+
+<p class=MsoBodyText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoBodyTextIndent style='mso-margin-top-alt:auto;mso-margin-bottom-alt:
+auto;margin-left:.75in;text-indent:-.25in;mso-list:l8 level1 lfo6;tab-stops:
+list .75in'><![if !supportLists]><span style='mso-fareast-font-family:Verdana;
+mso-bidi-font-family:Verdana'><span style='mso-list:Ignore'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Click
+the <b style='mso-bidi-font-weight:normal'>Record</b> button on the toolbar or
+select the <b style='mso-bidi-font-weight:normal'>Record</b> menu item from the
+Record menu.</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.75in;text-indent:-.25in;mso-list:l8 level1 lfo6;tab-stops:list .75in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana;
+mso-fareast-font-family:Verdana;mso-bidi-font-family:Verdana'><span
+style='mso-list:Ignore'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Verdana'>You will see a list of available applications. Make
+sure to select a running instance of Visual FoxPro. You can also launch and
+use a new instance of Visual FoxPro by clicking on the Fox button.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.75in;text-indent:-.25in;mso-list:l8 level1 lfo6;tab-stops:list .75in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana;
+mso-fareast-font-family:Verdana;mso-bidi-font-family:Verdana'><span
+style='mso-list:Ignore'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Verdana'>When prompted, enter a unique name to identify the
+test. This will allow you to easily find it later so you can play it back.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.75in;text-indent:-.25in;mso-list:l8 level1 lfo6;tab-stops:list .75in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana;
+mso-fareast-font-family:Verdana;mso-bidi-font-family:Verdana'><span
+style='mso-list:Ignore'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Verdana'>The selected VFP application window will be brought
+forward. At this point, you are ready to record events. You can start by
+entering commands in the Command Window or selecting a menu item. You can
+continue recording events in your custom forms with mouse and/or keyboard
+interaction.<o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent2>Note: Make sure you click the parent menu first
+before selecting a submenu (e.g., Tools-&gt;Wizards). You cannot just move your
+mouse to select the sub menu, it should be clicked.</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:.75in;text-indent:-.25in;mso-list:l8 level1 lfo6;tab-stops:list .75in'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana;
+mso-fareast-font-family:Verdana;mso-bidi-font-family:Verdana'><span
+style='mso-list:Ignore'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Verdana'>When finished, click the Stop button. You can also
+pause and resume recording.<o:p></o:p></span></p>
+
+<p class=MsoBodyTextIndent><o:p>&nbsp;</o:p></p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>To view the recorded script (events log), which
+has been selected or previously recorded; click the <b style='mso-bidi-font-weight:
+normal'>Edit the script</b> toolbar button.<br style='mso-special-character:
+line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>To play back a script, select the script you
+want to run and click the <b style='mso-bidi-font-weight:normal'>Play</b>
+button. If the program detects an error, you will see a prompt in the testing
+application.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>To see the results of your playback (test log),
+select the <b style='mso-bidi-font-weight:normal'>Test Log</b> tab.</p>
+
+<p class=MsoBodyText style='margin-left:.25in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoBodyTextIndent>Note: Only one instance of the test tool can be run
+from one installation. This is because the test tables are opened exclusively.</p>
+
+<h2><a name=FEATURES></a><span style='font-size:12.0pt;mso-bidi-font-size:14.0pt;
+font-family:Verdana;color:blue'>Features<o:p></o:p></span></h2>
+
+<p style='margin-left:.25in'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Verdana'>With the Automated Test Harness you can:<o:p></o:p></span></p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo8;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Work with all controls on a form </p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo8;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Call multiple forms </p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo8;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Use ActiveX controls and dialog boxes within a
+window </p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo8;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Use hotkeys and special keys such as F2, <span
+class=SpellE>PgDn</span>, and <span class=SpellE>Alt+S</span> </p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo8;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Access menus and sub-menus </p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo8;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Click the title bar (including control box,
+close box, min and max buttons) </p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo8;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Recalculate the mouse events positions if the
+object position has changed. </p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo8;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Playback the events properly even if the main
+VFP application has changed (re-sized or maximized) </p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo8;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Record by entering commands in the Command
+Window or selecting menu items</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo8;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Set options in the <b style='mso-bidi-font-weight:
+normal'>Options</b> tab to better control record and playback </p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo8;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Enable coverage logging using the settings in
+the <b style='mso-bidi-font-weight:normal'>Coverage Log</b> tab</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo8;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:"Courier New";
+mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>View the test log to analyze time taken to run
+the script and memory usage</p>
+
+<h3 style='margin-left:.25in'><a name=RECORDER></a><span style='font-size:12.0pt;
+mso-bidi-font-size:13.5pt;font-family:Verdana;color:teal'>Recorder<o:p></o:p></span></h3>
+
+<p style='margin-left:.5in'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Verdana'>The recorder uses Visual FoxPro event logging to register
+all events for your application, such as those from the mouse and keyboard. You
+can choose a separate instance of Visual FoxPro already running or launch a new
+one to record your script.<o:p></o:p></span></p>
+
+<h3 style='margin-left:.25in'><a name=PLAYBACK></a><span style='font-size:12.0pt;
+mso-bidi-font-size:13.5pt;font-family:Verdana;color:teal'>Playback<o:p></o:p></span></h3>
+
+<p style='margin-left:.5in'><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Verdana'>The playback logic uses Active Accessibility in part
+to find objects and window positions recorded in the script. The program
+emulates output events like keyboard and mouse ones using windows APIs and
+Visual FoxPro functions. More than one script can be chosen to play back at any
+time.<o:p></o:p></span></p>
+
+<h2><a name="UI_WINDOW"></a><a name="OUTSTANDING_ISSUES"></a><a
+name="KNOWN_ISSUES"></a><span style='mso-bookmark:UI_WINDOW'><span
+style='font-size:12.0pt;mso-bidi-font-size:14.0pt;font-family:Verdana;
+color:blue'>Test Harness Window<o:p></o:p></span></span></h2>
+
+<span style='mso-bookmark:UI_WINDOW'></span>
+
+<h3 style='margin-left:.25in'><span style='font-size:12.0pt;mso-bidi-font-size:
+13.5pt;font-family:Verdana;color:teal'>Scripts Tab<o:p></o:p></span></h3>
+
+<p class=MsoBodyTextIndent>This tab allows you to view and work with existing
+scripts that were recorded earlier with the Test Harness. You can edit any
+script by highlighting it in the grid and then clicking the <b
+style='mso-bidi-font-weight:normal'>Edit the test script</b> toolbar button or
+selecting the <b style='mso-bidi-font-weight:normal'>Edit Script</b> menu item.
+One or more scripts can be played back at a time. Click on checkboxes next to
+the scripts you want to play back and then click the <b style='mso-bidi-font-weight:
+normal'>Play the script</b> toolbar button or select the <b style='mso-bidi-font-weight:
+normal'>Play</b> menu item. The following options are available in this tab:</p>
+
+<p class=MsoBodyTextIndent><o:p>&nbsp;</o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l3 level1 lfo10;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>Scripts
+grid:</b> displays all recorded scripts. Information for a script is displayed
+on a line including pre and post scripts that get executed before/after the
+main script. The main script uses the event log. Items checked in the first
+column are used when deleting or playing back scripts. The Edit script function
+only applies to the current row highlighted in the grid.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l3 level1 lfo10;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>Delete
+button:</b> will delete scripts selected (first column checked) in the grid.</p>
+
+<h3 style='margin-left:.25in'><span style='font-size:12.0pt;mso-bidi-font-size:
+13.5pt;font-family:Verdana;color:teal'>Options Tab<o:p></o:p></span></h3>
+
+<p class=MsoBodyTextIndent>This tab has optional settings you can select for
+both recording and playback. The following options are available in this tab:</p>
+
+<p class=MsoBodyTextIndent><o:p>&nbsp;</o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l5 level1 lfo12;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>Overwrite
+the existing script:</b> if checked, an existing script of the same name will
+automatically be overwritten without prompting for confirmation during
+recording.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l5 level1 lfo12;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>Always
+launch new VFP Window:</b> if checked, recording will always start with a new
+instance of VFP.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l5 level1 lfo12;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>Validate
+startup window before playback: </b>if checked, the startup window is validated
+against the recorded window. If it doesn't match, it will prompt with an error.
+The test will fail if an unexpected window appears or an error occurs.<b
+style='mso-bidi-font-weight:normal'><o:p></o:p></b></p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l5 level1 lfo12;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>Check for
+presence of each object: </b>if checked, the object associated with every event
+will be verified before playback. For example, if the <span class=SpellE>keypress</span>
+event is recorded on a textbox, the presence of the same object name is
+verified before playing back the event. An error will be displayed if the
+object does not exist.<b style='mso-bidi-font-weight:normal'><o:p></o:p></b></p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l5 level1 lfo12;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>Check for
+program error: </b>this option is used to report an error in the testing
+application. If checked and there is an error during playback, the error will
+be logged in the test log. The test results can be viewed in the <b
+style='mso-bidi-font-weight:normal'>Test Log</b> tab.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l5 level1 lfo12;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>Run
+count: </b>specifies the number of times each script selected in the <b
+style='mso-bidi-font-weight:normal'>Scripts</b> tab is run during play back.<b
+style='mso-bidi-font-weight:normal'><o:p></o:p></b></p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l5 level1 lfo12;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>Delay
+between events:</b> allows you to specify a specific delay (milliseconds)
+between events during playback.<b style='mso-bidi-font-weight:normal'><o:p></o:p></b></p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l5 level1 lfo12;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>On script
+failure: </b>provides error handling options if a problem occurs during script
+playback. You can <b style='mso-bidi-font-weight:normal'>abort</b> the entire
+script, <b style='mso-bidi-font-weight:normal'>skip</b> only the event that
+failed or <b style='mso-bidi-font-weight:normal'>continue</b> playing back the
+script after retrying the failed event.</p>
+
+<h3 style='margin-left:.25in'><span style='font-size:12.0pt;mso-bidi-font-size:
+13.5pt;font-family:Verdana;color:teal'>Test Log<o:p></o:p></span></h3>
+
+<p class=MsoBodyTextIndent>This tab has details on results from test runs
+(playbacks). The following options are available in this tab:</p>
+
+<p class=MsoBodyTextIndent><o:p>&nbsp;</o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l5 level1 lfo12;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>Test Log
+grid:</b> displays useful information on recently played back scripts. The
+memory usage is the difference in the memory before and after the test run.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l5 level1 lfo12;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>Delete
+button:</b> deletes the selected test log.</p>
+
+<h3 style='margin-left:.25in'><span style='font-size:12.0pt;mso-bidi-font-size:
+13.5pt;font-family:Verdana;color:teal'>Coverage Log<o:p></o:p></span></h3>
+
+<p class=MsoBodyTextIndent>You can set coverage logging by using the settings
+in the <b style='mso-bidi-font-weight:normal'>Coverage Log</b> tab. During
+playback, it will turn on coverage logging and save the log in the file
+specified.</p>
+
+<p class=MsoBodyTextIndent><span style='mso-bidi-font-size:13.5pt'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l4 level1 lfo14;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>Turn on
+coverage logging during playback:</b> if checked, creates a coverage log during
+playback of a script.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l5 level1 lfo12;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>Overwrite
+the log if file exists:</b> if checked, will automatically overwrite the log if
+it already exists without confirmation.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l5 level1 lfo12;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>View Log
+button:</b> displays a coverage log for the test if one exists.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l5 level1 lfo12;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>Coverage
+Profiler button:</b> will invoke the Coverage Profiler. The Coverage Profiler
+will load the coverage log if it exists, otherwise it will prompt for a log.</p>
+
+<h2><a name="_Limitations"></a><a name="_Advanced"></a><span style='font-size:
+12.0pt;mso-bidi-font-size:14.0pt;font-family:Verdana;color:blue'>Advanced<o:p></o:p></span></h2>
+
+<h3 style='margin-left:.25in'><span style='font-size:12.0pt;mso-bidi-font-size:
+13.5pt;font-family:Verdana;color:teal'>Inserting a New Recording<o:p></o:p></span></h3>
+
+<p class=MsoBodyTextIndent>A set of new events can be recorded and inserted
+into a script by using the <b style='mso-bidi-font-weight:normal'>Insert new
+recording</b> toolbar button or <b style='mso-bidi-font-weight:normal'>Insert
+script</b> menu item from the Playback menu. To insert a new script at a
+particular location in the existing script, you must first insert the script
+directive <b style='mso-bidi-font-weight:normal'>*&lt;PAUSE&gt;</b> at this
+location. Once the directive is inserted, playback the script. The script will
+pause at the specified location. At this point, you can now insert a new script
+by selecting the above option (e.g., Insert new recording toolbar button).
+After you have inserted the new script, you should go back to the original
+script location and remove the *&lt;PAUSE&gt; script directive.</p>
+
+<h3 style='margin-left:.25in'><span style='font-size:12.0pt;mso-bidi-font-size:
+13.5pt;font-family:Verdana;color:teal'>Script Directives<o:p></o:p></span></h3>
+
+<p class=MsoBodyTextIndent>You can edit scripts by selecting the <b
+style='mso-bidi-font-weight:normal'>Edit the script</b> toolbar button. The
+following are script directives which can be inserted into a script:</p>
+
+<p class=MsoBodyTextIndent><o:p>&nbsp;</o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l6 level1 lfo16;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>*&lt;PAUSE&gt;:</b>
+pauses the playback at a particular point of the script so that you can insert
+a new script recording.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l6 level1 lfo16;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>*COMMAND
+&lt;command&gt;:</b> executes the specified command.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l6 level1 lfo16;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>*DO
+&lt;program name&gt;:</b> executes the specified program.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l6 level1 lfo16;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>*=
+&lt;function&gt;:</b> calls the specified function.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l6 level1 lfo16;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><b style='mso-bidi-font-weight:normal'>*IF
+&lt;expression&gt; <o:p></o:p></b></p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in'><b style='mso-bidi-font-weight:
+normal'>*</b><st1:stockticker><b style='mso-bidi-font-weight:normal'>ELSE</b></st1:stockticker><b
+style='mso-bidi-font-weight:normal'><o:p></o:p></b></p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in'><b style='mso-bidi-font-weight:
+normal'>*ENDIF<o:p></o:p></b></p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in'>The events between *IF and
+*ENDIF in the script will be run if the &lt;expression&gt; evaluates to true
+(.T.). If the *ELSE directive is given, the events between *IF and *ELSE will
+be run if the &lt;expression&gt; is .T. otherwise the events between *ELSE and
+*ENDIF will be run.</p>
+
+<p class=MsoBodyTextIndent><o:p>&nbsp;</o:p></p>
+
+<p class=MsoBodyTextIndent><b style='mso-bidi-font-weight:normal'>Note: </b>By
+default, the commands (or program calls) specified by the script directives
+will be executed in the VFP instance running the Test Harness application. To
+execute the commands in the testing application itself, it should be preceded
+by <b style='mso-bidi-font-weight:normal'>.oVFP</b>.</p>
+
+<p class=MsoBodyTextIndent><o:p>&nbsp;</o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in'><span class=GramE><span
+style='font-family:"Courier New"'>ex</span></span><span style='font-family:
+"Courier New"'>. COMMAND .oVFP.DoCmd('wait window ')<o:p></o:p></span></p>
+
+<h2><span style='font-size:12.0pt;mso-bidi-font-size:14.0pt;font-family:Verdana;
+color:blue'>Limitations<o:p></o:p></span></h2>
+
+<p class=MsoBodyTextIndent>The following are limitations and issues with the
+Test Harness that you should be aware of when recording scripts:</p>
+
+<p class=MsoBodyTextIndent><o:p>&nbsp;</o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l1 level1 lfo18;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>The Shift+Tab and Ctrl+Tab keyboard commands
+should not be used.</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo18;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-fareast-font-family:
+"Courier New"'><span style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Verdana'>Clicking the edges of menus or objects may not work
+consistently.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo18;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-fareast-font-family:
+"Courier New"'><span style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Verdana'>You cannot use the mouse to drag and drop a window or
+an object.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo18;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-fareast-font-family:
+"Courier New"'><span style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Verdana'>Clicking on the scrollbar of a combo box is not
+played back properly because the window name/title is not recorded.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo18;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-fareast-font-family:
+"Courier New"'><span style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Verdana'>For proper keystroke interpretation, scripts
+recorded under specific keyboard layouts must be played back under the same
+keyboard layout. For instance, if you record a script with a Windows input
+locale of German and a keyboard layout of German, you must play back the script
+with the same locale and layout configuration.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo18;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-fareast-font-family:
+"Courier New"'><span style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Verdana'>The Test Harness is not supported with the Visual
+FoxPro runtime libraries. You need to test your applications using the core
+Visual FoxPro product.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo18;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-fareast-font-family:
+"Courier New"'><span style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Verdana'>If you use the Enter key to trigger the default
+button (Default property = .T.), you should ensure that the button first has
+focus.<o:p></o:p></span></p>
+
+<h2><a name=TIPS></a><span style='font-size:12.0pt;mso-bidi-font-size:14.0pt;
+font-family:Verdana;color:blue'>Tips<o:p></o:p></span></h2>
+
+<p class=MsoBodyTextIndent>The following tips may be useful when using the Test
+Harness:</p>
+
+<p class=MsoBodyTextIndent><o:p>&nbsp;</o:p></p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l1 level1 lfo18;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>It is recommended that you close all other
+Windows applications when running the Test Harness. This will avoid confusion
+when recording a script because the dialog will display a list of all running
+Windows applications. The target application you want to select must be a
+running instance of Visual FoxPro.</p>
+
+<p class=MsoBodyTextIndent style='margin-left:1.0in;text-indent:-.25in;
+mso-list:l1 level1 lfo18;tab-stops:list 1.0in'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New"'><span
+style='mso-list:Ignore'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>It is often better to record many small scripts
+instead of one large one for big applications. This offers more flexibility in
+that only specific scripts would need to be re-recorded for changes made in the
+future.</p>
+
+<h2><a name="Test_tool_files"></a><span style='font-size:12.0pt;mso-bidi-font-size:
+14.0pt;font-family:Verdana;color:blue'>Test Harness Files<o:p></o:p></span></h2>
+
+<p class=MsoBodyTextIndent>The following set of files is used by the Automated
+Test Harness:</p>
+
+<p class=MsoBodyTextIndent><o:p>&nbsp;</o:p></p>
+
+<table class=MsoTableSimple1 border=1 cellspacing=0 cellpadding=0 width=667
+ style='width:6.95in;margin-left:30.6pt;border-collapse:collapse;border:none;
+ mso-border-top-alt:solid green 1.5pt;mso-border-bottom-alt:solid green 1.5pt;
+ mso-yfti-tbllook:32;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:-1'>
+  <td valign=top style='border-top:solid green 1.5pt;border-left:none;
+  border-bottom:solid green 1.0pt;border-right:none;mso-border-top-alt:solid green 1.5pt;
+  mso-border-bottom-alt:solid green .75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:1'><span style='font-size:10.0pt;
+  mso-bidi-font-size:13.5pt;font-family:Verdana'>File Name</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border-top:solid green 1.5pt;border-left:none;
+  border-bottom:solid green 1.0pt;border-right:none;mso-border-top-alt:solid green 1.5pt;
+  mso-border-bottom-alt:solid green .75pt;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:1'><span style='font-size:10.0pt;
+  mso-bidi-font-size:13.5pt;font-family:Verdana'>Extensions</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td width=494 valign=top style='width:5.15in;border-top:solid green 1.5pt;
+  border-left:none;border-bottom:solid green 1.0pt;border-right:none;
+  mso-border-top-alt:solid green 1.5pt;mso-border-bottom-alt:solid green .75pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='mso-yfti-cnfc:1'><span style='font-size:10.0pt;
+  mso-bidi-font-size:13.5pt;font-family:Verdana'>Description</span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:0'>
+  <td valign=top style='border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span class=SpellE><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:Verdana'>AATest</span></span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>app/<span class=SpellE>pjx/pjt</span><o:p></o:p></span></p>
+  </td>
+  <td width=494 valign=top style='width:5.15in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>The main program/project<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td valign=top style='border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span class=SpellE><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:Verdana'>AATest</span></span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span class=SpellE><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:Verdana'>scx/sct</span></span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td width=494 valign=top style='width:5.15in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>The main form including the recording/playback logic<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td valign=top style='border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span class=SpellE><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:Verdana'>AAUtils</span></span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span class=SpellE><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:Verdana'>vcx/vct</span></span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td width=494 valign=top style='width:5.15in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>The class library which has the class <span
+  class=SpellE>cstglobal</span>. This is shared by different forms.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td valign=top style='border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span class=SpellE><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:Verdana'>AAScripts</span></span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>dbf/<span class=SpellE>fpt</span><o:p></o:p></span></p>
+  </td>
+  <td width=494 valign=top style='width:5.15in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>The event logging table. This stores all the scripts
+  that are created.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4;mso-yfti-lastrow:yes'>
+  <td valign=top style='border:none;border-bottom:solid green 1.5pt;padding:
+  0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span class=SpellE><span style='font-size:10.0pt;
+  mso-bidi-font-size:12.0pt;font-family:Verdana'>AATestLog</span></span><span
+  style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+  </td>
+  <td valign=top style='border:none;border-bottom:solid green 1.5pt;padding:
+  0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>dbf/<span class=SpellE>fpt</span><o:p></o:p></span></p>
+  </td>
+  <td width=494 valign=top style='width:5.15in;border:none;border-bottom:solid green 1.5pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;
+  font-family:Verdana'>The test log table which has the information of each
+  test run.<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p style='margin:0in;margin-bottom:.0001pt'><span style='font-family:Verdana'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

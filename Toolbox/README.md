@@ -1,0 +1,4 @@
+# Toolbox
+The Toolbox displays items used in the creation of applications, the items are displayed in toolsets (collections of tools) by category. The toolsets can be common resources such as native Visual FoxPro classes that can be placed onto a workspace. Additionally, the Toolbox supports items that are builders or wizards, ActiveX controls or classes, COM+ controls or classes, and text scraps. Furthermore, the Toolbox can hold file-based resources such as tables, images, reports, labels, and forms.
+
+Toolbox is part of [XSource](https://github.com/VFPX/XSource), the source files for various Visual FoxPro components. The license governing XSource can be found in the XSource_EULA.txt included with all of the XSource releases.

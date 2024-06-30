@@ -1,0 +1,144 @@
+[
+ {
+   "project": "Custom Environment Helper",
+   "url": "https://github.com/nfoxdev/nfCustomEnvHelper",
+   "description": "Start VFP in separated environments with ease"
+ },
+ {
+   "project": "DBF to Any Export",
+   "url": "https://github.com/MJindrova/DBF2Any",
+   "description": "Export DBF to MSSQL, MDB, Oracle, MySQL and MSSQL CE"
+ },
+ {
+   "project": "DotNet2Fox",
+   "url": "https://github.com/JoelLeach/DotNet2Fox",
+   "description": "Library for calling Visual FoxPro code from .NET"
+ },
+ {
+   "project": "DT Class",
+   "url": "https://github.com/MJindrova/dtclass",
+   "description": "Classes for working with date or datetime"
+ },
+ {
+   "project": "FoxCryptoNG",
+   "url": "https://github.com/cwollenhaupt/foxCryptoNG",
+   "description": "Provides a simplified interface to Microsoft's Cryptography API: Next Generation"
+ },
+ {
+   "project": "FoxDates",
+   "url": "https://github.com/RickBorup/FoxDates",
+   "description": "FoxDates is a collection of helpful functions for working with dates and times in Visual FoxPro"
+ },
+ {
+   "project": "FoxGitIgnore",
+   "url": "https://github.com/cwollenhaupt/foxGitIgnore",
+   "description": "Generic .gitignore file for FoxPro development. Excludes files typically not part of the checked in source code"
+ },
+ {
+   "project": "FoxMock",
+   "url": "https://github.com/cwollenhaupt/foxmock",
+   "description": "Mocking framework for Microsoft Visual FoxPro"
+ },
+ {
+   "project": "Fox Pages Server",
+   "url": "https://github.com/arquimedescrivelari/foxpages",
+   "description": "Fox Server Pages is a Visual Foxpro multithreaded webserver"
+ },
+ {
+   "project": "FoxSharp",
+   "url": "https://github.com/Irwin1985/FoxSharp",
+   "description": "Domain-specific language for Visual FoxPro and C#"
+ },
+ {
+   "project": "FoxyPreviewer",
+   "url": "http://www.foxypreviewer.com/",
+   "description": "Export your VFP reports to Images, RTF, PDF, HTML or XLS super easy! Send them by email! Enhance the look of your previews, and bring a new life to your APPs!"
+ },
+ {
+   "project": "FoxyXLS Class Fork",
+   "url": "https://github.com/MJindrova/FOXYXLS",
+   "description": "Export table/cursor to XLS version 3"
+ },
+ {
+   "project": "Hacker's Guide to Visual FoxPro",
+   "url": "https://hackfox.github.io/",
+   "description": "An Irreverent Guide to How FoxPro Really Works"
+ },
+ {
+   "project": "INTL",
+   "url": "https://github.com/StevenBlack/intl",
+   "description": "Steven Black's INTL Toolkit for Visual FoxPro makes creating international and multilingual applications easy"
+ },
+ {
+   "project": "JSON",
+   "url": "https://github.com/vespina/json",
+   "description": "100% VFP JSON parser & utilities"
+ },
+ {
+   "project": "LINQ to VFP",
+   "url": "https://github.com/tombrothers/LINQtoVFP",
+   "description": "An IQToolkit Provider that adds the ability to use Visual FoxPro Data as a LINQ data source."
+ },
+ {
+   "project": "LockScreen Stack",
+   "url": "https://github.com/MJindrova/LockScreenStack",
+   "description": "Class for managing value of LockScreen"
+ },
+ {
+   "project": "Named Parameters",
+   "url": "https://github.com/MJindrova/ParametersName",
+   "description": "The Named parameters utility for processing and checking input EXE/APP parameters."
+ },
+ {
+   "project": "NF Themes",
+   "url": "https://github.com/nfoxdev/nfThemes",
+   "description": "Set VFP colors in real time using color picker"
+ },
+ {
+   "project": "Scrollable container",
+   "url": "https://github.com/MJindrova/ViewPort",
+   "description": "Scrollable container"
+ },
+ {
+   "project": "Serializable VFP object to XML",
+   "url": "https://github.com/MJindrova/SerializableObject",
+   "description": "Serializable object to XML"
+ },
+ {
+   "project": "Stonefield Database Toolkit",
+   "url": "https://github.com/DougHennig/StonefieldDatabaseToolkit",
+   "description": "Provides additional functionality to the Visual FoxPro data dictionary"
+ },
+ {
+   "project": "VFP Client for ADO.Net",
+   "url": "https://github.com/tombrothers/VfpClient",
+   "description": "A wrapper for the .NET System.Data.OleDb classes."
+ },
+ {
+   "project": "VFP Entity Framework Provider",
+   "url": "https://github.com/tombrothers/VfpEntityFrameworkProvider2",
+   "description": "An Entity Framework Data Provider that adds the ability to use Visual FoxPro Data as an Entity Framework data source."
+ },
+ {
+   "project": "VFP For Notepad++",
+   "url": "https://github.com/ToniKoehler/notepad-plus-plus-vfpLanguage",
+   "description": "Extends Notepad++ with Visual FoxPro Language (syntax highlighting and function list)",
+   "state": "Production",
+   "category": "Tool"
+},
+{
+   "project": "VFP git utils",
+   "url": "https://github.com/mikepotjer/vfp-git-utils",
+   "description": "Git utilities for VFP, designed to work within the Thor repository (Mike Potjer)"
+ },
+ {
+   "project": "VFP Help Online",
+   "url": "https://www.vfphelp.com/help/index.htm",
+   "description": "The help for VFP 9 SP2 online"
+ },
+ {
+   "project": "VFP System Variables",
+   "url": "https://github.com/MJindrova/SystemVariables",
+   "description": "Documentation for VFP System Variables"
+ }
+]
