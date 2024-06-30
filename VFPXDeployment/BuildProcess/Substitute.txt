@@ -1,0 +1,3 @@
+#a list of files to substitute on runtime
+docs\Documentation.md
+docs\ChangeLog.md
