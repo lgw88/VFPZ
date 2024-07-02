@@ -2,6 +2,11 @@
 LPARAMETERS tcM,tnT,tcT
 IF VARTYPE(tnT) # "N"
 	tnT = 64
+ELSE
+	IF tnT = 1
+		WAIT tcM WINDOW NOWAIT 
+		RETURN
+	ENDIF
 ENDIF
 IF VARTYPE(tcT) # "C"
 	tcT = _screen.Caption

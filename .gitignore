@@ -57,10 +57,8 @@
 *.mna
 *.MNA
 
-_command.prg
-
-*.dir
-
+*.app
+!*/*.app
 browser.dbf
 browser.FPT
 config.fpw
@@ -70,3 +68,5 @@ config.fpw
 FoxcodePlus/install.prg
 VFP-Editors/install.bat
 /Temp
+_command.prg
+

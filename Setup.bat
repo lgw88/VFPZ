@@ -12,5 +12,6 @@ if not exist "%Sysdir%msvcr71.dll" copy "%~dp0DLL\msvcr71.dll" "%Sysdir%"
 
 "%~dp0vfp9.exe" -regserver
 Echo Path=%~dp0Progs>%~dp0Config.fpw
+Echo Command=DO "%~dp0Setup.prg">>%~dp0Config.fpw
 pause
 start /d "%~dp0" vfp9.exe
