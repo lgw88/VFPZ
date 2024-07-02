@@ -43,10 +43,10 @@ ENDFOR
 
 ****************************************************
 * Remove the Setup.prg command from Config.fpw
-lcM = FILETOSTR("Config.fpw")
+lcM = FILETOSTR(HOME(0)+"Config.fpw")
 lcT = STREXTRACT(lcM, [Command=DO "] , ["] ,1,5)
 IF "setup.prg"$LOWER(lcT)
-	STRTOFILE(STRTRAN(lcM,lcT,""),"Config.fpw")
+	STRTOFILE(STRTRAN(lcM,lcT,""),HOME(0)+"Config.fpw")
 ENDIF
 ****************************************************
 
