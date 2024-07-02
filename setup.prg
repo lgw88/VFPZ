@@ -8,14 +8,19 @@ LOCAL laD[1]
 
 TEXT TO lcF NOSHOW
 *.app
+*.dll
 ENDTEXT
 
 
 pcP1 = Home(0)
 lnL = VAL(Version(3))
 DO CASE
-*!*	CASE lnL = 7	&& Russian
-*!*	CASE lnL = 33	&& French
+CASE lnL = 7	&& Russian
+	pcP2 = pcP1 + "RUS\"
+	? "Russian "
+CASE lnL = 33	&& French
+	pcP2 = pcP1 + "FRA\"
+	? "French "
 *!*	CASE lnL = 34	&& Spanish
 *!*	CASE lnL = 42	&& Czech
 *!*	CASE lnL = 49	&& German
