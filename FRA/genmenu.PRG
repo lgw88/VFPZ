@@ -1949,7 +1949,7 @@ DO CASE
       @ 3.000,3.33 TO 4.23,m.nblocks + 3.33 ;
          PATTERN 1 COLOR RGB(0, 0, 128, 0, 0, 128)
    OTHERWISE
-      @ 3,3 SAY REPLICATE("Û",m.nblocks)
+      @ 3,3 SAY REPLICATE(CHR(0xDB),m.nblocks)
 ENDCASE
 
 *
