@@ -61,6 +61,8 @@
 !*/*.app
 *.dll
 !*/*.dll
+*.prg
+!*/*.prg
 browser.dbf
 browser.FPT
 config.fpw
