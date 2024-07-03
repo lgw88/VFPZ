@@ -63,7 +63,8 @@
 !*/*.dll
 /*.prg
 !*/*.prg
-
+/dv_foxhelp.chm
+!*/dv_foxhelp.chm
 browser.dbf
 browser.FPT
 config.fpw
