@@ -57,12 +57,13 @@
 *.mna
 *.MNA
 
-*.app
+/*.app
 !*/*.app
-*.dll
+/*.dll
 !*/*.dll
-*.prg
+/*.prg
 !*/*.prg
+
 browser.dbf
 browser.FPT
 config.fpw
