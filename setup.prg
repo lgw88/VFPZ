@@ -7,8 +7,9 @@ LOCAL laF[1]
 LOCAL laD[1]
 
 TEXT TO lcF NOSHOW
-*.app
 *.dll
+*.app
+*.prg
 ENDTEXT
 
 
@@ -54,7 +55,7 @@ IF "setup.prg"$LOWER(lcT)
 	STRTOFILE(STRTRAN(lcM,lcT,""),HOME(0)+"Config.fpw")
 ENDIF
 ****************************************************
-
+* Copy File
 PROCEDURE Setup_Copy
 LPARAMETERS tcF
 IF FILE(pcP2+tcF)
