@@ -77,3 +77,4 @@ VFP-Editors/install.bat
 _command.prg
 
 FOXUSER.*
+tools/Win32API/data/w32_settings.dbf
