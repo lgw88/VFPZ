@@ -1,0 +1,1 @@
+copy json.prg ..\vfpjson.prg
