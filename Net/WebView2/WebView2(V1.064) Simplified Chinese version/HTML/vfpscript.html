@@ -1,0 +1,3770 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+<meta charset="UTF-8">
+<title>VFP代码编辑器</title>
+<style type="text/css" media="screen">
+body {
+        overflow: hidden; 
+          }
+          
+    #editor {
+             margin: 0;        
+             position: absolute;        
+             top: 0;        
+             bottom: 0;        
+             left: 0;        
+             right: 0;    
+             }  
+</style>
+</head>
+<body>
+
+<pre id="editor"></pre>
+<!-- 装载ace/ace.js -->
+<script src="ace/ace.js"></script>
+
+<!-- 装载 ace/language tools -->
+<script src="ace/ext-language_tools.js"></script>
+
+<script>
+
+//取VFP对象，同步方式调用VFP
+        var  vfp = chrome.webview.hostObjects.sync.vfp;
+        
+        //设置一个VFP的变量让外层APP的VFP可以改变这个变量值	
+        vfp.SetVar( "openCode" , "" );
+        
+        
+//langTools
+var langTools = ace.require("ace/ext/language_tools");    
+//实例化 editor 
+var editor = ace.edit("editor");    
+
+//设置语言模式
+setlanguage();
+
+//设置内置样式
+editor.setTheme("ace/theme/sqlserver");  
+  
+//启用自动完成和代码段
+editor.setOptions({        
+enableBasicAutocompletion: true,
+enableSnippets: true,        
+enableLiveAutocompletion: true,
+tooltipFollowsMouse:true
+   });
+   
+//设置脚本语言
+    function setlanguage( nlanguage )
+    {
+      switch  (nlanguage){
+       case 1:
+        editor.session.setMode("ace/mode/java");  
+        //editor.session.setMode("ace/mode/sql");
+        
+       case 2:
+        editor.session.setMode("ace/mode/sqlserver");    
+        break;			      				 	
+       
+       case 3:
+ editor.session.setMode("ace/mode/html");    
+        break;	
+       
+       case 4:
+        editor.session.setMode("ace/mode/sqlserver");   
+         break;	
+         
+        default:
+             editor.session.setMode("ace/mode/java");
+         //editor.session.setMode("ace/mode/sql");
+      }
+    } 
+
+    /*
+    
+    //其中参数data为数组，其的格式为：[{meta: "abcdefg", caption: "sonic", value: "sonic", score:1}]
+    var data = [				{ meta: "ACLA",
+				 caption: "AClass",
+				 value: "AClass ",
+				 score:1
+				 },				{ meta: "ADBO",
+				 caption: "ADBObjects",
+				 value: "ADBObjects ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "ADOCKTIP",
+				 value: "ADOCKTIP ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "ADOCKTIP2",
+				 value: "ADOCKTIP2 ",
+				 score:1
+				 },				{ meta: "ADAT",
+				 caption: "ADatabases",
+				 value: "ADatabases ",
+				 score:1
+				 },				{ meta: "ADIR",
+				 caption: "ADir",
+				 value: "ADir ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "ADirtip",
+				 value: "ADirtip ",
+				 score:1
+				 },				{ meta: "ADOC",
+				 caption: "ADockState",
+				 value: "ADockState ",
+				 score:1
+				 },				{ meta: "AERR",
+				 caption: "AError",
+				 value: "AError ",
+				 score:1
+				 },				{ meta: "AEVE",
+				 caption: "AEvents",
+				 value: "AEvents ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "AFONTTIP",
+				 value: "AFONTTIP ",
+				 score:1
+				 },				{ meta: "AFIE",
+				 caption: "AFields",
+				 value: "AFields ",
+				 score:1
+				 },				{ meta: "AFON",
+				 caption: "AFont",
+				 value: "AFont ",
+				 score:1
+				 },				{ meta: "AGETC",
+				 caption: "AGetClass",
+				 value: "AGetClass ",
+				 score:1
+				 },				{ meta: "AGETF",
+				 caption: "AGetFileVersion",
+				 value: "AGetFileVersion ",
+				 score:1
+				 },				{ meta: "AINST",
+				 caption: "AInstance",
+				 value: "AInstance ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "ALINESTIP",
+				 value: "ALINESTIP ",
+				 score:1
+				 },				{ meta: "ALAN",
+				 caption: "ALanguage",
+				 value: "ALanguage ",
+				 score:1
+				 },				{ meta: "ALIN",
+				 caption: "ALines",
+				 value: "ALines ",
+				 score:1
+				 },				{ meta: "AMEM",
+				 caption: "AMembers",
+				 value: "AMembers ",
+				 score:1
+				 },				{ meta: "AMOU",
+				 caption: "AMouseObj",
+				 value: "AMouseObj ",
+				 score:1
+				 },				{ meta: "ANET",
+				 caption: "ANetResources",
+				 value: "ANetResources ",
+				 score:1
+				 },				{ meta: "APRI",
+				 caption: "APrinters",
+				 value: "APrinters ",
+				 score:1
+				 },				{ meta: "APRO",
+				 caption: "AProcInfo",
+				 value: "AProcInfo ",
+				 score:1
+				 },				{ meta: "ASQL",
+				 caption: "ASQLHandles",
+				 value: "ASQLHandles ",
+				 score:1
+				 },				{ meta: "ASEL",
+				 caption: "ASelObj",
+				 value: "ASelObj ",
+				 score:1
+				 },				{ meta: "ASTA",
+				 caption: "AStackInfo",
+				 value: "AStackInfo ",
+				 score:1
+				 },				{ meta: "ATAG",
+				 caption: "ATagInfo",
+				 value: "ATagInfo ",
+				 score:1
+				 },				{ meta: "AUSE",
+				 caption: "AUsed",
+				 value: "AUsed ",
+				 score:1
+				 },				{ meta: "AVCX",
+				 caption: "AVcxClasses",
+				 value: "AVcxClasses ",
+				 score:1
+				 },				{ meta: "ABS",
+				 caption: "Abs",
+				 value: "Abs ",
+				 score:1
+				 },				{ meta: "ACOP",
+				 caption: "Acopy",
+				 value: "Acopy ",
+				 score:1
+				 },				{ meta: "ACOS",
+				 caption: "Acos",
+				 value: "Acos ",
+				 score:1
+				 },				{ meta: "ADDP",
+				 caption: "AddProperty",
+				 value: "AddProperty ",
+				 score:1
+				 },				{ meta: "ADDB",
+				 caption: "Addbs",
+				 value: "Addbs ",
+				 score:1
+				 },				{ meta: "ADEL",
+				 caption: "Adel",
+				 value: "Adel ",
+				 score:1
+				 },				{ meta: "ADLL",
+				 caption: "Adlls",
+				 value: "Adlls ",
+				 score:1
+				 },				{ meta: "AELE",
+				 caption: "Aelement",
+				 value: "Aelement ",
+				 score:1
+				 },				{ meta: "AINS",
+				 caption: "Ains",
+				 value: "Ains ",
+				 score:1
+				 },				{ meta: "ALEN",
+				 caption: "Alen",
+				 value: "Alen ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Alentip",
+				 value: "Alentip ",
+				 score:1
+				 },				{ meta: "ALIA",
+				 caption: "Alias",
+				 value: "Alias ",
+				 score:1
+				 },				{ meta: "ALLT",
+				 caption: "Alltrim",
+				 value: "Alltrim ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Amemberstip",
+				 value: "Amemberstip ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Amemberstip2",
+				 value: "Amemberstip2 ",
+				 score:1
+				 },				{ meta: "ASC",
+				 caption: "Asc",
+				 value: "Asc ",
+				 score:1
+				 },				{ meta: "ASCA",
+				 caption: "Ascan",
+				 value: "Ascan ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Ascantip",
+				 value: "Ascantip ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Aselobjtip",
+				 value: "Aselobjtip ",
+				 score:1
+				 },				{ meta: "ASES",
+				 caption: "Asessions",
+				 value: "Asessions ",
+				 score:1
+				 },				{ meta: "ASIN",
+				 caption: "Asin",
+				 value: "Asin ",
+				 score:1
+				 },				{ meta: "ASOR",
+				 caption: "Asort",
+				 value: "Asort ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Asorttip",
+				 value: "Asorttip ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Asorttip2",
+				 value: "Asorttip2 ",
+				 score:1
+				 },				{ meta: "ASUB",
+				 caption: "Asubscript",
+				 value: "Asubscript ",
+				 score:1
+				 },				{ meta: "AT",
+				 caption: "At",
+				 value: "At ",
+				 score:1
+				 },				{ meta: "AT_C",
+				 caption: "At_c",
+				 value: "At_c ",
+				 score:1
+				 },				{ meta: "ATAN",
+				 caption: "Atan",
+				 value: "Atan ",
+				 score:1
+				 },				{ meta: "ATC",
+				 caption: "Atc",
+				 value: "Atc ",
+				 score:1
+				 },				{ meta: "ATCC",
+				 caption: "Atcc",
+				 value: "Atcc ",
+				 score:1
+				 },				{ meta: "ATCL",
+				 caption: "Atcline",
+				 value: "Atcline ",
+				 score:1
+				 },				{ meta: "ATLI",
+				 caption: "Atline",
+				 value: "Atline ",
+				 score:1
+				 },				{ meta: "ATN2",
+				 caption: "Atn2",
+				 value: "Atn2 ",
+				 score:1
+				 },				{ meta: "AVG",
+				 caption: "Avg",
+				 value: "Avg ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "BINDEVENTTIP",
+				 value: "BINDEVENTTIP ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "BINTOCTIP",
+				 value: "BINTOCTIP ",
+				 score:1
+				 },				{ meta: "BAR",
+				 caption: "Bar",
+				 value: "Bar ",
+				 score:1
+				 },				{ meta: "BETW",
+				 caption: "Between",
+				 value: "Between ",
+				 score:1
+				 },				{ meta: "BINT",
+				 caption: "BinToC",
+				 value: "BinToC ",
+				 score:1
+				 },				{ meta: "BIND",
+				 caption: "BindEvent",
+				 value: "BindEvent ",
+				 score:1
+				 },				{ meta: "BITA",
+				 caption: "Bitand",
+				 value: "Bitand ",
+				 score:1
+				 },				{ meta: "BITC",
+				 caption: "Bitclear",
+				 value: "Bitclear ",
+				 score:1
+				 },				{ meta: "BITL",
+				 caption: "Bitlshift",
+				 value: "Bitlshift ",
+				 score:1
+				 },				{ meta: "BITN",
+				 caption: "Bitnot",
+				 value: "Bitnot ",
+				 score:1
+				 },				{ meta: "BITO",
+				 caption: "Bitor",
+				 value: "Bitor ",
+				 score:1
+				 },				{ meta: "BITR",
+				 caption: "Bitrshift",
+				 value: "Bitrshift ",
+				 score:1
+				 },				{ meta: "BITS",
+				 caption: "Bitset",
+				 value: "Bitset ",
+				 score:1
+				 },				{ meta: "BITT",
+				 caption: "Bittest",
+				 value: "Bittest ",
+				 score:1
+				 },				{ meta: "BITX",
+				 caption: "Bitxor",
+				 value: "Bitxor ",
+				 score:1
+				 },				{ meta: "BOF",
+				 caption: "Bof",
+				 value: "Bof ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "COMARRAYTIP",
+				 value: "COMARRAYTIP ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "COMPROPTIP",
+				 value: "COMPROPTIP ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "CTOBINTIP",
+				 value: "CTOBINTIP ",
+				 score:1
+				 },				{ meta: "CTOB",
+				 caption: "CToBin",
+				 value: "CToBin ",
+				 score:1
+				 },				{ meta: "CAND",
+				 caption: "Candidate",
+				 value: "Candidate ",
+				 score:1
+				 },				{ meta: "CAPS",
+				 caption: "Capslock",
+				 value: "Capslock ",
+				 score:1
+				 },				{ meta: "CAST",
+				 caption: "Cast",
+				 value: "Cast ",
+				 score:1
+				 },				{ meta: "CDOW",
+				 caption: "Cdow",
+				 value: "Cdow ",
+				 score:1
+				 },				{ meta: "CDX",
+				 caption: "Cdx",
+				 value: "Cdx ",
+				 score:1
+				 },				{ meta: "CEIL",
+				 caption: "Ceiling",
+				 value: "Ceiling ",
+				 score:1
+				 },				{ meta: "CHR",
+				 caption: "Chr",
+				 value: "Chr ",
+				 score:1
+				 },				{ meta: "CHRS",
+				 caption: "Chrsaw",
+				 value: "Chrsaw ",
+				 score:1
+				 },				{ meta: "CHRT",
+				 caption: "Chrtran",
+				 value: "Chrtran ",
+				 score:1
+				 },				{ meta: "CHRTRANC",
+				 caption: "Chrtranc",
+				 value: "Chrtranc ",
+				 score:1
+				 },				{ meta: "CLEARR",
+				 caption: "ClearResultSet",
+				 value: "ClearResultSet ",
+				 score:1
+				 },				{ meta: "CMON",
+				 caption: "Cmonth",
+				 value: "Cmonth ",
+				 score:1
+				 },				{ meta: "CNT",
+				 caption: "Cnt",
+				 value: "Cnt ",
+				 score:1
+				 },				{ meta: "CNTB",
+				 caption: "Cntbar",
+				 value: "Cntbar ",
+				 score:1
+				 },				{ meta: "CNTP",
+				 caption: "Cntpad",
+				 value: "Cntpad ",
+				 score:1
+				 },				{ meta: "COMA",
+				 caption: "ComArray",
+				 value: "ComArray ",
+				 score:1
+				 },				{ meta: "COMC",
+				 caption: "ComClassInfo",
+				 value: "ComClassInfo ",
+				 score:1
+				 },				{ meta: "COMR",
+				 caption: "ComReturnError",
+				 value: "ComReturnError ",
+				 score:1
+				 },				{ meta: "COMP",
+				 caption: "Compobj",
+				 value: "Compobj ",
+				 score:1
+				 },				{ meta: "COMPROP",
+				 caption: "Comprop",
+				 value: "Comprop ",
+				 score:1
+				 },				{ meta: "COS",
+				 caption: "Cos",
+				 value: "Cos ",
+				 score:1
+				 },				{ meta: "COUNT",
+				 caption: "Count",
+				 value: "Count ",
+				 score:1
+				 },				{ meta: "CPCO",
+				 caption: "Cpconvert",
+				 value: "Cpconvert ",
+				 score:1
+				 },				{ meta: "CPCU",
+				 caption: "Cpcurrent",
+				 value: "Cpcurrent ",
+				 score:1
+				 },				{ meta: "CPDB",
+				 caption: "Cpdbf",
+				 value: "Cpdbf ",
+				 score:1
+				 },				{ meta: "CREATEB",
+				 caption: "CreateBinary",
+				 value: "CreateBinary ",
+				 score:1
+				 },				{ meta: "CREATE",
+				 caption: "CreateObject",
+				 value: "CreateObject ",
+				 score:1
+				 },				{ meta: "CREATEOBJECTEX",
+				 caption: "CreateObjectEx",
+				 value: "CreateObjectEx ",
+				 score:1
+				 },				{ meta: "CREATEOF",
+				 caption: "CreateOffline",
+				 value: "CreateOffline ",
+				 score:1
+				 },				{ meta: "CTOD",
+				 caption: "Ctod",
+				 value: "Ctod ",
+				 score:1
+				 },				{ meta: "CTOT",
+				 caption: "Ctot",
+				 value: "Ctot ",
+				 score:1
+				 },				{ meta: "CURD",
+				 caption: "Curdir",
+				 value: "Curdir ",
+				 score:1
+				 },				{ meta: "CURSORG",
+				 caption: "CursorGetProp",
+				 value: "CursorGetProp ",
+				 score:1
+				 },				{ meta: "CURSORS",
+				 caption: "CursorSetProp",
+				 value: "CursorSetProp ",
+				 score:1
+				 },				{ meta: "CURSORTOX",
+				 caption: "CursorToXML",
+				 value: "CursorToXML ",
+				 score:1
+				 },				{ meta: "CURV",
+				 caption: "Curval",
+				 value: "Curval ",
+				 score:1
+				 },				{ meta: "DBAL",
+				 caption: "DBAlias",
+				 value: "DBAlias ",
+				 score:1
+				 },				{ meta: "DBGE",
+				 caption: "DBGetProp",
+				 value: "DBGetProp ",
+				 score:1
+				 },				{ meta: "DBSE",
+				 caption: "DBSetProp",
+				 value: "DBSetProp ",
+				 score:1
+				 },				{ meta: "DBUS",
+				 caption: "DBused",
+				 value: "DBused ",
+				 score:1
+				 },				{ meta: "DDEAB",
+				 caption: "DDEAborttrans",
+				 value: "DDEAborttrans ",
+				 score:1
+				 },				{ meta: "DDEAD",
+				 caption: "DDEAdvise",
+				 value: "DDEAdvise ",
+				 score:1
+				 },				{ meta: "DDEEN",
+				 caption: "DDEEnabled",
+				 value: "DDEEnabled ",
+				 score:1
+				 },				{ meta: "DDEEX",
+				 caption: "DDEExecute",
+				 value: "DDEExecute ",
+				 score:1
+				 },				{ meta: "DDEI",
+				 caption: "DDEInitiate",
+				 value: "DDEInitiate ",
+				 score:1
+				 },				{ meta: "DDEL",
+				 caption: "DDELastError",
+				 value: "DDELastError ",
+				 score:1
+				 },				{ meta: "DDEP",
+				 caption: "DDEPoke",
+				 value: "DDEPoke ",
+				 score:1
+				 },				{ meta: "DDER",
+				 caption: "DDERequest",
+				 value: "DDERequest ",
+				 score:1
+				 },				{ meta: "DDES",
+				 caption: "DDESetOption",
+				 value: "DDESetOption ",
+				 score:1
+				 },				{ meta: "DDESETS",
+				 caption: "DDESetService",
+				 value: "DDESetService ",
+				 score:1
+				 },				{ meta: "DDESETT",
+				 caption: "DDESetTopic",
+				 value: "DDESetTopic ",
+				 score:1
+				 },				{ meta: "DDET",
+				 caption: "DDETerminate",
+				 value: "DDETerminate ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "DIRTIP",
+				 value: "DIRTIP ",
+				 score:1
+				 },				{ meta: "DATE",
+				 caption: "Date",
+				 value: "Date ",
+				 score:1
+				 },				{ meta: "DATET",
+				 caption: "Datetime",
+				 value: "Datetime ",
+				 score:1
+				 },				{ meta: "DAY",
+				 caption: "Day",
+				 value: "Day ",
+				 score:1
+				 },				{ meta: "DBC",
+				 caption: "Dbc",
+				 value: "Dbc ",
+				 score:1
+				 },				{ meta: "DBF",
+				 caption: "Dbf",
+				 value: "Dbf ",
+				 score:1
+				 },				{ meta: "DEFA",
+				 caption: "DefaultExt",
+				 value: "DefaultExt ",
+				 score:1
+				 },				{ meta: "DELE",
+				 caption: "Deleted",
+				 value: "Deleted ",
+				 score:1
+				 },				{ meta: "DESC",
+				 caption: "Descending",
+				 value: "Descending ",
+				 score:1
+				 },				{ meta: "DIFF",
+				 caption: "Difference",
+				 value: "Difference ",
+				 score:1
+				 },				{ meta: "DIRE",
+				 caption: "Directory",
+				 value: "Directory ",
+				 score:1
+				 },				{ meta: "DISK",
+				 caption: "Diskspace",
+				 value: "Diskspace ",
+				 score:1
+				 },				{ meta: "DISP",
+				 caption: "DisplayPath",
+				 value: "DisplayPath ",
+				 score:1
+				 },				{ meta: "DMY",
+				 caption: "Dmy",
+				 value: "Dmy ",
+				 score:1
+				 },				{ meta: "DODE",
+				 caption: "DoDefault",
+				 value: "DoDefault ",
+				 score:1
+				 },				{ meta: "DOW",
+				 caption: "Dow",
+				 value: "Dow ",
+				 score:1
+				 },				{ meta: "DRIV",
+				 caption: "DriveType",
+				 value: "DriveType ",
+				 score:1
+				 },				{ meta: "DROP",
+				 caption: "DropOffline",
+				 value: "DropOffline ",
+				 score:1
+				 },				{ meta: "DTOC",
+				 caption: "Dtoc",
+				 value: "Dtoc ",
+				 score:1
+				 },				{ meta: "DTOR",
+				 caption: "Dtor",
+				 value: "Dtor ",
+				 score:1
+				 },				{ meta: "DTOS",
+				 caption: "Dtos",
+				 value: "Dtos ",
+				 score:1
+				 },				{ meta: "DTOT",
+				 caption: "Dtot",
+				 value: "Dtot ",
+				 score:1
+				 },				{ meta: "EDIT",
+				 caption: "EditSource",
+				 value: "EditSource ",
+				 score:1
+				 },				{ meta: "EMPT",
+				 caption: "Empty",
+				 value: "Empty ",
+				 score:1
+				 },				{ meta: "EOF",
+				 caption: "Eof",
+				 value: "Eof ",
+				 score:1
+				 },				{ meta: "ERRO",
+				 caption: "Error",
+				 value: "Error ",
+				 score:1
+				 },				{ meta: "EVAL",
+				 caption: "Evaluate",
+				 value: "Evaluate ",
+				 score:1
+				 },				{ meta: "EVENT",
+				 caption: "EventHandler",
+				 value: "EventHandler ",
+				 score:1
+				 },				{ meta: "EVL",
+				 caption: "Evl",
+				 value: "Evl ",
+				 score:1
+				 },				{ meta: "EXEC",
+				 caption: "ExecScript",
+				 value: "ExecScript ",
+				 score:1
+				 },				{ meta: "EXP",
+				 caption: "Exp",
+				 value: "Exp ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "FCREATETIP",
+				 value: "FCREATETIP ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "FIELDTIP",
+				 value: "FIELDTIP ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "FILETIP",
+				 value: "FILETIP ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "FOPENTIP",
+				 value: "FOPENTIP ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "FSEEKTIP",
+				 value: "FSEEKTIP ",
+				 score:1
+				 },				{ meta: "FCHS",
+				 caption: "Fchsize",
+				 value: "Fchsize ",
+				 score:1
+				 },				{ meta: "FCLO",
+				 caption: "Fclose",
+				 value: "Fclose ",
+				 score:1
+				 },				{ meta: "FCOU",
+				 caption: "Fcount",
+				 value: "Fcount ",
+				 score:1
+				 },				{ meta: "FCRE",
+				 caption: "Fcreate",
+				 value: "Fcreate ",
+				 score:1
+				 },				{ meta: "FDAT",
+				 caption: "Fdate",
+				 value: "Fdate ",
+				 score:1
+				 },				{ meta: "FEOF",
+				 caption: "Feof",
+				 value: "Feof ",
+				 score:1
+				 },				{ meta: "FERR",
+				 caption: "Ferror",
+				 value: "Ferror ",
+				 score:1
+				 },				{ meta: "FFLU",
+				 caption: "Fflush",
+				 value: "Fflush ",
+				 score:1
+				 },				{ meta: "FGET",
+				 caption: "Fgets",
+				 value: "Fgets ",
+				 score:1
+				 },				{ meta: "FIEL",
+				 caption: "Field",
+				 value: "Field ",
+				 score:1
+				 },				{ meta: "FILE",
+				 caption: "File",
+				 value: "File ",
+				 score:1
+				 },				{ meta: "FILET",
+				 caption: "FileToStr",
+				 value: "FileToStr ",
+				 score:1
+				 },				{ meta: "FILT",
+				 caption: "Filter",
+				 value: "Filter ",
+				 score:1
+				 },				{ meta: "FKLA",
+				 caption: "Fklabel",
+				 value: "Fklabel ",
+				 score:1
+				 },				{ meta: "FKMA",
+				 caption: "Fkmax",
+				 value: "Fkmax ",
+				 score:1
+				 },				{ meta: "FLOC",
+				 caption: "Flock",
+				 value: "Flock ",
+				 score:1
+				 },				{ meta: "FLOO",
+				 caption: "Floor",
+				 value: "Floor ",
+				 score:1
+				 },				{ meta: "FONT",
+				 caption: "Fontmetric",
+				 value: "Fontmetric ",
+				 score:1
+				 },				{ meta: "FOPE",
+				 caption: "Fopen",
+				 value: "Fopen ",
+				 score:1
+				 },				{ meta: "FOR",
+				 caption: "For",
+				 value: "For ",
+				 score:1
+				 },				{ meta: "FORC",
+				 caption: "ForceExt",
+				 value: "ForceExt ",
+				 score:1
+				 },				{ meta: "FORCEP",
+				 caption: "ForcePath",
+				 value: "ForcePath ",
+				 score:1
+				 },				{ meta: "FOUN",
+				 caption: "Found",
+				 value: "Found ",
+				 score:1
+				 },				{ meta: "FPUT",
+				 caption: "Fputs",
+				 value: "Fputs ",
+				 score:1
+				 },				{ meta: "FREA",
+				 caption: "Fread",
+				 value: "Fread ",
+				 score:1
+				 },				{ meta: "FSEE",
+				 caption: "Fseek",
+				 value: "Fseek ",
+				 score:1
+				 },				{ meta: "FSIZ",
+				 caption: "Fsize",
+				 value: "Fsize ",
+				 score:1
+				 },				{ meta: "FTIM",
+				 caption: "Ftime",
+				 value: "Ftime ",
+				 score:1
+				 },				{ meta: "FULL",
+				 caption: "FullPath",
+				 value: "FullPath ",
+				 score:1
+				 },				{ meta: "FV",
+				 caption: "Fv",
+				 value: "Fv ",
+				 score:1
+				 },				{ meta: "FWRI",
+				 caption: "Fwrite",
+				 value: "Fwrite ",
+				 score:1
+				 },				{ meta: "GETA",
+				 caption: "GetAutoincValue",
+				 value: "GetAutoincValue ",
+				 score:1
+				 },				{ meta: "GETCP",
+				 caption: "GetCP",
+				 value: "GetCP ",
+				 score:1
+				 },				{ meta: "GETC",
+				 caption: "GetColor",
+				 value: "GetColor ",
+				 score:1
+				 },				{ meta: "GETCU",
+				 caption: "GetCursorAdapter",
+				 value: "GetCursorAdapter ",
+				 score:1
+				 },				{ meta: "GETD",
+				 caption: "GetDir",
+				 value: "GetDir ",
+				 score:1
+				 },				{ meta: "GETE",
+				 caption: "GetEnv",
+				 value: "GetEnv ",
+				 score:1
+				 },				{ meta: "GETF",
+				 caption: "GetFile",
+				 value: "GetFile ",
+				 score:1
+				 },				{ meta: "GETFL",
+				 caption: "GetFldState",
+				 value: "GetFldState ",
+				 score:1
+				 },				{ meta: "GETFO",
+				 caption: "GetFont",
+				 value: "GetFont ",
+				 score:1
+				 },				{ meta: "GETH",
+				 caption: "GetHost",
+				 value: "GetHost ",
+				 score:1
+				 },				{ meta: "GETI",
+				 caption: "GetInterface",
+				 value: "GetInterface ",
+				 score:1
+				 },				{ meta: "GETN",
+				 caption: "GetNextModified",
+				 value: "GetNextModified ",
+				 score:1
+				 },				{ meta: "GETO",
+				 caption: "GetObject",
+				 value: "GetObject ",
+				 score:1
+				 },				{ meta: "GETP",
+				 caption: "GetPem",
+				 value: "GetPem ",
+				 score:1
+				 },				{ meta: "GETPI",
+				 caption: "GetPict",
+				 value: "GetPict ",
+				 score:1
+				 },				{ meta: "GETPR",
+				 caption: "GetPrinter",
+				 value: "GetPrinter ",
+				 score:1
+				 },				{ meta: "GETR",
+				 caption: "GetResultSet",
+				 value: "GetResultSet ",
+				 score:1
+				 },				{ meta: "GETWORDC",
+				 caption: "GetWordCount",
+				 value: "GetWordCount ",
+				 score:1
+				 },				{ meta: "GETWORDN",
+				 caption: "GetWordNum",
+				 value: "GetWordNum ",
+				 score:1
+				 },				{ meta: "GETB",
+				 caption: "Getbar",
+				 value: "Getbar ",
+				 score:1
+				 },				{ meta: "GETPA",
+				 caption: "Getpad",
+				 value: "Getpad ",
+				 score:1
+				 },				{ meta: "GOMO",
+				 caption: "Gomonth",
+				 value: "Gomonth ",
+				 score:1
+				 },				{ meta: "HEAD",
+				 caption: "Header",
+				 value: "Header ",
+				 score:1
+				 },				{ meta: "HOME",
+				 caption: "Home",
+				 value: "Home ",
+				 score:1
+				 },				{ meta: "HOUR",
+				 caption: "Hour",
+				 value: "Hour ",
+				 score:1
+				 },				{ meta: "ICAS",
+				 caption: "ICase",
+				 value: "ICase ",
+				 score:1
+				 },				{ meta: "IMES",
+				 caption: "IMEStatus",
+				 value: "IMEStatus ",
+				 score:1
+				 },				{ meta: "ID",
+				 caption: "Id",
+				 value: "Id ",
+				 score:1
+				 },				{ meta: "IDXC",
+				 caption: "Idxcollate",
+				 value: "Idxcollate ",
+				 score:1
+				 },				{ meta: "IIF",
+				 caption: "Iif",
+				 value: "Iif ",
+				 score:1
+				 },				{ meta: "INLI",
+				 caption: "InList",
+				 value: "InList ",
+				 score:1
+				 },				{ meta: "INDB",
+				 caption: "Indbc",
+				 value: "Indbc ",
+				 score:1
+				 },				{ meta: "INDE",
+				 caption: "Indexseek",
+				 value: "Indexseek ",
+				 score:1
+				 },				{ meta: "INKE",
+				 caption: "Inkey",
+				 value: "Inkey ",
+				 score:1
+				 },				{ meta: "INPU",
+				 caption: "InputBox",
+				 value: "InputBox ",
+				 score:1
+				 },				{ meta: "INSM",
+				 caption: "Insmode",
+				 value: "Insmode ",
+				 score:1
+				 },				{ meta: "INT",
+				 caption: "Int",
+				 value: "Int ",
+				 score:1
+				 },				{ meta: "ISAL",
+				 caption: "IsAlpha",
+				 value: "IsAlpha ",
+				 score:1
+				 },				{ meta: "ISBL",
+				 caption: "IsBlank",
+				 value: "IsBlank ",
+				 score:1
+				 },				{ meta: "ISCO",
+				 caption: "IsColor",
+				 value: "IsColor ",
+				 score:1
+				 },				{ meta: "ISDI",
+				 caption: "IsDigit",
+				 value: "IsDigit ",
+				 score:1
+				 },				{ meta: "ISEX",
+				 caption: "IsExclusive",
+				 value: "IsExclusive ",
+				 score:1
+				 },				{ meta: "ISFL",
+				 caption: "IsFLocked",
+				 value: "IsFLocked ",
+				 score:1
+				 },				{ meta: "ISHO",
+				 caption: "IsHosted",
+				 value: "IsHosted ",
+				 score:1
+				 },				{ meta: "ISLE",
+				 caption: "IsLeadByte",
+				 value: "IsLeadByte ",
+				 score:1
+				 },				{ meta: "ISLO",
+				 caption: "IsLower",
+				 value: "IsLower ",
+				 score:1
+				 },				{ meta: "ISME",
+				 caption: "IsMemoFetched",
+				 value: "IsMemoFetched ",
+				 score:1
+				 },				{ meta: "ISMO",
+				 caption: "IsMouse",
+				 value: "IsMouse ",
+				 score:1
+				 },				{ meta: "ISNU",
+				 caption: "IsNull",
+				 value: "IsNull ",
+				 score:1
+				 },				{ meta: "ISPE",
+				 caption: "IsPen",
+				 value: "IsPen ",
+				 score:1
+				 },				{ meta: "ISRL",
+				 caption: "IsRLocked",
+				 value: "IsRLocked ",
+				 score:1
+				 },				{ meta: "ISRE",
+				 caption: "IsReadonly",
+				 value: "IsReadonly ",
+				 score:1
+				 },				{ meta: "ISTR",
+				 caption: "IsTransactable",
+				 value: "IsTransactable ",
+				 score:1
+				 },				{ meta: "ISUP",
+				 caption: "IsUpper",
+				 value: "IsUpper ",
+				 score:1
+				 },				{ meta: "JUSTD",
+				 caption: "JustDrive",
+				 value: "JustDrive ",
+				 score:1
+				 },				{ meta: "JUSTE",
+				 caption: "JustExt",
+				 value: "JustExt ",
+				 score:1
+				 },				{ meta: "JUSTF",
+				 caption: "JustFname",
+				 value: "JustFname ",
+				 score:1
+				 },				{ meta: "JUSTP",
+				 caption: "JustPath",
+				 value: "JustPath ",
+				 score:1
+				 },				{ meta: "JUSTS",
+				 caption: "JustStem",
+				 value: "JustStem ",
+				 score:1
+				 },				{ meta: "KEY",
+				 caption: "Key",
+				 value: "Key ",
+				 score:1
+				 },				{ meta: "KEYM",
+				 caption: "Keymatch",
+				 value: "Keymatch ",
+				 score:1
+				 },				{ meta: "LAST",
+				 caption: "Lastkey",
+				 value: "Lastkey ",
+				 score:1
+				 },				{ meta: "LEFT",
+				 caption: "Left",
+				 value: "Left ",
+				 score:1
+				 },				{ meta: "LEFTC",
+				 caption: "Leftc",
+				 value: "Leftc ",
+				 score:1
+				 },				{ meta: "LEN",
+				 caption: "Len",
+				 value: "Len ",
+				 score:1
+				 },				{ meta: "LENC",
+				 caption: "Lenc",
+				 value: "Lenc ",
+				 score:1
+				 },				{ meta: "LIKE",
+				 caption: "Like",
+				 value: "Like ",
+				 score:1
+				 },				{ meta: "LIKEC",
+				 caption: "Likec",
+				 value: "Likec ",
+				 score:1
+				 },				{ meta: "LINE",
+				 caption: "Lineno",
+				 value: "Lineno ",
+				 score:1
+				 },				{ meta: "LOAD",
+				 caption: "LoadPicture",
+				 value: "LoadPicture ",
+				 score:1
+				 },				{ meta: "LOCF",
+				 caption: "LocFile",
+				 value: "LocFile ",
+				 score:1
+				 },				{ meta: "LOCK",
+				 caption: "Lock",
+				 value: "Lock ",
+				 score:1
+				 },				{ meta: "LOG",
+				 caption: "Log",
+				 value: "Log ",
+				 score:1
+				 },				{ meta: "LOG1",
+				 caption: "Log10",
+				 value: "Log10 ",
+				 score:1
+				 },				{ meta: "LOOK",
+				 caption: "Lookup",
+				 value: "Lookup ",
+				 score:1
+				 },				{ meta: "LOWE",
+				 caption: "Lower",
+				 value: "Lower ",
+				 score:1
+				 },				{ meta: "LTRI",
+				 caption: "Ltrim",
+				 value: "Ltrim ",
+				 score:1
+				 },				{ meta: "LUPD",
+				 caption: "Lupdate",
+				 value: "Lupdate ",
+				 score:1
+				 },				{ meta: "MAKE",
+				 caption: "MakeTransactable",
+				 value: "MakeTransactable ",
+				 score:1
+				 },				{ meta: "MAX",
+				 caption: "Max",
+				 value: "Max ",
+				 score:1
+				 },				{ meta: "MCOL",
+				 caption: "Mcol",
+				 value: "Mcol ",
+				 score:1
+				 },				{ meta: "MDOW",
+				 caption: "Mdown",
+				 value: "Mdown ",
+				 score:1
+				 },				{ meta: "MDX",
+				 caption: "Mdx",
+				 value: "Mdx ",
+				 score:1
+				 },				{ meta: "MDY",
+				 caption: "Mdy",
+				 value: "Mdy ",
+				 score:1
+				 },				{ meta: "MEML",
+				 caption: "Memlines",
+				 value: "Memlines ",
+				 score:1
+				 },				{ meta: "MEMO",
+				 caption: "Memory",
+				 value: "Memory ",
+				 score:1
+				 },				{ meta: "MENU",
+				 caption: "Menu",
+				 value: "Menu ",
+				 score:1
+				 },				{ meta: "MESS",
+				 caption: "Message",
+				 value: "Message ",
+				 score:1
+				 },				{ meta: "MESSAGEB",
+				 caption: "MessageBox",
+				 value: "MessageBox ",
+				 score:1
+				 },				{ meta: "MSGB",
+				 caption: "MessageBox",
+				 value: "MessageBox ",
+				 score:1
+				 },				{ meta: "MIN",
+				 caption: "Min",
+				 value: "Min ",
+				 score:1
+				 },				{ meta: "MINU",
+				 caption: "Minute",
+				 value: "Minute ",
+				 score:1
+				 },				{ meta: "MLIN",
+				 caption: "Mline",
+				 value: "Mline ",
+				 score:1
+				 },				{ meta: "MOD",
+				 caption: "Mod",
+				 value: "Mod ",
+				 score:1
+				 },				{ meta: "MONT",
+				 caption: "Month",
+				 value: "Month ",
+				 score:1
+				 },				{ meta: "MRKB",
+				 caption: "Mrkbar",
+				 value: "Mrkbar ",
+				 score:1
+				 },				{ meta: "MRKP",
+				 caption: "Mrkpad",
+				 value: "Mrkpad ",
+				 score:1
+				 },				{ meta: "MROW",
+				 caption: "Mrow",
+				 value: "Mrow ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Msgboxtip",
+				 value: "Msgboxtip ",
+				 score:1
+				 },				{ meta: "MTON",
+				 caption: "Mton",
+				 value: "Mton ",
+				 score:1
+				 },				{ meta: "MWIN",
+				 caption: "Mwindow",
+				 value: "Mwindow ",
+				 score:1
+				 },				{ meta: "NDX",
+				 caption: "Ndx",
+				 value: "Ndx ",
+				 score:1
+				 },				{ meta: "NEW",
+				 caption: "NewObject",
+				 value: "NewObject ",
+				 score:1
+				 },				{ meta: "NEWO",
+				 caption: "NewObject",
+				 value: "NewObject ",
+				 score:1
+				 },				{ meta: "NORM",
+				 caption: "Normalize",
+				 value: "Normalize ",
+				 score:1
+				 },				{ meta: "NTOM",
+				 caption: "Ntom",
+				 value: "Ntom ",
+				 score:1
+				 },				{ meta: "NUML",
+				 caption: "Numlock",
+				 value: "Numlock ",
+				 score:1
+				 },				{ meta: "NVL",
+				 caption: "Nvl",
+				 value: "Nvl ",
+				 score:1
+				 },				{ meta: "OBJT",
+				 caption: "Objtoclient",
+				 value: "Objtoclient ",
+				 score:1
+				 },				{ meta: "OCCU",
+				 caption: "Occurs",
+				 value: "Occurs ",
+				 score:1
+				 },				{ meta: "OLDV",
+				 caption: "Oldval",
+				 value: "Oldval ",
+				 score:1
+				 },				{ meta: "ON",
+				 caption: "On",
+				 value: "On ",
+				 score:1
+				 },				{ meta: "ORDE",
+				 caption: "Order",
+				 value: "Order ",
+				 score:1
+				 },				{ meta: "OS",
+				 caption: "Os",
+				 value: "Os ",
+				 score:1
+				 },				{ meta: "PAD",
+				 caption: "Pad",
+				 value: "Pad ",
+				 score:1
+				 },				{ meta: "PADC",
+				 caption: "Padc",
+				 value: "Padc ",
+				 score:1
+				 },				{ meta: "PADL",
+				 caption: "Padl",
+				 value: "Padl ",
+				 score:1
+				 },				{ meta: "PADR",
+				 caption: "Padr",
+				 value: "Padr ",
+				 score:1
+				 },				{ meta: "PARA",
+				 caption: "Parameters",
+				 value: "Parameters ",
+				 score:1
+				 },				{ meta: "PAYM",
+				 caption: "Payment",
+				 value: "Payment ",
+				 score:1
+				 },				{ meta: "PCOL",
+				 caption: "Pcol",
+				 value: "Pcol ",
+				 score:1
+				 },				{ meta: "PCOU",
+				 caption: "Pcount",
+				 value: "Pcount ",
+				 score:1
+				 },				{ meta: "PEMS",
+				 caption: "PemStatus",
+				 value: "PemStatus ",
+				 score:1
+				 },				{ meta: "PI",
+				 caption: "Pi",
+				 value: "Pi ",
+				 score:1
+				 },				{ meta: "POPU",
+				 caption: "Popup",
+				 value: "Popup ",
+				 score:1
+				 },				{ meta: "PRIM",
+				 caption: "Primary",
+				 value: "Primary ",
+				 score:1
+				 },				{ meta: "PRIN",
+				 caption: "Printstatus",
+				 value: "Printstatus ",
+				 score:1
+				 },				{ meta: "PRMB",
+				 caption: "Prmbar",
+				 value: "Prmbar ",
+				 score:1
+				 },				{ meta: "PRMP",
+				 caption: "Prmpad",
+				 value: "Prmpad ",
+				 score:1
+				 },				{ meta: "PROG",
+				 caption: "Program",
+				 value: "Program ",
+				 score:1
+				 },				{ meta: "PROM",
+				 caption: "Prompt",
+				 value: "Prompt ",
+				 score:1
+				 },				{ meta: "PROP",
+				 caption: "Proper",
+				 value: "Proper ",
+				 score:1
+				 },				{ meta: "PROW",
+				 caption: "Prow",
+				 value: "Prow ",
+				 score:1
+				 },				{ meta: "PRTI",
+				 caption: "Prtinfo",
+				 value: "Prtinfo ",
+				 score:1
+				 },				{ meta: "PUTF",
+				 caption: "Putfile",
+				 value: "Putfile ",
+				 score:1
+				 },				{ meta: "PV",
+				 caption: "Pv",
+				 value: "Pv ",
+				 score:1
+				 },				{ meta: "QUAR",
+				 caption: "Quarter",
+				 value: "Quarter ",
+				 score:1
+				 },				{ meta: "RAIS",
+				 caption: "RaiseEvent",
+				 value: "RaiseEvent ",
+				 score:1
+				 },				{ meta: "RAND",
+				 caption: "Rand",
+				 value: "Rand ",
+				 score:1
+				 },				{ meta: "RAT",
+				 caption: "Rat",
+				 value: "Rat ",
+				 score:1
+				 },				{ meta: "RATC",
+				 caption: "Ratc",
+				 value: "Ratc ",
+				 score:1
+				 },				{ meta: "RATL",
+				 caption: "Ratline",
+				 value: "Ratline ",
+				 score:1
+				 },				{ meta: "RECC",
+				 caption: "Reccount",
+				 value: "Reccount ",
+				 score:1
+				 },				{ meta: "RECN",
+				 caption: "Recno",
+				 value: "Recno ",
+				 score:1
+				 },				{ meta: "RECS",
+				 caption: "Recsize",
+				 value: "Recsize ",
+				 score:1
+				 },				{ meta: "REFR",
+				 caption: "Refresh",
+				 value: "Refresh ",
+				 score:1
+				 },				{ meta: "RELA",
+				 caption: "Relation",
+				 value: "Relation ",
+				 score:1
+				 },				{ meta: "REMO",
+				 caption: "RemoveProperty",
+				 value: "RemoveProperty ",
+				 score:1
+				 },				{ meta: "REPL",
+				 caption: "Replicate",
+				 value: "Replicate ",
+				 score:1
+				 },				{ meta: "REQU",
+				 caption: "Requery",
+				 value: "Requery ",
+				 score:1
+				 },				{ meta: "RGB",
+				 caption: "Rgb",
+				 value: "Rgb ",
+				 score:1
+				 },				{ meta: "RGBS",
+				 caption: "Rgbscheme",
+				 value: "Rgbscheme ",
+				 score:1
+				 },				{ meta: "RIGH",
+				 caption: "Right",
+				 value: "Right ",
+				 score:1
+				 },				{ meta: "RIGHTC",
+				 caption: "Rightc",
+				 value: "Rightc ",
+				 score:1
+				 },				{ meta: "RLOC",
+				 caption: "Rlock",
+				 value: "Rlock ",
+				 score:1
+				 },				{ meta: "ROUN",
+				 caption: "Round",
+				 value: "Round ",
+				 score:1
+				 },				{ meta: "RTOD",
+				 caption: "Rtod",
+				 value: "Rtod ",
+				 score:1
+				 },				{ meta: "RTRI",
+				 caption: "Rtrim",
+				 value: "Rtrim ",
+				 score:1
+				 },				{ meta: "SQLCA",
+				 caption: "SQLCancel",
+				 value: "SQLCancel ",
+				 score:1
+				 },				{ meta: "SQLCOL",
+				 caption: "SQLColumns",
+				 value: "SQLColumns ",
+				 score:1
+				 },				{ meta: "SQLCOM",
+				 caption: "SQLCommit",
+				 value: "SQLCommit ",
+				 score:1
+				 },				{ meta: "SQLCON",
+				 caption: "SQLConnect",
+				 value: "SQLConnect ",
+				 score:1
+				 },				{ meta: "SQLD",
+				 caption: "SQLDisconnect",
+				 value: "SQLDisconnect ",
+				 score:1
+				 },				{ meta: "SQLE",
+				 caption: "SQLExec",
+				 value: "SQLExec ",
+				 score:1
+				 },				{ meta: "SQLG",
+				 caption: "SQLGetProp",
+				 value: "SQLGetProp ",
+				 score:1
+				 },				{ meta: "SQLI",
+				 caption: "SQLIdleDisconnect",
+				 value: "SQLIdleDisconnect ",
+				 score:1
+				 },				{ meta: "SQLM",
+				 caption: "SQLMoreResults",
+				 value: "SQLMoreResults ",
+				 score:1
+				 },				{ meta: "SQLP",
+				 caption: "SQLPrepare",
+				 value: "SQLPrepare ",
+				 score:1
+				 },				{ meta: "SQLR",
+				 caption: "SQLRollback",
+				 value: "SQLRollback ",
+				 score:1
+				 },				{ meta: "SQLSE",
+				 caption: "SQLSetProp",
+				 value: "SQLSetProp ",
+				 score:1
+				 },				{ meta: "SQLST",
+				 caption: "SQLStringConnect",
+				 value: "SQLStringConnect ",
+				 score:1
+				 },				{ meta: "SQLT",
+				 caption: "SQLTables",
+				 value: "SQLTables ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "STRTOFILETIP",
+				 value: "STRTOFILETIP ",
+				 score:1
+				 },				{ meta: "SAVE",
+				 caption: "SavePicture",
+				 value: "SavePicture ",
+				 score:1
+				 },				{ meta: "SCHE",
+				 caption: "Scheme",
+				 value: "Scheme ",
+				 score:1
+				 },				{ meta: "SCOL",
+				 caption: "Scols",
+				 value: "Scols ",
+				 score:1
+				 },				{ meta: "SEC",
+				 caption: "Sec",
+				 value: "Sec ",
+				 score:1
+				 },				{ meta: "SECO",
+				 caption: "Seconds",
+				 value: "Seconds ",
+				 score:1
+				 },				{ meta: "SEEK",
+				 caption: "Seek",
+				 value: "Seek ",
+				 score:1
+				 },				{ meta: "SELE",
+				 caption: "Select",
+				 value: "Select ",
+				 score:1
+				 },				{ meta: "SET",
+				 caption: "Set",
+				 value: "Set ",
+				 score:1
+				 },				{ meta: "SETF",
+				 caption: "SetFldState",
+				 value: "SetFldState ",
+				 score:1
+				 },				{ meta: "SETR",
+				 caption: "SetResultSet",
+				 value: "SetResultSet ",
+				 score:1
+				 },				{ meta: "SIGN",
+				 caption: "Sign",
+				 value: "Sign ",
+				 score:1
+				 },				{ meta: "SIN",
+				 caption: "Sin",
+				 value: "Sin ",
+				 score:1
+				 },				{ meta: "SKPB",
+				 caption: "Skpbar",
+				 value: "Skpbar ",
+				 score:1
+				 },				{ meta: "SKPP",
+				 caption: "Skppad",
+				 value: "Skppad ",
+				 score:1
+				 },				{ meta: "SOUN",
+				 caption: "Soundex",
+				 value: "Soundex ",
+				 score:1
+				 },				{ meta: "SPAC",
+				 caption: "Space",
+				 value: "Space ",
+				 score:1
+				 },				{ meta: "SQRT",
+				 caption: "Sqrt",
+				 value: "Sqrt ",
+				 score:1
+				 },				{ meta: "SROW",
+				 caption: "Srows",
+				 value: "Srows ",
+				 score:1
+				 },				{ meta: "STR",
+				 caption: "Str",
+				 value: "Str ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "StrExTip",
+				 value: "StrExTip ",
+				 score:1
+				 },				{ meta: "STRE",
+				 caption: "StrExtract",
+				 value: "StrExtract ",
+				 score:1
+				 },				{ meta: "STRTO",
+				 caption: "StrToFile",
+				 value: "StrToFile ",
+				 score:1
+				 },				{ meta: "STRC",
+				 caption: "Strconv",
+				 value: "Strconv ",
+				 score:1
+				 },				{ meta: "STRTR",
+				 caption: "Strtran",
+				 value: "Strtran ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Strtrantip",
+				 value: "Strtrantip ",
+				 score:1
+				 },				{ meta: "STUF",
+				 caption: "Stuff",
+				 value: "Stuff ",
+				 score:1
+				 },				{ meta: "STUFFC",
+				 caption: "Stuffc",
+				 value: "Stuffc ",
+				 score:1
+				 },				{ meta: "SUBS",
+				 caption: "Substr",
+				 value: "Substr ",
+				 score:1
+				 },				{ meta: "SUBSTRC",
+				 caption: "Substrc",
+				 value: "Substrc ",
+				 score:1
+				 },				{ meta: "SUM",
+				 caption: "Sum",
+				 value: "Sum ",
+				 score:1
+				 },				{ meta: "SYS",
+				 caption: "Sys",
+				 value: "Sys ",
+				 score:1
+				 },				{ meta: "SYSM",
+				 caption: "Sysmetric",
+				 value: "Sysmetric ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "TRIMTIP",
+				 value: "TRIMTIP ",
+				 score:1
+				 },				{ meta: "TABLER",
+				 caption: "TableRevert",
+				 value: "TableRevert ",
+				 score:1
+				 },				{ meta: "TABLEU",
+				 caption: "TableUpdate",
+				 value: "TableUpdate ",
+				 score:1
+				 },				{ meta: "TAG",
+				 caption: "Tag",
+				 value: "Tag ",
+				 score:1
+				 },				{ meta: "TAGC",
+				 caption: "Tagcount",
+				 value: "Tagcount ",
+				 score:1
+				 },				{ meta: "TAGN",
+				 caption: "Tagno",
+				 value: "Tagno ",
+				 score:1
+				 },				{ meta: "TAN",
+				 caption: "Tan",
+				 value: "Tan ",
+				 score:1
+				 },				{ meta: "TARG",
+				 caption: "Target",
+				 value: "Target ",
+				 score:1
+				 },				{ meta: "TEXT",
+				 caption: "Textmerge",
+				 value: "Textmerge ",
+				 score:1
+				 },				{ meta: "TIME",
+				 caption: "Time",
+				 value: "Time ",
+				 score:1
+				 },				{ meta: "TRAN",
+				 caption: "Transform",
+				 value: "Transform ",
+				 score:1
+				 },				{ meta: "TRIM",
+				 caption: "Trim",
+				 value: "Trim ",
+				 score:1
+				 },				{ meta: "TTOC",
+				 caption: "Ttoc",
+				 value: "Ttoc ",
+				 score:1
+				 },				{ meta: "TTOD",
+				 caption: "Ttod",
+				 value: "Ttod ",
+				 score:1
+				 },				{ meta: "TXNL",
+				 caption: "Txnlevel",
+				 value: "Txnlevel ",
+				 score:1
+				 },				{ meta: "TXTW",
+				 caption: "Txtwidth",
+				 value: "Txtwidth ",
+				 score:1
+				 },				{ meta: "TYPE",
+				 caption: "Type",
+				 value: "Type ",
+				 score:1
+				 },				{ meta: "UNBI",
+				 caption: "UnBindEvents",
+				 value: "UnBindEvents ",
+				 score:1
+				 },				{ meta: "UPPE",
+				 caption: "Upper",
+				 value: "Upper ",
+				 score:1
+				 },				{ meta: "USED",
+				 caption: "Used",
+				 value: "Used ",
+				 score:1
+				 },				{ meta: "VAL",
+				 caption: "Val",
+				 value: "Val ",
+				 score:1
+				 },				{ meta: "VART",
+				 caption: "Vartype",
+				 value: "Vartype ",
+				 score:1
+				 },				{ meta: "VERS",
+				 caption: "Version",
+				 value: "Version ",
+				 score:1
+				 },				{ meta: "WDOC",
+				 caption: "WDockable",
+				 value: "WDockable ",
+				 score:1
+				 },				{ meta: "WBOR",
+				 caption: "Wborder",
+				 value: "Wborder ",
+				 score:1
+				 },				{ meta: "WCHI",
+				 caption: "Wchild",
+				 value: "Wchild ",
+				 score:1
+				 },				{ meta: "WCOL",
+				 caption: "Wcols",
+				 value: "Wcols ",
+				 score:1
+				 },				{ meta: "WEEK",
+				 caption: "Week",
+				 value: "Week ",
+				 score:1
+				 },				{ meta: "WEXI",
+				 caption: "Wexist",
+				 value: "Wexist ",
+				 score:1
+				 },				{ meta: "WFON",
+				 caption: "Wfont",
+				 value: "Wfont ",
+				 score:1
+				 },				{ meta: "WLAS",
+				 caption: "Wlast",
+				 value: "Wlast ",
+				 score:1
+				 },				{ meta: "WLCO",
+				 caption: "Wlcol",
+				 value: "Wlcol ",
+				 score:1
+				 },				{ meta: "WLRO",
+				 caption: "Wlrow",
+				 value: "Wlrow ",
+				 score:1
+				 },				{ meta: "WMAX",
+				 caption: "Wmaximum",
+				 value: "Wmaximum ",
+				 score:1
+				 },				{ meta: "WMIN",
+				 caption: "Wminimum",
+				 value: "Wminimum ",
+				 score:1
+				 },				{ meta: "WONT",
+				 caption: "Wontop",
+				 value: "Wontop ",
+				 score:1
+				 },				{ meta: "WOUT",
+				 caption: "Woutput",
+				 value: "Woutput ",
+				 score:1
+				 },				{ meta: "WPAR",
+				 caption: "Wparent",
+				 value: "Wparent ",
+				 score:1
+				 },				{ meta: "WROW",
+				 caption: "Wrows",
+				 value: "Wrows ",
+				 score:1
+				 },				{ meta: "WTIT",
+				 caption: "Wtitle",
+				 value: "Wtitle ",
+				 score:1
+				 },				{ meta: "WVIS",
+				 caption: "Wvisible",
+				 value: "Wvisible ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "XMLTIP",
+				 value: "XMLTIP ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "XMLTIP2",
+				 value: "XMLTIP2 ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "XMLTIP3",
+				 value: "XMLTIP3 ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "XMLTIP4",
+				 value: "XMLTIP4 ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "XMLTIP5",
+				 value: "XMLTIP5 ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "XMLTIP6",
+				 value: "XMLTIP6 ",
+				 score:1
+				 },				{ meta: "XMLT",
+				 caption: "XMLToCursor",
+				 value: "XMLToCursor ",
+				 score:1
+				 },				{ meta: "XMLU",
+				 caption: "XMLUpdategram",
+				 value: "XMLUpdategram ",
+				 score:1
+				 },				{ meta: "YEAR",
+				 caption: "Year",
+				 value: "Year ",
+				 score:1
+				 },				{ meta: "ACTI",
+				 caption: "Activate",
+				 value: "Activate ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Activate Menu",
+				 value: "Activate Menu ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Activate Popup",
+				 value: "Activate Popup ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Activate Window",
+				 value: "Activate Window ",
+				 score:1
+				 },				{ meta: "ADD",
+				 caption: "Add",
+				 value: "Add ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Add Class",
+				 value: "Add Class ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Add Object",
+				 value: "Add Object ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Add Table",
+				 value: "Add Table ",
+				 score:1
+				 },				{ meta: "ALTE",
+				 caption: "Alter Table",
+				 value: "Alter Table ",
+				 score:1
+				 },				{ meta: "APPE",
+				 caption: "Append",
+				 value: "Append ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Append Blank",
+				 value: "Append Blank ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Append From",
+				 value: "Append From ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Append From Array",
+				 value: "Append From Array ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Append General",
+				 value: "Append General ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Append Memo",
+				 value: "Append Memo ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Append Procedures",
+				 value: "Append Procedures ",
+				 score:1
+				 },				{ meta: "ASSE",
+				 caption: "Assert",
+				 value: "Assert ",
+				 score:1
+				 },				{ meta: "AVER",
+				 caption: "Average",
+				 value: "Average ",
+				 score:1
+				 },				{ meta: "BEGI",
+				 caption: "Begin Transaction",
+				 value: "Begin Transaction ",
+				 score:1
+				 },				{ meta: "BLAN",
+				 caption: "Blank",
+				 value: "Blank ",
+				 score:1
+				 },				{ meta: "BROW",
+				 caption: "Browse",
+				 value: "Browse ",
+				 score:1
+				 },				{ meta: "BUIL",
+				 caption: "Build",
+				 value: "Build ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Build App",
+				 value: "Build App ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Build Dll",
+				 value: "Build Dll ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Build Exe",
+				 value: "Build Exe ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Build Mtdll",
+				 value: "Build Mtdll ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Build Project",
+				 value: "Build Project ",
+				 score:1
+				 },				{ meta: "CALC",
+				 caption: "Calculate",
+				 value: "Calculate ",
+				 score:1
+				 },				{ meta: "CANC",
+				 caption: "Cancel",
+				 value: "Cancel ",
+				 score:1
+				 },				{ meta: "CASE",
+				 caption: "Case",
+				 value: "Case ",
+				 score:1
+				 },				{ meta: "CATC",
+				 caption: "Catch",
+				 value: "Catch ",
+				 score:1
+				 },				{ meta: "CD",
+				 caption: "Cd",
+				 value: "Cd ",
+				 score:1
+				 },				{ meta: "CHDI",
+				 caption: "ChDir",
+				 value: "ChDir ",
+				 score:1
+				 },				{ meta: "CHAN",
+				 caption: "Change",
+				 value: "Change ",
+				 score:1
+				 },				{ meta: "CLEA",
+				 caption: "Clear",
+				 value: "Clear ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Clear Class",
+				 value: "Clear Class ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Clear Classlib",
+				 value: "Clear Classlib ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Clear Dlls",
+				 value: "Clear Dlls ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Clear Resources",
+				 value: "Clear Resources ",
+				 score:1
+				 },				{ meta: "CLOS",
+				 caption: "Close",
+				 value: "Close ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Close Databases",
+				 value: "Close Databases ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Close Tables",
+				 value: "Close Tables ",
+				 score:1
+				 },				{ meta: "COMP",
+				 caption: "Compile",
+				 value: "Compile ",
+				 score:1
+				 },				{ meta: "CONT",
+				 caption: "Continue",
+				 value: "Continue ",
+				 score:1
+				 },				{ meta: "COPY",
+				 caption: "Copy",
+				 value: "Copy ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Copy File",
+				 value: "Copy File ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Copy Indexes",
+				 value: "Copy Indexes ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Copy Memo",
+				 value: "Copy Memo ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Copy Procedures",
+				 value: "Copy Procedures ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Copy Structure",
+				 value: "Copy Structure ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Copy Structure Extended",
+				 value: "Copy Structure Extended ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Copy Tag",
+				 value: "Copy Tag ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Copy To",
+				 value: "Copy To ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Copy To Array",
+				 value: "Copy To Array ",
+				 score:1
+				 },				{ meta: "COUN",
+				 caption: "Count",
+				 value: "Count ",
+				 score:1
+				 },				{ meta: "CREA",
+				 caption: "Create",
+				 value: "Create ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Create Class",
+				 value: "Create Class ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Create Classlib",
+				 value: "Create Classlib ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Create Color Set",
+				 value: "Create Color Set ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Create Connection",
+				 value: "Create Connection ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Create Cursor",
+				 value: "Create Cursor ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Create Database",
+				 value: "Create Database ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Create Form",
+				 value: "Create Form ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Create Label",
+				 value: "Create Label ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Create Menu",
+				 value: "Create Menu ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Create Project",
+				 value: "Create Project ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Create Query",
+				 value: "Create Query ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Create Report",
+				 value: "Create Report ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Create Sql View",
+				 value: "Create Sql View ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Create Table",
+				 value: "Create Table ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Create Trigger On",
+				 value: "Create Trigger On ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Create View",
+				 value: "Create View ",
+				 score:1
+				 },				{ meta: "DEAC",
+				 caption: "Deactivate",
+				 value: "Deactivate ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Deactivate Menu",
+				 value: "Deactivate Menu ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Deactivate Popup",
+				 value: "Deactivate Popup ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Deactivate Window",
+				 value: "Deactivate Window ",
+				 score:1
+				 },				{ meta: "DEBU",
+				 caption: "Debug",
+				 value: "Debug ",
+				 score:1
+				 },				{ meta: "DEBUGO",
+				 caption: "Debugout",
+				 value: "Debugout ",
+				 score:1
+				 },				{ meta: "DECL",
+				 caption: "Declare",
+				 value: "Declare ",
+				 score:1
+				 },				{ meta: "DEFI",
+				 caption: "Define",
+				 value: "Define ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Define Bar",
+				 value: "Define Bar ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Define Class",
+				 value: "Define Class ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Define Menu",
+				 value: "Define Menu ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Define Pad",
+				 value: "Define Pad ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Define Popup",
+				 value: "Define Popup ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Define Window",
+				 value: "Define Window ",
+				 score:1
+				 },				{ meta: "DELE",
+				 caption: "Delete",
+				 value: "Delete ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Delete All",
+				 value: "Delete All ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Delete Connection",
+				 value: "Delete Connection ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Delete Database",
+				 value: "Delete Database ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Delete File",
+				 value: "Delete File ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Delete For",
+				 value: "Delete For ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Delete From",
+				 value: "Delete From ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Delete Next",
+				 value: "Delete Next ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Delete Rest",
+				 value: "Delete Rest ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Delete Tag",
+				 value: "Delete Tag ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Delete Trigger On",
+				 value: "Delete Trigger On ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Delete View",
+				 value: "Delete View ",
+				 score:1
+				 },				{ meta: "DIME",
+				 caption: "Dimension",
+				 value: "Dimension ",
+				 score:1
+				 },				{ meta: "DIR",
+				 caption: "Dir",
+				 value: "Dir ",
+				 score:1
+				 },				{ meta: "DISP",
+				 caption: "Display",
+				 value: "Display ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Display",
+				 value: "Display ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Display Connections",
+				 value: "Display Connections ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Display Database",
+				 value: "Display Database ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Display Dlls",
+				 value: "Display Dlls ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Display Fields",
+				 value: "Display Fields ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Display Files",
+				 value: "Display Files ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Display Memory",
+				 value: "Display Memory ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Display Objects",
+				 value: "Display Objects ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Display Procedures",
+				 value: "Display Procedures ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Display Status",
+				 value: "Display Status ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Display Structure",
+				 value: "Display Structure ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Display Tables",
+				 value: "Display Tables ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Display Views",
+				 value: "Display Views ",
+				 score:1
+				 },				{ meta: "DO",
+				 caption: "Do",
+				 value: "Do ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Do Case",
+				 value: "Do Case ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Do Form",
+				 value: "Do Form ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Do While",
+				 value: "Do While ",
+				 score:1
+				 },				{ meta: "DOCK",
+				 caption: "Dock",
+				 value: "Dock ",
+				 score:1
+				 },				{ meta: "DOEV",
+				 caption: "Doevents",
+				 value: "Doevents ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Dotip",
+				 value: "Dotip ",
+				 score:1
+				 },				{ meta: "DROP",
+				 caption: "Drop",
+				 value: "Drop ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Drop Table",
+				 value: "Drop Table ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Drop View",
+				 value: "Drop View ",
+				 score:1
+				 },				{ meta: "EDIT",
+				 caption: "Edit",
+				 value: "Edit ",
+				 score:1
+				 },				{ meta: "EJEC",
+				 caption: "Eject",
+				 value: "Eject ",
+				 score:1
+				 },				{ meta: "ELSE",
+				 caption: "Else",
+				 value: "Else ",
+				 score:1
+				 },				{ meta: "END",
+				 caption: "End Transaction",
+				 value: "End Transaction ",
+				 score:1
+				 },				{ meta: "ENDC",
+				 caption: "EndCase",
+				 value: "EndCase ",
+				 score:1
+				 },				{ meta: "ENDDE",
+				 caption: "EndDefine",
+				 value: "EndDefine ",
+				 score:1
+				 },				{ meta: "ENDDO",
+				 caption: "EndDo",
+				 value: "EndDo ",
+				 score:1
+				 },				{ meta: "ENDFO",
+				 caption: "EndFor",
+				 value: "EndFor ",
+				 score:1
+				 },				{ meta: "ENDFU",
+				 caption: "EndFunc",
+				 value: "EndFunc ",
+				 score:1
+				 },				{ meta: "ENDI",
+				 caption: "EndIf",
+				 value: "EndIf ",
+				 score:1
+				 },				{ meta: "ENDPRI",
+				 caption: "EndPrintJob",
+				 value: "EndPrintJob ",
+				 score:1
+				 },				{ meta: "ENDP",
+				 caption: "EndProc",
+				 value: "EndProc ",
+				 score:1
+				 },				{ meta: "ENDS",
+				 caption: "EndScan",
+				 value: "EndScan ",
+				 score:1
+				 },				{ meta: "ENDT",
+				 caption: "EndText",
+				 value: "EndText ",
+				 score:1
+				 },				{ meta: "ENDTR",
+				 caption: "EndTry",
+				 value: "EndTry ",
+				 score:1
+				 },				{ meta: "ENDW",
+				 caption: "EndWith",
+				 value: "EndWith ",
+				 score:1
+				 },				{ meta: "ERAS",
+				 caption: "Erase",
+				 value: "Erase ",
+				 score:1
+				 },				{ meta: "ERRO",
+				 caption: "Error",
+				 value: "Error ",
+				 score:1
+				 },				{ meta: "EXIT",
+				 caption: "Exit",
+				 value: "Exit ",
+				 score:1
+				 },				{ meta: "EXPO",
+				 caption: "Export",
+				 value: "Export ",
+				 score:1
+				 },				{ meta: "EXTE",
+				 caption: "External",
+				 value: "External ",
+				 score:1
+				 },				{ meta: "FINA",
+				 caption: "Finally",
+				 value: "Finally ",
+				 score:1
+				 },				{ meta: "FLUS",
+				 caption: "Flush",
+				 value: "Flush ",
+				 score:1
+				 },				{ meta: "FOR",
+				 caption: "For",
+				 value: "For ",
+				 score:1
+				 },				{ meta: "FREE",
+				 caption: "Free Table",
+				 value: "Free Table ",
+				 score:1
+				 },				{ meta: "FUNC",
+				 caption: "Function",
+				 value: "Function ",
+				 score:1
+				 },				{ meta: "GATH",
+				 caption: "Gather",
+				 value: "Gather ",
+				 score:1
+				 },				{ meta: "GETE",
+				 caption: "Getexpr",
+				 value: "Getexpr ",
+				 score:1
+				 },				{ meta: "GO",
+				 caption: "Go",
+				 value: "Go ",
+				 score:1
+				 },				{ meta: "GOTO",
+				 caption: "Goto",
+				 value: "Goto ",
+				 score:1
+				 },				{ meta: "HELP",
+				 caption: "Help",
+				 value: "Help ",
+				 score:1
+				 },				{ meta: "HIDD",
+				 caption: "Hidden",
+				 value: "Hidden ",
+				 score:1
+				 },				{ meta: "HIDE",
+				 caption: "Hide",
+				 value: "Hide ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Hide Menu",
+				 value: "Hide Menu ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Hide Popup",
+				 value: "Hide Popup ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Hide Window",
+				 value: "Hide Window ",
+				 score:1
+				 },				{ meta: "IF",
+				 caption: "If",
+				 value: "If ",
+				 score:1
+				 },				{ meta: "IMPL",
+				 caption: "Implements",
+				 value: "Implements ",
+				 score:1
+				 },				{ meta: "IMPO",
+				 caption: "Import From",
+				 value: "Import From ",
+				 score:1
+				 },				{ meta: "INDE",
+				 caption: "Index On",
+				 value: "Index On ",
+				 score:1
+				 },				{ meta: "INSE",
+				 caption: "Insert",
+				 value: "Insert ",
+				 score:1
+				 },				{ meta: "KEYB",
+				 caption: "Keyboard",
+				 value: "Keyboard ",
+				 score:1
+				 },				{ meta: "LABE",
+				 caption: "Label Form",
+				 value: "Label Form ",
+				 score:1
+				 },				{ meta: "LIST",
+				 caption: "List",
+				 value: "List ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "List",
+				 value: "List ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "List Connections",
+				 value: "List Connections ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "List Database",
+				 value: "List Database ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "List Dlls",
+				 value: "List Dlls ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "List Fields",
+				 value: "List Fields ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "List Files",
+				 value: "List Files ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "List Memory",
+				 value: "List Memory ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "List Objects",
+				 value: "List Objects ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "List Procedures",
+				 value: "List Procedures ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "List Status",
+				 value: "List Status ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "List Structure",
+				 value: "List Structure ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "List Tables",
+				 value: "List Tables ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "List Views",
+				 value: "List Views ",
+				 score:1
+				 },				{ meta: "LOCAL",
+				 caption: "Local",
+				 value: "Local ",
+				 score:1
+				 },				{ meta: "LOCA",
+				 caption: "Locate",
+				 value: "Locate ",
+				 score:1
+				 },				{ meta: "LOOP",
+				 caption: "Loop",
+				 value: "Loop ",
+				 score:1
+				 },				{ meta: "LPAR",
+				 caption: "Lparameters",
+				 value: "Lparameters ",
+				 score:1
+				 },				{ meta: "MD",
+				 caption: "Md",
+				 value: "Md ",
+				 score:1
+				 },				{ meta: "MKDI",
+				 caption: "MkDir",
+				 value: "MkDir ",
+				 score:1
+				 },				{ meta: "MODI",
+				 caption: "Modify",
+				 value: "Modify ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Modify Class",
+				 value: "Modify Class ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Modify Command",
+				 value: "Modify Command ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Modify Connection",
+				 value: "Modify Connection ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Modify Database",
+				 value: "Modify Database ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Modify File",
+				 value: "Modify File ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Modify Form",
+				 value: "Modify Form ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Modify Label",
+				 value: "Modify Label ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Modify Memo",
+				 value: "Modify Memo ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Modify Menu",
+				 value: "Modify Menu ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Modify Project",
+				 value: "Modify Project ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Modify Query",
+				 value: "Modify Query ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Modify Report",
+				 value: "Modify Report ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Modify View",
+				 value: "Modify View ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Modify Window",
+				 value: "Modify Window ",
+				 score:1
+				 },				{ meta: "MOUS",
+				 caption: "Mouse",
+				 value: "Mouse ",
+				 score:1
+				 },				{ meta: "MOVE",
+				 caption: "Move",
+				 value: "Move ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Move Popup",
+				 value: "Move Popup ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Move Popup",
+				 value: "Move Popup ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Move Window",
+				 value: "Move Window ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Move Window",
+				 value: "Move Window ",
+				 score:1
+				 },				{ meta: "NEXT",
+				 caption: "Next",
+				 value: "Next ",
+				 score:1
+				 },				{ meta: "NODE",
+				 caption: "NoDefault",
+				 value: "NoDefault ",
+				 score:1
+				 },				{ meta: "NOTE",
+				 caption: "Note",
+				 value: "Note ",
+				 score:1
+				 },				{ meta: "ON",
+				 caption: "On",
+				 value: "On ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "On Bar",
+				 value: "On Bar ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "On Error",
+				 value: "On Error ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "On Escape",
+				 value: "On Escape ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "On Key",
+				 value: "On Key ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "On Key Label",
+				 value: "On Key Label ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "On Pad",
+				 value: "On Pad ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "On Page",
+				 value: "On Page ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "On Selection Bar",
+				 value: "On Selection Bar ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "On Selection Menu",
+				 value: "On Selection Menu ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "On Selection Pad",
+				 value: "On Selection Pad ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "On Selection Popup",
+				 value: "On Selection Popup ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "On Shutdown",
+				 value: "On Shutdown ",
+				 score:1
+				 },				{ meta: "OPEN",
+				 caption: "Open Database",
+				 value: "Open Database ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Opendatatip",
+				 value: "Opendatatip ",
+				 score:1
+				 },				{ meta: "OTHE",
+				 caption: "Otherwise",
+				 value: "Otherwise ",
+				 score:1
+				 },				{ meta: "PACK",
+				 caption: "Pack",
+				 value: "Pack ",
+				 score:1
+				 },				{ meta: "PARA",
+				 caption: "Parameters",
+				 value: "Parameters ",
+				 score:1
+				 },				{ meta: "PLAY",
+				 caption: "Play Macro",
+				 value: "Play Macro ",
+				 score:1
+				 },				{ meta: "POP",
+				 caption: "Pop",
+				 value: "Pop ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Pop Key",
+				 value: "Pop Key ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Pop Menu",
+				 value: "Pop Menu ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Pop Popup",
+				 value: "Pop Popup ",
+				 score:1
+				 },				{ meta: "PRIN",
+				 caption: "Printjob",
+				 value: "Printjob ",
+				 score:1
+				 },				{ meta: "PRIV",
+				 caption: "Private",
+				 value: "Private ",
+				 score:1
+				 },				{ meta: "PROC",
+				 caption: "Procedure",
+				 value: "Procedure ",
+				 score:1
+				 },				{ meta: "PROT",
+				 caption: "Protected",
+				 value: "Protected ",
+				 score:1
+				 },				{ meta: "PUBL",
+				 caption: "Public",
+				 value: "Public ",
+				 score:1
+				 },				{ meta: "PUSH",
+				 caption: "Push",
+				 value: "Push ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Push Key",
+				 value: "Push Key ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Push Menu",
+				 value: "Push Menu ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Push Popup",
+				 value: "Push Popup ",
+				 score:1
+				 },				{ meta: "QUIT",
+				 caption: "Quit",
+				 value: "Quit ",
+				 score:1
+				 },				{ meta: "RD",
+				 caption: "Rd",
+				 value: "Rd ",
+				 score:1
+				 },				{ meta: "READ",
+				 caption: "Read",
+				 value: "Read ",
+				 score:1
+				 },				{ meta: "RECA",
+				 caption: "Recall",
+				 value: "Recall ",
+				 score:1
+				 },				{ meta: "REIN",
+				 caption: "Reindex",
+				 value: "Reindex ",
+				 score:1
+				 },				{ meta: "RELE",
+				 caption: "Release",
+				 value: "Release ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Release All",
+				 value: "Release All ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Release Bar",
+				 value: "Release Bar ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Release Classlib",
+				 value: "Release Classlib ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Release Library",
+				 value: "Release Library ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Release Menus",
+				 value: "Release Menus ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Release Pad",
+				 value: "Release Pad ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Release Popups",
+				 value: "Release Popups ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Release Procedure",
+				 value: "Release Procedure ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Release Windows",
+				 value: "Release Windows ",
+				 score:1
+				 },				{ meta: "REMO",
+				 caption: "Remove",
+				 value: "Remove ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Remove Class",
+				 value: "Remove Class ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Remove Table",
+				 value: "Remove Table ",
+				 score:1
+				 },				{ meta: "RENA",
+				 caption: "Rename",
+				 value: "Rename ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Rename Class",
+				 value: "Rename Class ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Rename Connection",
+				 value: "Rename Connection ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Rename Table",
+				 value: "Rename Table ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Rename View",
+				 value: "Rename View ",
+				 score:1
+				 },				{ meta: "REPL",
+				 caption: "Replace",
+				 value: "Replace ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Repltip",
+				 value: "Repltip ",
+				 score:1
+				 },				{ meta: "REPO",
+				 caption: "Report Form",
+				 value: "Report Form ",
+				 score:1
+				 },				{ meta: "REST",
+				 caption: "Restore",
+				 value: "Restore ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Restore From",
+				 value: "Restore From ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Restore Macros",
+				 value: "Restore Macros ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Restore Screen",
+				 value: "Restore Screen ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Restore Window",
+				 value: "Restore Window ",
+				 score:1
+				 },				{ meta: "RESU",
+				 caption: "Resume",
+				 value: "Resume ",
+				 score:1
+				 },				{ meta: "RETR",
+				 caption: "Retry",
+				 value: "Retry ",
+				 score:1
+				 },				{ meta: "RETU",
+				 caption: "Return",
+				 value: "Return ",
+				 score:1
+				 },				{ meta: "RMDI",
+				 caption: "RmDir",
+				 value: "RmDir ",
+				 score:1
+				 },				{ meta: "ROLL",
+				 caption: "RollBack",
+				 value: "RollBack ",
+				 score:1
+				 },				{ meta: "RUN",
+				 caption: "Run",
+				 value: "Run ",
+				 score:1
+				 },				{ meta: "SAVE",
+				 caption: "Save",
+				 value: "Save ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Save Macros",
+				 value: "Save Macros ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Save Screen",
+				 value: "Save Screen ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Save To",
+				 value: "Save To ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Save Windows",
+				 value: "Save Windows ",
+				 score:1
+				 },				{ meta: "SCAN",
+				 caption: "Scan",
+				 value: "Scan ",
+				 score:1
+				 },				{ meta: "SCAT",
+				 caption: "Scatter",
+				 value: "Scatter ",
+				 score:1
+				 },				{ meta: "SEEK",
+				 caption: "Seek",
+				 value: "Seek ",
+				 score:1
+				 },				{ meta: "SELE",
+				 caption: "Select",
+				 value: "Select ",
+				 score:1
+				 },				{ meta: "SET",
+				 caption: "Set",
+				 value: "Set ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Alternate",
+				 value: "Set Alternate ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Ansi",
+				 value: "Set Ansi ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Asserts",
+				 value: "Set Asserts ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set AutoIncError",
+				 value: "Set AutoIncError ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Autosave",
+				 value: "Set Autosave ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Bell",
+				 value: "Set Bell ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Blocksize",
+				 value: "Set Blocksize ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Browseime",
+				 value: "Set Browseime ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Carry",
+				 value: "Set Carry ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Century",
+				 value: "Set Century ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Classlib",
+				 value: "Set Classlib ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Clock",
+				 value: "Set Clock ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Collate To",
+				 value: "Set Collate To ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Color",
+				 value: "Set Color ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Compatible",
+				 value: "Set Compatible ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Confirm",
+				 value: "Set Confirm ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Console",
+				 value: "Set Console ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Coverage",
+				 value: "Set Coverage ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Cpcompile",
+				 value: "Set Cpcompile ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Cpdialog",
+				 value: "Set Cpdialog ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Currency",
+				 value: "Set Currency ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Cursor",
+				 value: "Set Cursor ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Database To",
+				 value: "Set Database To ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Datasession",
+				 value: "Set Datasession ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Date",
+				 value: "Set Date ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Debug",
+				 value: "Set Debug ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Debugout",
+				 value: "Set Debugout ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Decimals",
+				 value: "Set Decimals ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Default",
+				 value: "Set Default ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Deleted",
+				 value: "Set Deleted ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Development",
+				 value: "Set Development ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Device",
+				 value: "Set Device ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Display",
+				 value: "Set Display ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set DoHistory",
+				 value: "Set DoHistory ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Echo",
+				 value: "Set Echo ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set EngineBehavior",
+				 value: "Set EngineBehavior ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Escape",
+				 value: "Set Escape ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Eventlist",
+				 value: "Set Eventlist ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Eventtracking",
+				 value: "Set Eventtracking ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Exact",
+				 value: "Set Exact ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Exclusive",
+				 value: "Set Exclusive ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Fdow",
+				 value: "Set Fdow ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Fields",
+				 value: "Set Fields ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Filter",
+				 value: "Set Filter ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Fixed",
+				 value: "Set Fixed ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Fullpath",
+				 value: "Set Fullpath ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Function",
+				 value: "Set Function ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Fweek",
+				 value: "Set Fweek ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Headings",
+				 value: "Set Headings ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Help",
+				 value: "Set Help ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Helpfilter",
+				 value: "Set Helpfilter ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Hours",
+				 value: "Set Hours ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Index",
+				 value: "Set Index ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Key",
+				 value: "Set Key ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Keycomp",
+				 value: "Set Keycomp ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Library",
+				 value: "Set Library ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Lock",
+				 value: "Set Lock ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Logerrors",
+				 value: "Set Logerrors ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Mackey",
+				 value: "Set Mackey ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Margin",
+				 value: "Set Margin ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Mark",
+				 value: "Set Mark ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Memowidth",
+				 value: "Set Memowidth ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Message",
+				 value: "Set Message ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Multilocks",
+				 value: "Set Multilocks ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Near",
+				 value: "Set Near ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Nocptrans",
+				 value: "Set Nocptrans ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Notify",
+				 value: "Set Notify ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Null",
+				 value: "Set Null ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Nulldisplay",
+				 value: "Set Nulldisplay ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Odometer",
+				 value: "Set Odometer ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Oleobject",
+				 value: "Set Oleobject ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Optimize",
+				 value: "Set Optimize ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Order To",
+				 value: "Set Order To ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Palette",
+				 value: "Set Palette ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Path To",
+				 value: "Set Path To ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Pdsetup",
+				 value: "Set Pdsetup ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Point",
+				 value: "Set Point ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Printer",
+				 value: "Set Printer ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Procedure",
+				 value: "Set Procedure ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Readborder",
+				 value: "Set Readborder ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Refresh",
+				 value: "Set Refresh ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Relation",
+				 value: "Set Relation ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set ReportBehavior",
+				 value: "Set ReportBehavior ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Reprocess",
+				 value: "Set Reprocess ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Resource",
+				 value: "Set Resource ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set SQLBuffering",
+				 value: "Set SQLBuffering ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Safety",
+				 value: "Set Safety ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Seconds",
+				 value: "Set Seconds ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Separator",
+				 value: "Set Separator ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Skip",
+				 value: "Set Skip ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Space",
+				 value: "Set Space ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Status",
+				 value: "Set Status ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Status Bar",
+				 value: "Set Status Bar ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Step On",
+				 value: "Set Step On ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Strictdate To",
+				 value: "Set Strictdate To ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Sysformats",
+				 value: "Set Sysformats ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Sysmenu",
+				 value: "Set Sysmenu ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set TableValidate",
+				 value: "Set TableValidate ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Talk",
+				 value: "Set Talk ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Textmerge",
+				 value: "Set Textmerge ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Topic",
+				 value: "Set Topic ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Trbetween",
+				 value: "Set Trbetween ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Typeahead",
+				 value: "Set Typeahead ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Udfparms To",
+				 value: "Set Udfparms To ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set Unique",
+				 value: "Set Unique ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set VarcharMapping",
+				 value: "Set VarcharMapping ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Set View",
+				 value: "Set View ",
+				 score:1
+				 },				{ meta: "SHOW",
+				 caption: "Show",
+				 value: "Show ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Show Menu",
+				 value: "Show Menu ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Show Popup",
+				 value: "Show Popup ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Show Window",
+				 value: "Show Window ",
+				 score:1
+				 },				{ meta: "SIZE",
+				 caption: "Size",
+				 value: "Size ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Size Popup",
+				 value: "Size Popup ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Size Window",
+				 value: "Size Window ",
+				 score:1
+				 },				{ meta: "SKIP",
+				 caption: "Skip",
+				 value: "Skip ",
+				 score:1
+				 },				{ meta: "SORT",
+				 caption: "Sort",
+				 value: "Sort ",
+				 score:1
+				 },				{ meta: "STOR",
+				 caption: "Store",
+				 value: "Store ",
+				 score:1
+				 },				{ meta: "SUM",
+				 caption: "Sum",
+				 value: "Sum ",
+				 score:1
+				 },				{ meta: "SUSP",
+				 caption: "Suspend",
+				 value: "Suspend ",
+				 score:1
+				 },				{ meta: "TEXT",
+				 caption: "Text",
+				 value: "Text ",
+				 score:1
+				 },				{ meta: "THRO",
+				 caption: "Throw",
+				 value: "Throw ",
+				 score:1
+				 },				{ meta: "TOTA",
+				 caption: "Total",
+				 value: "Total ",
+				 score:1
+				 },				{ meta: "TRY",
+				 caption: "Try",
+				 value: "Try ",
+				 score:1
+				 },				{ meta: "TYPE",
+				 caption: "Type",
+				 value: "Type ",
+				 score:1
+				 },				{ meta: "UNLO",
+				 caption: "Unlock",
+				 value: "Unlock ",
+				 score:1
+				 },				{ meta: "UPDA",
+				 caption: "Update",
+				 value: "Update ",
+				 score:1
+				 },				{ meta: "USE",
+				 caption: "Use",
+				 value: "Use ",
+				 score:1
+				 },				{ meta: "",
+				 caption: "Usetip",
+				 value: "Usetip ",
+				 score:1
+				 },				{ meta: "VALI",
+				 caption: "Validate Database",
+				 value: "Validate Database ",
+				 score:1
+				 },				{ meta: "WAIT",
+				 caption: "Wait",
+				 value: "Wait ",
+				 score:1
+				 },				{ meta: "WITH",
+				 caption: "With",
+				 value: "With ",
+				 score:1
+				 },				{ meta: "ZAP",
+				 caption: "Zap",
+				 value: "Zap ",
+				 score:1
+				 },				{ meta: "ZOOM",
+				 caption: "Zoom Window",
+				 value: "Zoom Window ",
+				 score:1
+				 },				{ meta: "DC",
+				 caption: "",
+				 value: " ",
+				 score:1
+				 },				{ meta: "MC",
+				 caption: "Modify Command",
+				 value: "Modify Command ",
+				 score:1
+				 },				{ meta: "MF",
+				 caption: "Modify File",
+				 value: "Modify File ",
+				 score:1
+				 },				{ meta: "DOCASE",
+				 caption: "",
+				 value: " ",
+				 score:1
+				 },				{ meta: "DOWHILE",
+				 caption: "",
+				 value: " ",
+				 score:1
+				 },				{ meta: "IFEND",
+				 caption: "",
+				 value: " ",
+				 score:1
+				 },				{ meta: "IFELSE",
+				 caption: "",
+				 value: " ",
+				 score:1
+				 },				{ meta: "FOREACH",
+				 caption: "",
+				 value: " ",
+				 score:1
+				 },				{ meta: "FOREND",
+				 caption: "",
+				 value: " ",
+				 score:1
+				 },				{ meta: "SCANEND",
+				 caption: "",
+				 value: " ",
+				 score:1
+				 },				{ meta: "TEXTEND",
+				 caption: "",
+				 value: " ",
+				 score:1
+				 },				{ meta: "WITHEND",
+				 caption: "",
+				 value: " ",
+				 score:1
+				 },				{ meta: "TRYEND",
+				 caption: "",
+				 value: " ",
+				 score:1
+				 },				{ meta: "WS",
+				 caption: "",
+				 value: " ",
+				 score:1
+				 },				{ meta: "CR",
+				 caption: "Create Report",
+				 value: "Create Report ",
+				 score:1
+				 },				{ meta: "MR",
+				 caption: "Modify Report",
+				 value: "Modify Report ",
+				 score:1
+				 },				{ meta: "CR",
+				 caption: "Create Report",
+				 value: "Create Report ",
+				 score:1
+				 },				{ meta: "MR",
+				 caption: "Modify Report",
+				 value: "Modify Report ",
+				 score:1
+				 },				{ meta: "CR",
+				 caption: "Create Report",
+				 value: "Create Report ",
+				 score:1
+				 },				{ meta: "MR",
+				 caption: "Modify Report",
+				 value: "Modify Report ",
+				 score:1
+				 },				{ meta: "CR",
+				 caption: "Create Report",
+				 value: "Create Report ",
+				 score:1
+				 },				{ meta: "MR",
+				 caption: "Modify Report",
+				 value: "Modify Report ",
+				 score:1
+				 },				{ meta: "parallel",
+				 caption: "Parallel",
+				 value: "Parallel ",
+				 score:1
+				 },				{ meta: "worker",
+				 caption: "Worker",
+				 value: "Worker ",
+				 score:1
+				 }]
+        
+    //设置自动提示代码		    
+var setCompleteData = function(data) {
+langTools.addCompleter({
+          getCompletions: function(editor, session, pos, prefix, callback)
+{
+    if (prefix.length === 0)
+    {
+        return callback(null, []);
+    }
+    else
+    {
+        return callback(null, data);
+    }
+}
+    });
+}
+
+setCompleteData ( data );
+
+
+*/
+
+
+//在改变时就出现自动完成(觉得太过于敏感可以去掉）
+editor.on("change", function(e){
+  //editor.execCommand("startAutocomplete");
+    window.chrome.webview.postMessage( 'change' );
+ })
+//监听选择事件
+editor.on("changeSelection", function(e){ var data = { 
+   Key: 'changeSelection',
+           Value:editor.session.getTextRange(editor.getSelectionRange())
+      }
+  window.chrome.webview.postMessage(data);
+})
+
+
+//获取代码
+    function getValue()
+    {
+return editor.getSession().getValue(); 
+}
+
+//获取选中代码
+function getSelValue()
+{
+return editor.session.getTextRange(editor.getSelectionRange());
+}
+
+//读取代码
+function SetValue()
+{
+  editor.setValue( vfp.Eval("openCode") );
+  console.log( "打开的脚本：" + vfp.Eval("openCode") );
+  
+}
+
+
+</script>
+
+</body>
+</html>

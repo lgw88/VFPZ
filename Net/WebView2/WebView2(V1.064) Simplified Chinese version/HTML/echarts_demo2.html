@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <title>ECharts_Cmd_Demo2</title>
+    <!-- 引入 echarts.js -->
+    <script src="Https://WebView2_Demo/echarts/echarts.min.js"></script>
+</head>
+<body style="height: 100%; margin: 0">
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom，这里直接就取页面大小 -->
+    <div id="main" style="height: 100%"></div>
+    <script type="text/javascript">
+        
+        
+        
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        
+        //取VFP对象，同步方式调用VFP
+        const vfp      = chrome.webview.hostObjects.sync.vfp;
+        
+        //装载VFP函数
+        vfp.DoCmd("Set Procedure To echarts_demo.fxp Additive");
+
+        //切换工作期
+        vfp.DoCmd ("Set Datasession To ( _vfp.ActiveForm.DataSessionId )" );
+        
+        // 开启 loading 效果
+        //myChart.showLoading();  
+        
+        //执行VFP函数，且返回函数值
+        vfp.DoCmd( "_vfp.Setvar( 'AxisData',Echarts_demo2())" );
+        
+        //返回函数运算的值，放在Js变量中去(注意这里一步实际已变成数组,非字符串了)
+        const AxisData =eval('(' + vfp.Eval( "AxisData" ) + ')');
+
+        //调试输出到控制面板
+        console.log( AxisData );
+
+		//指定图表的配置项和数据
+	    var option = {
+	                title: {
+			                x:'center',
+			                text: 'Ecahrts_Demo2_第一季度商品占比汇总'
+			            	},
+			            tooltip: {},
+			            series : 
+			            [
+			                {
+			                    name: '商品占比',
+			                    type: 'pie',    		// 设置图表类型为饼图
+			                    radius: '55%',  		// 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+			                    data:AxisData,  		// 数据数组，name 为数据项名称，value 为数据项值
+								roseType: 'angle',		// 南丁格尔
+				                        itemStyle: {
+				                            normal: {
+				                                shadowBlur: 200,
+				                                shadowColor: 'rgba(0, 0, 0, 0.5)' //这里的颜色为RGBA
+				                            }
+				                        }
+			                }
+			            ]
+			        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption( option );
+
+		//图形宽度随屏幕宽度改变而改变      
+	    window.onresize = function () {
+								    	myChart.resize();
+								     };
+        
+        // 隐藏 loading 效果
+        myChart.hideLoading();  
+        
+        // 处理点击事件并且弹出数据名称
+		myChart.on('click', function (params) { window.chrome.webview.postMessage( '2,' + params.name + ',' + params.color  );
+											  });
+    </script>
+</body>
+</html>

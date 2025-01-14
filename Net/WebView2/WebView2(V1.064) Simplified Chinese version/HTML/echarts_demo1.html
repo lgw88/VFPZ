@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <title>ECharts_Cmd_Demo1</title>
+    <!-- 引入 echarts.js -->
+    <script src="Https://WebView2_Demo/echarts/echarts.min.js"></script>
+</head>
+<body style="height: 100%; margin: 0">
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom，这里直接就取页面大小 -->
+    <div id="main" style="height: 100%"></div>
+    <script type="text/javascript">
+
+        
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        
+        //取VFP对象，同步方式调用VFP
+        var  vfp       = chrome.webview.hostObjects.sync.vfp;
+        //var oVfpEchartsCallback = chrome.webview.hostObjects.sync.vfp.Eval("Echarts_demo1()").async();
+
+        
+        //装载VFP函数
+        vfp.DoCmd("Set Procedure To echarts_demo.fxp Additive");
+        
+        //切换工作期
+        vfp.DoCmd ("Set Datasession To 2" );
+        
+        
+        //执行VFP函数，且返回VFP函数加工的oEcharts对象(就是闭包)
+        vfp.DoCmd( "_vfp.Setvar( 'oEcharts' , Echarts_demo1() )" );
+        
+		//VFP定义的oEcharts对象全局对象变量
+		var oVfpEcharts = vfp.Eval( "oEcharts" );		
+
+        //访问oEcharts的属性值，放在Js变量中去(注意这里一步实际已变成数组,非字符串了)
+        //var seriesData = eval('(' + oVfpEcharts.series.data  + ')');
+					
+        //调试输出到控制面板
+		//console.log( oVfpEcharts );
+
+
+		//指定图表的配置项和数据
+	    var option = {
+            title: {
+			            x:'center',
+		                text: oVfpEcharts.title  
+           			},
+            tooltip: {},
+            legend: {
+                data:[]
+            },
+            xAxis: {
+	                data: eval( '(' + oVfpEcharts.xAxis.data  + ')' ) 
+           		   },
+            yAxis: {},
+            series: [{
+		                name: oVfpEcharts.series.name ,
+		                type: 'bar',
+		                data:  eval('(' + oVfpEcharts.series.data  + ')') , 
+		                label: {        
+		                		 show: true,
+		                		 position: 'inside'      
+		                		},
+		                barWidth:'35%', //柱子宽度,
+		                itemStyle: {            
+		                				normal: {                
+		                							color:'#2f89cf',                
+		                							opacity: 1,				
+		                							barBorderRadius: 5,
+		                			            }        
+		                			}
+		            }]
+        };
+       
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption( option );
+        
+		//图形宽度随屏幕宽度改变而改变      
+	    window.onresize = function () {
+								    	myChart.resize();
+								     };
+		
+        
+        // 处理点击事件并且弹出数据名称
+		myChart.on('click', function (params) { window.chrome.webview.postMessage( '1,' + params.name + ',' + params.color  );
+											  });
+    
+   		 
+    </script>
+</body>
+</html>

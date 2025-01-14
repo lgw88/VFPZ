@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <title>ECharts_Cmd_Demo3</title>
+    <!-- 引入 echarts.js -->
+    <script src="Https://WebView2_Demo/echarts/echarts.min.js"></script>
+</head>
+<body style="height: 100%; margin: 0">
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom，这里直接就取页面大小 -->
+    <div id="main" style="height: 100%"></div>
+    <script type="text/javascript">
+   		
+   		// 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        
+        //取VFP对象，同步方式调用VFP
+        const vfp      = chrome.webview.hostObjects.sync.vfp;
+
+        //切换工作期
+        vfp.DoCmd ("Set Datasession To ( _vfp.ActiveForm.DataSessionId )" );
+        
+        //装载VFP函数
+        vfp.DoCmd("Set Procedure To echarts_demo.fxp Additive");
+        
+        //加载函数可能需要时间，看数据体量大小来决定
+        myChart.showLoading();  // 开启 loading 效果
+        
+        //执行VFP函数，且返回函数值
+        vfp.DoCmd( "_vfp.Setvar( 'AxisData' , Echarts_demo3() )" );
+        
+        //返回函数运算的值，放在Js变量中去(注意这里一步实际已变成数组,非字符串了)
+        var AxisData = vfp.Eval( "AxisData" );
+        var AxisData = eval('(' + AxisData  + ')');
+  
+        //调试输出到控制面板
+        console.log( AxisData );
+ 
+        // 指定图表的配置项和数据
+        var option = {
+            			title: {
+			                	 x:'center',
+			                	 text: 'Ecahrts_Demo3_第一季度销售人员对比汇总(数据不真实)' 
+			            		},
+
+			            //图例(点击可查看某一个月来对比)
+			            legend: {
+								   show: true,
+								   data: ['1月', '2月', '3月'],
+					               left: "center",
+					               y: "5%"
+								},
+								
+			            tooltip: {},
+			            dataset: {
+					                // 提供一份数据。
+					                source: AxisData
+			           			 },
+			            // 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。
+			            xAxis: {type: 'category'},//
+			            // 声明一个 Y 轴，数值轴。
+			            yAxis: {},
+			            // 声明多个 bar 系列，默认情况下，每个系列会自动对应到 dataset 的每一列。
+			            series: [
+					                {
+						                name: '1月',
+						                type: 'bar',
+						                barWidth:'20%',			//柱子宽度
+						                label: {        
+						                		 show: true,
+						                		 position: 'inside'      
+						                		},
+						                itemStyle: {            
+						                				normal: {                
+						                							color:'#2f89cf',//颜色                
+						                							opacity: 1,				
+						                							barBorderRadius: 5,
+						                			            }        
+						                			}
+					                },
+					                {
+					                	name: '2月',
+					                	type: 'bar',
+						                label: {        
+						                		 show: true,
+						                		 position: 'inside'      
+						                		},
+						                barWidth:'20%',			//柱子宽度
+						                itemStyle: {            
+						                				normal: {                
+						                							color:'#cf2f89',//颜色                
+						                							opacity: 1,				
+						                							barBorderRadius: 5,
+						                			            }        
+						                			}
+					                },
+					                {
+					                	name: '3月',
+					                	type: 'bar',
+						                label: {        
+						                		 show: true,
+						                		 position: 'inside'      
+						                		},
+					                	barWidth:'20%',			//柱子宽度
+						                itemStyle: {            
+						                				normal: {                
+						                							color:'#2fcf75',//颜色                
+						                							opacity: 1,				
+						                							barBorderRadius: 5,
+						                			            }        
+						                			}
+					                
+					                }
+					                 
+			            		]
+       				 };
+ 
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+		//图形宽度随屏幕宽度改变而改变      
+	    window.onresize = function () {
+								    	myChart.resize();
+								     };
+        
+        // 关闭 loading 效果
+        myChart.hideLoading();  
+        
+        // 处理点击事件并且弹出数据名称
+		myChart.on('click', function (params) { window.chrome.webview.postMessage( '3,' + params.name + ',' + params.color + ',' + params.seriesName );
+											  });
+    </script>
+</body>
+</html>

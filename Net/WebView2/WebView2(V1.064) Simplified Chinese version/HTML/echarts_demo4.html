@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <title>ECharts_Cmd_Demo4</title>
+    <!-- 引入 echarts.js -->
+    <script src="Https://WebView2_Demo/echarts/echarts.min.js"></script>
+</head>
+<body style="height: 100%; margin: 0">
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom，这里直接就取页面大小 -->
+    <div id="main" style="height: 100%"></div>
+    <script type="text/javascript">
+   		
+   		// 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        
+        //取VFP对象，同步方式调用VFP
+        const vfp      = chrome.webview.hostObjects.sync.vfp;
+        
+        //切换工作期
+        vfp.DoCmd ( "Set Datasession To ( _vfp.ActiveForm.DataSessionId )" );
+        
+        //装载VFP函数
+        vfp.DoCmd( "Set Procedure To echarts_demo.fxp Additive" );
+        
+        //加载函数可能需要时间，这个其实没有什么用，在VFP线程中处理的耗时有点挂不住
+        myChart.showLoading();  // 开启 loading 效果
+        
+        //执行VFP函数，且返回函数值
+        //vfp.DoCmd( "_vfp.Setvar( 'AxisData' , Echarts_demo4() )" );
+        
+        //返回函数运算的值，放在Js变量中去(注意这里一步实际已变成数组,非字符串了)
+        var AxisData = vfp.Eval( "AxisData" );
+        var AxisData = eval( '(' + AxisData  + ')' );
+  
+        //调试输出到控制面板
+        console.log( AxisData );
+ 
+        // 指定图表的配置项和x轴数据
+        var xAxisData  = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12','13','14','15','16','17','18','19','20'];
+        
+        //legend
+        var legendData = ['衬衫', '羊毛衫'];
+        
+        //标题
+        var title = "Ecahrts_Demo4_2023年度1月销售额:342000 数据不真实";
+        
+        var serieData = [];
+       //按Dataset对应关系，其实这里是对应legend
+        var metaDate = [
+            [1200, 1400, 1000, 1200, 3000, 2300, 1300, 1700, 1400, 1200, 3000, 2300, 2400, 2100, 2800, 3100, 3000, 2800, 2700, 2900],
+            [2000, 1200, 3000, 2000, 1700, 3000, 2000, 1800, 2000, 1900, 3000, 2000, 2500, 2200, 2600, 2700, 2900, 3000, 3200, 3100]
+        ]
+        
+        // 声明多个 serie  line系列，默认情况下，每个系列会对应到 metaDate 的每一列。
+        for (var v = 0; v < legendData.length; v++) {
+            var serie = {
+                name: legendData[v],
+                type: 'line',
+                symbol: "circle",
+                symbolSize: 10,
+                data: metaDate[v]
+            };
+            serieData.push(serie);
+        }
+        
+        //设定颜色集
+        var colors = ["#036BC8", "#2EF7F3"]   //, "#5EBEFC", "#2EF7F3"];
+        
+        var option = {
+            // backgroundColor: '#0f375f',
+            //标题
+            title: {
+                text: title,				//等于上述变量
+                x: 'center',  				//位置布局
+                textStyle: {
+                    //color: "#fff",		//颜色
+                    //fontSize: "12",		//字体大小
+                    //fontWeight: "bold"	//加粗
+                }
+            },
+            //图例
+            legend: {
+                show: true,
+                left: "center",
+                data: legendData,
+                y: "5%",
+                itemWidth: 18,
+                itemHeight: 12,
+                textStyle: {
+                    color: "#2f89cf",
+                    fontSize: 14
+                },
+            },
+            //提醒框
+            toolbox: {
+                orient: 'vertical',
+                right: '1%',
+                top: '20%',
+                iconStyle: {
+                    color: '#2f89cf',					//前景色
+                    borderColor: 'rgba(0, 0, 0, 0.5)',	//背景色
+                    borderWidth: 1,
+                },
+                feature: {
+                    saveAsImage: {},
+                    magicType: {
+                        show: true,
+                        type: ['line','bar','stack','tiled'] //多种类型
+                    }
+                }
+            },
+            
+            color: colors,
+            
+            grid: {
+                left: '2%',
+                top: "12%",
+                bottom: "5%",
+                right: "5%",
+                containLabel: true
+            },
+            
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                },
+            },
+            
+            xAxis: [{
+                type: 'category',
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        //color: '#6173A3' //x 轴底部颜色 
+                    }
+                },
+                axisLabel: {
+                    interval: 0,
+                    textStyle: {
+                        //color: '#9ea7c4',
+                        fontSize: 12
+                    }
+                },
+                axisTick: {
+                    show: true//false
+                },
+                data: xAxisData,
+            }, ],
+            
+            yAxis: [{
+                axisTick: {
+                    show: true//false
+                },
+                splitLine: {
+                    show: true//false
+                },
+                axisLabel: {
+                    textStyle: {
+                        //color: '#9ea7c4',
+                        fontSize: 12
+                    }
+                },
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        //color: '#6173A3'
+                    }
+                },
+            }, ],
+            series: serieData
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        
+		//图形宽度随屏幕宽度改变而改变      
+	    //window.onresize = function () {
+			//					    	myChart.resize();
+				//						     };
+		//图形宽度随屏幕宽度改变而改变
+		 window.onresize = myChart.resize;
+
+        // 关闭 loading 效果
+        myChart.hideLoading();  
+
+        // 处理点击事件并且弹出数据名称
+		myChart.on('click', function (params) { window.chrome.webview.postMessage( '4,' + params.name + ',' + params.color  );
+											  });
+
+    </script>
+</body>
+</html>
