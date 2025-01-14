@@ -1,0 +1,167 @@
+1.21
+  - Fixed DPI-aware bug in pdfiumreport.app: incorrect text extent measuring with GdipMeasureString when system DPI is not 96 (DPI scaling > 100%) and application DPI is 96 (app is DPI-aware)
+
+1.20
+  - Improved performance of report rendering: keeping report object model in temporary cursor turned out to be faster than keeping it in array of objects
+
+1.19
+  - Fixed bug: Font character subset calculation may skip chars
+
+1.17 - 1.18
+  - Removed libHaru dependency. Files libhpdf.dll, libhpdf64.dll are no longer needed.
+  - VFP report PDF rendering is implemented via PDFium API
+  - Added naive implementation of rendering VFP reports to docx in strict OOXML format. This feature is available through preview window of PdfiumReport.app
+  - From release build of pdfium-vfp.vcx removed all classes relevant to VFP report rendering, thus release of pdfium-vfp.vcx contains only PDF viewer implementation.
+
+1.16
+  - Fixed error made in 1.15: PdfiumReport adds printer's top physical offset to vertical position of objects in the output pdf, as the result report's bottom line might be cut off when report is being printed
+
+1.15
+  - Removed GDIPlusX dependency
+  - Removed System and system_app_path properties from Pdfium_env class 
+  
+  - Removed public variable _PdfiumReportEnv as pdfium_env of pdfium-vfp, instead added property Application.PdfiumReportEnv as pdfium_env of pdfium-vfp 
+  - Removed public variable _PdfiumReportEnv as pdfiumreport of pdfium-vfp, instead added property Application.PdfiumReport as pdfiumreport of pdfium-vfp
+  
+  - PdfiumReport: labels line spacing and alignment rendering (earlier lables were rendered with single line spacing and left alignment)
+  - PdfiumReport: fixed label control rendering bug - label text might be trimmed in certain conditions (it depends of font face and size)
+
+  - PdfiumReport: fixed bug in rendering Font Style dynamic property - renderer ignored Font Style if it was set to Normal (0 value in FStyle attribute of dynamics)
+
+  - PdfiumReport: report rendering was refactored to implement bridge design pattern, it was needed to implement ODT rendering in future
+  
+  - PdfiumViewer: added "Ctrl + A" keyboard shortcut (selects all text), works only when PdfiumViewer control has input focus
+
+
+1.14
+  - Removed redundant images compression:
+    - PdfiumViewer: removed rendering cache contained page images in png format. Rendering has become a bit faster and less blurry on small scaling
+    - PdfiumReport: removed pictures downscaling when original size of the image is greater than size of the picture control. Now images are stored in the output pdf in their original size that results in a better  quality of image rendering when pdf is viewed.
+
+  - PdfiumReport: Improved quality of rendering text as an image (text in symbol fonts, rotated text). 
+
+  - PdfiumReport: Retrieving pictures embedded in application executable.
+  
+    Added property `PdfiumReport.Ext_Func_GetFileData`
+```
+    * Basic usage
+    **********************************************************************************************
+    _REPORTOUTPUT = "pdfiumreport.app"
+    DO (_REPORTOUTPUT)
+    ...
+
+    * Sample function to retrieve pictures embedded in application executable
+    SET PROCEDURE TO sample_getfiledata.prg ADDITIVE
+    _PdfiumReport.Ext_Func_GetFileData = "sample_getfiledata"
+    **********************************************************************************************
+
+    * sample_getfiledata.prg 
+    **********************************************************************************************
+    LPARAMETERS lcFileName
+
+    RETURN FILETOSTR(m.lcFileName)
+    **********************************************************************************************
+```
+  
+  - Increased test coverage
+
+
+1.13
+  - Folder structure reorganization
+  - All binaries were moved to the Release folder
+  - Thor's files were moved from ...\Thor\Tools\Components\pdfium-vfp\source to ...\Thor\Tools\Components\pdfium-vfp\. 
+  - Added unit tests
+
+1.12
+  - Added wrappers for dependency API calls (Pdfium, LibHaru, WinApi) to avoid DECLARE-DLL conflicts with other components
+
+  - Fixed know issue 
+    >Dependencies declaration conflict with gpimage2.prg that used in [FoxBarcode](https://github.com/VFPX/FoxBarcode) library (to solve this just remove clear dlls section in gpimage2.prg and compile it)
+
+  - Source code mDotting 
+
+1.11
+  - Fixed Known Issue "PdfiumViewer doesn't support case insensitive searching for non-ASCII character range"
+  it is pdfium bug https://issues.chromium.org/issues/42270374, so nothing to do but avoid using pdfium search API and implement homebrew text searching
+
+
+1.10
+  - SET CONSOLE OFF is added to PdfiumReport before report rendering and is being restored after report rendering
+
+1.9
+  - PdfiumViewer.OpenPDF accepts PDF password as the second parameter
+      
+  - Password input form for encrypted PDF. The form appears when password isn't passed in parameter or it's incorrent. 
+  
+  - PdfiumReport.app no longer destroy _PdfiumReport variable after report rendering finished. _PdiumReport is persisted until DO PdfiumReport.app WITH .F. is called
+
+  - PdfiumReport class was extended with property SaveAs_PdfMeta referencing Pdfium_PdfMeta object that holds  
+      
+        - PDF metadata (Author, Creator, Title, Subject, Keyword, Publisher), 
+
+        - user password for PDF contents encryption, 
+    
+        - reader's permissions (Copy, Print, Edit contents, Edit annotations and fill forms)
+    
+        - owner password to protect reader's permissions.
+
+    PdfiumReport.SaveAs_PdfMeta is being applied when report is saving to the pdf file.
+
+    A little usage guide was added in [README.md](README.md#pdfiumreport-pdf-metadata-and-password-protection)
+    
+  - UI localization to Simplified Chinese. Made by [Xinjie](https://github.com/vfp9)
+
+  - PdfiumReport no longer bakes printer's offsets (margins) in the output pdf
+
+  - PdfiumReport renders lines and shapes positions in compliance with native VFP report rendering, before 1.9 it was less precise
+
+  - Changed how PdfiumReport reacts on REPORT FORM ... TO PRINTER clause:
+    - before 1.9 PdfiumReport didn't do anything when report command contained TO PRINTER, native VFP printing did all the job
+    
+    - since 1.9 PdfiumReport generates PDF as it does for Previewing and sends pdf to the printer. 
+          
+        To  switch back use PdfiumReport.ToPrinterNative property: 
+          
+          .T. - report is printed by VFP (PdfiumReport does nothing as before 1.9); 
+        
+          F. (default) - report is printed by PdfiumReport (renders report to PDF and prints PDF)
+
+  - Likely GDIPlusX bug was found when System.Drawing.Bitmap.FromVarBinary call occurs in PdfiumReport.Render_FrxPicture 
+
+        Error in xfcMemoryStream.capacity_assign ("MemoryStream is not expandable")
+        Error occurs when xfcMemoryStream.Handle is accessed in capacity_assign method
+    
+    While bug is being investigated FromVarbinary call was substituted by FromFile method
+
+1.8
+  - Fixed issue #3 "Pdfiumviewer in top-level form" (pdfiumviewer window was invisible when Thisform.ShowWindow = 2)
+
+1.7
+  - Preparing to FoxGet publishing
+  - Picture paths in pdfium-vfp.vcx were rewrited as expressions to exculde "File not found" error during compilation of user's project
+  - PdfiumReport.app: GDIPluxX System.Drawing.Graphics.DrawString call was replaced by gdiplus plain api function call (GDIPluxX DrawString performs STRCONV(...,5) on input text while VFP ReportListener renders text in Unicode)
+
+
+1.6:
+  - Dynamics and rotation properties support in PdfiumReport.app
+
+1.5:
+  - Support of VFPA x64 (pdfuim64.dll, pdfium-vfp64.dll, libhpdf64.dll were added)
+  - pdfium.dll, libhpdf.dll was updated to the latest versions
+  - Fixed vertical scrollbar size calculation (scrollbar was invisible on single page pdfs)
+
+1.4:
+  - Filename with diacritics
+
+1.3:
+  - Private fonts support in PdfiumReport.app
+  - First tests on Linux
+
+1.2.9: 
+  - SaveAs_Filename property added to PdfiumReport class. It's filename suggestion for "save as" dialog of report previewer
+
+1.2.8: 
+ - Scale selector added on pdfiumreport.app preview form
+ - Added fallback fontfamily ascent and descent values in case when system.app Font.FontFamily throws error <s>(for unknown reason so far)</s> when font that is used in frx report is not installed in the system (or in the GDIPlus private font collection since 1.3)
+
+1.2.7: VFPX Deployment
