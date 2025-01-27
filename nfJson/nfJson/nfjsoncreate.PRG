@@ -1,20 +1,21 @@
-*-------------------------------------------------------------------
+*-------------------------------------------------------------------------------------------
 * Created by Marco Plaza @nfoxdev
-* ver 1.100 - 24/02/2016
+* v. 1.100 - 2016/02/24
 * enabled collection processing
-* ver 1.101 - 24/02/2016
+* v. 1.101 - 2016/02/24
 * solved indentation on nested collections
-* ver 1.110 -11/03/2016
+* ver 1.110 -2016/03/11
 * -added support for collections inside arrays
 * -user can pass aMemembersFlag value
 *  ( since Json is intended for DTO creation default value is 'U' )
 *   check amembers topic on vfp help file for usage
 * changed cr to crlf
 * Added Json validation ; throws error for invalid Json.
-* ver 1.120
-* encode control characters ( chr(0) ~ chr(31) )
-* ver 1.121 - 26/07/2023 - minor optimization ( escapeandencode() )
-*-----------------------------------------------------------------------
+* v. 1.120 encode control characters ( chr(0) ~ chr(31) )
+* v. 1.121 - 2023/07/26 - minor optimization ( escapeandencode() )
+* v. 1.122 - 2024/06//18 - workaround for a minor issue with a bug in vfp9 09.00.0000.2412
+* v. 1.123 - 2024/08/14 - escapeandencode - bug mapping chars asc 21 to asc 31 as decimal, corrected as hex. ( thks2 @mPeirse )
+*-------------------------------------------------------------------------------------------
 parameters ovfp,formattedOutput,nonullarrayitem,crootName,aMembersFlag
 
 #define crlf chr(13)+Chr(10)
@@ -215,7 +216,8 @@ do while m.nelem <= m.titems
 
 			else
 
-   				este =  m.este+[{]+procobject(m.elem ,.f.,m.nonullarrayitem,m.amembersFlag)+[}]
+				thisChunk = +[{]+procobject(m.elem ,.f.,m.nonullarrayitem,m.amembersFlag)+[}]
+   				este =  m.este+m.thisChunk
 
 			endif
 
@@ -289,52 +291,50 @@ RETURN len(chrtran(m.valor,specialChars,'')) <> len(m.valor)
 function escapeandencode(valun)
 *-------------------------------
 
-valun = Strtran(Strtran(Strtran(Strtran(Strtran(Strtran(Strtran(m.valun,;
-	'\','\\'),;
-	'"','\"'),;
-	chr(9),'\t'),;
-	chr(10),'\n'),;
-	chr(12),'\f'),;
-	chr(13),'\r'),;
-	chr(127),'\b')
+valun = strtran(strtran(strtran(strtran(strtran(strtran(strtran(m.valun,;
+   '\','\\'),;
+   '"','\"'),;
+   chr(9),'\t'),;
+   chr(10),'\n'),;
+   chr(12),'\f'),;
+   chr(13),'\r'),;
+   chr(127),'\b')
 
-valun = strtran(Strtran(Strtran(Strtran(Strtran(Strtran(Strtran(Strtran(Strtran(m.valun,;
-	chr(0),'\u0000'),;
-	chr(1),'\u0001'),;
-	chr(2),'\u0002'),;
-	chr(3),'\u0003'),;
-	chr(4),'\u0004'),;
-	chr(5),'\u0005'),;
-	chr(6),'\u0006'),;
-	chr(7),'\u0007'),;
-	chr(8),'\u0008')
-	
+valun = strtran(strtran(strtran(strtran(strtran(strtran(strtran(strtran(strtran(m.valun,;
+   chr(0),'\u0000'),;
+   chr(1),'\u0001'),;
+   chr(2),'\u0002'),;
+   chr(3),'\u0003'),;
+   chr(4),'\u0004'),;
+   chr(5),'\u0005'),;
+   chr(6),'\u0006'),;
+   chr(7),'\u0007'),;
+   chr(8),'\u0008')
 
-valun = Strtran(Strtran(Strtran(Strtran(Strtran(Strtran(Strtran(Strtran(Strtran(m.valun,;
-	chr(11),'\u0011'),;
-	chr(14),'\u0014'),;
-	chr(15),'\u0015'),;
-	chr(16),'\u0016'),;
-	chr(17),'\u0017'),;
-	chr(18),'\u0018'),;
-	chr(19),'\u0019'),;
-	chr(20),'\u0020'),;
-	chr(21),'\u0021')
+valun = strtran(strtran(strtran(strtran(strtran(strtran(strtran(strtran(strtran(m.valun,;
+   chr(11),'\u000B'),;
+   chr(14),'\u000E'),;
+   chr(15),'\u000F'),;
+   chr(16),'\u0010'),;
+   chr(17),'\u0011'),;
+   chr(18),'\u0012'),;
+   chr(19),'\u0013'),;
+   chr(20),'\u0014'),;
+   chr(21),'\u0015')
 
+valun = strtran(strtran(strtran(strtran(strtran(strtran(strtran(strtran(strtran(strtran(m.valun,;
+   chr(22),'\u0016'),;
+   chr(23),'\u0017'),;
+   chr(24),'\u0018'),;
+   chr(25),'\u0019'),;
+   chr(26),'\u001A'),;
+   chr(27),'\u001B'),;
+   chr(28),'\u001C'),;
+   chr(29),'\u001D'),;
+   chr(30),'\u001E'),;
+   chr(31),'\u001F')
 
-valun = Strtran(Strtran(Strtran(Strtran(Strtran(Strtran(Strtran(Strtran(Strtran(Strtran(m.valun,;
-	chr(22),'\u0022'),;
-	chr(23),'\u0023'),;
-	chr(24),'\u0024'),;
-	chr(25),'\u0025'),;
-	chr(26),'\u0026'),;
-	chr(27),'\u0027'),;
-	chr(28),'\u0028'),;
-	chr(29),'\u0029'),;
-	chr(30),'\u0030'),;
-	chr(31),'\u0031')
-
-Return m.valun
+return m.valun
 
 *---------------------------------------------------------------
 Function procCollection(obt,nonullArrayItems,amembersFlag )
