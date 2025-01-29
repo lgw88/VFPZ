@@ -10,6 +10,7 @@ TEXT TO lcF NOSHOW
 *.dll
 *.app
 *.prg
+dv_foxhelp.chm
 ENDTEXT
 
 
