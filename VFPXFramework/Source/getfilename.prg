@@ -1,7 +1,8 @@
 lparameters tcExtensions, ;
 	tcFileName, ;
 	tcTitleCaption, ;
-	tlSave
+	tlSave, ;
+	tlMultiSelect
 local lcFileExt, ;
 	lcExtensions, ;
 	loDialog, ;
@@ -48,13 +49,21 @@ with loDialog
 	.cTitleBarText = icase(not empty(tcTitleCaption), tcTitleCaption, ;
 		tlSave, 'Save', 'Open')
 	if not empty(tcFileName)
-		.cInitialDirectory = justpath(tcFileName)
-		.cFileName         = tcFileName
+		.cFileName = GetProperFileCase(fullpath(tcFileName))
 	endif not empty(tcFileName)
 	.lSaveDialog       = tlSave
 	.lOverwritePrompt  = .T.
+	.lAllowMultiSelect = tlMultiSelect
 	.ShowDialog()
-	lcFileName = addbs(.cFilePath) + .cFileTitle
+	if tlMultiSelect
+		lcFileName = ''
+		for lnI = 1 to .nFileCount
+			lcFileName = lcFileName + iif(empty(lcFileName), '', ',') + ;
+				addbs(.cFilePath) + .aFileNames[lnI]
+		next lnI
+	else
+		lcFileName = addbs(.cFilePath) + .cFileTitle
+	endif tlMultiSelect
 endwith
 return lcFileName
  
