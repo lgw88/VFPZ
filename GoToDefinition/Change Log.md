@@ -1,3 +1,17 @@
+### 2025-01-14, Version 2.17 ###
+
+Fixed bug where using GoToDef on `This.SomeMethod` would do nothing under some circumstances: (#35)
+- In a form (or form based class), in a method for the form itself (and thus `ThisForm.SomeMethod` would be equivalent).
+- AND the currently selected object (as appears in the Properties Window) is an object in the form (but not the form itself)
+
+### 2025-01-07, Version 2.16 ###
+
+Fixed bug which occurred when attempting to create a new method and there is highlighted text beginning with a left paren. (#33)
+
+### 2025-01-05, Version 2.15 ###
+
+Fixed bug which occurred when attempting to create a new method and invoking GoToDef too quickly after the closing paren.
+
 ### 2023-10-07, Version 2.14C ###
 
 Fixed bug when using file name that is a relative path.
