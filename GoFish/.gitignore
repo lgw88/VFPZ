@@ -1,0 +1,21 @@
+/Source/DeployGoFish.ps1
+/Source/DeployGoFish_Source.ps1
+/Source/DeployGoFish.bat
+*.bak
+*.BAK
+FOXUSER*.*
+*_ref.*
+*.err
+*.fxp
+*.fxp
+# *.zip
+# *.ZIP
+_command.prg
+/Source/tempview.*
+/Source/temptext.*
+
+#special SF:
+-*.fpw*
+-gofish.prg
+bin2txt.*
+/data/

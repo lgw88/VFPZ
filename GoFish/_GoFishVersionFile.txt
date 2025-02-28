@@ -9,196 +9,200 @@ Text to lcNote NoShow
 
 ---
 
-## Version 7.1.10 - 2024-06-16
+## Version 7.1.41 - 2025-01-12
 
-- Display in Code View pane of matches in MNXs now includes the bar number (#250)
+Bug fix in 7.1.40 when using filter form (and possibly other forms)
 
-## Version 7.1.08 - 2024-06-14
-
-- Bug fixes in previous version (#247)
-
-## Version 7.1.07 - 2024-06-13
-
-- Changes to column "File Path"
-    - When searching all active projects, relative path  (if selected) is relative to currect directory.
-    - New item in grid's right-click context menus is a toggle of whether to show relative path.
-- Bug fixes when searching in directories using wild cards
-    - Not all matches appearing
-    - File count incorrect.
-
-## Version 7.1.06 - 2024-06-09
-
-Bug fixes:
-- Wild card search did not handle ? correctly.
-- Plain and wild card search did nothing if search expression had trailing backslash.
-
-## Version 7.1.05 - 2024-06-08
+## Version 7.1.40 - 2025-01-07
 
 Bug fix:
-- Skip list for folders was being ignored when searching "All Open Projects" (#244)
+- Problem with "class not found" error, caused by problems with "Set Procedure" adventures (#324)
 
-## Version 7.1.04 - 2024-06-07
+Minor UI changes:
+- When loading history
+    - Restores Scope setting 'Files in current Results'
+    - Restores count of matches (upper right corner) and files with matches
+- Correctly updates count of matches and files with matches when filtering the grid.
 
-- Progress bar is now updated during first pass (using grep to find files) and ESC is recognized.
+## Version 7.1.39 - 2024-12-27
 
-## Version 7.1.03 - 2024-06-06
+Extended definitions for project-related Scope settings when no projects satisfy the Scope criterion:
+- "All Open Projects"
+    - Searches all open projects, if any
+    - Else projects in the current directory, if any
+    - Else files in the current directory.
+- "Active Project"
+    - Searches the active project, if any
+    - Else projects in the current directory, if any
+    - Else files in the current directory.
+- "Projects in current directory"
+    - Searches projects in the current directory, if any
+    - Else files in the current directory.
 
-- Two new selections in the right-click context menu for nodes in TreeView
-    - Export stem name to clipboard (#240)
-    - GoFish for references to the file or class name
+## Version 7.1.37 - 2024-12-12
 
-## Version 7.1.02 - 2024-06-02
+- Enhanced notification of errors encountered such that GF is unable to make replacements in a file (most commonly because the file is in use and exclusive access is denied) (#319).
+- Field "Setup" in MNXs was not being searched (#321)
+
+## Version 7.1.36 - 2024-12-05
+
+Bug fixes:
+- Field "Cleanup" in MNXs was not being searched (#321)
+
+## Version 7.1.35 - 2024-11-30
+
+Bug fixes:
+- Using "Filter by this Method" in grid context menu included erroneous records.
+- When restoring saved searches (new, related to recently added option for "Include Files")
+
+## Version 7.1.34 - 2024-11-21
+
+New feature:
+- Menu item "Look Up Reference" in the context menu for a code window can be modified to use GoFish instead of Code References.  To do so, use the Thor configuration screen to mark Thor Tool "Replace code window context menu items" as "Run at startup".
+
+![](../Screenshots/LookUpReference.png)
+
+Bug fix:
+- Scope option "Projects in CurDir()" failed if there were no open projects.
+
+## Version 7.1.33 - 2024-11-19
+
+New feature:
+- "Include Files" option added to Advanced screen, to allow searching additional files not part of the normal scope (project or directory).  See also the right-click context menu on the "Advanced" button. (#314)
+
+Bug fix:
+- Scope option "Projects in CurDir()" did not always include all projects.
+
+## Version 7.1.32 - 2024-11-09
+
+Bug fixes:
+- "Set scope to Active Project" in Options form was not being saved (#310)
+- For some users, when * was used in a wildcard search along with either a left or right parenthesis, no matches were being found (an apparent problem with grep.exe).
+
+## Version 7.1.31 - 2024-11-04
+
+- Fixed "illegal value error" bug occurring when shrinking the form width (#308)
+
+## Version 7.1.30 - 2024-11-01
+
+- Drop-down for search combo box now shows original case instead of converting to lower case (#306)
+
+## Version 7.1.29 - 2024-10-11
+
+New options on "New in V7" page of Options screen:
+- Checkbox for selecting "Dark Mode" when using IDE colors (#262)
+- Spinner for selecting font size for context menus (#301)
+
+## Version 7.1.28 - 2024-10-04
+
+- Bug fixes:
+    - Replacements in menus (MNXs) were failing with mis-leading error messages. (#283)
+
+## Version 7.1.27- 2024-10-03
+
+- Added new context menu items to "Advanced" command button
+    - Use "Skip Files" list
+    - Edit "Skip Files" list
+- Modified "View Record" in grid context menu so that the fields are enabled for copying (even though the changes cannot be saved.)
+- Slight change in wild card searching if the first word (before the *) is too short (less than four characters)
+
+## Version 7.1.26- 2024-09-21
+
+- "Advanced Replacement" changes:
+    - Return null from UDF to delete the line.
+    - Minor cleanup of documentation in the form that comes up when it is used.
+    - Sample PRG now provided demonstrating uses.
+
+## Version 7.1.25- 2024-09-18
 
 - Bug fix:
-    - Wild card search gave incomplete results when searching in directories.
+    - In right-click context menu of grid (#295)
 
-## Version 7.1 - Minor version update - 2024-05-31
+## Version 7.1.24- 2024-09-15
 
-With this version, there are dramatic speed improvements when searching in directories:
-- as much as four times faster for plain or wild card searching
-- and frequently faster than that when using regular expressions
-
-Concept and code suggestions for this courtesy of Mike Yearwood.
-
-## Version 7.0.34 - 2024-05-29
-
-- Fixed bug (#231) related to file templates on "Advanced" screen (again).  Related changes:
-    - You can enter multiple file templates, separated by commas.
-    - If you do not enter a file extension, the "normal" list of file extensions (appearing on same screen) is used.
-    - If you use '*' as the extension, GF may be bogged down searching files not of interest (such as text files created from binaries, or bak files).
-- Bugs fixed:
-    - Sorting on full path of file name.
-    - Elapsed time was not including time to save results.
-
-## Version 7.0.33 - 2024-05-25
-
-- Add new item "Project in CurDir" to scope type dropdown (#232)
-- Fixed RegEx bug (#231)
-
-## Version 7.0.32 - 2024-05-24
-
-- Speed improvement when searching open projects.
-- Reordered items in scope type dropdown.
-- Bugs fixed:
-    - Typing a folder or project into the scope that was not already in the dropdown did not work.
-    - Elapsed time for Custom UDF execution was not being captured correctly.
-
-## Version 7.0.31 - 2024-05-12
-
-- Added new Scope option "Results" to search only the files in the current Results set, that is, the files currently shown in the grid and Treeview (same list in both places), instead of those in the scope folder or project.
-- Added new Scope option "Custom UDF" to provide for the use of a custom UDF to generate the list of files to be searched (instead of files in the scope folder or project).  See [this FAQ Item](FAQ.md#CustomUDFScope).
-- Fixed bug in wildcard search when search expressions began with '*'
-
-## Version 7.0.30 - 2024-05-04
-
-- Consolidated all the settings introduced in version 6 into a single page ("New in V6") on the Options form.  Many of the captions were edited for clarity and some tooltips were added.
-
-## Version 7.0.29 - 2024-04-23
-
-- Added checkbox on the History form to provide for filtering search history to the current scope.
-- On the Options form, added confirmation prompt if cancelling without changing anything.
-- Bug fixes -
-    - Right-clicking on nodes in treeview sometimes did nothing (#224)
-    - Right-clicking on nodes of treeview or rows of  grid failed with bug if Thor was not active (#224).
-
-## Version 7.0.28 - 2024-04-21
-
-- Added new option on "Options" form, "Janitor" page to indicate how often the janitor runs (default = 7 days)
-
-## Version 7.0.27 - 2024-04-19
-
-- Created new FAQ page
-- Added link to new FAQ page (at bottom left of main form).
-
-## Version 7.0.26 - 2024-04-15
-
-- Dramatic optimization of RegEx searching -- as much as seven times faster.
+- Context menus now sensitive to default font size
+- New context menu item "View Record" in grid
 - Bug fixes:
-    - Problem when editing (double-clicking a row) could cause the Default property on a commandbutton to be changed to FALSE.
-    - When browsing binary file (VCX/SCX) as a table
-    - When right-clicking on column header.
-    - Search history was not being saved if no matches found.
+    - In Filter form, problem in the InteractiveChange event.
+    - Handling of entries in the "COMMENT" field in MNXs.
 
-## Version 7.0.25 - 2024-04-14
+## Version 7.1.23- 2024-09-06
 
-- New option added in Options screen: "When editing, select the control in which text is found"
-- Right-clicking on a node in the TreeView includes any of these options (as appropriate):
-    - Modify this file
-    - File name to clipboard
-    - Full file name (with Path) to clipboard
-    - --
-    - Browse as table
-    - SuperBrowse as table
-    - HackCX
-- Right-clicking on a row in the grid includes any of these options (as appropriate):
-    - Filter values in this column
-    - Filter by this file
-    - Filter by this class
-    - --
-    - Modify this file
-    - File name to clipboard
-    - Full file name (with Path) to clipboard
-    - --
-    - Browse as table
-    - SuperBrowse as table
-    - HackCX
-- Right-clicking on the 'Go Fish' button on the main form opens [Object Explorer](https://github.com/VFPX/ObjectExplorer).
+- Improved handling of Text/EndText statements in wild card searching and display in Code View pane.
+- Improved error reporting for some search errors (#291)
 
-## Version 7.0.24 - 2024-04-10
+## Version 7.1.22- 2024-08-31
 
-- Progress bar now shows number of files being processing
-- Clicking on the label that shows elapsed search time provides more detail.
+- Matches in MNX files to fields entered in the secondary "Prompt Options" form now open that form.
+- Assignment of some access keys in the results form and grid header context menu (#288)
 
-## Version 7.0.23 - 2024-04-06
+## Version 7.1.21- 2024-08-22
 
-The right-click context menu in the grid (for both headers and cells) has a new entry:
+- Bug fixes:
+    - Matches in field `ResName` in MNX files were not being handled correctly. (#283)
+    - Backups of MNXs during replacements were failing if either 'MPR' or 'MPX' files did not exist (#283)
 
-    Filter values in this column
+## Version 7.1.20 - 2024-08-21
 
-that opens the Filter form to the page matching the selected column.
+- Bug fixes:
+    - Replacements in menus (MNXs) were failing with mis-leading error messages. (#283)
+    - Problem in code view pane after a replacement.
+- Two additions to grid context menu (#282):
+    - Copy highlighted text to clipboard
+    - Gofish for highlighted text
+- Re-assignment of access keys in context menus (#282):
+    - in grid
+    - in treeview
 
-## Version 7.0.22 - 2024-04-03
+## Version 7.1.19 - 2024-08-08
 
-If you double-click on a match in a SCX/VCX and then close the SCX/VCX without changing anything, you no longer get the 'Save changes" dialog.
+- Bug fix:
+    - Error when searching active project with "Limit search to project home directory and sub-folders". (#280)
+- Tweaks
+    - to display of command buttons on results form (#275)
+    - to handling of status bar on closing results form
+    - to arrangement of controls on the "New in V7" page on the Options form
 
-(Enhancement to feature released in Version 7.0.20, #194)
+## Version 7.1.18 - 2024-07-26
 
-## Version 7.0.21 - 2024-04-02
+- A new option has been added on the "Options" form to control the default font size used in the GF results form (and other GF forms), allowing for increased readability.
+- The option to display each file name as it is processed now causes the file name to be displayed in the progress form (instead of a Wait Window) and no longer impacts performance.
+- Bug fixes:
+    - Editing "Options UDF" program can cause VFP to crash. (#275)
+    - Grep is no longer disabled for search expressions beginning with `-` (such as `-99`) (#272)
 
-* Bug fix:
-    * In some cases, Code View shows only matching line and no context at all (#202).
+## Version 7.1.17 - 2024-07-18
 
-## Version 7.0.20 - 2024-03-28
+- Bug fixes:
+    - When searching in directories, which uses grep for faster searches, search expressions beginning wih `-` (such as `-99`) found no matches (#272)
+    - Hard bug when expanding nodes in treeview
+- A new option has been added in the right-click context menu on the "Advanced" button to indicate whether grep is used for faster searches (Default = Yes).  This should not be necessary but apparently there are some rare conditions not yet provided for where grep fails. (#272, #273)
 
-The normal behavior when you double-click on a row in the grid from a SCX or VCX (that is, opening the method for editing) has been enhanced as follows (#194):
-1.  If the row corresponds to an object in the form or class being edited and the object is at least partially visible, the object will be selected as if you had clicked on the object yourself. Objects that are hidden behind others, are in a page other than the visible page in a pageframe, as well as headers and columns in a grid, will not be selected.
-2. If PEM Editor is open, the object will be selected there, even if the attempted selection in the actual form or class (as described above) does not work.
+## Version 7.1.16 - 2024-07-16
 
-## Version 7.0.19 - 2024-03-27
+- Added new "Custom UDF" for modifying any of the search options in GF (#268).
+    - The file name is entered on the Options form, "New in V7" page.
+    - The UDF is called by either right-clicking or ctrl-clicking on the "Advanced" button.
+    - See `Lib\gofishsearchoptions.prg`
+- A new option has been added in the right-click context menu on the "Advanced" button to control whether wildcard searching finds matches across continuation lines (Default = Yes).
 
-* Double-clicking on a file or class name in the TreeView will open that file or class for editing.  This restores a feature available in GF 5.
-* Ctrl+Clicking on a column header sorts on that column and removes any secondary or tertiary sorts.
+## Version 7.1.15 - 2024-07-10
 
-## Version 7.0.18 - 2024-03-24
+- Bug fixes
+    - In some cases, RegEx searching was not taking advantage of grep to optimize search (#269)
+    - Problems in two items in the grid context menu
+- Added new item to grid context menu to filter to only those matches in the same method.
 
-* Date/Time expressions now respect user settings for SET DATE and SET HOURS. (#189)
-* Bug fixes:
-    * Error when closing combobox for scope (#192)
-    * Error opening "Advanced" form
+## Version 7.1.14 - 2024-07-08
 
-## Version 7.0.17 - 2024-03-23
-
-* Multiple identical results were occurring for matches in MNXs using regular expressions (#190).
-* Scope setting "Search All Projects" was not working if projects were not all in the same folder (#188)
-* MRU list for search dropdown was misbehaving under some conditions (#187)
-* The "Advanc
+- Matches for search expressions ending with backslash,
 EndText
 
 * For GF, strip off links at top of change log
 lcNote = Substr(lcNote, At('--', lcNote))
 lcNote = Alltrim(lcNote, 1, ' ', '-', Chr(13), Chr(10)) 
 
-AddProperty(toUpdateInfo, 'AvailableVersion', 'GoFish - 7.1.10 - June 16, 2024 - 20240616')
+AddProperty(toUpdateInfo, 'AvailableVersion', 'GoFish - 7.1.41 - January 12, 2025 - 20250112')
 AddProperty(toUpdateInfo, 'SourceFileUrl', 'https://raw.githubusercontent.com/VFPX/GoFish/master/Source/Source.zip')
 AddProperty(toUpdateInfo, 'LinkPrompt', 'GoFish Home Page')
 AddProperty(toUpdateInfo, 'Link', 'https://github.com/VFPX/GoFish')

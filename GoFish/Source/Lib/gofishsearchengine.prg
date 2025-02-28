@@ -13,7 +13,8 @@ Define Class GoFishSearchEngine As Custom
 
 * This string contains a list of files to be skipped during the search.
 * One filname on each line. This list is only skipped if lSkipFiles is .t.
-	cFilesToSkipFile                 = 'GF_Files_To_Skip.txt'
+	cFilesToSkipFile                 = ''  && 'GF_Files_To_Skip.txt'    -- See Init
+	cFilesToIncludeFile              = ''  && 'GF_Files_To_Include.txt' -- See Init
 
 	cGraphicsExtensions = 'PNG ICO JPG JPEG TIF TIFF GIF BMP MSK CUR ANI'
 	cInitialDefaultDir  = ''
@@ -289,17 +290,19 @@ Define Class GoFishSearchEngine As Custom
 
 		Endif
 
-		If Upper(m.lcMatchType) # 'RESERVED3' And This.IsFullLineComment(m.lcTrimmedMatchLine)
-			toObject.MatchType = MATCHTYPE_COMMENT
-			This.CreateResult(m.toObject)
-			Return .Null. && Exit out, we're done with this record!
+		If m.lcFileType # 'EXT'
+			If Upper(m.lcMatchType) # 'RESERVED3' And This.IsFullLineComment(m.lcTrimmedMatchLine)
+				toObject.MatchType = MatchType_Comment
+				This.CreateResult(m.toObject)
+				Return .Null. && Exit out, we're done with this record!
+			Endif
+		
+			*=============================================================================================
+			* Handle a few tweaks on MatchType assignments
+			*=============================================================================================
+			This.ProcessInlineComments(m.toObject)		
 		Endif
-
-*=============================================================================================
-* Handle a few tweaks on MatchType assignments
-*=============================================================================================
-		This.ProcessInlineComments(m.toObject)
-
+		
 		Do Case
 
 *-- A TimeStamp only search, with no search expression...
@@ -575,66 +578,60 @@ Define Class GoFishSearchEngine As Custom
 
 *----------------------------------------------------------------------------------
 	Procedure BackupFile(tcFilePath, tnReplaceHistoryId)
-
-*SF 20221018 -> local storage
-*#Define ccBACKUPFOLDER Addbs(Home(7) + 'GoFishBackups')
-*SF 20230131 -> issue #41
-*Thisform was not a good idea here
-		Local;
-			lcBackupPRG     As String,;
-			lcDestFile      As String,;
-			lcExt           As String,;
-			lcExtensions    As String,;
-			lcSourceFile    As String,;
-			lcThisBackupFolder As String,;
-			llCopyError     As Boolean,;
-			lnI             As Number,;
-			lcBACKUPFOLDER
-
-		Local Array;
-			laExtensions(1)
-			
-
-
-*		ccBACKUPFOLDER = Addbs(This.cCR_StoreLocal + 'GoFishBackups')
-		lcBACKUPFOLDER = Addbs(This.cCR_StoreLocal + 'GF_ReplaceBackups')
-*/SF 20230131 -> issue #41
-*/SF 20221018 -> local storage
-
-
-		If This.oSearchOptions.lPreviewReplace
+	
+		*SF 20221018 -> local storage
+		*#Define ccBACKUPFOLDER Addbs(Home(7) + 'GoFishBackups')
+		*SF 20230131 -> issue #41
+		*Thisform was not a good idea here
+		Local lcBackupPRG As String
+		Local lcDestFile As String
+		Local lcExt As String
+		Local lcExtensions As String
+		Local lcSourceFile As String
+		Local lcThisBackupFolder As String
+		Local llCopyError As Boolean
+		Local lnI As Number
+		Local laExtensions[1], lcBackupFolder, loException
+	
+		*		ccBACKUPFOLDER = Addbs(This.cCR_StoreLocal + 'GoFishBackups')
+		lcBackupFolder = Addbs(This.cCR_StoreLocal + 'GF_ReplaceBackups')
+		*/SF 20230131 -> issue #41
+		*/SF 20221018 -> local storage
+	
+	
+		If This.oSearchOptions.lpreviewreplace
 			Return
 		Endif
-
+	
 		llCopyError = .F.
-
-*-- If the user has created a custom backup PRG, and placed it in their path, then call it instead
+	
+		*-- If the user has created a custom backup PRG, and placed it in their path, then call it instead
 		lcBackupPRG = 'GoFish_Backup.prg'
-
+	
 		If File(m.lcBackupPRG)
 			Do &lcBackupPRG With m.tcFilePath, m.tnReplaceHistoryId
 			Return
 		Endif
-
-		If Not Directory (lcBACKUPFOLDER) && Create main folder for backups, if necessary
-			Mkdir (lcBACKUPFOLDER)
-			GF_Write_Readme_Text(4, Addbs(m.lcBACKUPFOLDER) + 'README.md', .T.)
-
+	
+		If Not Directory (m.lcBackupFolder) && Create main folder for backups, if necessary
+			Mkdir (m.lcBackupFolder)
+			GF_Write_Readme_Text(4, Addbs(m.lcBackupFolder) + 'README.md', .T.)
+	
 		Endif
-
-* Create folder for this ReplaceHistorrID, if necessary
-		lcThisBackupFolder = Addbs (lcBACKUPFOLDER + Transform (m.tnReplaceHistoryId))
-
+	
+		* Create folder for this ReplaceHistorrID, if necessary
+		lcThisBackupFolder = Addbs (m.lcBackupFolder + Transform (m.tnReplaceHistoryId))
+	
 		If Not Directory (m.lcThisBackupFolder)
 			Mkdir (m.lcThisBackupFolder)
-
+	
 			GF_Write_Readme_Text(5, Addbs(m.lcThisBackupFolder) + 'README.md', .T.)
 			Strtofile(Ttoc(Datetime()), Addbs(m.lcThisBackupFolder) + 'README.md', .T.)
 		Endif
-
-* Determine the extensions we need to consider
+	
+		* Determine the extensions we need to consider
 		lcExt = Upper (Justext (m.tcFilePath))
-
+	
 		Do Case
 			Case m.lcExt = 'SCX'
 				lcExtensions = 'SCX,SCT'
@@ -651,29 +648,32 @@ Define Class GoFishSearchEngine As Custom
 			Otherwise
 				lcExtensions = m.lcExt
 		Endcase
-
-*-- Copy each file into the destination folder, if its not already there
+	
+		*-- Copy each file into the destination folder, if its not already there
 		Alines (laExtensions, m.lcExtensions, 0, ',')
-
+	
 		For lnI = 1 To Alen (m.laExtensions)
-			lcSourceFile = Forceext (m.tcFilePath, laExtensions (m.lnI))
-			lcDestFile   = m.lcThisBackupFolder + Justfname (m.lcSourceFile)
-			If Not File (m.lcDestFile)
-				Try
+			lcSourceFile = Forceext (m.tcFilePath, m.laExtensions (m.lnI))
+			lcDestFile	 = m.lcThisBackupFolder + Justfname (m.lcSourceFile)
+			If Not File (m.lcDestFile) && no need to repeat if already backed up
+				*** JRN 2024-08-22 : MPR and MPX files need not exist
+				If File(m.lcSourceFile) or not Upper(JustExt(m.lcSourceFile)) $ 'MPR,MPX'
+					Try
 						Copy File (m.lcSourceFile) To (m.lcDestFile)
-					Catch
-						If !m.llCopyError
-							This.SetReplaceError('Error creating backup of file.', m.tcFilePath, m.tnReplaceHistoryId)
+					Catch To m.loException
+						If Not m.llCopyError
+							This.SetReplaceError('Error creating backup of file - ' + m.loException.Message, m.tcFilePath, m.tnReplaceHistoryId)
 						Endif
 						llCopyError = .T.
-				Endtry
+					Endtry
+				EndIf
 			Endif
 		Endfor
-
-		Return !m.llCopyError
-
+	
+		Return Not m.llCopyError
+	
 	Endproc
-
+	
 
 *----------------------------------------------------------------------------------
 	Procedure BuildDirectoriesCollection(tcDir, tlWithRepo, tcRepo)
@@ -1023,7 +1023,7 @@ x
 			Id I, ;
 			MatchLine M, ;
 			Replaced L, ;
-			TrimmedReplaceLine c(254), ;
+			TrimmedReplaceLine c(254) Null, ;
 			ReplaceLine c(254), ;
 			ReplaceRisk I, ;
 			Replace_DT T, ;
@@ -1212,6 +1212,7 @@ statementstart
 			MatchLen         = .MatchLen
 			MatchType        = .MatchType
 			Code             = '' && .Code && No longer any need to capture this in the memo field.
+			Type			 = .Type
 
 		Endwith
 
@@ -1343,6 +1344,11 @@ statementstart
 		Select (m.tcCursor)
 		Scatter Name m.loResults Memo
 		Select (m.lnSelect)
+		
+		If This.oSearchOptions.lPreVFP9
+			This.EditPreVFP9(m.loResults)
+			Return
+		EndIf 
 
 		lcExt        = Alltrim(Upper(&tcCursor..FileType))
 		lcFileToEdit = Upper(Alltrim(&tcCursor..FilePath))
@@ -1717,6 +1723,63 @@ statementstart
 	Endproc
 
 
+	Procedure EditPreVFP9(toResults)
+		Local lcClass, lcClipText, lcEditSource, lcExt, lcFileText, lcFileToEdit, lcKeyStrokes, lcMatchType
+		Local lcMethod, lcMethodString, lcName, lcProcCode, lnLineNumber, lnMatchStart, lnProcStart, lnRecNo
+		Local loException
+	
+		lcExt		 = Alltrim(Upper(m.toResults.FileType))
+		lcFileToEdit = Upper(Alltrim(m.toResults.FilePath))
+		lcClass		 = Alltrim(m.toResults.Class)
+		lcName		 = Alltrim(m.toResults.Name)
+		lcMethod	 = Alltrim(m.toResults.MethodName)
+		lcMatchType	 = Alltrim(m.toResults.MatchType)
+		lnRecNo		 = m.toResults.Recno
+		lnProcStart	 = m.toResults.ProcStart
+		lnMatchStart = m.toResults.MatchStart
+		lcProcCode	 = m.toResults.ProcCode
+	
+		lcClipText	 = ["] + m.lcFileToEdit + ["]
+		lnLineNumber = 0
+	
+		Do Case
+			Case m.lcExt $ 'VCX SCX' And Not Empty(m.lcMethod)
+				lnLineNumber   = Occurs(CR, Left(m.lcProcCode, m.lnMatchStart - m.lnProcStart))
+				lcMethodString = Alltrim(m.lcName + '.' + m.lcMethod, 1, '.')
+				lcClipText	   = m.lcClipText + Textmerge([, <<m.lnLineNumber>>, "<<m.lcClass>>", "<<m.lcMethodString>>"])
+	
+			Case m.lcExt $ 'VCX SCX' And Not Empty(m.lcClass)
+				lcClipText = m.lcClipText + Textmerge([, 0, "<<m.lcClass>>"])
+	
+			Case m.lcExt $ 'PRG' And m.lcMatchType  = 'Code'
+				Try
+					lcFileText = Filetostr(m.lcFileToEdit)
+				Catch To m.loException
+	
+				Endtry
+				lnLineNumber = Occurs(CR, Left(m.lcFileText, m.lnMatchStart)) + 1
+				lcClipText	 = m.lcClipText + Textmerge([, <<m.lnLineNumber>>])
+	
+			Case m.lcExt $ 'MNX'
+				lcKeyStrokes = This.GetMenuKeystrokes(m.lcFileToEdit, m.lnRecNo, m.lcMatchType)
+				lcClipText	 = m.lcClipText + Textmerge([, , , , "<<m.lcKeystrokes>>"])
+	
+		Endcase
+	
+		lcEditSource = This.oSearchOptions.lPreVFP9EditSource
+		Do Case
+			Case Empty(m.lcEditSource)
+				_Cliptext = m.lcClipText
+			Case Upper(Getwordnum(m.lcEditSource, Getwordcount(m.lcEditSource))) == 'WITH'
+				_Cliptext = m.lcEditSource + ' ' + m.lcClipText
+			Otherwise
+				_Cliptext = m.lcEditSource + [(] + m.lcClipText + [)]
+		Endcase
+	
+		Wait (Left(_Cliptext, 150)) Window At Mrow(), Mcol() Nowait
+	
+	Endproc
+										
 *----------------------------------------------------------------------------------
 	Procedure EndTimer()
 
@@ -1895,107 +1958,132 @@ Result
 
 *----------------------------------------------------------------------------------
 	Procedure FindStatement(loObject)
-
-		Local;
-			lcLastLine As String,;
-			lcMatchLine As String,;
-			lcPreceding As String,;
-			lcProcCode As String,;
-			lcResult As String,;
-			lnCRPos  As Number,;
-			lnLen    As Number,;
-			lnLength As Number,;
-			lnStart  As Number,;
-			lnTextStart As Number
-
+	
+		Local lcLastLine As String
+		Local lcMatchLine As String
+		Local lcPreceding As String
+		Local lcProcCode As String
+		Local lcResult As String
+		Local lnCRPos As Number
+		Local lnLen As Number
+		Local lnLength As Number
+		Local lnStart As Number
+		Local lnTextStart As Number
+		Local lcFirstWord
+	
 		lnStart	 = m.loObject.MatchStart - m.loObject.ProcStart + 1
-
-*!* ** { JRN -- 08/05/2016 07:16 AM - Begin
-*!* lnLength = m.loObject.MatchLen - 1
+	
+		*!* ** { JRN -- 08/05/2016 07:16 AM - Begin
+		*!* lnLength = m.loObject.MatchLen - 1
 		lnLength = m.loObject.MatchLen
-*!* ** } JRN -- 08/05/2016 07:16 AM - End
-
-		lcProcCode = Evl(m.loObject.proccode, m.loObject.Code)
-
-* previously, assumed trailing CR, but this dropped off last character if not found
-*!* ** { JRN -- 08/05/2016 07:16 AM - Begin
-*!* lcMatchLine	= Substr(m.lcProcCode, m.lnStart, m.lnLength)
+		*!* ** } JRN -- 08/05/2016 07:16 AM - End
+	
+		lcProcCode = Evl(m.loObject.ProcCode, m.loObject.Code)
+	
+		* previously, assumed trailing CR, but this dropped off last character if not found
+		*!* ** { JRN -- 08/05/2016 07:16 AM - Begin
+		*!* lcMatchLine	= Substr(m.lcProcCode, m.lnStart, m.lnLength)
 		lcMatchLine	= Trim(Substr(m.lcProcCode, m.lnStart, m.lnLength), 1, CR, LF)
-*!* ** } JRN -- 08/05/2016 07:16 AM - End
-
+		*!* ** } JRN -- 08/05/2016 07:16 AM - End
 		lcResult	= m.lcMatchLine
-*** JRN 12/02/2015 : Add in leading lines, if any
-		Do While .T.
-			lcPreceding = Left(m.lcProcCode, m.lnStart - 1)
-			lnCRPos     = Rat(CR, m.lcPreceding, 2)
-			If m.lnCRPos > 0
-				lcPreceding = Substr(m.lcPreceding, m.lnCRPos + 1)
-			Endif
-			If This.IsContinuation(m.lcPreceding)
-				lcResult = m.lcPreceding + m.lcResult
-				lnStart  = m.lnStart - Len(m.lcPreceding)
+	
+		lcFirstWord = Lower(Getwordnum(m.lcMatchLine, 1, ' ' + Tab + CR + LF))
+		Do Case
+			Case 'text' = m.lcFirstWord
+	
+				&& everything up to and including EndText
 				lnLength = Len(m.lcResult)
-			Else
-				Exit
-			Endif
-		Enddo
-
-*** JRN 12/02/2015 : Add in following lines, if any
-		lcLastLine = m.lcMatchLine
-		Do While This.IsContinuation(m.lcLastLine)
-			lcLastLine = Substr(m.lcProcCode, m.lnStart + m.lnLength)
-			lnLen      = At(CR, m.lcLastLine, 2)
-			If m.lnLen > 0
-				lcLastLine = Left(m.lcLastLine, m.lnLen - 1)
-			Endif
-			lcResult = m.lcResult + m.lcLastLine
-			lnLength = Len(m.lcResult)
-		Enddo
-
-*** JRN 12/05/2015 : within Text / Endtext
-		If Atc('text', Left(m.lcProcCode, m.lnStart)) != 0 And ;
-				Atc('endtext', Substr(m.lcProcCode, m.lnStart + m.lnLength)) != 0
-
-			lnTextStart = m.lnStart
-			Do While m.lnTextStart > 1
-				lcPreceding = Left(m.lcProcCode, m.lnTextStart - 1)
-				lnCRPos     = Rat(CR, m.lcPreceding, 2)
-				If m.lnCRPos > 0
-					lcPreceding = Substr(m.lcPreceding, m.lnCRPos + 1)
-				Endif
-				Do Case
-					Case 'text' = Lower(Getwordnum(m.lcPreceding, 1, ' ' + Tab + CR + lf))
-						lnTextStart = m.lnTextStart - Len(m.lcPreceding)
-						lnLength    = m.lnLength + m.lnStart - m.lnTextStart
-						lnStart     = m.lnTextStart
-						lcResult    = Substr(m.lcProcCode, m.lnStart, m.lnLength)
-						Do While Len(m.lcProcCode) > m.lnStart + m.lnLength
-							lcLastLine = Substr(m.lcProcCode, m.lnStart + m.lnLength)
-							lnLen      = At(CR, m.lcLastLine, 2)
-							If m.lnLen > 0
-								lcLastLine = Left(m.lcLastLine, m.lnLen - 1)
-							Endif
-							lcResult = m.lcResult + m.lcLastLine
-							lnLength = Len(m.lcResult)
-							If 'endtext' = Lower(Getwordnum(m.lcLastLine, 1, ' ' + Tab + CR + lf))
+				Do While Len(m.lcProcCode) > m.lnStart + m.lnLength
+					lcLastLine = Substr(m.lcProcCode, m.lnStart + m.lnLength)
+					lnLen	   = At(CR, m.lcLastLine, 2)
+					If m.lnLen > 0
+						lcLastLine = Left(m.lcLastLine, m.lnLen - 1)
+					Endif
+					lcResult = m.lcResult + m.lcLastLine
+					lnLength = Len(m.lcResult)
+					If 'endtext' = Lower(Getwordnum(m.lcLastLine, 1, ' ' + Tab + CR + LF))
+						Exit
+					Endif
+				Enddo
+	
+			Case 'endtext' = m.lcFirstWord
+				&& Nothing to do here, this is always left as is
+	
+			Otherwise
+	
+				*** JRN 12/02/2015 : Add in leading lines, if any
+				Do While .T.
+					lcPreceding	= Left(m.lcProcCode, m.lnStart - 1)
+					lnCRPos		= Rat(CR, m.lcPreceding, 2)
+					If m.lnCRPos > 0
+						lcPreceding = Substr(m.lcPreceding, m.lnCRPos + 1)
+					Endif
+					If This.IsContinuation(m.lcPreceding)
+						lcResult = m.lcPreceding + m.lcResult
+						lnStart	 = m.lnStart - Len(m.lcPreceding)
+						lnLength = Len(m.lcResult)
+					Else
+						Exit
+					Endif
+				Enddo
+	
+				*** JRN 12/02/2015 : Add in following lines, if any
+				lcLastLine = m.lcMatchLine
+				Do While This.IsContinuation(m.lcLastLine)
+					lcLastLine = Substr(m.lcProcCode, m.lnStart + m.lnLength)
+					lnLen	   = At(CR, m.lcLastLine, 2)
+					If m.lnLen > 0
+						lcLastLine = Left(m.lcLastLine, m.lnLen - 1)
+					Endif
+					lcResult = m.lcResult + m.lcLastLine
+					lnLength = Len(m.lcResult)
+				Enddo
+	
+				*** JRN 12/05/2015 : within Text / Endtext
+				If Atc('text', Left(m.lcProcCode, m.lnStart)) # 0 And		;
+						Atc('endtext', Substr(m.lcProcCode, m.lnStart + m.lnLength)) # 0
+	
+					lnTextStart = m.lnStart
+					Do While m.lnTextStart > 1
+						lcPreceding	= Left(m.lcProcCode, m.lnTextStart - 1)
+						lnCRPos		= Rat(CR, m.lcPreceding, 2)
+						If m.lnCRPos > 0
+							lcPreceding = Substr(m.lcPreceding, m.lnCRPos + 1)
+						Endif
+						Do Case
+							Case 'text' = Lower(Getwordnum(m.lcPreceding, 1, ' ' + Tab + CR + LF))
+								lnTextStart	= m.lnTextStart - Len(m.lcPreceding)
+								lnLength	= m.lnLength + m.lnStart - m.lnTextStart
+								lnStart		= m.lnTextStart
+								lcResult	= Substr(m.lcProcCode, m.lnStart, m.lnLength)
+								Do While Len(m.lcProcCode) > m.lnStart + m.lnLength
+									lcLastLine = Substr(m.lcProcCode, m.lnStart + m.lnLength)
+									lnLen	   = At(CR, m.lcLastLine, 2)
+									If m.lnLen > 0
+										lcLastLine = Left(m.lcLastLine, m.lnLen - 1)
+									Endif
+									lcResult = m.lcResult + m.lcLastLine
+									lnLength = Len(m.lcResult)
+									If 'endtext' = Lower(Getwordnum(m.lcLastLine, 1, ' ' + Tab + CR + LF))
+										Exit
+									Endif
+								Enddo
 								Exit
-							Endif
-						Enddo
-						Exit
-					Case 'endtext' = Lower(Getwordnum(m.lcPreceding, 1, ' ' + Tab + CR + lf))
-						Exit
-					Otherwise
-						lnTextStart = m.lnTextStart - Len(m.lcPreceding)
-				Endcase
-			Enddo
-		Endif
-
-
-		loObject.statement      = m.lcResult
-		loObject.statementstart = m.lnStart
-
+							Case 'endtext' = Lower(Getwordnum(m.lcPreceding, 1, ' ' + Tab + CR + LF))
+								Exit
+							Otherwise
+								lnTextStart = m.lnTextStart - Len(m.lcPreceding)
+						Endcase
+					Enddo
+				Endif
+	
+		Endcase
+	
+		loObject.Statement		= m.lcResult
+		loObject.StatementStart	= m.lnStart
+	
 	Endproc
-
+		
 
 *----------------------------------------------------------------------------------
 	Procedure FixPropertyName(lcProperty)
@@ -2008,9 +2096,9 @@ Result
 
 
 *----------------------------------------------------------------------------------
-	Procedure GenerateHTMLCode(tcCode, tcMatchLine, tnMatchStart, tcCss, tcJavaScript, tcReplaceLine, tlAlreadyReplaced, tnTabsToSpaces, ;
-			tcSearch, tcStatementFilter, tcProcFilter)
-
+	Procedure GenerateHTMLCode(tcCode, tcMatchLine, tnMatchStart, tcCss, tcJavaScript, tcReplaceLine, ;
+			tlAlreadyReplaced, tnTabsToSpaces, tlDarkMode)
+	
 		Local;
 			lcBr             As String,;
 			lcColorizedCode  As String,;
@@ -2139,11 +2227,14 @@ Result
 
 *-- Dress up the code that comes after the match line...
 *-- (Look for EndProc to know where to end the code)---
-			If m.tlAlreadyReplaced
-				lcRightCode = Substr(m.tcCode, m.tnMatchStart + 1 + m.lnReplaceLineLength)
-			Else
-				lcRightCode = Substr(m.tcCode, m.tnMatchStart + 1 + m.lnMatchLineLength)
-			Endif
+			*!* ******** JRN Removed 2024-08-20 ********
+			*!* If m.tlAlreadyReplaced
+			*!* 	lcRightCode = Substr(m.tcCode, m.tnMatchStart + 1 + m.lnReplaceLineLength)
+			*!* Else
+			*!* 	lcRightCode = Substr(m.tcCode, m.tnMatchStart + 1 + m.lnMatchLineLength)
+			*!* Endif
+
+			lcRightCode = Substr(m.tcCode, m.tnMatchStart + 1 + m.lnMatchLineLength)
 
 			*!* ******** JRN Removed 2024-03-16 ******** redundant
 			*!* lnEndProc = Atc('EndProc', m.lcRightCode)
@@ -2171,6 +2262,7 @@ Result
 		TEXT To m.lcHTML Noshow Textmerge Pretext 3
 <html>
  <head>
+  <<Iif(m.tlDarkMode, [<body style="background-color:Rgb(30,30,30);">], [])>>
   <title>GoFish code snippet</title>
   <<m.lcCss>>
  </head>
@@ -2381,10 +2473,11 @@ Result
 	Procedure GetFullMenuPrompt
 		*** JRN 2024-02-05 : Get the Full menu prompt (includes prompts for parent sub-menus)
 		* Assumes current record in current table; written this way to avoid modifying record pointer
-		Local laField[1], laParent[1], lcDBF, lcPrompt, lnIndent, lnLevelName, lnRecNo
+		Local lShowMenuBarNumbers, laField[1], laParent[1], lcDBF, lcPrompt, lnLevelName, lnRecNo
 	
-		lcDBF	 = Dbf()
-		lnRecNo	 = Recno()
+		lShowMenuBarNumbers	= This.oSearchOptions.lShowMenuBarNumbers
+		lcDBF				= Dbf()
+		lnRecNo				= Recno()
 	
 		Select  LevelName,					;
 				Prompt,						;
@@ -2393,7 +2486,7 @@ Result
 			Where Recno() = m.lnRecNo		;
 			Into Array laField
 	
-		lcPrompt = ["] + Alltrim(m.laField[2]) + '" &' + '& Bar ' + Transform(m.laField[3]) + ' '
+		lcPrompt = ["] + m.laField[2] + '"' + Iif(m.lShowMenuBarNumbers, ' (Bar ' + Transform(m.laField[3]) + ')', '')
 	
 		Do While m.laField[1] # '_MSYSMENU'
 			lnLevelName = m.laField[1]
@@ -2412,20 +2505,15 @@ Result
 				From (m.lcDBF)					;
 				Where Recno() = m.lnRecNo		;
 				Into Array laField
-			lcPrompt = ["] + Alltrim(m.laField[2]) + '" &' + '& Bar ' + Transform(m.laField[3]) + ' => ' + m.lcPrompt
+	
+			lcPrompt = ["] + m.laField[2] + '"' + Iif(m.lShowMenuBarNumbers, ' (Bar ' + Transform(m.laField[3]) + ')', '') + ' => ' + m.lcPrompt
 	
 		Enddo
 	
-		* experimental indentation
-		lnIndent = 10
-		Do While '=>' $ m.lcPrompt
-			lnIndent = m.lnIndent + 4
-			lcPrompt = Strtran(m.lcPrompt, '=>', CRLF + Space(m.lnIndent) + Chr[149], 1, 1, 1)
-		Enddo
 	
-		Return m.lcPrompt
+		Return Strtran(m.lcPrompt, '\<', '')
 	Endproc
-			
+					
 	*----------------------------------------------------------------------------------
 	Procedure GetMenuKeystrokes(lcFileToEdit, lnRecNo, lcMatchType)
 	
@@ -2473,8 +2561,14 @@ Result
 			Do Case
 				Case Upper(m.lcMatchType) = '<COMMAND>'
 					lcKeystrokes = m.lcKeystrokes + ccTab + ccTab
+				*** JRN 2024-09-10 : The "Comment" field shows up in all caps
+				* to distinguish it from comments in a procedure
+				Case m.lcMatchType = '<Comment>'
+					lcKeystrokes = m.lcKeystrokes + ccTab + ccTab + ccEnter
 				Case Upper(m.lcMatchType) = '<PROCEDURE>'
 					lcKeystrokes = m.lcKeystrokes + ccTab + ccTab + ccEnter
+				Case Upper(m.lcMatchType) # '<PROMPT>' 
+					lcKeystrokes = m.lcKeystrokes + ccTab + ccTab + ccTab + ccEnter
 			Endcase
 	
 			Do While m.laField[1] # '_MSYSMENU'
@@ -2755,7 +2849,7 @@ Result
 
 				lnReturn = 2
 
-			Case Inlist(m.lcMatchType, MATCHTYPE_CODE, MATCHTYPE_COMMENT) Or;
+			Case Inlist(m.lcMatchType, MATCHTYPE_CODE, MATCHTYPE_COMMENT, '<Cleanup>') Or;
 					(m.toObject.UserField.IsText And !Inlist(m.lcMatchType, MATCHTYPE_FILENAME, MATCHTYPE_TIMESTAMP))
 
 				lnReturn = 1
@@ -2819,6 +2913,7 @@ Result
 		Endif &&!Empty(m.tcCR_StoreLocal) Then
 
 		This.cFilesToSkipFile     = This.cCR_StoreLocal + 'GF_Files_To_Skip.txt'
+		This.cFilesToIncludeFile     = This.cCR_StoreLocal + 'GF_Files_To_Include.txt'
 */SF 20221018 -> local storage
 
 		This.cVersion        = GOFISH_VERSION  && Comes from include file above
@@ -3079,65 +3174,59 @@ Result
 
 	*----------------------------------------------------------------------------------
 	Procedure IsWildCardStatementSearch
-		Return This.oSearchOptions.nSearchMode = GF_SEARCH_MODE_LIKE and '*' $ This.oSearchOptions.cSearchExpression
+		Return This.oSearchOptions.nSearchMode = GF_SEARCH_MODE_LIKE and '*' $ This.oSearchOptions.cSearchExpression and This.oSearchOptions.lWildCardContinuationLines
 	EndProc 	
 
 
 *----------------------------------------------------------------------------------
-	Procedure LoadOptions(tcFile)
-
-		Local;
-			lcProperty As String,;
-			loMy    As 'My' Of 'My.vcx'
-
-		Local Array;
-			laProperties(1)
-
-*:Global;
-x
-
-		If !File(m.tcFile)
+	Procedure LoadOptions(tcFile, tlInit)
+	
+		Local lcProperty As String
+		Local loMy As 'My' Of 'My.vcx'
+		Local laProperties[1], lnI
+	
+		If Not File(m.tcFile)
 			Return .F.
 		Endif
-
-*-- Get an array of properties that are on the SearchOptions object
+	
+		*-- Get an array of properties that are on the SearchOptions object
 		Amembers(laProperties, This.oSearchOptions, 0, 'U')
-
-*-- Load settings from file...
+	
+		*-- Load settings from file...
 		loMy = Newobject('My', 'My.vcx')
-		loMy.Settings.Load(m.tcFile)
-
-*--- Scan over Object properties, and look for a corresponding props on the My Settings object (if present)
+		m.loMy.Settings.Load(m.tcFile)
+	
+		*--- Scan over Object properties, and look for a corresponding props on the My Settings object (if present)
 		With m.loMy.Settings
-			For x = 1 To Alen(m.laProperties)
-				lcProperty = laProperties[x]
-				If Type('.' + m.lcProperty) <> 'U'
+			For lnI = 1 To Alen(m.laProperties)
+				lcProperty = m.laProperties[m.lnI]
+				If Type('.' + m.lcProperty) # 'U'
 					Store Evaluate('.' + m.lcProperty) To ('This.oSearchOptions.' + m.lcProperty)
 				Endif
 			Endfor
 		Endwith
-
-*-- My.Settings stores Dates as DateTimes, so I need to convert them to just Date datatypes
+	
+		*-- My.Settings stores Dates as DateTimes, so I need to convert them to just Date datatypes
 		Try
-				This.oSearchOptions.dTimeStampFrom = Ttod(This.oSearchOptions.dTimeStampFrom)
-			Catch
-				This.oSearchOptions.dTimeStampFrom = {}
+			This.oSearchOptions.dTimeStampFrom = Ttod(This.oSearchOptions.dTimeStampFrom)
+		Catch
+			This.oSearchOptions.dTimeStampFrom = {}
 		Endtry
-
+	
 		Try
-				This.oSearchOptions.dTimeStampTo = Ttod(This.oSearchOptions.dTimeStampTo)
-			Catch
-				This.oSearchOptions.dTimeStampTo = {}
-		EndTry
-		
-		If This.oSearchOptions.nSearchScope = 6 && Results
+			This.oSearchOptions.dTimeStampTo = Ttod(This.oSearchOptions.dTimeStampTo)
+		Catch
+			This.oSearchOptions.dTimeStampTo = {}
+		Endtry
+	
+		If m.tlInit and This.oSearchOptions.nSearchScope = 6 && Results
 			This.oSearchOptions.nSearchScope = This.oSearchOptions.nPreviousSearchScope
-		EndIf 
-
+		Endif
+	
 		Return .T.
-
+	
 	Endproc
-
+	
 
 *----------------------------------------------------------------------------------
 	Procedure lReadyToReplace_Access
@@ -3165,9 +3254,42 @@ x
 
 	Endproc
 
+* ================================================================================
+    Procedure MarkUnchangeableRows(tcGridCursor)
+    	Local lcResultsAlias, lcTemp, lnSelect
+    
+    	lnSelect = Select()
+    
+    	lcResultsAlias = This.cSearchResultsAlias
+    	Select  Distinct FilePath,								;
+    			.F.    As  InUse								;
+    		From (m.tcGridCursor )								;
+    		Where Not (This.IsTextFile(Trim(FileName)))			;
+    		Into Cursor crsrFiles Readwrite
+    	lcTemp = Sys(2015)
+    
+    	Scan
+    		If This.OpenTableForReplace(Trim(FilePath), m.lcTemp, 0)
+    			Use
+    		Else
+    			Replace InUse With .T.
+    		Endif
+    	Endscan
+    
+    	Update  Target												;
+    		Set TrimmedReplaceLine = Null							;
+    		From (m.tcGridCursor)    As  Target						;
+    			Join crsrFiles										;
+    				On Target.FilePath = crsrFiles.FilePath			;
+    		Where crsrFiles.InUse
+    
+    	Select(m.lnSelect)
+    
+    Endproc
+                        
 *----------------------------------------------------------------------------------
-	Procedure MatchTemplate(tcString, tcTemplate)
-
+    Procedure MatchTemplate(tcString, tcTemplate)
+    
 *-- Supports normal wildcard matching with * and ?, just like old DOS matching.
 
 		Local;
@@ -3259,7 +3381,7 @@ x
 				Use (m.tcFileToOpen) Exclusive Alias (m.tcCursor)
 				llReturn = .T.
 			Catch
-				This.SetReplaceError('Cannot open file for exclusive use: ' + CR + CR, m.tcFileToOpen, m.tnResultId)
+				This.SetReplaceError('Cannot open file for exclusive use: ', m.tcFileToOpen, m.tnResultId)
 				Select (m.lnSelect)
 				llReturn = .F.
 		Endtry
@@ -3382,14 +3504,15 @@ x
 				This.oSearchOptions.cWholeWordSearch = This.PrepareForWholeWordSearch(m.lcSearchExpression)
 			EndIf
 			lcSearchExpression = Getwordnum(This.oSearchOptions.cSearchExpression, 1, '*')
-			*!* ******** JRN Removed 2024-06-13 ********
-			*!* lcSearchExpression = ''
-			*!* For lnI = 1 To Getwordcount(This.oSearchOptions.cSearchExpression, '*')
-			*!* 	lcWord = Getwordnum(This.oSearchOptions.cSearchExpression, m.lnI, '*')
-			*!* 	If Len(m.lcWord) > Len(m.lcSearchExpression)
-			*!* 		lcSearchExpression = m.lcWord
-			*!* 	Endif
-			*!* Endfor
+			*** JRN 2024-09-23 : If first expression is too short, choose longest
+			If Len(m.lcSearchExpression) < 4
+				For lnI = 2 To Getwordcount(This.oSearchOptions.cSearchExpression, '*')
+					lcWord = Getwordnum(This.oSearchOptions.cSearchExpression, m.lnI, '*')
+					If Len(m.lcWord) > Len(m.lcSearchExpression)
+						lcSearchExpression = m.lcWord
+					Endif
+				EndFor
+			EndIf 
 		Endif
 		This.PrepareRegExForSearchV2(This.oRegExForSearchInCode, m.lcSearchExpression, .F.)
 		This.cWildCardSearch = lcSearchExpression
@@ -3746,6 +3869,7 @@ x
 		Else
 
 			lnReturn = 	m.loResult.nErrorCode
+			Replace TrimmedReplaceLine with Null in (m.tcCursor)
 
 		Endif
 
@@ -3758,61 +3882,74 @@ x
 
 *----------------------------------------------------------------------------------
 	Procedure ReplaceInCode(toReplace, tcReplaceLine)
-
-* tcReplaceLine, if passed, will be used to replace the entire oringinal match line,
-* rather than using the RexEx replace with cReplaceExpression on the original line.
-
-* Notes:
-* For the Replace, the pattern on the regex must already be set (use PrepareRegExForReplace)
-* Note: Unless a full replacement line is passed in tcReplaceLine, ALL instances of the pattern will be replaced on the tcMatchLine
-
-		Local;
-			lcCode            As String,;
-			lcLeft            As String,;
-			lcLineFromFile    As String,;
-			lcMatchLine       As String,;
-			lcNewCode         As String,;
-			lcReplaceExpression As String,;
-			lcReplaceLine     As String,;
-			lcRight           As String,;
-			lnLineToChangeLength As Number,;
-			lnMatchStart      As Number,;
-			loRegEx           As Object,;
-			loResult          As Object
-
+	
+		* tcReplaceLine, if passed, will be used to replace the entire oringinal match line,
+		* rather than using the RexEx replace with cReplaceExpression on the original line.
+	
+		* Notes:
+		* For the Replace, the pattern on the regex must already be set (use PrepareRegExForReplace)
+		* Note: Unless a full replacement line is passed in tcReplaceLine, ALL instances of the pattern will be replaced on the tcMatchLine
+	
+		Local lcCode, lcLeft, lcLineFromFile, lcMatchLine, lcNewCode, lcReplaceExpression, lcReplaceLine
+		Local lcRight, lnLength, lnLineToChangeLength, lnMNXOffset, lnMatchStart, lnStart, loRegEx, loResult
+	
 		loResult = This.GetReplaceResultObject()
-		lcCode   = m.toReplace.Code
-
-		lcMatchLine = Left(m.toReplace.MatchLine, m.toReplace.MatchLen)
-
-		lnMatchStart         = m.toReplace.MatchStart
+		lcCode	 = m.toReplace.Code
+	
+		lcMatchLine			 = Left(m.toReplace.MatchLine, m.toReplace.MatchLen)
+		lnMatchStart		 = m.toReplace.MatchStart
 		lnLineToChangeLength = Len(m.lcMatchLine)
-
-		lcLineFromFile = Substr(m.lcCode, m.lnMatchStart + 1, m.lnLineToChangeLength)
-
-		If m.lcLineFromFile != m.lcMatchLine && Ensure that line from file still matches the passed in line from the orginal search!!
+		* ================================================================================ 
+		*** JRN 2024-08-20 : special handling for MNXs, as field "proccode" does not only have
+		* code, but the other fields (so that it appears in Code View pane appropriately)
+		Do Case
+			Case Empty(m.toReplace.Type)
+				lcLineFromFile = Substr(m.lcCode, m.lnMatchStart + 1, m.lnLineToChangeLength)
+				lcLeft		   = Left(m.lcCode, m.lnMatchStart)
+				lcRight		   = Substr(m.lcCode, m.lnMatchStart + 1 + m.lnLineToChangeLength)
+			Case m.toReplace.MatchType = MATCHTYPE_PROCEDURE or m.toReplace.MatchType = '<Comment>'
+				lnStart		   = Val(Getwordnum(m.toReplace.Type, 1))
+				lnLength	   = Val(Getwordnum(m.toReplace.Type, 2))
+				lnMNXOffset	   = m.lnStart - 1
+				
+				lcLineFromFile = Substr(m.lcCode, m.lnMatchStart + 1 - m.lnMNXOffset, m.lnLineToChangeLength)
+				lcLeft		   = Left(m.lcCode, m.lnMatchStart - m.lnMNXOffset)
+				lcRight		   = Substr(m.lcCode, m.lnMatchStart + 1 + m.lnLineToChangeLength - m.lnMNXOffset)
+			Otherwise
+						
+				lnStart		= Val(Getwordnum(m.toReplace.Type, 1))
+				lnLength	= Val(Getwordnum(m.toReplace.Type, 2))
+				lnMNXOffset	= m.lnStart - 1
+				
+				lcMatchLine    = Substr(toReplace.ProcCode, lnStart, lnLength)
+				lcLineFromFile = lcCode
+				lcLeft 		   = ''
+				lcRight        = ''
+				
+		EndCase
+		* ================================================================================ 
+	
+		If m.lcLineFromFile # m.lcMatchLine && Ensure that line from file still matches the passed in line from the orginal search!!
 			*** JRN 2024-03-13 : For MNXs, MatchLine may have irrelevant trailing CR
-			If m.lcLineFromFile != Trim(m.lcMatchLine, 1, CR, LF) 
+			If m.lcLineFromFile # Trim(m.lcMatchLine, 1, CR, LF)
 				This.SetReplaceError('Source file has changed since original search:', Alltrim(m.toReplace.FilePath), m.toReplace.Id)
 				loResult.lError = .T.
 				Return m.loResult
-			Else 
-				lcMatchLine = lcLineFromFile
-			EndIf
+			Else
+				lcMatchLine = m.lcLineFromFile
+			Endif
 		Endif
-
-		lcLeft = Left(m.lcCode, m.lnMatchStart)
-
-*-- IMPORTANT CODE HERE... Revised code line is determined here!!!! -------------
+	
+		*-- IMPORTANT CODE HERE... Revised code line is determined here!!!! -------------
 		If Empty(m.tcReplaceLine)
-			loRegEx             = This.oRegExForSearch
-			lcReplaceExpression = This.oSearchOptions.cReplaceExpression
+			loRegEx				= This.oRegExForSearch
+			lcReplaceExpression	= This.oSearchOptions.cReplaceExpression
 			Do Case
 				Case This.nReplaceMode = 1
-					lcReplaceLine = loRegEx.Replace(m.lcMatchLine, m.lcReplaceExpression)
+					lcReplaceLine = m.loRegEx.Replace(m.lcMatchLine, m.lcReplaceExpression)
 				Case This.nReplaceMode = 2
 					lcReplaceLine = ''
-				Case This.nReplaceMode = 3 And !Empty(This.cReplaceUDFCode)
+				Case This.nReplaceMode = 3 And Not Empty(This.cReplaceUDFCode)
 					lcReplaceLine = This.ReplaceLineWithUDF(m.lcMatchLine)
 				Otherwise
 					lcReplaceLine = m.lcMatchLine
@@ -3820,34 +3957,32 @@ x
 		Else
 			lcReplaceLine = m.tcReplaceLine
 		Endif
-
-		lcRight = Substr(m.lcCode, m.lnMatchStart + 1 + m.lnLineToChangeLength)
-
-*--Added this in 4.3.014 to handle case of deleting the entire line
+	
+		*--Added this in 4.3.014 to handle case of deleting the entire line
 		If Empty(m.lcReplaceLine)
 			lcRight = Ltrim(m.lcRight, 0, LF) && Need to strip off initial LF of Right hand code block
 		Endif
-
+	
 		lcNewCode = m.lcLeft + m.lcReplaceLine + m.lcRight
-
+	
 		With m.loResult
 			.nChangeLength = Len(m.lcReplaceLine) - Len(m.lcMatchLine)
-*--Added this in 4.3.014 to handle case of deleting the entire line
+			*--Added this in 4.3.014 to handle case of deleting the entire line
 			If Empty(m.lcReplaceLine)
 				.nChangeLength = .nChangeLength - 1 && to account for the LF we stripped off above
 			Endif
-			.cNewCode            = m.lcNewCode
-			.cReplaceLine        = m.lcReplaceLine
+			.cNewCode			 = m.lcNewCode
+			.cReplaceLine		 = m.lcReplaceLine
 			.cTrimmedReplaceLine = This.TrimWhiteSpace(.cReplaceLine)
 		Endwith
-
-		toReplace.ReplaceLine        = m.loResult.cReplaceLine
+	
+		toReplace.ReplaceLine		 = m.loResult.cReplaceLine
 		toReplace.TrimmedReplaceLine = m.loResult.cTrimmedReplaceLine
-
+	
 		Return m.loResult
-
+	
 	Endproc
-
+				
 
 *----------------------------------------------------------------------------------
 	Procedure ReplaceInTable(toReplace, tcReplaceLine)
@@ -4024,40 +4159,40 @@ x
 
 *----------------------------------------------------------------------------------
 	Procedure ReplaceLineWithUDF(tcMatchLine)
-
-		Local;
-			lcMatchLine As String,;
-			lcReplaceLine As String,;
-			llCR       As Boolean
-
+	
+		Local lcMatchLine As String
+		Local lcReplaceLine As String
+		Local llCR As Boolean
+	
 		lcMatchLine = m.tcMatchLine
-
-*-- If there is a CR at the end, pull it off before calling the UDF. Will add back later...
+	
+		*-- If there is a CR at the end, pull it off before calling the UDF. Will add back later...
 		If Right(m.tcMatchLine, 1) = CR
-			llCR        = .T.
-			lcMatchLine = Left(m.tcMatchLine, Len(m.tcMatchLine) - 1)
+			llCR		= .T.
+			lcMatchLine	= Left(m.tcMatchLine, Len(m.tcMatchLine) - 1)
 		Endif
-
-*-- Call the UDF ---------------
+	
+		*-- Call the UDF ---------------
 		Try
-				lcReplaceLine = Execscript(This.cReplaceUDFCode, m.lcMatchLine)
-			Catch
-				lcReplaceLine = m.lcMatchLine && Keep the line the same if UDF failed
-			Finally
+			lcReplaceLine = Execscript(This.cReplaceUDFCode, m.lcMatchLine)
+		Catch
+			lcReplaceLine = m.lcMatchLine && Keep the line the same if UDF failed
+		Finally
 		Endtry
-
-		If Vartype(m.lcReplaceLine) <> 'C'
-			lcReplaceLine = m.lcMatchLine
-		Endif
-
-		If m.llCR
-			lcReplaceLine = m.lcReplaceLine + CR
-		Endif
-
+	
+		Do Case
+			Case Isnull(m.lcReplaceLine)
+				lcReplaceLine = ''
+			Case Vartype(m.lcReplaceLine) # 'C'
+				lcReplaceLine = m.tcMatchLine
+			Case m.llCR
+				lcReplaceLine = m.lcReplaceLine + CR
+		Endcase
+	
 		Return m.lcReplaceLine
-
+	
 	Endproc
-
+	
 
 *----------------------------------------------------------------------------------
 	Procedure ReplaceMarkedRows(tcCursor, tnReplaceId)
@@ -4104,6 +4239,12 @@ x
 					M.lnResult = GF_REPLACE_UNABLE_TO_USE_TABLE_FOR_REPLACE Or ;
 					M.lnResult = GF_REPLACE_FILE_NOT_FOUND
 				lcFile = FilePath
+				
+				Local lnRecNo				
+				lnRecNo = Recno(m.tcCursor)
+				Update Target Set TrimmedReplaceLine = Null From (m.tcCursor) As Target Where FilePath = lcFile
+				Goto (m.lnRecNo) In (m.tcCursor)
+								
 				Locate For FilePath <> m.lcFile Rest
 				If !Bof()
 					Skip - 1
@@ -4258,7 +4399,7 @@ x
 		Local lnReturn As Number
 		Local lnSelect As Number
 		Local lnX As Number
-		Local laProjectFiles[1], lnSeconds, loFile, loProject
+		Local laProjectFiles[1], lcProjectPath, lnSeconds, loFile, loProject
 	
 		This.PrepareForSearch()
 		This.StartTimer()
@@ -4271,8 +4412,10 @@ x
 	
 		Create Cursor ProjectFiles (FileName C(200))
 	
-		loProject					 = toProject
+		loProject					 = m.toProject
 		This.oSearchOptions.cProject = m.loProject.Name
+		lcProjectPath				 = Addbs(Justpath(Alltrim(m.loProject.Name)))
+	
 		Insert Into ProjectFiles (FileName) Values (Lower(m.loProject.Name))
 	
 		For Each m.loFile In m.loProject.Files FoxObject
@@ -4332,10 +4475,77 @@ x
 		Endif
 	
 	Endproc
-					
+	
+	
+* ================================================================================ 
+	Procedure SearchIncludedFiles
+		Local laFiles[1], laLines[1], lcFile, lcFolder, lcIncludeFile, lnCount, lnFileCount, lnI, lnJ
+		Local lnReturn, lnSelect
+	
+		If Not This.oSearchOptions.lIncludeFiles
+			Return 1
+		Endif
+	
+		If This.lEscPress Or This.nMatchLines >= This.oSearchOptions.nMaxResults
+			Return 1
+		Endif
+	
+		lcIncludeFile = This.cFilesToIncludeFile
+		If Not File(m.lcIncludeFile)
+			Return 1
+		Endif
+	
+		Create Cursor IncludeFiles(FileName M)
+		lnCount = Alines(laLines, Filetostr(m.lcIncludeFile), 5)
+		For lnI = 1 To m.lnCount
+			lcFile = m.laLines[m.lni]
+			If Not '*' $ m.lcFile
+				lcFile = Fullpath(m.lcFile)
+				Do Case
+					Case File(m.lcFile)
+						Insert Into IncludeFiles Values (Lower(m.lcFile))
+					Case Directory(m.lcFile)
+						lcFolder	= Addbs(m.lcFile)
+						lnFileCount	= Adir(laFiles, m.lcFolder + '*.*')
+						For lnJ = 1 To m.lnFileCount
+							Insert Into IncludeFiles Values (Lower(m.lcFolder + m.laFiles[m.lnJ, 1]))
+						Endfor
+				Endcase
+			Endif
+		Endfor
+	
+		If Reccount('IncludeFiles') > 0
+	
+			lnSelect = Select()
+			Select IncludeFiles
+	
+			This.StartProgressBar(Reccount())
+	
+			Scan
+	
+				lcFile = Trim(FileName)
+	
+				lnReturn = This.SearchInFile(m.lcFile)
+	
+				This.UpdateProgressBar(Recno())
+	
+				If (m.lnReturn < 0) Or This.lEscPress Or This.nMatchLines >= This.oSearchOptions.nMaxResults
+					Exit
+				Endif
+	
+			Endscan
+	
+			This.SearchFinished(m.lnSelect)
+	
+		EndIf
+		
+		Return 0
+	
+	Endproc
+														
 
 *----------------------------------------------------------------------------------
-	Procedure SearchInCode(tcCode, tuUserField, tlHasProcedures, lnMaxMatchStart)
+	Procedure SearchInCode(tcCode, tuUserField, tlHasProcedures, lnMinMatchStart, lnMaxMatchStart, tcType)
 
 		Local;
 			lcErrorMessage         As String,;
@@ -4363,7 +4573,14 @@ x
 		If Type('loMatches') = 'O'
 			lnMatchCount = m.loMatches.Count
 		Else
-			lcErrorMessage = 'Error processing regular expression.    ' + This.oRegExForSearch.Pattern
+			lcErrorMessage = 'Error processing regular expression. ' + This.oRegExForSearch.Pattern
+			lcErrorMessage = m.lcErrorMessage + CRLF + Space(5) + 'Search In Code'
+			If Vartype(tuUserField) = 'O'
+				lcErrorMessage = m.lcErrorMessage + CRLF + Space(10) + 'File: ' + m.tuUserField.FilePath
+				lcErrorMessage = m.lcErrorMessage + CRLF + Space(10) + 'Column: ' + m.tuUserField.Column
+				lcErrorMessage = m.lcErrorMessage + CRLF + Space(10) + 'Record: ' + Transform(m.tuUserField.Recno)
+				lcErrorMessage = m.lcErrorMessage + CRLF + Space(10) + 'Code: ' + Left(Transform(tcCode), 50)
+			Endif
 			This.SetSearchError(m.lcErrorMessage)
 			Return - 1
 		Endif
@@ -4378,7 +4595,7 @@ x
 				If m.tlHasProcedures And !This.oSearchOptions.lSearchInComments And This.IsComment(m.loMatch.Value)
 					Loop
 				Endif
-				If m.loMatch.FirstIndex > Evl(lnMaxMatchStart, 1E9) 
+				If m.loMatch.FirstIndex < Evl(lnMinMatchStart, 0) or m.loMatch.FirstIndex >= Evl(lnMaxMatchStart, 1E9) 
 					Loop
 				EndIf
 				
@@ -4390,11 +4607,14 @@ x
 					.oMatch     = m.loMatch
 					.oProcedure = m.loProcedure
 
-					.Type = Proper(.oProcedure.Type)
+					.Type = Evl(tcType, '')
+
 * .ContainingClass =	.oProcedure._ClassName	&& Not used on this object. This line to be deleted after testing. (2012-07-11))
 					.MethodName = .oProcedure._Name
 					.ProcStart  = .oProcedure.StartByte
-					.procend    = Min(Evl(.oProcedure.EndByte, Len(m.tccode)), .oMatch.FirstIndex + MEMOFIELDMINSIZE)
+					*!* ******** JRN Removed 2024-11-18 ********
+					*!* .procend    = Min(Evl(.oProcedure.EndByte, Len(m.tccode)), .oMatch.FirstIndex + MEMOFIELDMINSIZE)
+					.procend    = Evl(.oProcedure.EndByte, Len(m.tccode))
 					.proccode   = Substr(m.tcCode, .ProcStart + 1, Max(0, .procend - .ProcStart))
 					
 					.MatchLine  = .oMatch.Value
@@ -4410,8 +4630,6 @@ x
 
 					.Code = Iif(This.oSearchOptions.lStoreCode, m.tcCode, '')
 				Endwith
-
-*	Assert Upper(JustExt(Trim(loobject.uSERFIELD.FILENAME)))  # 'PRG'
 
 				This.FindStatement(m.loObject)
 
@@ -4477,12 +4695,16 @@ x
 	
 		This.PrepareForSearch()
 		This.StartTimer()
-		This.oProgressBar.Start(100, 'Creating list of files)')
+		This.oProgressBar.Start(100, 'Creating list of files')
 	
 		lcCustomAlias = 'GF_CustomScope' + Sys(2015)
 		Create Cursor (m.lcCustomAlias) (FileName C(240))
 	
 		Do (m.tcCustomScopeUDFFileName) With This.oSearchOptions, m.lcCustomAlias
+		
+		*!* ******** JRN Removed 2024-06-24 ******** 
+		*!* * This was not enough of an improvement
+		*!* This.PreprocessFileList(m.lcCustomAlias, m.lcCustomAlias)
 	
 		This.nADirTime = This.ElapsedTimeSinceStart()
 	
@@ -4561,7 +4783,7 @@ x
 			Return 0
 		Endif
 
-		This.ShowWaitMessage('Processing file: ' + m.tcFile)
+		This.ShowWaitMessage(m.tcFile)
 
 *-- Look for a match on the file name ----------------------
 		lnFileNameMatchCount = This.SearchInFileName(m.tcFile)
@@ -4633,7 +4855,8 @@ x
 		If Type('loMatches') = 'O'
 			lnMatchCount = m.loMatches.Count
 		Else
-			lcErrorMessage = 'Error processing regular expression.    ' + This.oRegExForSearch.Pattern
+			lcErrorMessage = 'Error processing regular expression.  ' + This.oRegExForSearch.Pattern
+			lcErrorMessage = lcErrorMessage + CRLF + '  Search In File Name - ' + Transform(tcFile)
 			This.SetSearchError(m.lcErrorMessage)
 			Return - 1
 		Endif
@@ -4698,15 +4921,10 @@ x
 *----------------------------------------------------------------------------------
 	Procedure SearchInOpenProjects(tcProject, ttTime, tcUni)
 	
-		Local lcFile As String
-		Local lnReturn As Number
-		Local lnSelect As Number
-		Local lnX As Number
-		Local laProjectFiles[1], lnI, lnSeconds, loFile, loProject
+		Local laProjectFiles[1], lcFile, lnCount, lnI, lnReturn, lnSeconds, lnSelect, lnX, loFile, loProject
 	
 		This.PrepareForSearch()
 		This.StartTimer()
-		This.StartProgressBar(_vfp.Projects.Count)
 	
 		lnSeconds	  = Seconds()
 		lnSelect	  = Select()
@@ -4714,20 +4932,22 @@ x
 		This.cUni	  = Evl(m.tcUni, '_' + Sys(2007, Ttoc(This.tRunTime), 0, 1))
 	
 		Create Cursor ProjectFiles (FileName C(200))
-	
-		For lnI = 1 To _vfp.Projects.Count
+		lnCount =  _vfp.Projects.Count
+		This.oProgressBar.Start(m.lnCount, 'Creating list of files from ' + Transform(m.lnCount) + ' project(s).')
+
+		For lnI = 1 To m.lnCount
 			loProject					 = _vfp.Projects[m.lnI]
 			This.oSearchOptions.cProject = m.loProject.Name
-			Insert Into ProjectFiles (FileName) Values (Lower(m.loProject.Name)) 
+			Insert Into ProjectFiles (FileName) Values (Lower(m.loProject.Name))
 	
 			For Each m.loFile In m.loProject.Files FoxObject
 				If m.loFile.Type $ 'EHKMPRVBdTxD'
 					Insert Into ProjectFiles (FileName) Values (m.loFile.Name)
 				Endif
 			Endfor
-			loFile	  = Null
-			loProject = Null
-	
+			loFile					 = Null
+			loProject				 = Null
+			This.oProgressBar.nValue = This.oProgressBar.nValue + 1
 		Endfor
 	
 		Select  Distinct *															;
@@ -4743,20 +4963,10 @@ x
 		Endif
 	
 		This.StartProgressBar(Alen(m.laProjectFiles))
-		
-		*** Uncomment this code to track the execution time for the result
-		*!*			LOCAL nSeconds
-		*!*			nSeconds = SECONDS()
 	
-		For lnX = 1 To Alen(m.laProjectFiles) 
+		For lnX = 1 To Alen(m.laProjectFiles)
 	
 			lcFile = m.laProjectFiles(m.lnX)
-	
-			If This.oSearchOptions.lLimitToProjectFolder
-				If Not (Upper(m.lcProjectPath) $ Upper(Addbs(Justpath(m.lcFile))))
-					Loop
-				Endif
-			Endif
 	
 			lnReturn = This.SearchInFile(m.lcFile)
 	
@@ -4768,8 +4978,116 @@ x
 	
 		Endfor
 	
-		*** Uncomment this code to show used execution time for the result
-		*!*			MESSAGEBOX(ALLTRIM(STR((SECONDS()-nSeconds)*1000)) + " ms")
+		This.SearchFinished(m.lnSelect)
+	
+		If m.lnReturn >= 0
+			Return 1
+		Else
+			Return m.lnReturn
+		Endif
+	
+	Endproc
+			
+	
+*----------------------------------------------------------------------------------
+	Procedure SearchProjectsInCurDir(tcProject, ttTime, tcUni)
+	
+		Local laProjectFiles[1], laProjects[1], lcCurDir, lcFile, lcFileName, lcScope, llAlreadyOpen
+		Local llOpened, lnI, lnJ, lnProjects, lnReturn, lnSeconds, lnSelect, lnX, loException, loFile
+		Local loProject
+	
+		This.PrepareForSearch()
+		This.StartTimer()
+	
+		lnSeconds	  = Seconds()
+		lnSelect	  = Select()
+		This.tRunTime = Evl(m.ttTime, Datetime())
+		This.cUni	  = Evl(m.tcUni, '_' + Sys(2007, Ttoc(This.tRunTime), 0, 1))
+	
+		lcCurDir   = Addbs(Curdir())
+		lnProjects = Adir(laProjects, m.lcCurDir + '*.pjx')
+	
+		If m.lnProjects = 0
+			lcScope	 = Alltrim(Lower(This.GetCurrentDirectory()), '\')
+			lnReturn = This.SearchInPath(m.lcScope, m.ttTime, m.tcUni)
+			Return m.lnReturn
+		Endif
+	
+		Create Cursor ProjectFiles (FileName C(200))
+		This.oProgressBar.Start(m.lnProjects, 'Creating list of files from ' + Transform(m.lnProjects) + ' project(s).')
+	
+		For lnI = 1 To m.lnProjects
+			lcFileName	  = m.lcCurDir + m.laProjects[m.lnI, 1]
+			llAlreadyOpen = .F.
+			For lnJ = 1 To _vfp.Projects.Count
+				If Lower(m.lcFileName) $ Lower(_vfp.Projects[m.lnJ].Name)
+					loProject	  = _vfp.Projects[m.lnJ]
+					llAlreadyOpen = .T.
+				Endif
+			Endfor
+	
+			If Not m.llAlreadyOpen
+				Try
+					Modify Project (m.lcFileName) Nowait Noshow
+					loProject = _vfp.ActiveProject
+					llOpened  = .T.
+				Catch To m.loException
+					llOpened = .F.
+				Endtry
+	
+				If Not m.llOpened
+					Loop
+				Endif
+			Endif
+	
+			This.oSearchOptions.cProject = m.loProject.Name
+			Insert Into ProjectFiles (FileName) Values (Lower(m.loProject.Name))
+	
+			For Each m.loFile In m.loProject.Files FoxObject
+				If m.loFile.Type $ 'EHKMPRVBdTxD'
+					Insert Into ProjectFiles (FileName) Values (m.loFile.Name)
+				Endif
+			Endfor
+	
+			If Not m.llAlreadyOpen
+				m.loProject.Close()
+			Endif
+	
+			loFile	  = Null
+			loProject = Null
+	
+			This.oProgressBar.nValue = This.oProgressBar.nValue + 1
+	
+		Endfor
+	
+	
+		Select  Distinct *															;
+			From ProjectFiles														;
+			Where Not (Upper(Justext(FileName)) $ This.cGraphicsExtensions)			;
+			Into Array laProjectFiles
+	
+		This.nADirTime = This.ElapsedTimeSinceStart()
+	
+		If Type('laProjectFiles') = 'L'
+			This.SearchFinished(m.lnSelect)
+			Return 1
+		Endif
+	
+		This.StartProgressBar(Alen(m.laProjectFiles))
+	
+		For lnX = 1 To Alen(m.laProjectFiles)
+	
+			lcFile = m.laProjectFiles(m.lnX)
+	
+			lnReturn = This.SearchInFile(m.lcFile)
+	
+			This.UpdateProgressBar(This.nFilesProcessed)
+	
+			If (m.lnReturn < 0) Or This.lEscPress Or This.nMatchLines >= This.oSearchOptions.nMaxResults
+				Exit
+			Endif
+	
+		Endfor
 	
 		This.SearchFinished(m.lnSelect)
 	
@@ -4781,10 +5099,10 @@ x
 	
 	Endproc
 				
-
-*----------------------------------------------------------------------------------
+	
+		*----------------------------------------------------------------------------------
 	Procedure SearchInPath(tcPath, ttTime, tcUni)
-
+	
 		Local;
 			lcDirectory   As String,;
 			lcDirectory2  As String,;
@@ -4803,7 +5121,7 @@ x
 j
 
 		lnSelect = Select()
-
+		
 		If Empty(m.tcPath)
 			This.SetSearchError('Path parameter [' + m.tcPath + '] is empty in call to SearchInPath()')
 			Return 0
@@ -4813,7 +5131,7 @@ j
 		This.StartTimer()
 
 		If This.CanUseGrepForFileList()
-			This.SearchUsingGrep(m.ttTime, m.tcUni)
+			This.SearchUsingGrep(m.tcPath, m.ttTime, m.tcUni)
 			Return 1
 		EndIf 
 
@@ -5051,112 +5369,108 @@ j
 
 *----------------------------------------------------------------------------------
 	Procedure SearchInTable(tcFile)
-
-		Local;
-			lcClass              As String,;
-			lcCode               As String,;
-			lcDataType           As String,;
-			lcDeleted            As String,;
-			lcExt                As String,;
-			lcField              As String,;
-			lcFieldSource        As String,;
-			lcFormClass          As String,;
-			lcFormClassloc       As String,;
-			lcFormName           As String,;
-			lcName               As String,;
-			lcObjectType         As String,;
-			lcParent             As String,;
-			lcParentName         As String,;
-			lcProject            As String,;
-			lcSearchExpression   As String,;
-			ldFromDate           As Date,;
-			ldMaxTimeStamp       As Date,;
-			ldToDate             As Date,;
-			llContinueError      As Boolean,;
-			llHasMethods         As Boolean,;
-			llIgnorePropertiesField As Boolean,;
-			llLocateError        As Boolean,;
-			llProcessThisMatch   As Boolean,;
-			llScxVcx             As Boolean,;
-			lnEndColumn          As Number,;
-			lnMatchCount         As Number,;
-			lnParentId           As Number,;
-			lnSelect             As Number,;
-			lnStart              As Number,;
-			lnStartColumn        As Number,;
-			lnTotalMatches       As Number,;
-			loException          As Object,;
-			loFileResultObject   As 'GF_FileResult',;
-			loSearchResultObject As 'GF_SearchResult'
-
-		Local Array;
-			laMaxTimeStamp(1),;
-			laParent(1)
-
-*:Global;
-ii
-
+	
+		Local lcClass As String
+		Local lcCode As String
+		Local lcDataType As String
+		Local lcDeleted As String
+		Local lcExt As String
+		Local lcField As String
+		Local lcFieldSource As String
+		Local lcFormClass As String
+		Local lcFormClassloc As String
+		Local lcFormName As String
+		Local lcName As String
+		Local lcObjectType As String
+		Local lcParent As String
+		Local lcParentName As String
+		Local lcProject As String
+		Local lcSearchExpression As String
+		Local ldFromDate As Date
+		Local ldMaxTimeStamp As Date
+		Local ldToDate As Date
+		Local llContinueError As Boolean
+		Local llHasMethods As Boolean
+		Local llIgnorePropertiesField As Boolean
+		Local llLocateError As Boolean
+		Local llProcessThisMatch As Boolean
+		Local llScxVcx As Boolean
+		Local lnEndColumn As Number
+		Local lnMatchCount As Number
+		Local lnParentID As Number
+		Local lnSelect As Number
+		Local lnStart As Number
+		Local lnStartColumn As Number
+		Local lnTotalMatches As Number
+		Local loException As Object
+		Local loFileResultObject As 'GF_FileResult'
+		Local loSearchResultObject As 'GF_SearchResult'
+		Local laMaxTimeStamp[1], laParent[1], lcText, lcType, llThisField, lnMaxMatchStart, lnMinMatchStart
+	
+		*:Global		;
+		ii
+	
 		lnSelect = Select()
-
+	
 		lnMatchCount   = 0
 		lnTotalMatches = 0
-		lcExt          = Upper(Justext(m.tcFile))
-		lcProject      = This.oSearchOptions.cProject
-
+		lcExt		   = Upper(Justext(m.tcFile))
+		lcProject	   = This.oSearchOptions.cProject
+	
 		lcSearchExpression = Upper(Alltrim(This.oSearchOptions.cSearchExpression))
-
+	
 		Try
-				Use (m.tcFile) Again Shared Alias 'GF_TableSearch' In Select('GF_TableSearch')
-			Catch To m.loException
-
-		EndTry
-
-
+			Use (m.tcFile) Again Shared Alias 'GF_TableSearch' In Select('GF_TableSearch')
+		Catch To m.loException
+	
+		Endtry
+	
+	
 		If Not Used('GF_TableSearch')
 			This.SetSearchError('Cannot open file: ' + Alltrim(m.tcFile) + CR + Space(5) + m.loException.Message, 16, 'File Error')
 			Return 0
 		Else
 			Select('GF_TableSearch')
-
+	
 			If m.lcExt = 'SCX'
 				If Empty(Field('BaseClass'))
-					lcFormName     = ''
-					lcFormClass    = ''
+					lcFormName	   = ''
+					lcFormClass	   = ''
 					lcFormClassloc = ''
 				Else
 					Locate For BaseClass = 'form'
-					lcFormName     = ObjName
-					lcFormClass    = Class
-					lcFormClassloc = ClassLoc
+					lcFormName	   = ObjName
+					lcFormClass	   = Class
+					lcFormClassloc = CLASSLoc
 				Endif
 			Endif
-
+	
 		Endif
-
+	
 		If This.oSearchOptions.lTimeStamp And Type('timestamp') = 'U'
 			Use In 'GF_TableSearch'
 			Return 0
 		Endif
-
-		This.ShowWaitMessage('Searching File: ' + m.tcFile)
-
-		lnEndColumn             = 255
-		llIgnorePropertiesField = .F.
-
+	
+		* This.ShowWaitMessage(m.tcFile)
+	
+		lnEndColumn				= 255
+		llIgnorePropertiesField	= .F.
+	
 		Do Case
 			Case 'VCX' $ m.lcExt
-				lnStartColumn           = 4
-				llIgnorePropertiesField = This.oSearchOptions.lIgnorePropertiesField
+				lnStartColumn			= 4
+				llIgnorePropertiesField	= This.oSearchOptions.lIgnorePropertiesField
 			Case 'SCX' $ m.lcExt
-				lnStartColumn           = 4
-				llIgnorePropertiesField = This.oSearchOptions.lIgnorePropertiesField
-* lnEndColumn = 12
+				lnStartColumn			= 4
+				llIgnorePropertiesField	= This.oSearchOptions.lIgnorePropertiesField
+				* lnEndColumn = 12
 			Case 'FRX' = m.lcExt
 				lnStartColumn = 3 && Newer reports could start at col 6, but older reports can have text data starting in column 3
-* lnEndColumn = 21
+				* lnEndColumn = 21
 				If Len(Field('timestamp', 'GF_TableSearch')) > 0 && Some really old reports may not have this field.
-					Select Max(Timestamp);
-						From 'GF_TableSearch';
+					Select  Max(Timestamp)			;
+						From 'GF_TableSearch'		;
 						Into Array laMaxTimeStamp
 				Else
 					laMaxTimeStamp = {}
@@ -5164,289 +5478,382 @@ ii
 				ldMaxTimeStamp = Ctot(This.TimeStampToDate(m.laMaxTimeStamp))
 			Case 'DBC' = m.lcExt
 				lnStartColumn = 3
-* lnEndColumn = 6
+				* lnEndColumn = 6
 			Case 	'MNX' = m.lcExt
 				lnStartColumn = 1
 			Otherwise
 				lnStartColumn = 1
 		Endcase
-
+	
 		lcDeleted = Set('Deleted')
 		Set Deleted On
-
-*-- Scan across all table columns looking for matches on each row
-*--	See: http://fox.wikis.com/wc.dll?Wiki~VFPVcxStructure for details about scx/vcx columns
-*-- See: http://mattslay.com/foxpro-report-frx-table-structure for details about FRX structure
-
+	
+		*-- Scan across all table columns looking for matches on each row
+		*--	See: http://fox.wikis.com/wc.dll?Wiki~VFPVcxStructure for details about scx/vcx columns
+		*-- See: http://mattslay.com/foxpro-report-frx-table-structure for details about FRX structure
+	
 		For ii = m.lnStartColumn To m.lnEndColumn Step 1
 			Goto Top
-			lcField       = Upper(Field(m.ii))
+			lcField		  = Upper(Field(m.ii))
 			llLocateError = .F.
-
+	
 			If Empty(m.lcField)
 				Exit
 			Endif
-
+	
 			If  Not Type(m.lcField) $ 'CM' Or					; && If not a character or Memo field
 				('TAG' $ m.lcField And m.lcExt # 'FRX') Or		;
-					Inlist(m.lcField, 'OBJCODE', 'OBJECT', 'SYMBOLS')
+					Inlist(m.lcField, 'OBJCODE', 'OBJECT', 'SYMBOLS', 'LEVELNAME')
 				Loop
 			Endif
-
+	
 			If m.llIgnorePropertiesField And m.lcField == 'RESERVED3'
 				Loop
 			Endif
-
+	
 			If m.lcExt = 'DBC'
 				lcObjectType = Alltrim(Upper(ObjectType))
 				If Type('objectname') = 'U'
 					Loop
 				Endif
 			Endif
-
-*-- This is an important speed part of GoFish... If the user is not using a regular expression, then we
-*-- can use the Locate command to make a quick look for a match anywhere in this column. We will handle the
-*-- whole word part later on in the code, but a quick partial match hit helps us skips rows that have not
-*-- match at all.
-*-- If we find a match, we process it futher and then call Continue to look for the next partial and repeat.
-*-- This logic is not used if we are doing a Reg Ex search.
+	
+			*-- This is an important speed part of GoFish... If the user is not using a regular expression, then we
+			*-- can use the Locate command to make a quick look for a match anywhere in this column. We will handle the
+			*-- whole word part later on in the code, but a quick partial match hit helps us skips rows that have not
+			*-- match at all.
+			*-- If we find a match, we process it futher and then call Continue to look for the next partial and repeat.
+			*-- This logic is not used if we are doing a Reg Ex search.
 			If This.oSearchOptions.lRegularExpression
-				Locate For This.AnyRegexMatches(Evaluate(m.lcField)) Nooptimize
-			
-			else
+				Locate For This.AnyRegExMatches(Evaluate(m.lcField)) Nooptimize
+	
+			Else
 				If This.oSearchOptions.lTimeStamp
 					ldFromDate = Evl(This.oSearchOptions.dTimeStampFrom, {^1900-01-01})
 					ldToDate   = Evl(This.oSearchOptions.dTimeStampTo, {^9999-01-01})
 					ldToDate   = m.ldToDate + 1 &&86400 && Must bump into to next day, since TimeStamp from table has time on it
-
+	
 					Locate For Between(Ctot(This.TimeStampToDate(Timestamp)), m.ldFromDate, m.ldToDate) Nooptimize
-
+	
 					If Not Found() && If doing a TimeStmp search and we did not find a match, we can skip out of this file
 						Exit
 					Endif
 				Else
 					Try
-							If This.oSearchOptions.nSearchMode = GF_SEARCH_MODE_LIKE
-								Locate For Likec('*' + Upper(m.lcSearchExpression) + '*', Upper(Evaluate(m.lcField))) Nooptimize
-							Else
-								Locate For Upper(m.lcSearchExpression) $ Upper(Evaluate(m.lcField)) Nooptimize
-							Endif
-						Catch
-							This.SetSearchError('Error scanning through table [' + m.tcFile + ']. File may be corrupt.')
-							llLocateError = .T.
-						Finally
+						If This.oSearchOptions.nSearchMode = GF_SEARCH_MODE_LIKE
+							Locate For Likec('*' + Upper(m.lcSearchExpression) + '*', Upper(Evaluate(m.lcField))) Nooptimize
+						Else
+							Locate For Upper(m.lcSearchExpression) $ Upper(Evaluate(m.lcField)) Nooptimize
+						Endif
+					Catch
+						This.SetSearchError('Error scanning through table [' + m.tcFile + ']. File may be corrupt.')
+						llLocateError = .T.
+					Finally
 					Endtry
 				Endif
-
+	
 				If Not Found() Or m.llLocateError
 					Loop && Loop to next column
-				EndIf
-				
+				Endif
+	
 			Endif
-
+	
 			Do While Not Eof()
-
-				lnMatchCount       = 0
+	
+				lnMatchCount	   = 0
 				loFileResultObject = Createobject('GF_FileResult')	&& This custom class has all the properties that must be populated if you want to
 				llProcessThisMatch = .T.														&& have a cursor created
-				llScxVcx           = Inlist(m.lcExt, 'VCX', 'SCX')
-				lcCode             = Evaluate(m.lcField)
+				llScxVcx		   = Inlist(m.lcExt, 'VCX', 'SCX')
+				lcCode			   = Evaluate(m.lcField)
+				lnMinMatchStart	   = 0
 				lnMaxMatchStart	   = 1E9
-
+				*** JRN 2024-08-18 : re-purposing this empty field to contain information
+				* required to do replacments in MNXs; this occurs because of the
+				* way that matches to MNXs appear in code view pane
+				lcType			   = ''
+	
 				With m.loFileResultObject
 					.Process   = .F.
 					.FileName  = Justfname(m.tcFile)
 					.FilePath  = m.tcFile
-					.MatchType = Proper(m.lcField)
+					.MatchType = iif(m.lcField = 'COMMENT', m.lcfield, Proper(m.lcField))
 					.FileType  = Upper(m.lcExt)
-					.Column    = m.lcField
-					.IsText    = .F.
-					.Recno     = Recno()
+					.Column	   = m.lcField
+					.IsText	   = .F.
+					.Recno	   = Recno()
 					.Timestamp = Iif(Type('timestamp') # 'U', Ctot(This.TimeStampToDate(Timestamp)), {// :: AM})
-
-					lcClass          = Iif(Type('class') # 'U', Class, '')
+	
+					lcClass			 = Iif(Type('class') # 'U', Class, '')
 					.ContainingClass = m.lcClass
-					._ParentClass    = m.lcClass
-					._BaseClass      = Iif(Type('baseclass') # 'U', BaseClass, '')
-					.ClassLoc        = Iif(Type('classloc') # 'U', ClassLoc, '')
-
+					._ParentClass	 = m.lcClass
+					._BaseClass		 = Iif(Type('baseclass') # 'U', BaseClass, '')
+					.CLASSLoc		 = Iif(Type('classloc') # 'U', CLASSLoc, '')
+	
 					lcParent = Iif(Type('parent') # 'U', Parent, '')
-					lcName   = Iif(Type('objname') # 'U', ObjName, '')
-					._Name   = Alltrim(m.lcParent + '.' + m.lcName, '.')
-
+					lcName	 = Iif(Type('objname') # 'U', ObjName, '')
+					._Name	 = Alltrim(m.lcParent + '.' + m.lcName, '.')
+	
 					Do Case
 						Case m.lcExt = 'SCX'
-
+	
 							._Class = ''
-
+	
 						Case m.lcExt = 'VCX'
-
+	
 							If Not Empty(m.lcParent)
 								._Class = Getwordnum(m.lcParent, 1, '.')
 							Else
-								._Class = Alltrim(ObjName)
-								._Name  = ''
+								._Class	= Alltrim(ObjName)
+								._Name	= ''
 							Endif
-
+	
 						Case m.lcExt = 'FRX'
-							._Name  = Name
-							._Class = This.GetFrxObjectType(ObjType, objCode)
+							._Name	= Name
+							._Class	= This.GetFrxObjectType(ObjType, objCode)
 							If Empty(.Timestamp)
 								.Timestamp = m.ldMaxTimeStamp
 							Endif
-
+	
 						Case m.lcExt = 'DBF'
 							.MatchType = '<Field>'
-							._Name     = Proper(m.lcField)
-
-						*** JRN 2024-02-05 : For some MNX matches, show more info from the same record
-						Case m.lcExt = 'MNX' && and InList(Upper(m.lcField), 'PROMPT', 'COMMAND', 'PROCEDURE', 'SKIPFOR')
-							lnMaxMatchStart	   = Max(Len(&lcField), 1) && somewhat odd, but used because EVL used later to mean MAXIMUM
-							lcCode =																						;
-								Trim(&lcField, 1, CR, LF) + CRLF + CRLF +													;
-								'*' + Replicate('=', 60) + CRLF + '* Related field(s):' + CRLF +							;
-								Iif(Empty(Prompt),    						   '', 'Prompt    = ' + This.GetFullMenuPrompt() + CRLF) + ;
-								Iif(Empty(Command)   Or lcField = 'COMMAND',   '', 'Command   = ' + Command + CRLF) +			;
-								Iif(Empty(SkipFor)   Or lcField = 'SKIPFOR',   '', 'SkipFor   = ' + SkipFor + CRLF) +			;
-								Iif(Empty(Message)   Or lcField = 'MESSAGE',   '', 'Message   = "' + Message + '"' + CRLF) +	;
-								Iif(Empty(Comment)   Or lcField = 'COMMENT',   '', 'Comment   = "' + Comment + '"' + CRLF) +	;
-								Iif(Empty(Procedure) Or lcField = 'PROCEDURE', '', 'Procedure = ' + Iif(CR $ Trim(Procedure, 1, CR, LF, Tab, ' '), CRLF, '') + Procedure + CRLF)
-														
+							._Name	   = Proper(m.lcField)
+	
+							*** JRN 2024-02-05 : For some MNX matches, show more info from the same record
+						Case m.lcExt = 'MNX' And m.lcField # 'LEVELNAME'
+	
+							lnMinMatchStart	= 0
+							lnMaxMatchStart	= 1E9
+							lcCode			= ''
+	
+							If Not Empty(Prompt)
+								llThisField		= m.lcField = 'PROMPT'
+								lnMinMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMinMatchStart)
+								lcCode			= m.lcCode + 'Prompt    = '	+ This.GetFullMenuPrompt()
+								If m.llThisField
+									lcText = ["] + Trim(Prompt) + ["]
+									lcType = Transform(Rat(m.lcText, m.lcCode) + 1) + ' ' + Transform(Len(Trim(Prompt)))
+								Endif
+								lcCode			= m.lcCode + Iif(objCode = 77, ' &' + '& Submenu', '')	+ CRLF
+								lnMaxMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMaxMatchStart)
+							Endif
+	
+							If Not Empty(Command)
+								llThisField		= m.lcField = 'COMMAND'
+								lnMinMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMinMatchStart)
+								lcType			= Iif(m.llThisField, Transform(Len(m.lcCode) + 13) + ' ' + Transform(Len(Command)), m.lcType)
+								lcCode			= m.lcCode + 'Command   = ' + Command + CRLF
+								lnMaxMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMaxMatchStart)
+							Endif
+	
+							If Not Empty(KeyName)
+								llThisField		= m.lcField = 'KEYNAME'
+								lnMinMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMinMatchStart)
+								lcType			= Iif(m.llThisField, Transform(Len(m.lcCode) + 13) + ' ' + Transform(Len(KeyName)), m.lcType)
+								lcCode			= m.lcCode + 'Key Label = ' + KeyName + CRLF
+								lnMaxMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMaxMatchStart)
+							Endif
+	
+							If Not Empty(KeyLabel)
+								llThisField		= m.lcField = 'KEYLABEL'
+								lnMinMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMinMatchStart)
+								lcType			= Iif(m.llThisField, Transform(Len(m.lcCode) + 13) + ' ' + Transform(Len(KeyLabel)), m.lcType)
+								lcCode			= m.lcCode + 'Key Text  = ' + KeyLabel + CRLF
+								lnMaxMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMaxMatchStart)
+							Endif
+	
+							If Not Empty(SkipFor)
+								llThisField		= m.lcField = 'SKIPFOR'
+								lnMinMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMinMatchStart)
+								lcType			= Iif(m.llThisField, Transform(Len(m.lcCode) + 13) + ' ' + Transform(Len(SkipFor)), m.lcType)
+								lcCode			= m.lcCode + 'Skipfor   = ' + SkipFor + CRLF
+								lnMaxMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMaxMatchStart)
+							Endif
+	
+							If Not Empty(Message)
+								llThisField		= m.lcField = 'MESSAGE'
+								lnMinMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMinMatchStart)
+								lcType			= Iif(m.llThisField, Transform(Len(m.lcCode) + 13) + ' ' + Transform(Len(Message)), m.lcType)
+								lcCode			= m.lcCode + 'Message   = ' + Message + CRLF
+								lnMaxMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMaxMatchStart)
+							Endif
+	
+							If Not Empty(ResName)
+								llThisField		= m.lcField = 'RESNAME'
+								lnMinMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMinMatchStart)
+								lcType			= Iif(m.llThisField, Transform(Len(m.lcCode) + 13) + ' ' + Transform(Len(ResName)), m.lcType)
+								lcCode			= m.lcCode + 'Resource  = ' + ResName + CRLF
+								lnMaxMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMaxMatchStart)
+							Endif
+	
+							If Not Empty(Comment)
+								llThisField		= m.lcField = 'COMMENT'
+								lnMinMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMinMatchStart)
+								lcType			= Iif(m.llThisField, Transform(Len(m.lcCode) + 13) + ' ' + Transform(Len(Comment)), m.lcType)
+								lcCode			= m.lcCode + 'Comment   = ' + Comment + CRLF
+								lnMaxMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMaxMatchStart)
+							Endif
+	
+							If Not Empty(Setup)
+								lcCode			= m.lcCode + CRLF + Replicate('*', 60) + CRLF + CRLF
+								llThisField		= m.lcField = 'SETUP'
+								lnMinMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMinMatchStart)
+								lcType			= Iif(m.llThisField, Transform(Len(m.lcCode) + 1) + ' ' + Transform(Len(Setup)), m.lcType)
+								lcCode			= m.lcCode + Setup + CRLF
+								lnMaxMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMaxMatchStart)
+							Endif
+	
+							If Not Empty(Cleanup)
+								lcCode			= m.lcCode + CRLF + Replicate('*', 60) + CRLF + CRLF
+								llThisField		= m.lcField = 'CLEANUP'
+								lnMinMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMinMatchStart)
+								lcType			= Iif(m.llThisField, Transform(Len(m.lcCode) + 1) + ' ' + Transform(Len(Cleanup)), m.lcType)
+								lcCode			= m.lcCode + Cleanup + CRLF
+								lnMaxMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMaxMatchStart)
+							Endif
+	
+							If Not Empty(Procedure)
+								lcCode			= m.lcCode + CRLF + Replicate('*', 60) + CRLF + CRLF
+								llThisField		= m.lcField = 'PROCEDURE'
+								lnMinMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMinMatchStart)
+								lcType			= Iif(m.llThisField, Transform(Len(m.lcCode) + 1) + ' ' + Transform(Len(Procedure)), m.lcType)
+								lcCode			= m.lcCode + Procedure + CRLF
+								lnMaxMatchStart	= Iif(m.llThisField, Len(m.lcCode), m.lnMaxMatchStart)
+							Endif
+		
 						Case m.lcExt = 'DBC'
-							._Name  = Alltrim(ObjectName)
-							._Class = Alltrim(ObjectType)
-
+							._Name	= Alltrim(ObjectName)
+							._Class	= Alltrim(ObjectType)
+	
 							Do Case
-
+	
 								Case ._Class = 'Database' And m.lcField = 'OBJECTNAME'
-*lcCode = '' && Will cause this match to be skipped. Don't want to record these matches.
-
+									*lcCode = '' && Will cause this match to be skipped. Don't want to record these matches.
+	
 								Case ._Class = 'Table'
-*lcCode = ._Class + '.dbf' && The name of the Table attached to the DBC
+									*lcCode = ._Class + '.dbf' && The name of the Table attached to the DBC
 									lcCode = This.CleanUpBinaryString(m.lcCode)  && The SQL statement that makes up the View
-
+	
 								Case ._Class = 'View'
-									lnStart = Atc('Select', m.lcCode)
-									lcCode  = Substr(m.lcCode, m.lnStart)
-									lcCode  = This.CleanUpBinaryString(m.lcCode, .T.)  && The SQL statement that makes up the View
-
+									lnStart	= Atc('Select', m.lcCode)
+									lcCode	= Substr(m.lcCode, m.lnStart)
+									lcCode	= This.CleanUpBinaryString(m.lcCode, .T.)  && The SQL statement that makes up the View
+	
 								Case ._Class = 'Field' && Fields can be part of Tables or Views
-*-- Get some info about the parent of this field
-									lnParentId = parentId
-									Select ObjectType,;
-										ObjectName;
-										From (m.tcFile);
-										Where objectid = m.lnParentId;
+									*-- Get some info about the parent of this field
+									lnParentID = ParentID
+									Select  ObjectType,						;
+											ObjectName						;
+										From (m.tcFile)						;
+										Where ObjectID = m.lnParentID		;
 										Into Array laParent
-									lcParentName = Alltrim(laParent[2])
-
-*-- Parse the field into a field name and field source
-									lnStart = Atc('#', m.lcCode)
-									lcCode  = Substr(m.lcCode, m.lnStart + 1)
-									lcCode  = This.CleanUpBinaryString(m.lcCode)
-
+									lcParentName = Alltrim(m.laParent[2])
+	
+									*-- Parse the field into a field name and field source
+									lnStart	= Atc('#', m.lcCode)
+									lcCode	= Substr(m.lcCode, m.lnStart + 1)
+									lcCode	= This.CleanUpBinaryString(m.lcCode)
+	
 									lcFieldSource = Alltrim(Getwordnum(m.lcCode, 1))
-									lcDataType    = Substr(Alltrim(Getwordnum(m.lcCode, 2)), 2)
-
+									lcDataType	  = Substr(Alltrim(Getwordnum(m.lcCode, 2)), 2)
+	
 									If m.lcFieldSource = '0'
 										lcFieldSource = '[Table alias in query]'
-										lcDataType    = ''
+										lcDataType	  = ''
 									Endif
-
+	
 									If Not Empty(m.lcDataType)
-										lcCode     = m.lcParentName + ' references ' + m.lcFieldSource + ' (data type: ' + m.lcDataType + ')'
+										lcCode	   = m.lcParentName + ' references ' + m.lcFieldSource + ' (data type: ' + m.lcDataType + ')'
 										.MatchType = 'Field Source'
 									Else
-										lcCode     = m.lcParentName + '.' + m.lcFieldSource
-										.MatchType = Alltrim(laParent[1]) + ' Field'
+										lcCode	   = m.lcParentName + '.' + m.lcFieldSource
+										.MatchType = Alltrim(m.laParent[1]) + ' Field'
 									Endif
-
+	
 									._Class = .MatchType
-
+	
 							Endcase
 					Endcase
-
-*-- Here is where we can skip the processing of certain records that we want to ignore, even though we found a match in them.
-					If (m.lcExt = 'VCX' And Empty(m.lcClass)) Or ;					 	&& This is the ending row of a Class def in a vcx. Need to skip over it.
-						(m.lcExt = 'FRX' And m.lcField = 'TAG2' And Recno() = 1) Or ;	&& Tag2 on first record in a FRX is binary and I want to skip it.
+	
+					*-- Here is where we can skip the processing of certain records that we want to ignore, even though we found a match in them.
+					If (m.lcExt = 'VCX' And Empty(m.lcClass)) Or							;					 	&& This is the ending row of a Class def in a vcx. Need to skip over it.
+						(m.lcExt = 'FRX' And m.lcField = 'TAG2' And Recno() = 1) Or			;	&& Tag2 on first record in a FRX is binary and I want to skip it.
 						(m.lcExt = 'PJX' And m.lcField = 'KEY') 					  		&& Added this filter on 2021-03-24, as requested by Jim Nelson.
-
+	
 						llProcessThisMatch = .F.
 					Endif
-
+	
 				Endwith
-
+	
 				If This.oSearchOptions.lTimeStamp And Not Between(Ctot(This.TimeStampToDate(Timestamp)), m.ldFromDate, m.ldToDate)
 					llProcessThisMatch = .F.
 				Endif
-
+	
 				If m.llProcessThisMatch
 					If Not Empty(This.oSearchOptions.cSearchExpression)
-*lcCode = Evaluate(lcField)
+						*lcCode = Evaluate(lcField)
 						llHasMethods = Upper(m.lcField) = 'METHODS' Or		;
 							M.lcExt = 'FRX' And Upper(m.lcField) = 'TAG' And Upper(Name) = 'DATAENVIRONMENT'
-						lnMatchCount = This.SearchInCode(m.lcCode, m.loFileResultObject, m.llHasMethods, lnMaxMatchStart)
+						lnMatchCount = This.SearchInCode(m.lcCode, m.loFileResultObject, m.llHasMethods, m.lnMinMatchStart, m.lnMaxMatchStart, m.lcType)
 					Else
-* Can't search since there is no cSearchExpression, so we just log the file as a result.
-* This handles TimeStamp searches, where the cSearchExpression is empty
-						loSearchResultObject           = Createobject('GF_SearchResult')
-						loSearchResultObject.Code      = Iif(Type('properties') # 'U', Properties, '')
-						loSearchResultObject.Code      = m.loSearchResultObject.Code + CR + Iif(Type('methods') # 'U', Methods, '')
+						* Can't search since there is no cSearchExpression, so we just log the file as a result.
+						* This handles TimeStamp searches, where the cSearchExpression is empty
+						loSearchResultObject		   = Createobject('GF_SearchResult')
+						loSearchResultObject.Code	   = Iif(Type('properties') # 'U', Properties, '')
+						loSearchResultObject.Code	   = m.loSearchResultObject.Code + CR + Iif(Type('methods') # 'U', Methods, '')
 						loSearchResultObject.UserField = m.loFileResultObject
-
+	
 						If m.lcExt = 'FRX'
-							loSearchResultObject.MatchLine        = Expr
+							loSearchResultObject.MatchLine		  = Expr
 							loSearchResultObject.TrimmedMatchLine = Expr
 						Endif
-
+	
 						This.ProcessSearchResult(m.loSearchResultObject)
-
-						ii           = 1000 && To end the outer for loop when the Do loop ends
+	
+						ii			 = 1000 && To end the outer for loop when the Do loop ends
 						lnMatchCount = m.lnMatchCount + 1
 					Endif
 				Endif
-
+	
 				If m.lnMatchCount < 0 && There was an error in above call, need to exit
 					Exit
 				Else
 					lnTotalMatches = m.lnTotalMatches + m.lnMatchCount
 				Endif
-
-
-					Try
-							Continue
-						Catch
-							This.SetSearchError('Error scanning through table [' + m.tcFile + ']. File may be corrupt.')
-							llContinueError = .T.
-						Finally
-					Endtry
-
-					If m.llContinueError
-						Exit
-					Endif
-
+		
+				Try
+					Continue
+				Catch
+					This.SetSearchError('Error scanning through table [' + m.tcFile + ']. File may be corrupt.')
+					llContinueError = .T.
+				Finally
+				Endtry
+	
+				If m.llContinueError
+					Exit
+				Endif
+	
 			Enddo
-
+	
 			If m.lnMatchCount < 0 && There was an error in above call
 				Exit
 			Endif
-
+	
 		Endfor
-
+	
 		Set Deleted &lcDeleted
-
+	
 		Use In 'GF_TableSearch'
-
+	
 		Select (m.lnSelect)
-
+	
 		If m.lnMatchCount < 0
 			Return m.lnMatchCount
 		Else
 			Return m.lnTotalMatches
 		Endif
-
+	
 	Endproc
-
+			
 
 *----------------------------------------------------------------------------------
 	Procedure SearchInTextFile(tcFile)
@@ -5703,28 +6110,22 @@ ii
 
 *----------------------------------------------------------------------------------
 	Procedure SetReplaceError(tcErrorMessage, tcFile, tnResultId, tnDialogBoxType, tcTitle)
-
-		Local;
-			lcErrorMessage As String,;
-			lcFile      As String,;
-			lcResultId  As String,;
-			lnResultId  As Number
-
+	
+		Local lcErrorMessage, lcFile
+	
 		lcFile     = Alltrim(Evl(m.tcFile, 'None'))
-		lnResultId = Evl(m.tnResultId, 0)
-
-		lcResultId = Iif(m.lnResultId = 0, 'None', Alltrim(Str(m.lnResultId)))
-
-		lcErrorMessage = m.tcErrorMessage + Space(4) + ;
-			'[File: ' + m.lcFile + ']' + Space(4) + ;
-			'[Result Id: ' + m.lcResultId + ']'
-
+	
+		lcErrorMessage = m.tcErrorMessage + CR														;
+			+ Space(4) + '[File: ' + m.lcFile + ']'													;
+			+ Iif(Empty(m.tnResultId), '',  Space(4) + '[Record Id: ' + Transform(m.tnResultId) + ']') ;
+			+ CR
+	
 		This.ShowError(m.lcErrorMessage, m.tnDialogBoxType, m.tcTitle)
-
+	
 		This.oReplaceErrors.Add(m.lcErrorMessage)
-
+	
 	Endproc
-
+			
 
 *----------------------------------------------------------------------------------
 	Procedure SetSearchError(tcErrorMessage, tnDialogBoxType, tcTitle)
@@ -5780,13 +6181,17 @@ ii
 
 *----------------------------------------------------------------------------------
 	Procedure ShowWaitMessage(tcMessage)
-
+	
 		If This.oSearchOptions.lShowWaitMessages
-			Wait Window At 5, Wcols() / 2 Nowait m.tcMessage
+			*	Wait Window At 5, Wcols() / 2 Nowait m.tcMessage
+			If Vartype(This.oProgressBar) = 'O'
+				This.oProgressBar.UpdateWait(m.tcMessage)
+			Endif
+	
 		Endif
-
+	
 	Endproc
-
+		
 
 *----------------------------------------------------------------------------------
 	Procedure StartProgressBar(tnMaxValue)
@@ -6052,14 +6457,56 @@ ii
 		*** JRN 2024-05-31 : With V7.1, use grep to pre-filter files to be searched
 		* However, cannot do so if there is a file template (rare)
 		* or " in the search expression (calls to grep use ")
-		Return Empty(This.oSearchOptions.cFileTemplate) and not ["] $ This.oSearchOptions.cSearchExpression
-	EndProc 
-
+		* or any characters before chr[32] or after chr[126]
+		* or has a trailing backslash
+		* or, for some users, wildcard * along with ( or )
+		
+		Local lcChar, lcEscapedSearchExpression, lcSearchExpression, lnI
+	
+		If Not This.oSearchOptions.lOptimizeWithGrep
+			Return .F.
+		Endif
+	
+		If Not Empty(This.oSearchOptions.cFileTemplate)
+			Return .F.
+		Endif
+	
+		lcSearchExpression = This.oSearchOptions.cSearchExpression
+		If ["] $ lcSearchExpression
+			Return .F.
+		Endif
+	
+		For lnI = 1 To Len(lcSearchExpression)
+			lcChar = Substr(lcSearchExpression, lnI)
+			If Not Between(Asc(lcChar), 32, 126)
+				Return .F.
+			Endif
+		Endfor
+	
+		If Right(lcSearchExpression, 1) = '\'
+			Return .F.
+		Endif
+	
+		If This.oSearchOptions.lUnmatchedParenError
+			*** JRN 2024-11-07 : A rare case for some users: cannot use grep if wild card * along with either of ( or )
+			lcEscapedSearchExpression = This.oSearchOptions.cEscapedSearchExpression
+			* ignore leading and trailing .*
+			lcEscapedSearchExpression = Substr(m.lcEscapedSearchExpression, 3, Len(m.lcEscapedSearchExpression) - 4)
+		
+			If '.*' $ m.lcEscapedSearchExpression And ('\(' $ m.lcEscapedSearchExpression Or '\)' $ m.lcEscapedSearchExpression)
+				Return .F.
+			Endif
+		Endif
+			
+		Return .T.
+	
+	Endproc
+			
 * ================================================================================ 
 * ================================================================================ 
 *** JRN 2024-05-31 : Optimized section, using grep to create (shorter) list of files
 
-	Procedure SearchUsingGrep (m.ttTime, m.tcUni)
+	Procedure SearchUsingGrep (tcPath, ttTime, tcUni)
 	
 		Local lcCustomAlias, lnReturn, lnSeconds, lnSelect
 	
@@ -6073,7 +6520,7 @@ ii
 		lcCustomAlias = 'GF_CustomScope' + Sys(2015)
 		Create Cursor (m.lcCustomAlias) (FileName C(240))
 	
-		This.CreateFileListUsingGrep(This.oSearchOptions, m.lcCustomAlias)
+		This.CreateFileListUsingGrep(This.oSearchOptions, m.lcCustomAlias, m.tcPath)
 	
 		This.nADirTime = This.ElapsedTimeSinceStart()
 	
@@ -6108,7 +6555,7 @@ ii
 * ================================================================================
 
 	Procedure CreateFileListUsingGrep
-		Lparameters toSettings, tcCursor
+		Lparameters toSettings, tcCursor, tcPath
 	
 		*** JRN 2024-05-22 : Concept and coding suggestions from Mike Yearwood
 		* C:\mygrep\grep.exe -r -l -i -P --include=.{??a,prg} '^(?!\s*).*THERE\s+IS\s+NO\s+SUCH\s+APPRO' c:\mysource
@@ -6136,11 +6583,6 @@ ii
 				lcSearchPattern	   = '-F'
 		Endcase
 	
-		*** JRN 2024-05-22 : for now, this will work only on folders
-		* Scope (project or path) 
-		lcScope	 = m.toSettings.cRecentScope
-		lcFolder = Addbs(m.lcScope)
-	
 		* Extensions searched
 		lcExtensions = This.GetExtensions(m.toSettings.cSearchExtensions)
 	
@@ -6153,46 +6595,60 @@ ii
 		lcDoneFile = m.lcStem + '.done'
 	
 		Strtofile('@echo off' + CRLF, m.lcBATFile, 1)
-		If ':' $ m.lcScope
-			Strtofile(Left(m.lcScope, 2)  + CRLF, m.lcBATFile, 1)
-		Endif
-		Strtofile('cd "' + m.lcScope + '"' + CRLF, m.lcBATFile, 1)
 	
-		*** JRN 2024-05-14 : file contents
-		lcgrep	= ["] + Addbs(_Screen._GoFish.cAppPath) + 'grep\grep.exe' + ["]
+		* Scope (project or path) 
+		lcScope	 = m.tcPath && m.toSettings.cRecentScope
 	
-		lcScope = ["] + m.lcScope + ["]
+		If Directory(m.lcScope)
+
+			* ================================================================================ 
+			lcFolder = Addbs(m.lcScope)
 	
-		If m.toSettings.lIncludeSubDirectories
-			lcCommand = m.lcgrep + [ -r -l -i -z ] + m.lcSearchPattern
+			If ':' $ m.lcScope
+				Strtofile(Left(m.lcScope, 2)  + CRLF, m.lcBATFile, 1)
+			Endif
+			Strtofile('cd "' + m.lcScope + '"' + CRLF, m.lcBATFile, 1)
+	
+			*** JRN 2024-05-14 : file contents
+			lcgrep	= ["] + Addbs(_Screen._GoFish.cAppPath) + 'grep\grep.exe' + ["]
+	
+			lcScope = ["] + m.lcScope + ["]
+	
+			If m.toSettings.lIncludeSubDirectories
+				lcCommand = m.lcgrep + [ -r -l -i -z ] + m.lcSearchPattern
+			Else
+				lcCommand = m.lcgrep + [    -l -i -z ] + m.lcSearchPattern
+				lcScope	  = m.lcScope + [\*.*]
+			Endif
+			lcScope	= Chrtran(m.lcScope, '\', '/')
+	
+			lcCommand = m.lcCommand + Textmerge([ --include=*.{<<m.lcExtensions>>} -- "<<m.lcSearchExpression>>" <<m.lcScope>>])
+	
+			lcCommand = m.lcCommand + [ 1> "] + m.lcOutFile + [" 2>> "] + m.lcErrFile + ["]
+			Strtofile(m.lcCommand + CRLF, m.lcBATFile, 1)
+	
+			* ================================================================================
+			*** JRN 2024-05-30 : search for file names
+			*   DIR *blank*.* /s /b  gives a simple file listing
+			lcSubDirs = Iif(m.toSettings.lIncludeSubDirectories, '/s', '')
+			If m.lnSearchMode # 3 And Not '\' $ m.toSettings.cSearchExpression
+				lcCommand = Textmerge([DIR *"<<m.toSettings.cSearchExpression>>"*.* <<lcSubDirs>> /b 1>> "<<m.lcOutFile>>" 2>> "<<m.lcErrFile>>"])
+			Endif
+			Strtofile(m.lcCommand + CRLF, m.lcBATFile, 1)
+
 		Else
-			lcCommand = m.lcgrep + [    -l -i -z ] + m.lcSearchPattern
-			lcScope	  = m.lcScope + [\*.*]
+	
+			* ================================================================================
+			
 		Endif
-		lcScope	= Chrtran(m.lcScope, '\', '/')
 	
-		lcCommand = m.lcCommand + Textmerge([ --include=*.{<<m.lcExtensions>>} "<<m.lcSearchExpression>>" <<m.lcScope>>])
-	
-		lcCommand = m.lcCommand + [ 1> "] + m.lcOutFile + [" 2>> "] + m.lcErrFile + ["]
-		Strtofile(m.lcCommand + CRLF, m.lcBATFile, 1)
-	
-		* ================================================================================
-		*** JRN 2024-05-30 : search for file names
-		*   DIR *blank*.* /s /b  gives a simple file listing
-		lcSubDirs = Iif(m.toSettings.lIncludeSubDirectories, '/s', '')
-		If m.lnSearchMode # 3 And Not '\' $ m.toSettings.cSearchExpression
-			lcCommand = Textmerge([DIR *"<<m.toSettings.cSearchExpression>>"*.* <<lcSubDirs>> /b 1>> "<<m.lcOutFile>>" 2>> "<<m.lcErrFile>>"])
-			*!* ******** JRN Removed 2024-06-09 ********
-			*!* Else
-			*!* 		lcCommand = Textmerge([DIR <<m.lcScope >>\*.* <<lcSubDirs>> /b | <<m.lcgrep>> -i -P "<<m.lcSearchExpression>>" - 1>> "<<m.lcOutFile>>" 2>> "<<m.lcErrFile>>"])
-		Endif
-		Strtofile(m.lcCommand + CRLF, m.lcBATFile, 1)
 		Strtofile('Echo Done >> "' + m.lcDoneFile  + '"' + CRLF, m.lcBATFile, 1)
-		* ================================================================================
 	
 		This.CallShell(m.lcBATFile, m.lcDoneFile)
 	
 		* ================================================================================
+		
+		This.CheckForUnmatchedParenError(m.lcErrFile)
 	
 		This.AppendtoCursor(m.tcCursor, m.lcOutFile, m.lcErrFile)
 	
@@ -6201,7 +6657,7 @@ ii
 		Return
 	
 	Endproc
-	
+		
 
 	* ===============================================================================
 	Procedure GetExtensions(lcSearchExtensions)
@@ -6218,8 +6674,8 @@ ii
 
 		Return m.lcExtensions
 
-	Endproc
-
+	EndProc
+	
 
 	* ================================================================================
 	Procedure CallShell(tcBATFile, tcDoneFile)
@@ -6259,7 +6715,9 @@ ii
 
 		Select (m.tcCursor)
 		Append From (m.tcOutFile) Sdf
-		This.AppendErrorFiles(m.tcErrFile)
+		If not Empty(m.tcErrFile)
+			This.AppendErrorFiles(m.tcErrFile)
+		Endif
 
 		Replace All FileName With Chrtran(FileName, '/', '\')
 
@@ -6271,6 +6729,17 @@ ii
 	Endproc
 
 
+	* ================================================================================ 
+	Procedure CheckForUnmatchedParenError(lcErrFile)
+		If This.oSearchOptions.nSearchMode = 2		;
+				And File(m.lcErrFile)				;
+				And Atc('grep: unmatched', Filetostr(m.lcErrFile)) # 0
+			This.StopProgressBar()
+			This.oSearchOptions.lUnmatchedParenError = .T.
+			MessageBox('GoFish: Internal error (grep.exe)' + CR + CR + 'Please try again', 16, 'GoFish - but try again')
+		Endif
+	Endproc
+	
 	* ================================================================================
 	Procedure AppendErrorFiles(lcErrFile)
 		Local laErrors[1], lcText, lnCount, lnI
@@ -6287,9 +6756,72 @@ ii
 
 	* ================================================================================
 	Procedure CleanUpGrepFiles(tcStem)
-		Erase (m.tcStem + '.*')
+		If This.oSearchOptions.lCleanUpGrepFiles
+			Erase (m.tcStem + '.*')
+		EndIf 
 	EndProc
-	
+
+	* ================================================================================
+	*!* ******** JRN Removed 2024-07-08 ********
+	*!* Procedure PreprocessFileList(tcFilesCursor, tcDestCursor)
+
+	*!* 	Local lcExtensions, lcTexts
+
+	*!* 	*** JRN 2024-07-03 : list of all files, only needed extensions, and 't' files for binaries
+	*!* 	lcExtensions = Lower(' ' + This.oSearchOptions.cSearchExtensions + ' ')
+	*!* 	Select  Distinct Lower(FileName)    As  FileName						;
+	*!* 		From (m.tcFilesCursor)												;
+	*!* 		Where ' ' + Lower(Justext(FileName)) + ' ' $ m.lcExtensions			;
+	*!* 		Into Cursor FilesCursor Readwrite
+
+	*!* 	Replace	FileName  With	Strtran(FileName, 'x    ', 't', 1, 1, 1)		;
+	*!* 		For ' ' + Upper(Justext(FileName)) + ' ' $ ccBinaries
+
+	*!* 	*** JRN 2024-07-03 : create txt file from this cursor
+	*!* 	lcText = FilesToCursor('FileName')
+
+	*!* 	Select  *											;
+	*!* 		From FilesCursor								;
+	*!* 		Where This.AnyRegExMatchesInFile(FileName)		;
+	*!* 		Into Cursor (m.tcDestCursor) readwrite
+
+	*!* 	lcTexts	 = Chrtran(ccBinaries, 'X', 'T')
+	*!* 	Replace	FileName  With	Strtran(FileName, 't    ', 'x', 1, 1, 1)		;
+	*!* 		For ' ' + Upper(Justext(FileName)) + ' ' $ m.lcTexts
+
+	*!* 	*RegExpFileList input.txt THERE\s+IS\s+ output.txt
+
+	*!* Endproc
+
+
+ 	* ================================================================================ 
+ 	Procedure FilesCursorToText
+ 		Lparameters lcAlias
+ 	
+ 		ccFileDelimiter = CRLF
+ 		Local lcClipText, lcFiles, lnI
+ 	
+ 		lcClipText = _Cliptext
+ 		_vfp.DataToClip(m.lcAlias)
+ 		* strip off first line, which contains the field name
+ 		lcFiles	  = Substr(_Cliptext, 1 + At(CR, _Cliptext))
+ 		_Cliptext = m.lcClipText
+
+ 		* fix the delimiter to what xargs needs
+ 		lcFiles = Strtran(m.lcFiles, CR, ccFileDelimiter)
+ 	
+ 		* alltrim on all records
+ 		For lnI = 7 To 0 Step - 1
+ 			lcFiles = Strtran(m.lcFiles, Replicate(' ', 2 ** m.lnI) + ccFileDelimiter, ccFileDelimiter)
+ 		Endfor
+ 	
+ 		* and change .??x to .??t for grep
+ 		lcFiles = Strtran(m.lcFiles, 'x' + ccFileDelimiter, 't' + ccFileDelimiter)
+ 	
+ 		Return lcFiles
+ 	Endproc
+
+
 			
 Enddefine
 
@@ -6306,5 +6838,4 @@ Function _EdSelect
 Function _EDGETPOS
 Function _EdStoPos
 *!*	/Changed by: nmpetkov 27.3.2023
-
 

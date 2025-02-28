@@ -103,6 +103,10 @@ Define Class GoFishSearchOptions As Custom
 	* cFilesToSkipFile files to skip over certain files during the search.
 	lSkipFiles                             = .F.
 
+	* A flag to indicate if the user wants to process the files in
+	* cFilesToIncludeFile files to cnclude over certain files during the search.
+	lIncludeFiles                          = .F.
+
 	* Indicates if you want a copy of the code block stored on each search
 	* reesult record (for ResultsCursor) or collection node (for ResultsCollection).
 	lStoreCode                             = .F.
@@ -122,6 +126,8 @@ Define Class GoFishSearchOptions As Custom
 	* Indicates which search mode to use: Plain, LIKE, or RegEx.
 	* See GoFish.h constants file for values.
 	nSearchMode                            = 1
+	lWildCardContinuationLines			   = .T.
+	lOptimizeWithGrep					   = .T.
 
 	* 1 = Active Project, 2=Browse Project, 3 = Current Dir, 4= Browse Directory, 5 = All Open Projects
 	nSearchScope                           = 3
@@ -148,6 +154,14 @@ Define Class GoFishSearchOptions As Custom
 
 	*** JRN 2024-05-04 : File extensions searched in current search
 	cSearchExtensions = ''
+	
+	lShowMenuBarNumbers = .F.
+		
+	lCleanUpGrepFiles = .T.
+	
+	lPreVFP9		   = .F.
+	lPreVFP9EditSource = 'EditSource'
+	lUnmatchedParenError = .F.
 
 	*---------------------------------------------------------------------
 

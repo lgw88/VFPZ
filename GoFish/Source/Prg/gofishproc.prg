@@ -452,21 +452,19 @@ Endproc
 * --------------------------------------------------------------------------------
 * --------------------------------------------------------------------------------
 *** JRN 10/14/2015 : Added to process context menus
-Procedure GF_CreateContextMenu(lcMenuName)
+Procedure GF_CreateContextMenu(lcMenuName, toResultsForm)
 	Local loPosition As Object
+	Local lcFont
 
 	loPosition = GF_CalculateShortcutMenuPosition()
 
-	*** JRN 2010-11-10 : Following is an attempt to solve the problem
-	* when there is another form already open; apparently, if the
-	* focus is on the screen, the positioning of the popup still works OK
-
-	* _Screen.Show()
+	lcFont = m.toResultsForm.GetContextMenuFont()
 
 	Define Popup (m.lcMenuName)							;
-		shortcut										;
+		ShortCut										;
 		Relative										;
 		From m.loPosition.Row, m.loPosition.Column		;
+		&lcFont											;
 		In Screen
 
 Endproc
@@ -1882,21 +1880,11 @@ Endproc
 
 * ================================================================================ 
 Function GF_GetMixedCaseCombination(m.tcString)
-	Local lcChar, lcResult, lcVal, lnI
+	Local lcResult, lnI
 
 	lcResult = ''
 	For lnI = 1 To Len(m.tcString)
-		lcResult = m.lcResult + Chr[m.lnI]
-	EndFor
-	
-	For lnI = Len(m.tcString) To 1 Step - 1
-		lcVal  = Chr[m.lnI]
-		lcChar = Substr(m.tcString, m.lnI, 1)
-		If Isalpha(m.lcChar)
-			lcResult = Chrtran(m.lcResult, m.lcVal, Upper(m.lcChar)) + ',' + Chrtran(m.lcResult, m.lcVal, Lower(m.lcChar))
-		Else
-			lcResult = Chrtran(m.lcResult, m.lcVal, m.lcChar)
-		Endif
+		lcResult = m.lcResult + '[' + Upper(Substr(m.tcString, m.lnI, 1)) + Lower(Substr(m.tcString, m.lnI, 1)) + ']'
 	Endfor
 
 	Return m.lcResult
@@ -1909,3 +1897,221 @@ Procedure Sleep
 	Declare Sleep In kernel32 Integer dwMilliseconds
 	Sleep(m.lnMilliseconds)
 Endproc
+
+
+* ================================================================================
+Procedure GF_ModifyCommand(tcFile)
+	Modify Command (m.tcFile) Nowait Save
+EndProc 
+
+* ================================================================================ 
+Procedure GF_FixFontSize
+	Lparameters toObject, tnOldFontSize, tnNewFontSize
+
+	Local loFontsize As 'FixFontSize'
+	
+	If m.tnOldFontSize >= m.tnNewFontSize
+		Return
+	EndIf 
+
+	loFontsize = Createobject('FixFontSize', m.toObject, m.tnOldFontSize, m.tnNewFontSize)
+	
+	toObject.FontSize = m.tnNewFontSize
+	
+	If PemStatus(toObject, 'nFontSizeMultiplier', 5)
+		toObject.nFontSizeMultiplier = loFontsize.nFontSizeMultiplier
+	endif
+
+	Return
+	
+EndProc
+
+
+Procedure GF_EditSkipList(toSearchEngine)
+
+	Local loPBT As 'GF_PEME_BaseTools'
+	Local lcFileName, lcText
+
+	lcFileName = m.toSearchEngine.cFilesToSkipFile
+
+	If Not File(m.lcFileName)
+
+		Text To m.lcText Pretext 3 Noshow
+		** Contains names of files and folders to be skipped: one per line, case insensitive, wildcards allowed
+		**  -- File name (no path)
+		**        Main.PRG
+		**        FOO*.TXT
+		**  -- Folders (with leading and trailing backslash)
+		**        \Purchased\WestWind\
+		**        \Temp*\
+		**  -- Or combined
+		**        \Temp*\*.txt
+
+		** These files and folders will be excluded if the "Exclude Files option" is checked on the Advanced form.
+		** The default name and location for this file is: (Home(7) + 'GoFish_\GF_Files_To_Skip.txt')
+		** Might be set to a local directory
+
+		** Blank lines and lines beginning with ** are not processed.
+		
+		Endtext
+
+		Strtofile(m.lcText, m.lcFileName)
+	Endif
+
+	Modify File (m.lcFileName)
+	loPBT = Createobject('GF_PEME_BaseTools')
+	m.loPBT.AddMRUFile(m.lcFileName)
+
+Endproc
+
+
+Procedure GF_EditIncludeList(toSearchEngine)
+
+	Local loPBT As 'GF_PEME_BaseTools'
+	Local lcFileName, lcText
+
+	lcFileName = m.toSearchEngine.cFilesToIncludeFile
+
+	If Not File(m.lcFileName)
+
+		Text To m.lcText Pretext 3 Noshow
+		** Contains names of files or folders to be included (in addition to the selected scope): 
+		**   - one per line, case insensitive, no wildcards
+		**   - for directories, does not search sub-directories
+
+		** These files and folders will be included if the "Include Files option" is checked on the Advanced form.
+		** The default name and location for this file is: (Home(7) + 'GoFish_\GF_Files_To_Include.txt')
+
+		** Blank lines and lines beginning with ** are not processed.
+		
+		Endtext
+
+		Strtofile(m.lcText, m.lcFileName)
+	Endif
+
+	Modify File (m.lcFileName)
+	loPBT = Createobject('GF_PEME_BaseTools')
+	m.loPBT.AddMRUFile(m.lcFileName)
+
+Endproc
+
+
+* ================================================================================
+
+Define Class FixFontSize As Custom
+
+	oForm		= Null
+	nFontSizeMultiplier	= 0
+
+	Dimension aAnchors(1, 2)
+
+
+	Procedure Init(toObject, tnOldFontSize, tnNewFontSize)
+
+		This.oForm		 = m.toObject
+		This.nFontSizeMultiplier = m.tnNewFontSize / m.tnOldFontSize
+
+		This.SaveAnchors(m.toObject)
+
+		This.ResizeObject(m.toObject)
+
+		This.RestoreAnchors()
+
+		Return
+
+	Endproc
+
+
+	Procedure SaveAnchors(toObject)
+
+		Local lnAnchor, lnCount, loChildObject, loException
+
+		If Pemstatus(m.toObject, 'Objects', 5)
+
+			Try
+				For Each m.loChildObject In m.toObject.Objects FoxObject
+					If Pemstatus(m.loChildObject, 'Anchor', 5)
+						lnAnchor = Getpem(m.loChildObject, 'Anchor')
+						If m.lnAnchor > 0
+							lnCount = Alen(This.aAnchors, 1) + 1
+							Dimension This.aAnchors(m.lnCount, 2)
+							This.aAnchors(m.lnCount, 1)	= m.loChildObject
+							This.aAnchors(m.lnCount, 2)	= m.lnAnchor
+							loChildObject.Anchor		= 0
+						Endif
+					Endif
+					This.SaveAnchors(m.loChildObject)
+
+				Endfor
+			Catch To m.loException
+
+			Endtry
+
+		Endif && Pemstatus(m.toObject, 'Objects', 5)
+
+	Endproc
+
+
+	Procedure ResizeObject(toObject)
+
+		Local lcSaveName, loChildObject, loException
+
+		lcSaveName = 'Anchor' + Sys(2015)
+		If Pemstatus(m.toObject, 'Objects', 5)
+
+			Try
+				For Each m.loChildObject In m.toObject.Objects FoxObject
+					This.ResizeObject(m.loChildObject)
+				Endfor
+			Catch To m.loException
+
+			Endtry
+
+		Endif
+
+		This.SetFontSize(m.toObject)
+
+	Endproc
+
+
+	Procedure SetFontSize(toObject)
+		If m.toObject.BaseClass = 'Form'
+			This.SetSize(m.toObject, 'MaxHeight')
+			This.SetSize(m.toObject, 'MaxWidth')
+		Else
+			This.SetSize(m.toObject, 'Top')
+			This.SetSize(m.toObject, 'Left')
+		Endif
+
+		This.SetSize(m.toObject, 'Height')
+		This.SetSize(m.toObject, 'Width')
+		This.SetSize(m.toObject, 'FontSize')
+
+	Endproc
+
+
+	Procedure SetSize(toObject, tcProperty)
+		Local lnOldValue
+
+		If Pemstatus(m.toObject, m.tcProperty, 5)
+			lnOldValue			 = Getpem(m.toObject, m.tcProperty)
+			toObject.&tcProperty = Round(m.lnOldValue * This.nFontSizeMultiplier, 0)
+		Endif
+	Endproc
+
+
+	Procedure RestoreAnchors()
+
+		Local lnAnchor, lnI, loObject
+
+		For lnI = 2 To Alen(This.aAnchors, 1)
+			loObject				= This.aAnchors[m.lnI, 1]
+			lnAnchor				= This.aAnchors[m.lnI, 2]
+			loObject.Anchor			= m.lnAnchor
+			This.aAnchors[m.lnI, 1]	= Null
+		Endfor
+
+	EndProc
+	
+	
+Enddefine
