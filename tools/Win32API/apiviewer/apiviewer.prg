@@ -10,6 +10,20 @@ SET TALK OFF
 SET EXCLUSIVE OFF
 SET CENTURY ON
 _screen.Visible=.F.
+CLEAR
+LOCAL lcP
+lcP = GetPath()
+DO CASE
+CASE FILE(lcP+"Tools\Win32API\data\w32.dbc")
+	SET PATH TO lcP+"Tools\Win32API\data" ADDITIVE
+CASE FILE(lcP+"Win32API\data\w32.dbc")
+	SET PATH TO lcP+"Win32API\data" ADDITIVE
+CASE FILE(lcP+"data\w32.dbc")
+	SET PATH TO lcP+"data" ADDITIVE
+CASE FILE(lcP+"..\data\w32.dbc")
+	SET PATH TO lcP+"..\data" ADDITIVE
+ENDCASE
+
 
 #INCLUDE apiviewer.h
 SET PROCEDURE TO genlib ADDITIVE
