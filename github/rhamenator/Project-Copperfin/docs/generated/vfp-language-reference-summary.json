@@ -1,0 +1,23 @@
+{
+    "generatedAtUtc":  "2026-04-08T14:23:51.9001553Z",
+    "sources":  {
+                    "languageReference":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/dd5f4hyy(v=vs.71)",
+                    "generalReference":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/h9f898ae(v=vs.71)",
+                    "vfpHome":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/mt490117(v=msdn.10)",
+                    "foxpro26HelpDbf":  "C:\\vDosPlus\\FPD26\\FOXHELP.DBF"
+                },
+    "counts":  {
+                   "Command":  429,
+                   "Event":  69,
+                   "Function":  413,
+                   "Method":  83,
+                   "Object":  22,
+                   "Operator":  3,
+                   "Other":  114,
+                   "PreprocessorDirective":  4,
+                   "Property":  323,
+                   "SystemVariable":  72
+               },
+    "totalEntries":  1532,
+    "commandEntries":  429
+}

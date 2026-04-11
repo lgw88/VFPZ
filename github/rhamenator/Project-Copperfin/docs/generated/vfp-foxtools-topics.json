@@ -1,0 +1,362 @@
+﻿[
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "AddBS( )",
+        "local":  "conaddbs.htm",
+        "topicName":  "",
+        "title":  "AddBS( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "CallFn( )",
+        "local":  "concallfn.htm",
+        "topicName":  "",
+        "title":  "CallFn( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "CleanPath( )",
+        "local":  "concleanpath.htm",
+        "topicName":  "",
+        "title":  "CleanPath( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "CloseClip( )",
+        "local":  "concloseclip.htm",
+        "topicName":  "",
+        "title":  "CloseClip( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "CountClipF( )",
+        "local":  "concountclipf.htm",
+        "topicName":  "",
+        "title":  "CountClipF( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "DefaultExt( )",
+        "local":  "condefaultext.htm",
+        "topicName":  "",
+        "title":  "DefaultExt( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "DriveType( )",
+        "local":  "condrivetype.htm",
+        "topicName":  "",
+        "title":  "DriveType( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "EmptyClip( )",
+        "local":  "conemptyclip.htm",
+        "topicName":  "",
+        "title":  "EmptyClip( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "EnumClipFm( )",
+        "local":  "conenumclipfm.htm",
+        "topicName":  "",
+        "title":  "EnumClipFm( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "ForceExt( )",
+        "local":  "conforceext.htm",
+        "topicName":  "",
+        "title":  "ForceExt( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "ForcePath( )",
+        "local":  "conforcepath.htm",
+        "topicName":  "",
+        "title":  "ForcePath( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "Foxtools",
+        "local":  "confoxtools.htm",
+        "topicName":  "Foxtools Overview",
+        "title":  "Foxtools Overview",
+        "kind":  "foxtools"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "FoxToolVer( )",
+        "local":  "confoxtoolver.htm",
+        "topicName":  "",
+        "title":  "FoxToolVer( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "GetClipDat( )",
+        "local":  "congetclipdat.htm",
+        "topicName":  "",
+        "title":  "GetClipDat( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "GetClipFmt( )",
+        "local":  "congetclipfmt.htm",
+        "topicName":  "",
+        "title":  "GetClipFmt( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "GetFileVersion( )",
+        "local":  "congetfileversion.htm",
+        "topicName":  "",
+        "title":  "GetFileVersion( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "GetProStrg( )",
+        "local":  "congetprostrg.htm",
+        "topicName":  "",
+        "title":  "GetProStrg( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "IsClipFmt( )",
+        "local":  "conisclipfmt.htm",
+        "topicName":  "",
+        "title":  "IsClipFmt( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "JustDrive( )",
+        "local":  "conjustdrive.htm",
+        "topicName":  "",
+        "title":  "JustDrive( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "JustExt( )",
+        "local":  "conjustext.htm",
+        "topicName":  "",
+        "title":  "JustExt( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "JustFName( )",
+        "local":  "conjustfname.htm",
+        "topicName":  "",
+        "title":  "JustFName( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "JustPath( )",
+        "local":  "conjustpath.htm",
+        "topicName":  "",
+        "title":  "JustPath( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "JustStem( )",
+        "local":  "conjuststem.htm",
+        "topicName":  "",
+        "title":  "JustStem( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "MainHwnd( )",
+        "local":  "conmainhwnd.htm",
+        "topicName":  "",
+        "title":  "MainHwnd( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "MessageBox( )",
+        "local":  "conmessagebox.htm",
+        "topicName":  "",
+        "title":  "MessageBox( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "MkDir( )",
+        "local":  "conmkdir.htm",
+        "topicName":  "",
+        "title":  "MkDir( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "NextWord( )",
+        "local":  "connextword.htm",
+        "topicName":  "",
+        "title":  "NextWord( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "OpenClip( )",
+        "local":  "conopenclip.htm",
+        "topicName":  "",
+        "title":  "OpenClip( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "PutProStrg( )",
+        "local":  "conputprostrg.htm",
+        "topicName":  "",
+        "title":  "PutProStrg( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "Reduce( )",
+        "local":  "conreduce.htm",
+        "topicName":  "",
+        "title":  "Reduce( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "RegClipFmt( )",
+        "local":  "conregclipfmt.htm",
+        "topicName":  "",
+        "title":  "RegClipFmt( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "RegFn( )",
+        "local":  "conregfn.htm",
+        "topicName":  "",
+        "title":  "RegFn( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "RegFn32( )",
+        "local":  "conregfn32.htm",
+        "topicName":  "",
+        "title":  "RegFn32( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "RGBComp( )",
+        "local":  "conrgbcomp.htm",
+        "topicName":  "",
+        "title":  "RGBComp( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "RmDir( )",
+        "local":  "conrmdir.htm",
+        "topicName":  "",
+        "title":  "RmDir( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "SetClipDat( )",
+        "local":  "consetclipdat.htm",
+        "topicName":  "",
+        "title":  "SetClipDat( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "StrFilter( )",
+        "local":  "constrfilter.htm",
+        "topicName":  "",
+        "title":  "StrFilter( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "ValidPath( )",
+        "local":  "convalidpath.htm",
+        "topicName":  "",
+        "title":  "ValidPath( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "WordNum( )",
+        "local":  "conwordnum.htm",
+        "topicName":  "",
+        "title":  "WordNum( )",
+        "kind":  "function"
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "keyword":  "Words( )",
+        "local":  "conwords.htm",
+        "topicName":  "",
+        "title":  "Words( )",
+        "kind":  "function"
+    }
+]

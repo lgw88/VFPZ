@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable">
+  <Extern href="stdidcmd.h" />
+  <Extern href="vsshlids.h" />
+
+  <Commands package="guidCopperfinPackage">
+    <Groups>
+      <Group guid="guidCopperfinCommandSet" id="CopperfinGroup" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
+      </Group>
+    </Groups>
+
+    <Buttons>
+      <Button guid="guidCopperfinCommandSet" id="OpenInCopperfinStudioCommand" priority="0x0100" type="Button">
+        <Parent guid="guidCopperfinCommandSet" id="CopperfinGroup" />
+        <Strings>
+          <ButtonText>Open In Copperfin Studio</ButtonText>
+          <LocCanonicalName>.Copperfin.OpenInStudio</LocCanonicalName>
+        </Strings>
+      </Button>
+      <Button guid="guidCopperfinCommandSet" id="BuildCopperfinProjectCommand" priority="0x0110" type="Button">
+        <Parent guid="guidCopperfinCommandSet" id="CopperfinGroup" />
+        <Strings>
+          <ButtonText>Build Copperfin Project</ButtonText>
+          <LocCanonicalName>.Copperfin.BuildProject</LocCanonicalName>
+        </Strings>
+      </Button>
+      <Button guid="guidCopperfinCommandSet" id="RunCopperfinProjectCommand" priority="0x0120" type="Button">
+        <Parent guid="guidCopperfinCommandSet" id="CopperfinGroup" />
+        <Strings>
+          <ButtonText>Run Copperfin Project</ButtonText>
+          <LocCanonicalName>.Copperfin.RunProject</LocCanonicalName>
+        </Strings>
+      </Button>
+      <Button guid="guidCopperfinCommandSet" id="DebugCopperfinProjectCommand" priority="0x0130" type="Button">
+        <Parent guid="guidCopperfinCommandSet" id="CopperfinGroup" />
+        <Strings>
+          <ButtonText>Debug Copperfin Project</ButtonText>
+          <LocCanonicalName>.Copperfin.DebugProject</LocCanonicalName>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+
+  <CommandPlacements>
+    <CommandPlacement guid="guidCopperfinCommandSet" id="OpenInCopperfinStudioCommand" priority="0x0100">
+      <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidCopperfinCommandSet" id="BuildCopperfinProjectCommand" priority="0x0110">
+      <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidCopperfinCommandSet" id="RunCopperfinProjectCommand" priority="0x0120">
+      <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidCopperfinCommandSet" id="DebugCopperfinProjectCommand" priority="0x0130">
+      <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE" />
+    </CommandPlacement>
+  </CommandPlacements>
+
+  <Symbols>
+    <GuidSymbol name="guidCopperfinPackage" value="{1de4e419-0de5-4fb7-9c0f-c0212d97d4a5}" />
+    <GuidSymbol name="guidCopperfinCommandSet" value="{4b56ff76-d352-4027-bb18-ef4c759d260b}">
+      <IDSymbol name="CopperfinGroup" value="0x1020" />
+      <IDSymbol name="OpenInCopperfinStudioCommand" value="0x0100" />
+      <IDSymbol name="BuildCopperfinProjectCommand" value="0x0200" />
+      <IDSymbol name="RunCopperfinProjectCommand" value="0x0201" />
+      <IDSymbol name="DebugCopperfinProjectCommand" value="0x0202" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>

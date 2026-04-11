@@ -1,0 +1,2576 @@
+[
+    {
+        "text":  "! Command",
+        "category":  "Command",
+        "href":  "w196k0ht(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/w196k0ht(v=vs.71)"
+    },
+    {
+        "text":  "\u0026 Command",
+        "category":  "Command",
+        "href":  "1509cc9c(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/1509cc9c(v=vs.71)"
+    },
+    {
+        "text":  "\u0026\u0026 Command",
+        "category":  "Command",
+        "href":  "1d9d5xw9(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/1d9d5xw9(v=vs.71)"
+    },
+    {
+        "text":  "* Command",
+        "category":  "Command",
+        "href":  "azs133x7(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/azs133x7(v=vs.71)"
+    },
+    {
+        "text":  "? | ?? Command",
+        "category":  "Command",
+        "href":  "fy0852tw(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/fy0852tw(v=vs.71)"
+    },
+    {
+        "text":  "??? Command",
+        "category":  "Command",
+        "href":  "f5c41twb(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/f5c41twb(v=vs.71)"
+    },
+    {
+        "text":  "@ ... BOX Command",
+        "category":  "Command",
+        "href":  "5d7k97fs(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/5d7k97fs(v=vs.71)"
+    },
+    {
+        "text":  "@ ... CLASS Command",
+        "category":  "Command",
+        "href":  "kcw3fbz8(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/kcw3fbz8(v=vs.71)"
+    },
+    {
+        "text":  "@ ... CLEAR Command",
+        "category":  "Command",
+        "href":  "d6z9ezch(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/d6z9ezch(v=vs.71)"
+    },
+    {
+        "text":  "@ ... EDIT - Edit Boxes Command",
+        "category":  "Command",
+        "href":  "6h3z6y3s(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/6h3z6y3s(v=vs.71)"
+    },
+    {
+        "text":  "@ ... FILL Command",
+        "category":  "Command",
+        "href":  "yh90s8sw(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/yh90s8sw(v=vs.71)"
+    },
+    {
+        "text":  "@ ... GET - Check Boxes Command",
+        "category":  "Command",
+        "href":  "fs3xyyz6(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/fs3xyyz6(v=vs.71)"
+    },
+    {
+        "text":  "@ ... GET - Combo Boxes Command",
+        "category":  "Command",
+        "href":  "42s3k0zc(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/42s3k0zc(v=vs.71)"
+    },
+    {
+        "text":  "@ ... GET - Command Buttons Command",
+        "category":  "Command",
+        "href":  "390hdt4h(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/390hdt4h(v=vs.71)"
+    },
+    {
+        "text":  "@ ... GET - List Boxes Command",
+        "category":  "Command",
+        "href":  "848b366x(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/848b366x(v=vs.71)"
+    },
+    {
+        "text":  "@ ... GET - Option Buttons Command",
+        "category":  "Command",
+        "href":  "d9wfxwfk(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/d9wfxwfk(v=vs.71)"
+    },
+    {
+        "text":  "@ ... GET - Spinners Command",
+        "category":  "Command",
+        "href":  "x87hy4t3(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/x87hy4t3(v=vs.71)"
+    },
+    {
+        "text":  "@ ... GET - Text Boxes Command",
+        "category":  "Command",
+        "href":  "8tt5dte3(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/8tt5dte3(v=vs.71)"
+    },
+    {
+        "text":  "@ ... GET - Transparent Buttons Command",
+        "category":  "Command",
+        "href":  "5zh32003(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/5zh32003(v=vs.71)"
+    },
+    {
+        "text":  "@ ... MENU Command",
+        "category":  "Command",
+        "href":  "afzxx898(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/afzxx898(v=vs.71)"
+    },
+    {
+        "text":  "@ ... PROMPT Command",
+        "category":  "Command",
+        "href":  "y855c762(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/y855c762(v=vs.71)"
+    },
+    {
+        "text":  "@ ... SAY - Pictures \u0026 OLE Objects Command",
+        "category":  "Command",
+        "href":  "x49chc50(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/x49chc50(v=vs.71)"
+    },
+    {
+        "text":  "@ ... SAY Command",
+        "category":  "Command",
+        "href":  "377988x8(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/377988x8(v=vs.71)"
+    },
+    {
+        "text":  "@ ... SCROLL Command",
+        "category":  "Command",
+        "href":  "190c8ct7(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/190c8ct7(v=vs.71)"
+    },
+    {
+        "text":  "@ ... TO Command",
+        "category":  "Command",
+        "href":  "b53w6e79(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/b53w6e79(v=vs.71)"
+    },
+    {
+        "text":  "\\ | \\\\ Command",
+        "category":  "Command",
+        "href":  "0zzd7z64(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/0zzd7z64(v=vs.71)"
+    },
+    {
+        "text":  "= Command",
+        "category":  "Command",
+        "href":  "1awa3yt7(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/1awa3yt7(v=vs.71)"
+    },
+    {
+        "text":  "ACCEPT Command",
+        "category":  "Command",
+        "href":  "7f55k3h1(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/7f55k3h1(v=vs.71)"
+    },
+    {
+        "text":  "ACTIVATE MENU Command",
+        "category":  "Command",
+        "href":  "ze3xz1y9(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ze3xz1y9(v=vs.71)"
+    },
+    {
+        "text":  "ACTIVATE POPUP Command",
+        "category":  "Command",
+        "href":  "4bww2yyk(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/4bww2yyk(v=vs.71)"
+    },
+    {
+        "text":  "ACTIVATE SCREEN Command",
+        "category":  "Command",
+        "href":  "cc03de1a(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/cc03de1a(v=vs.71)"
+    },
+    {
+        "text":  "ACTIVATE WINDOW Command",
+        "category":  "Command",
+        "href":  "41fcy616(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/41fcy616(v=vs.71)"
+    },
+    {
+        "text":  "ADD CLASS Command",
+        "category":  "Command",
+        "href":  "yhzzf336(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/yhzzf336(v=vs.71)"
+    },
+    {
+        "text":  "ADD TABLE Command",
+        "category":  "Command",
+        "href":  "9s3ah9fb(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/9s3ah9fb(v=vs.71)"
+    },
+    {
+        "text":  "ALTER TABLE - SQL Command",
+        "category":  "Command",
+        "href":  "yey80zw6(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/yey80zw6(v=vs.71)"
+    },
+    {
+        "text":  "APPEND Command",
+        "category":  "Command",
+        "href":  "579tdtbc(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/579tdtbc(v=vs.71)"
+    },
+    {
+        "text":  "APPEND FROM ARRAY Command",
+        "category":  "Command",
+        "href":  "9xe3s7az(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/9xe3s7az(v=vs.71)"
+    },
+    {
+        "text":  "APPEND FROM Command",
+        "category":  "Command",
+        "href":  "hx56f6t3(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/hx56f6t3(v=vs.71)"
+    },
+    {
+        "text":  "APPEND GENERAL Command",
+        "category":  "Command",
+        "href":  "sw8cfc82(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/sw8cfc82(v=vs.71)"
+    },
+    {
+        "text":  "APPEND MEMO Command",
+        "category":  "Command",
+        "href":  "s4w8194c(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/s4w8194c(v=vs.71)"
+    },
+    {
+        "text":  "APPEND PROCEDURES Command",
+        "category":  "Command",
+        "href":  "38k97t40(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/38k97t40(v=vs.71)"
+    },
+    {
+        "text":  "ASSERT Command",
+        "category":  "Command",
+        "href":  "2tdhewx0(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/2tdhewx0(v=vs.71)"
+    },
+    {
+        "text":  "ASSIST Command",
+        "category":  "Command",
+        "href":  "83ws6661(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/83ws6661(v=vs.71)"
+    },
+    {
+        "text":  "AVERAGE Command",
+        "category":  "Command",
+        "href":  "f0szzff5(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/f0szzff5(v=vs.71)"
+    },
+    {
+        "text":  "BEGIN TRANSACTION Command",
+        "category":  "Command",
+        "href":  "0ayy42yz(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/0ayy42yz(v=vs.71)"
+    },
+    {
+        "text":  "BLANK Command",
+        "category":  "Command",
+        "href":  "e5y9z7td(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/e5y9z7td(v=vs.71)"
+    },
+    {
+        "text":  "BROWSE Command",
+        "category":  "Command",
+        "href":  "shah0h7s(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/shah0h7s(v=vs.71)"
+    },
+    {
+        "text":  "BUILD APP Command",
+        "category":  "Command",
+        "href":  "s9ca5z4t(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/s9ca5z4t(v=vs.71)"
+    },
+    {
+        "text":  "BUILD DLL Command",
+        "category":  "Command",
+        "href":  "9t8xh55f(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/9t8xh55f(v=vs.71)"
+    },
+    {
+        "text":  "BUILD EXE Command",
+        "category":  "Command",
+        "href":  "33yzk8kb(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/33yzk8kb(v=vs.71)"
+    },
+    {
+        "text":  "BUILD MTDLL Command",
+        "category":  "Command",
+        "href":  "11kbazb3(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/11kbazb3(v=vs.71)"
+    },
+    {
+        "text":  "BUILD PROJECT Command",
+        "category":  "Command",
+        "href":  "y0kfcy5z(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/y0kfcy5z(v=vs.71)"
+    },
+    {
+        "text":  "CALCULATE Command",
+        "category":  "Command",
+        "href":  "759s7hfb(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/759s7hfb(v=vs.71)"
+    },
+    {
+        "text":  "CALL Command",
+        "category":  "Command",
+        "href":  "tb1dcw2e(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/tb1dcw2e(v=vs.71)"
+    },
+    {
+        "text":  "CANCEL Command",
+        "category":  "Command",
+        "href":  "tf6xebad(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/tf6xebad(v=vs.71)"
+    },
+    {
+        "text":  "CD | CHDIR Command",
+        "category":  "Command",
+        "href":  "8sxz0bww(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/8sxz0bww(v=vs.71)"
+    },
+    {
+        "text":  "CHANGE Command",
+        "category":  "Command",
+        "href":  "s53t9z51(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/s53t9z51(v=vs.71)"
+    },
+    {
+        "text":  "CLEAR EVENTS Command",
+        "category":  "Command",
+        "href":  "at0tz8cc(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/at0tz8cc(v=vs.71)"
+    },
+    {
+        "text":  "CLEAR RESOURCES Command",
+        "category":  "Command",
+        "href":  "at0tz8cc(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/at0tz8cc(v=vs.71)"
+    },
+    {
+        "text":  "CLOSE DATABASES Command",
+        "category":  "Command",
+        "href":  "0eaw3kz1(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/0eaw3kz1(v=vs.71)"
+    },
+    {
+        "text":  "CLOSE MEMO Command",
+        "category":  "Command",
+        "href":  "2bhyh0wh(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/2bhyh0wh(v=vs.71)"
+    },
+    {
+        "text":  "CLOSE TABLES Command",
+        "category":  "Command",
+        "href":  "0eaw3kz1(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/0eaw3kz1(v=vs.71)"
+    },
+    {
+        "text":  "COMPILE Command",
+        "category":  "Command",
+        "href":  "6tadzctt(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/6tadzctt(v=vs.71)"
+    },
+    {
+        "text":  "COMPILE DATABASE Command",
+        "category":  "Command",
+        "href":  "aa903559(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/aa903559(v=vs.71)"
+    },
+    {
+        "text":  "COMPILE FORM Command",
+        "category":  "Command",
+        "href":  "aa903561(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/aa903561(v=vs.71)"
+    },
+    {
+        "text":  "CONTINUE Command",
+        "category":  "Command",
+        "href":  "1des5xsb(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/1des5xsb(v=vs.71)"
+    },
+    {
+        "text":  "COPY FILE Command",
+        "category":  "Command",
+        "href":  "b38dh33y(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/b38dh33y(v=vs.71)"
+    },
+    {
+        "text":  "COPY INDEXES Command",
+        "category":  "Command",
+        "href":  "45sdx2wk(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/45sdx2wk(v=vs.71)"
+    },
+    {
+        "text":  "COPY MEMO Command",
+        "category":  "Command",
+        "href":  "3cc1x337(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/3cc1x337(v=vs.71)"
+    },
+    {
+        "text":  "COPY PROCEDURES Command",
+        "category":  "Command",
+        "href":  "tf9wa077(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/tf9wa077(v=vs.71)"
+    },
+    {
+        "text":  "COPY STRUCTURE Command",
+        "category":  "Command",
+        "href":  "0kwx2w0d(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/0kwx2w0d(v=vs.71)"
+    },
+    {
+        "text":  "COPY STRUCTURE EXTENDED Command",
+        "category":  "Command",
+        "href":  "e95wkaah(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/e95wkaah(v=vs.71)"
+    },
+    {
+        "text":  "COPY TAG Command",
+        "category":  "Command",
+        "href":  "dhxwxf63(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/dhxwxf63(v=vs.71)"
+    },
+    {
+        "text":  "COPY TO ARRAY Command",
+        "category":  "Command",
+        "href":  "7t5t1bak(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/7t5t1bak(v=vs.71)"
+    },
+    {
+        "text":  "COPY TO Command",
+        "category":  "Command",
+        "href":  "17x1yfx5(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/17x1yfx5(v=vs.71)"
+    },
+    {
+        "text":  "COUNT Command",
+        "category":  "Command",
+        "href":  "22b1a7f0(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/22b1a7f0(v=vs.71)"
+    },
+    {
+        "text":  "CREATE CLASS Command",
+        "category":  "Command",
+        "href":  "21f3fyx3(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/21f3fyx3(v=vs.71)"
+    },
+    {
+        "text":  "CREATE CLASSLIB Command",
+        "category":  "Command",
+        "href":  "e117h3kw(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/e117h3kw(v=vs.71)"
+    },
+    {
+        "text":  "CREATE COLOR SET Command",
+        "category":  "Command",
+        "href":  "3hfwd174(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/3hfwd174(v=vs.71)"
+    },
+    {
+        "text":  "CREATE Command",
+        "category":  "Command",
+        "href":  "h3ccb8h9(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/h3ccb8h9(v=vs.71)"
+    },
+    {
+        "text":  "CREATE CONNECTION Command",
+        "category":  "Command",
+        "href":  "z6c4d886(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/z6c4d886(v=vs.71)"
+    },
+    {
+        "text":  "CREATE CURSOR - SQL Command",
+        "category":  "Command",
+        "href":  "scxa5w3s(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/scxa5w3s(v=vs.71)"
+    },
+    {
+        "text":  "CREATE DATABASE Command",
+        "category":  "Command",
+        "href":  "eawdf6x9(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/eawdf6x9(v=vs.71)"
+    },
+    {
+        "text":  "CREATE FORM Command",
+        "category":  "Command",
+        "href":  "3cz08a9f(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/3cz08a9f(v=vs.71)"
+    },
+    {
+        "text":  "CREATE FROM Command",
+        "category":  "Command",
+        "href":  "7zs2768e(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/7zs2768e(v=vs.71)"
+    },
+    {
+        "text":  "CREATE LABEL Command",
+        "category":  "Command",
+        "href":  "87kd839k(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/87kd839k(v=vs.71)"
+    },
+    {
+        "text":  "CREATE MENU Command",
+        "category":  "Command",
+        "href":  "hfzzf681(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/hfzzf681(v=vs.71)"
+    },
+    {
+        "text":  "CREATE PROJECT Command",
+        "category":  "Command",
+        "href":  "dae1t4s0(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/dae1t4s0(v=vs.71)"
+    },
+    {
+        "text":  "CREATE QUERY Command",
+        "category":  "Command",
+        "href":  "54tz17yh(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/54tz17yh(v=vs.71)"
+    },
+    {
+        "text":  "CREATE REPORT - Quick Report Command",
+        "category":  "Command",
+        "href":  "0hy313bd(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/0hy313bd(v=vs.71)"
+    },
+    {
+        "text":  "CREATE REPORT Command",
+        "category":  "Command",
+        "href":  "dtxtd6y1(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/dtxtd6y1(v=vs.71)"
+    },
+    {
+        "text":  "CREATE SCREEN - Quick Screen Command",
+        "category":  "Command",
+        "href":  "h6ds4h9b(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/h6ds4h9b(v=vs.71)"
+    },
+    {
+        "text":  "CREATE SCREEN Command",
+        "category":  "Command",
+        "href":  "7d6hya80(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/7d6hya80(v=vs.71)"
+    },
+    {
+        "text":  "CREATE SQL VIEW Command",
+        "category":  "Command",
+        "href":  "h7y2325d(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/h7y2325d(v=vs.71)"
+    },
+    {
+        "text":  "CREATE TABLE - SQL Command",
+        "category":  "Command",
+        "href":  "z1cc2za0(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/z1cc2za0(v=vs.71)"
+    },
+    {
+        "text":  "CREATE TRIGGER Command",
+        "category":  "Command",
+        "href":  "xtydh4db(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/xtydh4db(v=vs.71)"
+    },
+    {
+        "text":  "CREATE VIEW Command",
+        "category":  "Command",
+        "href":  "s6d4089s(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/s6d4089s(v=vs.71)"
+    },
+    {
+        "text":  "DEACTIVATE MENU Command",
+        "category":  "Command",
+        "href":  "949t47yw(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/949t47yw(v=vs.71)"
+    },
+    {
+        "text":  "DEACTIVATE POPUP Command",
+        "category":  "Command",
+        "href":  "ae57b4xy(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ae57b4xy(v=vs.71)"
+    },
+    {
+        "text":  "DEACTIVATE WINDOW Command",
+        "category":  "Command",
+        "href":  "0x5yy93x(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/0x5yy93x(v=vs.71)"
+    },
+    {
+        "text":  "DEBUG Command",
+        "category":  "Command",
+        "href":  "ac410c4b(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ac410c4b(v=vs.71)"
+    },
+    {
+        "text":  "DEBUGOUT Command",
+        "category":  "Command",
+        "href":  "5k2te7kz(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/5k2te7kz(v=vs.71)"
+    },
+    {
+        "text":  "DECLARE - DLL Command",
+        "category":  "Command",
+        "href":  "ydcf39aa(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ydcf39aa(v=vs.71)"
+    },
+    {
+        "text":  "DECLARE Command",
+        "category":  "Command",
+        "href":  "48z2300b(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/48z2300b(v=vs.71)"
+    },
+    {
+        "text":  "DEFINE BAR Command",
+        "category":  "Command",
+        "href":  "bfyaw3k4(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/bfyaw3k4(v=vs.71)"
+    },
+    {
+        "text":  "DEFINE BOX Command",
+        "category":  "Command",
+        "href":  "f77xyae4(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/f77xyae4(v=vs.71)"
+    },
+    {
+        "text":  "DEFINE CLASS Command",
+        "category":  "Command",
+        "href":  "cazbcf4h(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/cazbcf4h(v=vs.71)"
+    },
+    {
+        "text":  "DEFINE MENU Command",
+        "category":  "Command",
+        "href":  "c1fs4x09(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/c1fs4x09(v=vs.71)"
+    },
+    {
+        "text":  "DEFINE PAD Command",
+        "category":  "Command",
+        "href":  "hetk018y(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/hetk018y(v=vs.71)"
+    },
+    {
+        "text":  "DEFINE POPUP Command",
+        "category":  "Command",
+        "href":  "ka7dx8f6(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ka7dx8f6(v=vs.71)"
+    },
+    {
+        "text":  "DEFINE WINDOW Command",
+        "category":  "Command",
+        "href":  "621e0x2z(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/621e0x2z(v=vs.71)"
+    },
+    {
+        "text":  "DELETE - SQL Command",
+        "category":  "Command",
+        "href":  "6kt4x6zx(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/6kt4x6zx(v=vs.71)"
+    },
+    {
+        "text":  "DELETE Command",
+        "category":  "Command",
+        "href":  "wytye2b3(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/wytye2b3(v=vs.71)"
+    },
+    {
+        "text":  "DELETE CONNECTION Command",
+        "category":  "Command",
+        "href":  "ztd4x1ts(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ztd4x1ts(v=vs.71)"
+    },
+    {
+        "text":  "DELETE DATABASE Command",
+        "category":  "Command",
+        "href":  "b6xxzett(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/b6xxzett(v=vs.71)"
+    },
+    {
+        "text":  "DELETE FILE Command",
+        "category":  "Command",
+        "href":  "7kfz5e1z(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/7kfz5e1z(v=vs.71)"
+    },
+    {
+        "text":  "DELETE TAG Command",
+        "category":  "Command",
+        "href":  "4e3h923d(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/4e3h923d(v=vs.71)"
+    },
+    {
+        "text":  "DELETE TRIGGER Command",
+        "category":  "Command",
+        "href":  "e8eb1cbz(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/e8eb1cbz(v=vs.71)"
+    },
+    {
+        "text":  "DELETE VIEW Command",
+        "category":  "Command",
+        "href":  "5bckw00f(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/5bckw00f(v=vs.71)"
+    },
+    {
+        "text":  "DIMENSION Command",
+        "category":  "Command",
+        "href":  "76zh59sz(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/76zh59sz(v=vs.71)"
+    },
+    {
+        "text":  "DIR or DIRECTORY Command",
+        "category":  "Command",
+        "href":  "f2zk050c(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/f2zk050c(v=vs.71)"
+    },
+    {
+        "text":  "DISPLAY Command",
+        "category":  "Command",
+        "href":  "9x6c7e9e(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/9x6c7e9e(v=vs.71)"
+    },
+    {
+        "text":  "DISPLAY CONNECTIONS Command",
+        "category":  "Command",
+        "href":  "d200ah58(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/d200ah58(v=vs.71)"
+    },
+    {
+        "text":  "DISPLAY DATABASE Command",
+        "category":  "Command",
+        "href":  "bfa7fwfy(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/bfa7fwfy(v=vs.71)"
+    },
+    {
+        "text":  "DISPLAY DLLS Command",
+        "category":  "Command",
+        "href":  "3b579hd6(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/3b579hd6(v=vs.71)"
+    },
+    {
+        "text":  "DISPLAY FILES Command",
+        "category":  "Command",
+        "href":  "1s6s4w5x(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/1s6s4w5x(v=vs.71)"
+    },
+    {
+        "text":  "DISPLAY MEMORY Command",
+        "category":  "Command",
+        "href":  "d41fc7b4(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/d41fc7b4(v=vs.71)"
+    },
+    {
+        "text":  "DISPLAY OBJECTS Command",
+        "category":  "Command",
+        "href":  "2c487sf9(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/2c487sf9(v=vs.71)"
+    },
+    {
+        "text":  "DISPLAY PROCEDURES Command",
+        "category":  "Command",
+        "href":  "k29fbbz8(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/k29fbbz8(v=vs.71)"
+    },
+    {
+        "text":  "DISPLAY STATUS Command",
+        "category":  "Command",
+        "href":  "e0tz6xk6(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/e0tz6xk6(v=vs.71)"
+    },
+    {
+        "text":  "DISPLAY STRUCTURE Command",
+        "category":  "Command",
+        "href":  "kk23z767(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/kk23z767(v=vs.71)"
+    },
+    {
+        "text":  "DISPLAY TABLES Command",
+        "category":  "Command",
+        "href":  "3zadwh3y(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/3zadwh3y(v=vs.71)"
+    },
+    {
+        "text":  "DISPLAY VIEWS Command",
+        "category":  "Command",
+        "href":  "33zth2a3(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/33zth2a3(v=vs.71)"
+    },
+    {
+        "text":  "DO CASE ... ENDCASE Command",
+        "category":  "Command",
+        "href":  "sbst4db5(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/sbst4db5(v=vs.71)"
+    },
+    {
+        "text":  "DO Command",
+        "category":  "Command",
+        "href":  "fcd9es9w(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/fcd9es9w(v=vs.71)"
+    },
+    {
+        "text":  "DO FORM Command",
+        "category":  "Command",
+        "href":  "9z8d787z(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/9z8d787z(v=vs.71)"
+    },
+    {
+        "text":  "DO WHILE ... ENDDO Command",
+        "category":  "Command",
+        "href":  "3kdwea32(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/3kdwea32(v=vs.71)"
+    },
+    {
+        "text":  "DOEVENTS Command",
+        "category":  "Command",
+        "href":  "t4tas3sw(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/t4tas3sw(v=vs.71)"
+    },
+    {
+        "text":  "DROP TABLE Command",
+        "category":  "Command",
+        "href":  "ewf8717s(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ewf8717s(v=vs.71)"
+    },
+    {
+        "text":  "DROP VIEW Command",
+        "category":  "Command",
+        "href":  "5wk72y4h(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/5wk72y4h(v=vs.71)"
+    },
+    {
+        "text":  "EDIT Command",
+        "category":  "Command",
+        "href":  "78ycz832(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/78ycz832(v=vs.71)"
+    },
+    {
+        "text":  "EJECT Command",
+        "category":  "Command",
+        "href":  "wwx01z27(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/wwx01z27(v=vs.71)"
+    },
+    {
+        "text":  "EJECT PAGE Command",
+        "category":  "Command",
+        "href":  "t7d6bsk8(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/t7d6bsk8(v=vs.71)"
+    },
+    {
+        "text":  "END TRANSACTION Command",
+        "category":  "Command",
+        "href":  "zh3heeb8(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/zh3heeb8(v=vs.71)"
+    },
+    {
+        "text":  "ERASE Command",
+        "category":  "Command",
+        "href":  "89h649bc(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/89h649bc(v=vs.71)"
+    },
+    {
+        "text":  "ERROR Command",
+        "category":  "Command",
+        "href":  "cf006e7k(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/cf006e7k(v=vs.71)"
+    },
+    {
+        "text":  "EXIT Command",
+        "category":  "Command",
+        "href":  "3827e9f7(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/3827e9f7(v=vs.71)"
+    },
+    {
+        "text":  "EXPORT Command",
+        "category":  "Command",
+        "href":  "1515xf19(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/1515xf19(v=vs.71)"
+    },
+    {
+        "text":  "EXTERNAL Command",
+        "category":  "Command",
+        "href":  "dkadh59f(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/dkadh59f(v=vs.71)"
+    },
+    {
+        "text":  "FIND Command",
+        "category":  "Command",
+        "href":  "zzhsksd0(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/zzhsksd0(v=vs.71)"
+    },
+    {
+        "text":  "FLUSH Command",
+        "category":  "Command",
+        "href":  "ady4s54e(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ady4s54e(v=vs.71)"
+    },
+    {
+        "text":  "FOR ... ENDFOR Command",
+        "category":  "Command",
+        "href":  "yd9wwstb(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/yd9wwstb(v=vs.71)"
+    },
+    {
+        "text":  "FOR EACH ... ENDFOR Command",
+        "category":  "Command",
+        "href":  "6bzt9fh1(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/6bzt9fh1(v=vs.71)"
+    },
+    {
+        "text":  "FREE TABLE Command",
+        "category":  "Command",
+        "href":  "d33adhkz(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/d33adhkz(v=vs.71)"
+    },
+    {
+        "text":  "FUNCTION Command",
+        "category":  "Command",
+        "href":  "10cc6ya9(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/10cc6ya9(v=vs.71)"
+    },
+    {
+        "text":  "GATHER Command",
+        "category":  "Command",
+        "href":  "6w1sf7ef(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/6w1sf7ef(v=vs.71)"
+    },
+    {
+        "text":  "GETEXPR Command",
+        "category":  "Command",
+        "href":  "f1h495t8(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/f1h495t8(v=vs.71)"
+    },
+    {
+        "text":  "GO | GOTO Command",
+        "category":  "Command",
+        "href":  "28428ed2(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/28428ed2(v=vs.71)"
+    },
+    {
+        "text":  "HELP Command",
+        "category":  "Command",
+        "href":  "66h8kbbw(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/66h8kbbw(v=vs.71)"
+    },
+    {
+        "text":  "HIDE MENU Command",
+        "category":  "Command",
+        "href":  "d39770kc(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/d39770kc(v=vs.71)"
+    },
+    {
+        "text":  "HIDE POPUP Command",
+        "category":  "Command",
+        "href":  "43ez776x(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/43ez776x(v=vs.71)"
+    },
+    {
+        "text":  "HIDE WINDOW Command",
+        "category":  "Command",
+        "href":  "c9hyc4kw(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/c9hyc4kw(v=vs.71)"
+    },
+    {
+        "text":  "IF ... ENDIF Command",
+        "category":  "Command",
+        "href":  "w6eteb93(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/w6eteb93(v=vs.71)"
+    },
+    {
+        "text":  "IMPORT Command",
+        "category":  "Command",
+        "href":  "4xyd5ahx(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/4xyd5ahx(v=vs.71)"
+    },
+    {
+        "text":  "INDEX Command",
+        "category":  "Command",
+        "href":  "9x4e2b05(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/9x4e2b05(v=vs.71)"
+    },
+    {
+        "text":  "INPUT Command",
+        "category":  "Command",
+        "href":  "5ee2z9z4(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/5ee2z9z4(v=vs.71)"
+    },
+    {
+        "text":  "INSERT - SQL Command",
+        "category":  "Command",
+        "href":  "h54fa37c(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/h54fa37c(v=vs.71)"
+    },
+    {
+        "text":  "INSERT Command",
+        "category":  "Command",
+        "href":  "4965fsk4(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/4965fsk4(v=vs.71)"
+    },
+    {
+        "text":  "JOIN Command",
+        "category":  "Command",
+        "href":  "b0yeftt5(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/b0yeftt5(v=vs.71)"
+    },
+    {
+        "text":  "KEYBOARD Command",
+        "category":  "Command",
+        "href":  "ks92c5bk(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ks92c5bk(v=vs.71)"
+    },
+    {
+        "text":  "LABEL Command",
+        "category":  "Command",
+        "href":  "wctdsbch(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/wctdsbch(v=vs.71)"
+    },
+    {
+        "text":  "LIST CONNECTIONS Command",
+        "category":  "Command",
+        "href":  "ew3sts06(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ew3sts06(v=vs.71)"
+    },
+    {
+        "text":  "LIST DATABASE Command",
+        "category":  "Command",
+        "href":  "630bfh30(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/630bfh30(v=vs.71)"
+    },
+    {
+        "text":  "LIST DLLS Command",
+        "category":  "Command",
+        "href":  "eha4bbz3(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/eha4bbz3(v=vs.71)"
+    },
+    {
+        "text":  "LIST OBJECTS Command",
+        "category":  "Command",
+        "href":  "shhe7z6k(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/shhe7z6k(v=vs.71)"
+    },
+    {
+        "text":  "LIST PROCEDURES Command",
+        "category":  "Command",
+        "href":  "fk9k723a(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/fk9k723a(v=vs.71)"
+    },
+    {
+        "text":  "LIST TABLES Command",
+        "category":  "Command",
+        "href":  "s6xk0cts(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/s6xk0cts(v=vs.71)"
+    },
+    {
+        "text":  "LIST VIEWS Command",
+        "category":  "Command",
+        "href":  "fx35f39b(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/fx35f39b(v=vs.71)"
+    },
+    {
+        "text":  "LOAD Command",
+        "category":  "Command",
+        "href":  "h1tx7zt1(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/h1tx7zt1(v=vs.71)"
+    },
+    {
+        "text":  "LOCAL Command",
+        "category":  "Command",
+        "href":  "72tf4f8e(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/72tf4f8e(v=vs.71)"
+    },
+    {
+        "text":  "LOCATE Command",
+        "category":  "Command",
+        "href":  "w09fcbk4(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/w09fcbk4(v=vs.71)"
+    },
+    {
+        "text":  "LPARAMETERS Command",
+        "category":  "Command",
+        "href":  "22fh7sab(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/22fh7sab(v=vs.71)"
+    },
+    {
+        "text":  "MD | MKDIR Command",
+        "category":  "Command",
+        "href":  "f7x9d6yb(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/f7x9d6yb(v=vs.71)"
+    },
+    {
+        "text":  "MENU Command",
+        "category":  "Command",
+        "href":  "eydzes54(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/eydzes54(v=vs.71)"
+    },
+    {
+        "text":  "MENU TO Command",
+        "category":  "Command",
+        "href":  "ze3324cw(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ze3324cw(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY CLASS Command",
+        "category":  "Command",
+        "href":  "s25ywy33(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/s25ywy33(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY COMMAND Command",
+        "category":  "Command",
+        "href":  "4cc03f5k(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/4cc03f5k(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY CONNECTION Command",
+        "category":  "Command",
+        "href":  "d785z630(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/d785z630(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY DATABASE Command",
+        "category":  "Command",
+        "href":  "2zcawhza(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/2zcawhza(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY FILE Command",
+        "category":  "Command",
+        "href":  "6s44zxff(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/6s44zxff(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY FORM Command",
+        "category":  "Command",
+        "href":  "t59y47s2(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/t59y47s2(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY GENERAL Command",
+        "category":  "Command",
+        "href":  "57x715e5(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/57x715e5(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY LABEL Command",
+        "category":  "Command",
+        "href":  "ss1f5fb4(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ss1f5fb4(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY MEMO Command",
+        "category":  "Command",
+        "href":  "tfchw324(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/tfchw324(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY MENU Command",
+        "category":  "Command",
+        "href":  "bc13hzyf(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/bc13hzyf(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY PROCEDURE Command",
+        "category":  "Command",
+        "href":  "yt7d8z8k(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/yt7d8z8k(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY PROJECT Command",
+        "category":  "Command",
+        "href":  "6fb4d4fk(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/6fb4d4fk(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY QUERY Command",
+        "category":  "Command",
+        "href":  "4kfkfsyk(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/4kfkfsyk(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY REPORT Command",
+        "category":  "Command",
+        "href":  "e9304850(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/e9304850(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY SCREEN Command",
+        "category":  "Command",
+        "href":  "sh1w6ef2(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/sh1w6ef2(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY STRUCTURE Command",
+        "category":  "Command",
+        "href":  "3zb2x51e(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/3zb2x51e(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY VIEW Command",
+        "category":  "Command",
+        "href":  "k8850hbf(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/k8850hbf(v=vs.71)"
+    },
+    {
+        "text":  "MODIFY WINDOW Command",
+        "category":  "Command",
+        "href":  "c658f2x1(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/c658f2x1(v=vs.71)"
+    },
+    {
+        "text":  "MOUSE Command",
+        "category":  "Command",
+        "href":  "hks4ccc0(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/hks4ccc0(v=vs.71)"
+    },
+    {
+        "text":  "MOVE POPUP Command",
+        "category":  "Command",
+        "href":  "xzc38asb(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/xzc38asb(v=vs.71)"
+    },
+    {
+        "text":  "MOVE WINDOW Command",
+        "category":  "Command",
+        "href":  "9h4dww35(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/9h4dww35(v=vs.71)"
+    },
+    {
+        "text":  "NOTE Command",
+        "category":  "Command",
+        "href":  "52d68dbb(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/52d68dbb(v=vs.71)"
+    },
+    {
+        "text":  "ON BAR Command",
+        "category":  "Command",
+        "href":  "x878tzsh(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/x878tzsh(v=vs.71)"
+    },
+    {
+        "text":  "ON ERROR Command",
+        "category":  "Command",
+        "href":  "fheb37ye(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/fheb37ye(v=vs.71)"
+    },
+    {
+        "text":  "ON ESCAPE Command",
+        "category":  "Command",
+        "href":  "w9684sz6(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/w9684sz6(v=vs.71)"
+    },
+    {
+        "text":  "ON EXIT BAR Command",
+        "category":  "Command",
+        "href":  "c4aaf3kz(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/c4aaf3kz(v=vs.71)"
+    },
+    {
+        "text":  "ON EXIT MENU Command",
+        "category":  "Command",
+        "href":  "ss9dy5y6(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ss9dy5y6(v=vs.71)"
+    },
+    {
+        "text":  "ON EXIT PAD Command",
+        "category":  "Command",
+        "href":  "cf39k6aw(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/cf39k6aw(v=vs.71)"
+    },
+    {
+        "text":  "ON EXIT POPUP Command",
+        "category":  "Command",
+        "href":  "ext4500b(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ext4500b(v=vs.71)"
+    },
+    {
+        "text":  "ON KEY = Command",
+        "category":  "Command",
+        "href":  "7bf902z1(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/7bf902z1(v=vs.71)"
+    },
+    {
+        "text":  "ON KEY Command",
+        "category":  "Command",
+        "href":  "ytttk24y(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ytttk24y(v=vs.71)"
+    },
+    {
+        "text":  "ON KEY LABEL Command",
+        "category":  "Command",
+        "href":  "87b17kzd(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/87b17kzd(v=vs.71)"
+    },
+    {
+        "text":  "ON PAD Command",
+        "category":  "Command",
+        "href":  "85d86ft0(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/85d86ft0(v=vs.71)"
+    },
+    {
+        "text":  "ON PAGE Command",
+        "category":  "Command",
+        "href":  "k780c89t(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/k780c89t(v=vs.71)"
+    },
+    {
+        "text":  "ON READERROR Command",
+        "category":  "Command",
+        "href":  "fxade0f9(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/fxade0f9(v=vs.71)"
+    },
+    {
+        "text":  "ON SELECTION BAR Command",
+        "category":  "Command",
+        "href":  "hs31yz35(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/hs31yz35(v=vs.71)"
+    },
+    {
+        "text":  "ON SELECTION MENU Command",
+        "category":  "Command",
+        "href":  "46hz9752(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/46hz9752(v=vs.71)"
+    },
+    {
+        "text":  "ON SELECTION PAD Command",
+        "category":  "Command",
+        "href":  "et86zazz(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/et86zazz(v=vs.71)"
+    },
+    {
+        "text":  "ON SELECTION POPUP Command",
+        "category":  "Command",
+        "href":  "ssc5ste7(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ssc5ste7(v=vs.71)"
+    },
+    {
+        "text":  "ON SHUTDOWN Command",
+        "category":  "Command",
+        "href":  "adk4x38s(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/adk4x38s(v=vs.71)"
+    },
+    {
+        "text":  "OPEN DATABASE Command",
+        "category":  "Command",
+        "href":  "w01w7w4c(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/w01w7w4c(v=vs.71)"
+    },
+    {
+        "text":  "PACK Command",
+        "category":  "Command",
+        "href":  "t2704cs4(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/t2704cs4(v=vs.71)"
+    },
+    {
+        "text":  "PACK DATABASE Command",
+        "category":  "Command",
+        "href":  "bdbs8y92(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/bdbs8y92(v=vs.71)"
+    },
+    {
+        "text":  "PARAMETERS Command",
+        "category":  "Command",
+        "href":  "b68khw0s(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/b68khw0s(v=vs.71)"
+    },
+    {
+        "text":  "PLAY MACRO Command",
+        "category":  "Command",
+        "href":  "x9zc00at(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/x9zc00at(v=vs.71)"
+    },
+    {
+        "text":  "POP KEY Command",
+        "category":  "Command",
+        "href":  "d0kcw87e(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/d0kcw87e(v=vs.71)"
+    },
+    {
+        "text":  "POP MENU Command",
+        "category":  "Command",
+        "href":  "2shykbz0(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/2shykbz0(v=vs.71)"
+    },
+    {
+        "text":  "POP POPUP Command",
+        "category":  "Command",
+        "href":  "yzc9f8fk(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/yzc9f8fk(v=vs.71)"
+    },
+    {
+        "text":  "PRINTJOB ... ENDPRINTJOB Command",
+        "category":  "Command",
+        "href":  "b0efe778(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/b0efe778(v=vs.71)"
+    },
+    {
+        "text":  "PRIVATE Command",
+        "category":  "Command",
+        "href":  "wdb7ykk3(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/wdb7ykk3(v=vs.71)"
+    },
+    {
+        "text":  "PROCEDURE Command",
+        "category":  "Command",
+        "href":  "ah17h8w6(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ah17h8w6(v=vs.71)"
+    },
+    {
+        "text":  "PUBLIC Command",
+        "category":  "Command",
+        "href":  "19hf53ay(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/19hf53ay(v=vs.71)"
+    },
+    {
+        "text":  "PUSH KEY Command",
+        "category":  "Command",
+        "href":  "z24209kx(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/z24209kx(v=vs.71)"
+    },
+    {
+        "text":  "PUSH MENU Command",
+        "category":  "Command",
+        "href":  "e25xaxz5(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/e25xaxz5(v=vs.71)"
+    },
+    {
+        "text":  "PUSH POPUP Command",
+        "category":  "Command",
+        "href":  "xf3hh6x3(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/xf3hh6x3(v=vs.71)"
+    },
+    {
+        "text":  "QUIT Command",
+        "category":  "Command",
+        "href":  "dekzs02d(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/dekzs02d(v=vs.71)"
+    },
+    {
+        "text":  "RD | RMDIR Command",
+        "category":  "Command",
+        "href":  "840d1426(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/840d1426(v=vs.71)"
+    },
+    {
+        "text":  "READ Command",
+        "category":  "Command",
+        "href":  "917784fk(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/917784fk(v=vs.71)"
+    },
+    {
+        "text":  "READ EVENTS Command",
+        "category":  "Command",
+        "href":  "3sdd920k(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/3sdd920k(v=vs.71)"
+    },
+    {
+        "text":  "READ MENU Command",
+        "category":  "Command",
+        "href":  "e1bkc2zt(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/e1bkc2zt(v=vs.71)"
+    },
+    {
+        "text":  "RECALL Command",
+        "category":  "Command",
+        "href":  "a0tf56y8(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/a0tf56y8(v=vs.71)"
+    },
+    {
+        "text":  "REGIONAL Command",
+        "category":  "Command",
+        "href":  "aa903601(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/aa903601(v=vs.71)"
+    },
+    {
+        "text":  "REINDEX Command",
+        "category":  "Command",
+        "href":  "0b2ab467(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/0b2ab467(v=vs.71)"
+    },
+    {
+        "text":  "RELEASE BAR Command",
+        "category":  "Command",
+        "href":  "k84hf2yx(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/k84hf2yx(v=vs.71)"
+    },
+    {
+        "text":  "RELEASE CLASSLIB Command",
+        "category":  "Command",
+        "href":  "hh8a2ka8(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/hh8a2ka8(v=vs.71)"
+    },
+    {
+        "text":  "RELEASE Command",
+        "category":  "Command",
+        "href":  "75dskctw(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/75dskctw(v=vs.71)"
+    },
+    {
+        "text":  "RELEASE LIBRARY Command",
+        "category":  "Command",
+        "href":  "be8shed9(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/be8shed9(v=vs.71)"
+    },
+    {
+        "text":  "RELEASE MENUS Command",
+        "category":  "Command",
+        "href":  "a2f2zh4z(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/a2f2zh4z(v=vs.71)"
+    },
+    {
+        "text":  "RELEASE PAD Command",
+        "category":  "Command",
+        "href":  "9stff3tf(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/9stff3tf(v=vs.71)"
+    },
+    {
+        "text":  "RELEASE POPUPS Command",
+        "category":  "Command",
+        "href":  "6zdcwx8d(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/6zdcwx8d(v=vs.71)"
+    },
+    {
+        "text":  "RELEASE PROCEDURE Command",
+        "category":  "Command",
+        "href":  "d83te78w(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/d83te78w(v=vs.71)"
+    },
+    {
+        "text":  "RELEASE WINDOWS Command",
+        "category":  "Command",
+        "href":  "1tkbzx4z(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/1tkbzx4z(v=vs.71)"
+    },
+    {
+        "text":  "REMOVE CLASS Command",
+        "category":  "Command",
+        "href":  "b01dkk5t(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/b01dkk5t(v=vs.71)"
+    },
+    {
+        "text":  "REMOVE TABLE Command",
+        "category":  "Command",
+        "href":  "05xst2t3(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/05xst2t3(v=vs.71)"
+    },
+    {
+        "text":  "RENAME CLASS Command",
+        "category":  "Command",
+        "href":  "bke5zykk(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/bke5zykk(v=vs.71)"
+    },
+    {
+        "text":  "RENAME Command",
+        "category":  "Command",
+        "href":  "tt8x2k81(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/tt8x2k81(v=vs.71)"
+    },
+    {
+        "text":  "RENAME CONNECTION Command",
+        "category":  "Command",
+        "href":  "fxat0cww(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/fxat0cww(v=vs.71)"
+    },
+    {
+        "text":  "RENAME TABLE Command",
+        "category":  "Command",
+        "href":  "8d02k72e(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/8d02k72e(v=vs.71)"
+    },
+    {
+        "text":  "RENAME VIEW Command",
+        "category":  "Command",
+        "href":  "86kh29we(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/86kh29we(v=vs.71)"
+    },
+    {
+        "text":  "REPLACE Command",
+        "category":  "Command",
+        "href":  "8ca1stsh(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/8ca1stsh(v=vs.71)"
+    },
+    {
+        "text":  "REPLACE FROM ARRAY Command",
+        "category":  "Command",
+        "href":  "10y1f5hy(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/10y1f5hy(v=vs.71)"
+    },
+    {
+        "text":  "REPORT Command",
+        "category":  "Command",
+        "href":  "8fzd6s9f(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/8fzd6s9f(v=vs.71)"
+    },
+    {
+        "text":  "RESTORE FROM Command",
+        "category":  "Command",
+        "href":  "2fx96k0c(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/2fx96k0c(v=vs.71)"
+    },
+    {
+        "text":  "RESTORE MACROS Command",
+        "category":  "Command",
+        "href":  "dz44d1y8(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/dz44d1y8(v=vs.71)"
+    },
+    {
+        "text":  "RESTORE SCREEN Command",
+        "category":  "Command",
+        "href":  "493hcbwh(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/493hcbwh(v=vs.71)"
+    },
+    {
+        "text":  "RESTORE WINDOW Command",
+        "category":  "Command",
+        "href":  "52y0hw0a(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/52y0hw0a(v=vs.71)"
+    },
+    {
+        "text":  "RESUME Command",
+        "category":  "Command",
+        "href":  "585eksdy(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/585eksdy(v=vs.71)"
+    },
+    {
+        "text":  "RETRY Command",
+        "category":  "Command",
+        "href":  "eh98x18x(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/eh98x18x(v=vs.71)"
+    },
+    {
+        "text":  "RETURN Command",
+        "category":  "Command",
+        "href":  "512x8ss9(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/512x8ss9(v=vs.71)"
+    },
+    {
+        "text":  "ROLLBACK Command",
+        "category":  "Command",
+        "href":  "3k3237cy(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/3k3237cy(v=vs.71)"
+    },
+    {
+        "text":  "RUN Command",
+        "category":  "Command",
+        "href":  "w196k0ht(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/w196k0ht(v=vs.71)"
+    },
+    {
+        "text":  "SAVE MACROS Command",
+        "category":  "Command",
+        "href":  "7zatk7ee(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/7zatk7ee(v=vs.71)"
+    },
+    {
+        "text":  "SAVE SCREEN Command",
+        "category":  "Command",
+        "href":  "x27yhzw3(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/x27yhzw3(v=vs.71)"
+    },
+    {
+        "text":  "SAVE TO Command",
+        "category":  "Command",
+        "href":  "5ks2c5e6(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/5ks2c5e6(v=vs.71)"
+    },
+    {
+        "text":  "SAVE WINDOWS Command",
+        "category":  "Command",
+        "href":  "cff3ktzb(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/cff3ktzb(v=vs.71)"
+    },
+    {
+        "text":  "SCAN ... ENDSCAN Command",
+        "category":  "Command",
+        "href":  "by9h358y(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/by9h358y(v=vs.71)"
+    },
+    {
+        "text":  "SCATTER Command",
+        "category":  "Command",
+        "href":  "3e7k65t6(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/3e7k65t6(v=vs.71)"
+    },
+    {
+        "text":  "SCROLL Command",
+        "category":  "Command",
+        "href":  "k9a34csz(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/k9a34csz(v=vs.71)"
+    },
+    {
+        "text":  "SEEK Command",
+        "category":  "Command",
+        "href":  "bz5ys9dy(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/bz5ys9dy(v=vs.71)"
+    },
+    {
+        "text":  "SELECT - SQL Command",
+        "category":  "Command",
+        "href":  "h09t6a82(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/h09t6a82(v=vs.71)"
+    },
+    {
+        "text":  "SELECT Command",
+        "category":  "Command",
+        "href":  "8z4hw341(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/8z4hw341(v=vs.71)"
+    },
+    {
+        "text":  "SET ALTERNATE Command",
+        "category":  "Command",
+        "href":  "x0ex0zxb(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/x0ex0zxb(v=vs.71)"
+    },
+    {
+        "text":  "SET ANSI Command",
+        "category":  "Command",
+        "href":  "hx5eyfsx(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/hx5eyfsx(v=vs.71)"
+    },
+    {
+        "text":  "SET ASSERTS Command",
+        "category":  "Command",
+        "href":  "eyywz0ze(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/eyywz0ze(v=vs.71)"
+    },
+    {
+        "text":  "SET AUTOSAVE Command",
+        "category":  "Command",
+        "href":  "55wbafx7(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/55wbafx7(v=vs.71)"
+    },
+    {
+        "text":  "SET BELL Command",
+        "category":  "Command",
+        "href":  "ytt4kk6z(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ytt4kk6z(v=vs.71)"
+    },
+    {
+        "text":  "SET BLOCKSIZE Command",
+        "category":  "Command",
+        "href":  "d6e1ah7y(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/d6e1ah7y(v=vs.71)"
+    },
+    {
+        "text":  "SET BORDER Command",
+        "category":  "Command",
+        "href":  "7skz049t(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/7skz049t(v=vs.71)"
+    },
+    {
+        "text":  "SET BROWSEIME Command",
+        "category":  "Command",
+        "href":  "eaf1zayh(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/eaf1zayh(v=vs.71)"
+    },
+    {
+        "text":  "SET BRSTATUS Command",
+        "category":  "Command",
+        "href":  "5014eaba(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/5014eaba(v=vs.71)"
+    },
+    {
+        "text":  "SET CARRY Command",
+        "category":  "Command",
+        "href":  "c41wx88s(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/c41wx88s(v=vs.71)"
+    },
+    {
+        "text":  "SET CENTURY Command",
+        "category":  "Command",
+        "href":  "a947b87z(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/a947b87z(v=vs.71)"
+    },
+    {
+        "text":  "SET CLASSLIB Command",
+        "category":  "Command",
+        "href":  "171hdcbd(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/171hdcbd(v=vs.71)"
+    },
+    {
+        "text":  "SET CLEAR Command",
+        "category":  "Command",
+        "href":  "kd7xs3c1(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/kd7xs3c1(v=vs.71)"
+    },
+    {
+        "text":  "SET CLOCK Command",
+        "category":  "Command",
+        "href":  "4zfxb4d1(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/4zfxb4d1(v=vs.71)"
+    },
+    {
+        "text":  "SET COLLATE Command",
+        "category":  "Command",
+        "href":  "kaw2fwze(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/kaw2fwze(v=vs.71)"
+    },
+    {
+        "text":  "SET COLOR OF Command",
+        "category":  "Command",
+        "href":  "d047kcxw(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/d047kcxw(v=vs.71)"
+    },
+    {
+        "text":  "SET COLOR OF SCHEME Command",
+        "category":  "Command",
+        "href":  "awac87cx(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/awac87cx(v=vs.71)"
+    },
+    {
+        "text":  "SET COLOR SET Command",
+        "category":  "Command",
+        "href":  "yc46khxd(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/yc46khxd(v=vs.71)"
+    },
+    {
+        "text":  "SET COLOR TO Command",
+        "category":  "Command",
+        "href":  "c5w2s7b0(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/c5w2s7b0(v=vs.71)"
+    },
+    {
+        "text":  "SET Command",
+        "category":  "Command",
+        "href":  "3670wyb6(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/3670wyb6(v=vs.71)"
+    },
+    {
+        "text":  "SET COMPATIBLE Command",
+        "category":  "Command",
+        "href":  "85xwhb36(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/85xwhb36(v=vs.71)"
+    },
+    {
+        "text":  "SET CONFIRM Command",
+        "category":  "Command",
+        "href":  "4700aty2(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/4700aty2(v=vs.71)"
+    },
+    {
+        "text":  "SET CONSOLE Command",
+        "category":  "Command",
+        "href":  "be492d8k(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/be492d8k(v=vs.71)"
+    },
+    {
+        "text":  "SET COVERAGE Command",
+        "category":  "Command",
+        "href":  "6eedkt3k(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/6eedkt3k(v=vs.71)"
+    },
+    {
+        "text":  "SET CPCOMPILE Command",
+        "category":  "Command",
+        "href":  "96f7e6tt(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/96f7e6tt(v=vs.71)"
+    },
+    {
+        "text":  "SET CPDIALOG Command",
+        "category":  "Command",
+        "href":  "3y9kca1f(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/3y9kca1f(v=vs.71)"
+    },
+    {
+        "text":  "SET CURRENCY Command",
+        "category":  "Command",
+        "href":  "5fybyh55(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/5fybyh55(v=vs.71)"
+    },
+    {
+        "text":  "SET CURSOR Command",
+        "category":  "Command",
+        "href":  "a043927h(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/a043927h(v=vs.71)"
+    },
+    {
+        "text":  "SET DATABASE Command",
+        "category":  "Command",
+        "href":  "7w8kdy3b(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/7w8kdy3b(v=vs.71)"
+    },
+    {
+        "text":  "SET DATASESSION Command",
+        "category":  "Command",
+        "href":  "0abbw43w(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/0abbw43w(v=vs.71)"
+    },
+    {
+        "text":  "SET DATE Command",
+        "category":  "Command",
+        "href":  "xy88756b(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/xy88756b(v=vs.71)"
+    },
+    {
+        "text":  "SET DEBUG Command",
+        "category":  "Command",
+        "href":  "4hdzdxa9(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/4hdzdxa9(v=vs.71)"
+    },
+    {
+        "text":  "SET DEBUGOUT Command",
+        "category":  "Command",
+        "href":  "81s3ewez(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/81s3ewez(v=vs.71)"
+    },
+    {
+        "text":  "SET DECIMALS Command",
+        "category":  "Command",
+        "href":  "azeb8csc(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/azeb8csc(v=vs.71)"
+    },
+    {
+        "text":  "SET DEFAULT Command",
+        "category":  "Command",
+        "href":  "w67389ce(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/w67389ce(v=vs.71)"
+    },
+    {
+        "text":  "SET DELETED Command",
+        "category":  "Command",
+        "href":  "87tc2sc3(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/87tc2sc3(v=vs.71)"
+    },
+    {
+        "text":  "SET DELIMITERS Command",
+        "category":  "Command",
+        "href":  "2fba38yx(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/2fba38yx(v=vs.71)"
+    },
+    {
+        "text":  "SET DEVELOPMENT Command",
+        "category":  "Command",
+        "href":  "565wwt88(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/565wwt88(v=vs.71)"
+    },
+    {
+        "text":  "SET DEVICE Command",
+        "category":  "Command",
+        "href":  "9wsw3c4a(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/9wsw3c4a(v=vs.71)"
+    },
+    {
+        "text":  "SET DISPLAY Command",
+        "category":  "Command",
+        "href":  "0e9daw5c(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/0e9daw5c(v=vs.71)"
+    },
+    {
+        "text":  "SET DOHISTORY Command",
+        "category":  "Command",
+        "href":  "a10dd5te(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/a10dd5te(v=vs.71)"
+    },
+    {
+        "text":  "SET ECHO Command",
+        "category":  "Command",
+        "href":  "y9twktk8(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/y9twktk8(v=vs.71)"
+    },
+    {
+        "text":  "SET ESCAPE Command",
+        "category":  "Command",
+        "href":  "1ddy8wzd(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/1ddy8wzd(v=vs.71)"
+    },
+    {
+        "text":  "SET EVENTLIST Command",
+        "category":  "Command",
+        "href":  "fzdx9697(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/fzdx9697(v=vs.71)"
+    },
+    {
+        "text":  "SET EVENTTRACKING Command",
+        "category":  "Command",
+        "href":  "e70yws3d(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/e70yws3d(v=vs.71)"
+    },
+    {
+        "text":  "SET EXACT Command",
+        "category":  "Command",
+        "href":  "kf2c7kaz(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/kf2c7kaz(v=vs.71)"
+    },
+    {
+        "text":  "SET EXCLUSIVE Command",
+        "category":  "Command",
+        "href":  "3t2wew80(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/3t2wew80(v=vs.71)"
+    },
+    {
+        "text":  "SET FDOW Command",
+        "category":  "Command",
+        "href":  "zcx5d33h(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/zcx5d33h(v=vs.71)"
+    },
+    {
+        "text":  "SET FIELDS Command",
+        "category":  "Command",
+        "href":  "f7wxb4ea(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/f7wxb4ea(v=vs.71)"
+    },
+    {
+        "text":  "SET FILTER Command",
+        "category":  "Command",
+        "href":  "52b84ce3(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/52b84ce3(v=vs.71)"
+    },
+    {
+        "text":  "SET FIXED Command",
+        "category":  "Command",
+        "href":  "24d6yb06(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/24d6yb06(v=vs.71)"
+    },
+    {
+        "text":  "SET FORMAT Command",
+        "category":  "Command",
+        "href":  "1ey592z6(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/1ey592z6(v=vs.71)"
+    },
+    {
+        "text":  "SET FULLPATH Command",
+        "category":  "Command",
+        "href":  "70tt9y6a(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/70tt9y6a(v=vs.71)"
+    },
+    {
+        "text":  "SET FUNCTION Command",
+        "category":  "Command",
+        "href":  "z56fsc2k(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/z56fsc2k(v=vs.71)"
+    },
+    {
+        "text":  "SET FWEEK Command",
+        "category":  "Command",
+        "href":  "tw033y67(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/tw033y67(v=vs.71)"
+    },
+    {
+        "text":  "SET HEADINGS Command",
+        "category":  "Command",
+        "href":  "tya72w63(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/tya72w63(v=vs.71)"
+    },
+    {
+        "text":  "SET HELP Command",
+        "category":  "Command",
+        "href":  "dfxy5bch(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/dfxy5bch(v=vs.71)"
+    },
+    {
+        "text":  "SET HELPFILTER Command",
+        "category":  "Command",
+        "href":  "aa903603(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/aa903603(v=vs.71)"
+    },
+    {
+        "text":  "SET HOURS Command",
+        "category":  "Command",
+        "href":  "0bsbhyf6(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/0bsbhyf6(v=vs.71)"
+    },
+    {
+        "text":  "SET INDEX Command",
+        "category":  "Command",
+        "href":  "x37988e4(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/x37988e4(v=vs.71)"
+    },
+    {
+        "text":  "SET INTENSITY Command",
+        "category":  "Command",
+        "href":  "11c7ktbb(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/11c7ktbb(v=vs.71)"
+    },
+    {
+        "text":  "SET KEY Command",
+        "category":  "Command",
+        "href":  "cta23sh0(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/cta23sh0(v=vs.71)"
+    },
+    {
+        "text":  "SET KEYCOMP Command",
+        "category":  "Command",
+        "href":  "05w959sy(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/05w959sy(v=vs.71)"
+    },
+    {
+        "text":  "SET LIBRARY Command",
+        "category":  "Command",
+        "href":  "zx3c5789(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/zx3c5789(v=vs.71)"
+    },
+    {
+        "text":  "SET LOCK Command",
+        "category":  "Command",
+        "href":  "79c3eyfw(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/79c3eyfw(v=vs.71)"
+    },
+    {
+        "text":  "SET LOGERRORS Command",
+        "category":  "Command",
+        "href":  "c4wcs498(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/c4wcs498(v=vs.71)"
+    },
+    {
+        "text":  "SET MACKEY Command",
+        "category":  "Command",
+        "href":  "7xeedzxs(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/7xeedzxs(v=vs.71)"
+    },
+    {
+        "text":  "SET MARGIN Command",
+        "category":  "Command",
+        "href":  "dtb4axfb(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/dtb4axfb(v=vs.71)"
+    },
+    {
+        "text":  "SET MARK OF Command",
+        "category":  "Command",
+        "href":  "b0zafk27(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/b0zafk27(v=vs.71)"
+    },
+    {
+        "text":  "SET MARK TO Command",
+        "category":  "Command",
+        "href":  "8ty39s8b(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/8ty39s8b(v=vs.71)"
+    },
+    {
+        "text":  "SET MEMOWIDTH Command",
+        "category":  "Command",
+        "href":  "6s1a0w7a(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/6s1a0w7a(v=vs.71)"
+    },
+    {
+        "text":  "SET MESSAGE Command",
+        "category":  "Command",
+        "href":  "6dsfx6ha(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/6dsfx6ha(v=vs.71)"
+    },
+    {
+        "text":  "SET MULTILOCKS Command",
+        "category":  "Command",
+        "href":  "467ke1yx(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/467ke1yx(v=vs.71)"
+    },
+    {
+        "text":  "SET NEAR Command",
+        "category":  "Command",
+        "href":  "ecksawtb(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ecksawtb(v=vs.71)"
+    },
+    {
+        "text":  "SET NOCPTRANS Command",
+        "category":  "Command",
+        "href":  "6zae4f2a(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/6zae4f2a(v=vs.71)"
+    },
+    {
+        "text":  "SET NOTIFY Command",
+        "category":  "Command",
+        "href":  "e9h3ekk3(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/e9h3ekk3(v=vs.71)"
+    },
+    {
+        "text":  "SET NULL Command",
+        "category":  "Command",
+        "href":  "k2ad4xe7(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/k2ad4xe7(v=vs.71)"
+    },
+    {
+        "text":  "SET NULLDISPLAY Command",
+        "category":  "Command",
+        "href":  "d5z666dd(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/d5z666dd(v=vs.71)"
+    },
+    {
+        "text":  "SET ODOMETER Command",
+        "category":  "Command",
+        "href":  "s8xdk632(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/s8xdk632(v=vs.71)"
+    },
+    {
+        "text":  "SET OLEOBJECT Command",
+        "category":  "Command",
+        "href":  "91h4eyc0(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/91h4eyc0(v=vs.71)"
+    },
+    {
+        "text":  "SET OPTIMIZE Command",
+        "category":  "Command",
+        "href":  "ty4a9h1w(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ty4a9h1w(v=vs.71)"
+    },
+    {
+        "text":  "SET ORDER Command",
+        "category":  "Command",
+        "href":  "d9z15854(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/d9z15854(v=vs.71)"
+    },
+    {
+        "text":  "SET PALETTE Command",
+        "category":  "Command",
+        "href":  "8y60s5f5(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/8y60s5f5(v=vs.71)"
+    },
+    {
+        "text":  "SET PATH Command",
+        "category":  "Command",
+        "href":  "w0yaz275(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/w0yaz275(v=vs.71)"
+    },
+    {
+        "text":  "SET PDSETUP Command",
+        "category":  "Command",
+        "href":  "a1tw470z(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/a1tw470z(v=vs.71)"
+    },
+    {
+        "text":  "SET POINT Command",
+        "category":  "Command",
+        "href":  "4w02w3x8(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/4w02w3x8(v=vs.71)"
+    },
+    {
+        "text":  "SET PRINTER Command",
+        "category":  "Command",
+        "href":  "6y8f2cxk(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/6y8f2cxk(v=vs.71)"
+    },
+    {
+        "text":  "SET PROCEDURE Command",
+        "category":  "Command",
+        "href":  "c10akhe6(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/c10akhe6(v=vs.71)"
+    },
+    {
+        "text":  "SET READBORDER Command",
+        "category":  "Command",
+        "href":  "zd47eee8(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/zd47eee8(v=vs.71)"
+    },
+    {
+        "text":  "SET REFRESH Command",
+        "category":  "Command",
+        "href":  "bc65b24b(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/bc65b24b(v=vs.71)"
+    },
+    {
+        "text":  "SET RELATION Command",
+        "category":  "Command",
+        "href":  "zkyz3407(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/zkyz3407(v=vs.71)"
+    },
+    {
+        "text":  "SET RELATION OFF Command",
+        "category":  "Command",
+        "href":  "sdwsys0z(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/sdwsys0z(v=vs.71)"
+    },
+    {
+        "text":  "SET REPROCESS Command",
+        "category":  "Command",
+        "href":  "sb288te2(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/sb288te2(v=vs.71)"
+    },
+    {
+        "text":  "SET RESOURCE Command",
+        "category":  "Command",
+        "href":  "k2s4z28k(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/k2s4z28k(v=vs.71)"
+    },
+    {
+        "text":  "SET SAFETY Command",
+        "category":  "Command",
+        "href":  "aff30k74(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/aff30k74(v=vs.71)"
+    },
+    {
+        "text":  "SET SECONDS Command",
+        "category":  "Command",
+        "href":  "75sbdtx2(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/75sbdtx2(v=vs.71)"
+    },
+    {
+        "text":  "SET SEPARATOR Command",
+        "category":  "Command",
+        "href":  "whk32ay7(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/whk32ay7(v=vs.71)"
+    },
+    {
+        "text":  "SET SKIP Command",
+        "category":  "Command",
+        "href":  "yxzhaw7s(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/yxzhaw7s(v=vs.71)"
+    },
+    {
+        "text":  "SET SKIP OF Command",
+        "category":  "Command",
+        "href":  "5bew600w(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/5bew600w(v=vs.71)"
+    },
+    {
+        "text":  "SET SPACE Command",
+        "category":  "Command",
+        "href":  "7fe2tczb(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/7fe2tczb(v=vs.71)"
+    },
+    {
+        "text":  "SET STATUS BAR Command",
+        "category":  "Command",
+        "href":  "k8dycf02(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/k8dycf02(v=vs.71)"
+    },
+    {
+        "text":  "SET STATUS Command",
+        "category":  "Command",
+        "href":  "t5sbef71(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/t5sbef71(v=vs.71)"
+    },
+    {
+        "text":  "SET STEP Command",
+        "category":  "Command",
+        "href":  "5xzf66aa(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/5xzf66aa(v=vs.71)"
+    },
+    {
+        "text":  "SET STRICTDATE Command",
+        "category":  "Command",
+        "href":  "wbzwk155(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/wbzwk155(v=vs.71)"
+    },
+    {
+        "text":  "SET SYSFORMATS Command",
+        "category":  "Command",
+        "href":  "kak27s93(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/kak27s93(v=vs.71)"
+    },
+    {
+        "text":  "SET SYSMENU Command",
+        "category":  "Command",
+        "href":  "hh6chfdd(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/hh6chfdd(v=vs.71)"
+    },
+    {
+        "text":  "SET TALK Command",
+        "category":  "Command",
+        "href":  "33a5zy93(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/33a5zy93(v=vs.71)"
+    },
+    {
+        "text":  "SET TEXTMERGE Command",
+        "category":  "Command",
+        "href":  "x1f5xasa(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/x1f5xasa(v=vs.71)"
+    },
+    {
+        "text":  "SET TEXTMERGE DELIMITERS Command",
+        "category":  "Command",
+        "href":  "9xbd761b(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/9xbd761b(v=vs.71)"
+    },
+    {
+        "text":  "SET TOPIC Command",
+        "category":  "Command",
+        "href":  "6ts26kd3(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/6ts26kd3(v=vs.71)"
+    },
+    {
+        "text":  "SET TOPIC ID Command",
+        "category":  "Command",
+        "href":  "hhs32tdk(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/hhs32tdk(v=vs.71)"
+    },
+    {
+        "text":  "SET TRBETWEEN Command",
+        "category":  "Command",
+        "href":  "txxb391b(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/txxb391b(v=vs.71)"
+    },
+    {
+        "text":  "SET TYPEAHEAD Command",
+        "category":  "Command",
+        "href":  "767yzsf3(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/767yzsf3(v=vs.71)"
+    },
+    {
+        "text":  "SET UDFPARMS Command",
+        "category":  "Command",
+        "href":  "25y92cfd(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/25y92cfd(v=vs.71)"
+    },
+    {
+        "text":  "SET UNIQUE Command",
+        "category":  "Command",
+        "href":  "b173ahz8(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/b173ahz8(v=vs.71)"
+    },
+    {
+        "text":  "SET VIEW Command",
+        "category":  "Command",
+        "href":  "82ack6y7(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/82ack6y7(v=vs.71)"
+    },
+    {
+        "text":  "SET VOLUME Command",
+        "category":  "Command",
+        "href":  "cax84y2a(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/cax84y2a(v=vs.71)"
+    },
+    {
+        "text":  "SET WINDOW OF MEMO Command",
+        "category":  "Command",
+        "href":  "s4xff1df(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/s4xff1df(v=vs.71)"
+    },
+    {
+        "text":  "SHOW GET Command",
+        "category":  "Command",
+        "href":  "xce4wbb0(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/xce4wbb0(v=vs.71)"
+    },
+    {
+        "text":  "SHOW GETS Command",
+        "category":  "Command",
+        "href":  "s42yk4tf(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/s42yk4tf(v=vs.71)"
+    },
+    {
+        "text":  "SHOW MENU Command",
+        "category":  "Command",
+        "href":  "w8fsdb7k(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/w8fsdb7k(v=vs.71)"
+    },
+    {
+        "text":  "SHOW OBJECT Command",
+        "category":  "Command",
+        "href":  "993ftbhk(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/993ftbhk(v=vs.71)"
+    },
+    {
+        "text":  "SHOW POPUP Command",
+        "category":  "Command",
+        "href":  "w3d90bac(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/w3d90bac(v=vs.71)"
+    },
+    {
+        "text":  "SHOW WINDOW Command",
+        "category":  "Command",
+        "href":  "fatf0sfy(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/fatf0sfy(v=vs.71)"
+    },
+    {
+        "text":  "SIZE POPUP Command",
+        "category":  "Command",
+        "href":  "z3st8sby(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/z3st8sby(v=vs.71)"
+    },
+    {
+        "text":  "SIZE WINDOW Command",
+        "category":  "Command",
+        "href":  "b999hf9c(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/b999hf9c(v=vs.71)"
+    },
+    {
+        "text":  "SKIP Command",
+        "category":  "Command",
+        "href":  "7yk75h22(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/7yk75h22(v=vs.71)"
+    },
+    {
+        "text":  "SORT Command",
+        "category":  "Command",
+        "href":  "88deb654(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/88deb654(v=vs.71)"
+    },
+    {
+        "text":  "STORE Command",
+        "category":  "Command",
+        "href":  "s5y84s64(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/s5y84s64(v=vs.71)"
+    },
+    {
+        "text":  "SUM Command",
+        "category":  "Command",
+        "href":  "5t4dz38y(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/5t4dz38y(v=vs.71)"
+    },
+    {
+        "text":  "SUSPEND Command",
+        "category":  "Command",
+        "href":  "czyfc332(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/czyfc332(v=vs.71)"
+    },
+    {
+        "text":  "TEXT ... ENDTEXT Command",
+        "category":  "Command",
+        "href":  "94ctt960(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/94ctt960(v=vs.71)"
+    },
+    {
+        "text":  "TOTAL Command",
+        "category":  "Command",
+        "href":  "7t1dfw5h(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/7t1dfw5h(v=vs.71)"
+    },
+    {
+        "text":  "TYPE Command",
+        "category":  "Command",
+        "href":  "ask59ab0(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ask59ab0(v=vs.71)"
+    },
+    {
+        "text":  "UNLOCK Command",
+        "category":  "Command",
+        "href":  "e7z8d5hf(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/e7z8d5hf(v=vs.71)"
+    },
+    {
+        "text":  "UPDATE - SQL Command",
+        "category":  "Command",
+        "href":  "8hwekas8(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/8hwekas8(v=vs.71)"
+    },
+    {
+        "text":  "UPDATE Command",
+        "category":  "Command",
+        "href":  "cycxby1t(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/cycxby1t(v=vs.71)"
+    },
+    {
+        "text":  "USE Command",
+        "category":  "Command",
+        "href":  "5e8201te(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/5e8201te(v=vs.71)"
+    },
+    {
+        "text":  "VALIDATE DATABASE Command",
+        "category":  "Command",
+        "href":  "fhfd7sdc(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/fhfd7sdc(v=vs.71)"
+    },
+    {
+        "text":  "WAIT Command",
+        "category":  "Command",
+        "href":  "ew8dtfhx(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/ew8dtfhx(v=vs.71)"
+    },
+    {
+        "text":  "WITH ... ENDWITH Command",
+        "category":  "Command",
+        "href":  "002d49fx(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/002d49fx(v=vs.71)"
+    },
+    {
+        "text":  "ZAP Command",
+        "category":  "Command",
+        "href":  "00c5e99f(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/00c5e99f(v=vs.71)"
+    },
+    {
+        "text":  "ZOOM WINDOW Command",
+        "category":  "Command",
+        "href":  "3t961w4f(v=vs.71)",
+        "url":  "https://learn.microsoft.com/en-us/previous-versions/visualstudio/foxpro/3t961w4f(v=vs.71)"
+    }
+]

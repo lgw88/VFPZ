@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net472</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseWindowsForms>true</UseWindowsForms>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>Copperfin.VisualStudio</RootNamespace>
+    <AssemblyName>Copperfin.Studio</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="StudioMainForm.cs" />
+    <Compile Include="..\Copperfin.VisualStudio\CopperfinAssetEditorControl.cs" Link="Shared\CopperfinAssetEditorControl.cs" />
+    <Compile Include="..\Copperfin.VisualStudio\CopperfinDesignerSelection.cs" Link="Shared\CopperfinDesignerSelection.cs" />
+    <Compile Include="..\Copperfin.VisualStudio\CopperfinDesignSurfaceControl.cs" Link="Shared\CopperfinDesignSurfaceControl.cs" />
+    <Compile Include="..\Copperfin.VisualStudio\CopperfinProjectInsightClient.cs" Link="Shared\CopperfinProjectInsightClient.cs" />
+    <Compile Include="..\Copperfin.VisualStudio\CopperfinProjectInsightModels.cs" Link="Shared\CopperfinProjectInsightModels.cs" />
+    <Compile Include="..\Copperfin.VisualStudio\CopperfinProjectWorkflow.cs" Link="Shared\CopperfinProjectWorkflow.cs" />
+    <Compile Include="..\Copperfin.VisualStudio\CopperfinRuntimeDebugClient.cs" Link="Shared\CopperfinRuntimeDebugClient.cs" />
+    <Compile Include="..\Copperfin.VisualStudio\CopperfinRuntimeDebugModels.cs" Link="Shared\CopperfinRuntimeDebugModels.cs" />
+    <Compile Include="..\Copperfin.VisualStudio\CopperfinStudioHostBridge.cs" Link="Shared\CopperfinStudioHostBridge.cs" />
+    <Compile Include="..\Copperfin.VisualStudio\CopperfinStudioSnapshotClient.cs" Link="Shared\CopperfinStudioSnapshotClient.cs" />
+    <Compile Include="..\Copperfin.VisualStudio\CopperfinStudioSnapshotModels.cs" Link="Shared\CopperfinStudioSnapshotModels.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,22 @@
+﻿[
+    {
+        "chm":  "dv_foxhelp.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\dv_foxhelp.chm",
+        "hhk":  "dv_foxhelp91K-2.hhk",
+        "hhc":  "dv_foxhelp91.hhc",
+        "topicEntries":  11900,
+        "commandEntries":  481,
+        "functionEntries":  439,
+        "foxtoolsEntries":  0
+    },
+    {
+        "chm":  "foxtools.chm",
+        "sourcePath":  "C:\\Program Files (x86)\\Microsoft Visual FoxPro 9\\foxtools.chm",
+        "hhk":  "foxtools.hhk",
+        "hhc":  "foxtools.hhc",
+        "topicEntries":  40,
+        "commandEntries":  0,
+        "functionEntries":  39,
+        "foxtoolsEntries":  1
+    }
+]

@@ -1,0 +1,429 @@
+! Command
+& Command
+&& Command
+* Command
+? | ?? Command
+??? Command
+@ ... BOX Command
+@ ... CLASS Command
+@ ... CLEAR Command
+@ ... EDIT - Edit Boxes Command
+@ ... FILL Command
+@ ... GET - Check Boxes Command
+@ ... GET - Combo Boxes Command
+@ ... GET - Command Buttons Command
+@ ... GET - List Boxes Command
+@ ... GET - Option Buttons Command
+@ ... GET - Spinners Command
+@ ... GET - Text Boxes Command
+@ ... GET - Transparent Buttons Command
+@ ... MENU Command
+@ ... PROMPT Command
+@ ... SAY - Pictures & OLE Objects Command
+@ ... SAY Command
+@ ... SCROLL Command
+@ ... TO Command
+\ | \\ Command
+= Command
+ACCEPT Command
+ACTIVATE MENU Command
+ACTIVATE POPUP Command
+ACTIVATE SCREEN Command
+ACTIVATE WINDOW Command
+ADD CLASS Command
+ADD TABLE Command
+ALTER TABLE - SQL Command
+APPEND Command
+APPEND FROM ARRAY Command
+APPEND FROM Command
+APPEND GENERAL Command
+APPEND MEMO Command
+APPEND PROCEDURES Command
+ASSERT Command
+ASSIST Command
+AVERAGE Command
+BEGIN TRANSACTION Command
+BLANK Command
+BROWSE Command
+BUILD APP Command
+BUILD DLL Command
+BUILD EXE Command
+BUILD MTDLL Command
+BUILD PROJECT Command
+CALCULATE Command
+CALL Command
+CANCEL Command
+CD | CHDIR Command
+CHANGE Command
+CLEAR EVENTS Command
+CLEAR RESOURCES Command
+CLOSE DATABASES Command
+CLOSE MEMO Command
+CLOSE TABLES Command
+COMPILE Command
+COMPILE DATABASE Command
+COMPILE FORM Command
+CONTINUE Command
+COPY FILE Command
+COPY INDEXES Command
+COPY MEMO Command
+COPY PROCEDURES Command
+COPY STRUCTURE Command
+COPY STRUCTURE EXTENDED Command
+COPY TAG Command
+COPY TO ARRAY Command
+COPY TO Command
+COUNT Command
+CREATE CLASS Command
+CREATE CLASSLIB Command
+CREATE COLOR SET Command
+CREATE Command
+CREATE CONNECTION Command
+CREATE CURSOR - SQL Command
+CREATE DATABASE Command
+CREATE FORM Command
+CREATE FROM Command
+CREATE LABEL Command
+CREATE MENU Command
+CREATE PROJECT Command
+CREATE QUERY Command
+CREATE REPORT - Quick Report Command
+CREATE REPORT Command
+CREATE SCREEN - Quick Screen Command
+CREATE SCREEN Command
+CREATE SQL VIEW Command
+CREATE TABLE - SQL Command
+CREATE TRIGGER Command
+CREATE VIEW Command
+DEACTIVATE MENU Command
+DEACTIVATE POPUP Command
+DEACTIVATE WINDOW Command
+DEBUG Command
+DEBUGOUT Command
+DECLARE - DLL Command
+DECLARE Command
+DEFINE BAR Command
+DEFINE BOX Command
+DEFINE CLASS Command
+DEFINE MENU Command
+DEFINE PAD Command
+DEFINE POPUP Command
+DEFINE WINDOW Command
+DELETE - SQL Command
+DELETE Command
+DELETE CONNECTION Command
+DELETE DATABASE Command
+DELETE FILE Command
+DELETE TAG Command
+DELETE TRIGGER Command
+DELETE VIEW Command
+DIMENSION Command
+DIR or DIRECTORY Command
+DISPLAY Command
+DISPLAY CONNECTIONS Command
+DISPLAY DATABASE Command
+DISPLAY DLLS Command
+DISPLAY FILES Command
+DISPLAY MEMORY Command
+DISPLAY OBJECTS Command
+DISPLAY PROCEDURES Command
+DISPLAY STATUS Command
+DISPLAY STRUCTURE Command
+DISPLAY TABLES Command
+DISPLAY VIEWS Command
+DO CASE ... ENDCASE Command
+DO Command
+DO FORM Command
+DO WHILE ... ENDDO Command
+DOEVENTS Command
+DROP TABLE Command
+DROP VIEW Command
+EDIT Command
+EJECT Command
+EJECT PAGE Command
+END TRANSACTION Command
+ERASE Command
+ERROR Command
+EXIT Command
+EXPORT Command
+EXTERNAL Command
+FIND Command
+FLUSH Command
+FOR ... ENDFOR Command
+FOR EACH ... ENDFOR Command
+FREE TABLE Command
+FUNCTION Command
+GATHER Command
+GETEXPR Command
+GO | GOTO Command
+HELP Command
+HIDE MENU Command
+HIDE POPUP Command
+HIDE WINDOW Command
+IF ... ENDIF Command
+IMPORT Command
+INDEX Command
+INPUT Command
+INSERT - SQL Command
+INSERT Command
+JOIN Command
+KEYBOARD Command
+LABEL Command
+LIST CONNECTIONS Command
+LIST DATABASE Command
+LIST DLLS Command
+LIST OBJECTS Command
+LIST PROCEDURES Command
+LIST TABLES Command
+LIST VIEWS Command
+LOAD Command
+LOCAL Command
+LOCATE Command
+LPARAMETERS Command
+MD | MKDIR Command
+MENU Command
+MENU TO Command
+MODIFY CLASS Command
+MODIFY COMMAND Command
+MODIFY CONNECTION Command
+MODIFY DATABASE Command
+MODIFY FILE Command
+MODIFY FORM Command
+MODIFY GENERAL Command
+MODIFY LABEL Command
+MODIFY MEMO Command
+MODIFY MENU Command
+MODIFY PROCEDURE Command
+MODIFY PROJECT Command
+MODIFY QUERY Command
+MODIFY REPORT Command
+MODIFY SCREEN Command
+MODIFY STRUCTURE Command
+MODIFY VIEW Command
+MODIFY WINDOW Command
+MOUSE Command
+MOVE POPUP Command
+MOVE WINDOW Command
+NOTE Command
+ON BAR Command
+ON ERROR Command
+ON ESCAPE Command
+ON EXIT BAR Command
+ON EXIT MENU Command
+ON EXIT PAD Command
+ON EXIT POPUP Command
+ON KEY = Command
+ON KEY Command
+ON KEY LABEL Command
+ON PAD Command
+ON PAGE Command
+ON READERROR Command
+ON SELECTION BAR Command
+ON SELECTION MENU Command
+ON SELECTION PAD Command
+ON SELECTION POPUP Command
+ON SHUTDOWN Command
+OPEN DATABASE Command
+PACK Command
+PACK DATABASE Command
+PARAMETERS Command
+PLAY MACRO Command
+POP KEY Command
+POP MENU Command
+POP POPUP Command
+PRINTJOB ... ENDPRINTJOB Command
+PRIVATE Command
+PROCEDURE Command
+PUBLIC Command
+PUSH KEY Command
+PUSH MENU Command
+PUSH POPUP Command
+QUIT Command
+RD | RMDIR Command
+READ Command
+READ EVENTS Command
+READ MENU Command
+RECALL Command
+REGIONAL Command
+REINDEX Command
+RELEASE BAR Command
+RELEASE CLASSLIB Command
+RELEASE Command
+RELEASE LIBRARY Command
+RELEASE MENUS Command
+RELEASE PAD Command
+RELEASE POPUPS Command
+RELEASE PROCEDURE Command
+RELEASE WINDOWS Command
+REMOVE CLASS Command
+REMOVE TABLE Command
+RENAME CLASS Command
+RENAME Command
+RENAME CONNECTION Command
+RENAME TABLE Command
+RENAME VIEW Command
+REPLACE Command
+REPLACE FROM ARRAY Command
+REPORT Command
+RESTORE FROM Command
+RESTORE MACROS Command
+RESTORE SCREEN Command
+RESTORE WINDOW Command
+RESUME Command
+RETRY Command
+RETURN Command
+ROLLBACK Command
+RUN Command
+SAVE MACROS Command
+SAVE SCREEN Command
+SAVE TO Command
+SAVE WINDOWS Command
+SCAN ... ENDSCAN Command
+SCATTER Command
+SCROLL Command
+SEEK Command
+SELECT - SQL Command
+SELECT Command
+SET ALTERNATE Command
+SET ANSI Command
+SET ASSERTS Command
+SET AUTOSAVE Command
+SET BELL Command
+SET BLOCKSIZE Command
+SET BORDER Command
+SET BROWSEIME Command
+SET BRSTATUS Command
+SET CARRY Command
+SET CENTURY Command
+SET CLASSLIB Command
+SET CLEAR Command
+SET CLOCK Command
+SET COLLATE Command
+SET COLOR OF Command
+SET COLOR OF SCHEME Command
+SET COLOR SET Command
+SET COLOR TO Command
+SET Command
+SET COMPATIBLE Command
+SET CONFIRM Command
+SET CONSOLE Command
+SET COVERAGE Command
+SET CPCOMPILE Command
+SET CPDIALOG Command
+SET CURRENCY Command
+SET CURSOR Command
+SET DATABASE Command
+SET DATASESSION Command
+SET DATE Command
+SET DEBUG Command
+SET DEBUGOUT Command
+SET DECIMALS Command
+SET DEFAULT Command
+SET DELETED Command
+SET DELIMITERS Command
+SET DEVELOPMENT Command
+SET DEVICE Command
+SET DISPLAY Command
+SET DOHISTORY Command
+SET ECHO Command
+SET ESCAPE Command
+SET EVENTLIST Command
+SET EVENTTRACKING Command
+SET EXACT Command
+SET EXCLUSIVE Command
+SET FDOW Command
+SET FIELDS Command
+SET FILTER Command
+SET FIXED Command
+SET FORMAT Command
+SET FULLPATH Command
+SET FUNCTION Command
+SET FWEEK Command
+SET HEADINGS Command
+SET HELP Command
+SET HELPFILTER Command
+SET HOURS Command
+SET INDEX Command
+SET INTENSITY Command
+SET KEY Command
+SET KEYCOMP Command
+SET LIBRARY Command
+SET LOCK Command
+SET LOGERRORS Command
+SET MACKEY Command
+SET MARGIN Command
+SET MARK OF Command
+SET MARK TO Command
+SET MEMOWIDTH Command
+SET MESSAGE Command
+SET MULTILOCKS Command
+SET NEAR Command
+SET NOCPTRANS Command
+SET NOTIFY Command
+SET NULL Command
+SET NULLDISPLAY Command
+SET ODOMETER Command
+SET OLEOBJECT Command
+SET OPTIMIZE Command
+SET ORDER Command
+SET PALETTE Command
+SET PATH Command
+SET PDSETUP Command
+SET POINT Command
+SET PRINTER Command
+SET PROCEDURE Command
+SET READBORDER Command
+SET REFRESH Command
+SET RELATION Command
+SET RELATION OFF Command
+SET REPROCESS Command
+SET RESOURCE Command
+SET SAFETY Command
+SET SECONDS Command
+SET SEPARATOR Command
+SET SKIP Command
+SET SKIP OF Command
+SET SPACE Command
+SET STATUS BAR Command
+SET STATUS Command
+SET STEP Command
+SET STRICTDATE Command
+SET SYSFORMATS Command
+SET SYSMENU Command
+SET TALK Command
+SET TEXTMERGE Command
+SET TEXTMERGE DELIMITERS Command
+SET TOPIC Command
+SET TOPIC ID Command
+SET TRBETWEEN Command
+SET TYPEAHEAD Command
+SET UDFPARMS Command
+SET UNIQUE Command
+SET VIEW Command
+SET VOLUME Command
+SET WINDOW OF MEMO Command
+SHOW GET Command
+SHOW GETS Command
+SHOW MENU Command
+SHOW OBJECT Command
+SHOW POPUP Command
+SHOW WINDOW Command
+SIZE POPUP Command
+SIZE WINDOW Command
+SKIP Command
+SORT Command
+STORE Command
+SUM Command
+SUSPEND Command
+TEXT ... ENDTEXT Command
+TOTAL Command
+TYPE Command
+UNLOCK Command
+UPDATE - SQL Command
+UPDATE Command
+USE Command
+VALIDATE DATABASE Command
+WAIT Command
+WITH ... ENDWITH Command
+ZAP Command
+ZOOM WINDOW Command
