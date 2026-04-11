@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VfpWebDemo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(180deg, #f5f0e8, #dde7dd);
+      color: #1f2a22;
+    }
+
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(31, 42, 34, 0.08);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 20px 48px rgba(31, 42, 34, 0.12);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 34px;
+    }
+
+    p {
+      line-height: 1.7;
+      color: #5f6d63;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    a.card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(31, 42, 34, 0.08);
+      border-radius: 20px;
+      padding: 18px;
+      transition: transform 120ms ease, box-shadow 120ms ease;
+      box-shadow: 0 8px 24px rgba(31, 42, 34, 0.08);
+    }
+
+    a.card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(31, 42, 34, 0.12);
+    }
+
+    .label {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(43, 95, 75, 0.08);
+      color: #2b5f4b;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    code {
+      background: rgba(43, 95, 75, 0.08);
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>VfpWebDemo</h1>
+    <p>这是一个基于 <code>West Wind Web Connection</code> 的最小项目入口页。建议先点接口测试，再点手机端演示页。</p>
+
+    <div class="grid">
+      <a class="card" href="ping.vapi" target="_blank" rel="noreferrer">
+        <div class="label">API</div>
+        <div class="title">Ping 接口</div>
+        <div>验证 VFP Web Connection 服务器和 REST 过程类是否已启动。</div>
+      </a>
+
+      <a class="card" href="mobile-demo.html">
+        <div class="label">H5</div>
+        <div class="title">手机端演示页</div>
+        <div>用手机浏览器或开发者工具访问，测试登录、读取订单和页面布局。</div>
+      </a>
+
+      <a class="card" href="https://github.com/gongke-cxt/VFP" target="_blank" rel="noreferrer">
+        <div class="label">DOC</div>
+        <div class="title">项目说明</div>
+        <div>查看仓库首页、项目结构、脚本扩展约定和本地启动说明。</div>
+      </a>
+    </div>
+  </main>
+</body>
+</html>

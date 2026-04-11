@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VFP Web Mobile Demo</title>
+  <style>
+    :root {
+      --bg-1: #f4efe5;
+      --bg-2: #d8e1d3;
+      --panel: rgba(255, 255, 255, 0.82);
+      --line: rgba(48, 66, 55, 0.12);
+      --text: #1f2a22;
+      --muted: #5f6d63;
+      --brand: #2b5f4b;
+      --brand-2: #b56b45;
+      --danger: #9d3c28;
+      --shadow: 0 18px 40px rgba(35, 49, 41, 0.12);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(181, 107, 69, 0.16), transparent 38%),
+        radial-gradient(circle at bottom right, rgba(43, 95, 75, 0.16), transparent 40%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2));
+      min-height: 100vh;
+    }
+
+    .shell {
+      width: min(100%, 480px);
+      margin: 0 auto;
+      padding: 20px 16px 36px;
+    }
+
+    .hero {
+      padding: 20px 6px 14px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(43, 95, 75, 0.08);
+      color: var(--brand);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 14px 0 8px;
+      font-size: 32px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .card {
+      backdrop-filter: blur(14px);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      margin-top: 14px;
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 14px;
+      padding: 13px 14px;
+      font: inherit;
+      color: var(--text);
+      outline: none;
+    }
+
+    input:focus {
+      border-color: rgba(43, 95, 75, 0.38);
+      box-shadow: 0 0 0 4px rgba(43, 95, 75, 0.08);
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 120ms ease, opacity 120ms ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    button.primary {
+      background: linear-gradient(135deg, var(--brand), #3f8068);
+      color: #fff;
+    }
+
+    button.secondary {
+      background: rgba(181, 107, 69, 0.12);
+      color: var(--brand-2);
+    }
+
+    button.ghost {
+      background: rgba(43, 95, 75, 0.08);
+      color: var(--brand);
+    }
+
+    .status {
+      margin-top: 12px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+      min-height: 22px;
+    }
+
+    .status.error {
+      color: var(--danger);
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .order {
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(48, 66, 55, 0.08);
+    }
+
+    .order-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .order-no {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .order-status {
+      font-size: 12px;
+      color: var(--brand);
+      background: rgba(43, 95, 75, 0.08);
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+
+    .order-meta {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .token {
+      word-break: break-all;
+      font-family: Consolas, "Courier New", monospace;
+      background: rgba(43, 95, 75, 0.06);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 420px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <span class="eyebrow">VFP + WEB</span>
+      <h1>手机端最小闭环</h1>
+      <p class="subtitle">这个演示页只做三件事：测试接口、登录、读取订单列表。前端是标准 H5，后端由 VFP 提供 JSON API。</p>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">接口设置</h2>
+      <div class="grid">
+        <div>
+          <label for="apiBase">API Base</label>
+          <input id="apiBase" value="/api">
+        </div>
+        <div class="row">
+          <button class="ghost" id="pingBtn" type="button">测试 Ping</button>
+          <button class="secondary" id="loadBtn" type="button">读取订单</button>
+        </div>
+      </div>
+      <div class="status" id="status"></div>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">登录</h2>
+      <div class="grid">
+        <div>
+          <label for="userCode">账号</label>
+          <input id="userCode" value="demo">
+        </div>
+        <div>
+          <label for="password">密码</label>
+          <input id="password" type="password" value="123456">
+        </div>
+        <button class="primary" id="loginBtn" type="button">登录并获取 Token</button>
+      </div>
+      <div class="status" id="loginStatus"></div>
+      <div class="token" id="tokenBox">未登录</div>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">订单列表</h2>
+      <div class="list" id="orderList">
+        <div class="order">
+          <div class="order-head">
+            <div class="order-no">等待调用接口</div>
+            <div class="order-status">Idle</div>
+          </div>
+          <div class="order-meta">点击“读取订单”，把页面和 VFP API 串起来。</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const statusEl = document.getElementById("status");
+    const loginStatusEl = document.getElementById("loginStatus");
+    const tokenBoxEl = document.getElementById("tokenBox");
+    const orderListEl = document.getElementById("orderList");
+
+    let authToken = "";
+
+    function setStatus(message, isError = false) {
+      statusEl.textContent = message;
+      statusEl.className = isError ? "status error" : "status";
+    }
+
+    function setLoginStatus(message, isError = false) {
+      loginStatusEl.textContent = message;
+      loginStatusEl.className = isError ? "status error" : "status";
+    }
+
+    function getApiBase() {
+      return document.getElementById("apiBase").value.trim().replace(/\/$/, "");
+    }
+
+    async function apiRequest(path, payload = null) {
+      const headers = {
+        "Content-Type": "application/json"
+      };
+
+      if (authToken) {
+        headers.Authorization = `Bearer ${authToken}`;
+      }
+
+      const options = {
+        method: payload ? "POST" : "GET",
+        headers
+      };
+
+      if (payload) {
+        options.body = JSON.stringify(payload);
+      }
+
+      const response = await fetch(`${getApiBase()}${path}`, options);
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data.Message || `HTTP ${response.status}`);
+      }
+
+      return data;
+    }
+
+    function renderOrders(items) {
+      if (!Array.isArray(items) || items.length === 0) {
+        orderListEl.innerHTML = `
+          <div class="order">
+            <div class="order-head">
+              <div class="order-no">没有返回数据</div>
+              <div class="order-status">Empty</div>
+            </div>
+            <div class="order-meta">检查 VFP 接口映射、数据库连接和查询条件。</div>
+          </div>
+        `;
+        return;
+      }
+
+      orderListEl.innerHTML = items.map(item => `
+        <article class="order">
+          <div class="order-head">
+            <div class="order-no">${item.OrderNo || item.orderNo || "未命名单号"}</div>
+            <div class="order-status">${item.Status || item.status || "Unknown"}</div>
+          </div>
+          <div class="order-meta">
+            客户：${item.CustomerName || item.customerName || "-"}<br>
+            日期：${item.OrderDate || item.orderDate || "-"}<br>
+            金额：${item.Amount || item.amount || "-"}
+          </div>
+        </article>
+      `).join("");
+    }
+
+    document.getElementById("pingBtn").addEventListener("click", async () => {
+      setStatus("正在测试接口...");
+      try {
+        const result = await apiRequest("/ping");
+        setStatus(`Ping 成功，服务时间：${result.ServerTime || result.serverTime || "未知"}`);
+      } catch (error) {
+        setStatus(`Ping 失败：${error.message}`, true);
+      }
+    });
+
+    document.getElementById("loginBtn").addEventListener("click", async () => {
+      setLoginStatus("正在登录...");
+      try {
+        const result = await apiRequest("/login", {
+          UserCode: document.getElementById("userCode").value.trim(),
+          Password: document.getElementById("password").value
+        });
+
+        authToken = result.Token || result.token || "";
+        tokenBoxEl.textContent = authToken || "已登录，但接口未返回 Token";
+        setLoginStatus(result.Message || "登录成功");
+      } catch (error) {
+        authToken = "";
+        tokenBoxEl.textContent = "未登录";
+        setLoginStatus(`登录失败：${error.message}`, true);
+      }
+    });
+
+    document.getElementById("loadBtn").addEventListener("click", async () => {
+      setStatus("正在读取订单...");
+      try {
+        const result = await apiRequest("/orders", {
+          Status: ""
+        });
+
+        const items = result.items || result.Items || result;
+        renderOrders(items);
+        setStatus("订单已加载");
+      } catch (error) {
+        renderOrders([]);
+        setStatus(`读取失败：${error.message}`, true);
+      }
+    });
+  </script>
+</body>
+</html>
