@@ -82,3 +82,8 @@ Thumbs.db
 MFP*.*
 /Err
 /App/XinJieAI
+
+*_ref.dbf
+*_ref.fpt
+*_ref.cdx
+

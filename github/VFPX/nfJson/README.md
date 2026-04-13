@@ -17,11 +17,14 @@ Project developer: Marco Plaza  [GitHub/nfoxdev](https://github.com/nfoxdev)
  ? vfpobj.age    && 30     
  ? vfpobj.family.son  && Tom
 
-*lReviveCollections: nfJsoncreate stringify key/keyless kcollections as arrays; set this flag if you are parsing json created with nfjsoncreate that
+    * lReviveCollections: nfJsoncreate stringify key/keyless kcollections as arrays; set this flag if you are parsing json created with nfjsoncreate that
 you know have a vfp collection; this will  perform a extra step to get your collections back from the array representation ( revive it ) or set it to
 false to view your collections as arrays for debugging purposes  -check collectiontest.prg in test folder.
 
-* cJsonString = **nfJsonCreate(**oVfp, _lFormattedOutput, lNoNullArrayItems,cRootName,aMembersFlag_**)**
+* cJsonString = **nfJsonCreate(**oVfp, _lFormattedOutput, lNoNullArrayItems,cRootName,aMembersFlag_, tlNoCollectionName, taProperties**)**
+
+    * tlNoCollectionName: .F. or not passed means collections are given a name like *propertyname*_kv_collection. .T. means collections are not assign new names. See the CollectionTest2.prg test program.
+    * taProperties: an optional array that specifies how to handle certain properties. See the PropertyNameCase.prg, IncludeNativeNames.prg, and HandlEmptyValues.prg test programs.
 
 * **nfJsonToCursor(**cJson, _cCursorName ,  lForceImportFromArray_**)** ( creates cursor back from Json created using nfCursorToJson4vfp,
  for any other case see nfOpenJson and notes below: )
@@ -135,6 +138,15 @@ BROWSE TITLE 'Using nfOpenJson'
 	* yahooweather.json
 
 ## Release Notes
+
+2026/02/11 (DougHennig)
+* nfJsonRead: handle dates with thousandths of seconds, such as 2017-03-10T17:43:55.123
+* nfJsonCreate:
+    * Accept an array of properties. The first column is the property name, the case of which is used in the JSON (for example, output as "myProperty" rather than  "myproperty"), and the second is .T. to exclude the property or .F. to include it
+    * Handle collections better: don't add {"collectionitems": ... }
+    * Don't add a extra comma at the start of a property
+    * Don't add a second name to the JSON
+    * Don't add a duplicate }
 
 2022/07/09 ( PatrickvonDeetzen )
 * create json with special characters is now significantly faster (changes made in function "escapeandencode")
